@@ -1,0 +1,619 @@
+/*
+ * doric.css — Unified Doric theme (light + dark)
+ * Works with: topics, trees, BARK, and org-parse
+ *
+ * Adapted from Protesilaos Stavrou's doric-themes for GNU Emacs
+ * https://github.com/protesilaos/doric-themes
+ * Light mode: doric-light — cool, monochromatic, white background
+ * Dark mode:  doric-dark  — cool purple-tinted black background
+ *
+ * "Doric Only Really Intensifies Conservatively"
+ *
+ * Few colours. Nearly monochromatic in many contexts.
+ * Typography and subtle grey gradients establish the visual rhythm.
+ *
+ * Supports dark mode via:
+ *   - prefers-color-scheme (topics, trees, org-parse)
+ *   - [data-theme=dark] attribute (BARK)
+ */
+
+/* ==========================================================================
+   1. CUSTOM PROPERTIES — doric-light (default)
+   ========================================================================== */
+
+:root {
+  /* Doric light palette (from doric-light-theme.el) */
+  --doric-accent:     #084092;
+  --doric-accent-bg:  #d8f1f3;
+
+  /* Six restrained hues — used sparingly */
+  --doric-red:        #a01010;
+  --doric-green:      #106710;
+  --doric-yellow:     #60400f;
+  --doric-blue:       #103077;
+  --doric-magenta:    #700d50;
+  --doric-cyan:       #005355;
+
+  /* Semantic backgrounds */
+  --doric-bg-red:     #f0c4c4;
+  --doric-bg-green:   #c0e8c2;
+  --doric-bg-yellow:  #f0f0b0;
+  --doric-bg-blue:    #c4cfe8;
+  --doric-bg-magenta: #eec2e6;
+  --doric-bg-cyan:    #c1ebe4;
+
+  /* Surfaces & text */
+  --doric-bg:           #ffffff;
+  --doric-bg-elevated:  #ffffff;
+  --doric-bg-alt:       #efeff2;
+  --doric-code-bg:      #efeff2;
+  --doric-text:         #000000;
+  --doric-text-muted:   #5a6268;
+  --doric-heading:      #000000;
+  --doric-border:       #b0b0b0;
+  --doric-border-hover: #8a8a8a;
+  --doric-shadow:       rgba(0, 0, 0, 0.06);
+  --doric-shadow-accent: rgba(8, 64, 146, 0.10);
+
+  /* Pico CSS overrides */
+  --pico-primary:             var(--doric-accent);
+  --pico-primary-hover:       #062e6a;
+  --pico-primary-focus:       rgba(8, 64, 146, 0.18);
+  --pico-primary-inverse:     #ffffff;
+  --pico-muted-color:         var(--doric-text-muted);
+  --pico-muted-border-color:  var(--doric-border);
+
+  /* Trees status colours */
+  --status-positive:    var(--doric-green);
+  --status-positive-bg: color-mix(in srgb, #106710 10%, transparent);
+  --status-neutral:     var(--doric-blue);
+  --status-neutral-bg:  color-mix(in srgb, #103077 10%, transparent);
+  --status-caution:     var(--doric-yellow);
+  --status-caution-bg:  color-mix(in srgb, #60400f 10%, transparent);
+  --status-negative:    var(--doric-red);
+  --status-negative-bg: color-mix(in srgb, #a01010 10%, transparent);
+
+  /* Typography — system sans, monochromatic spirit */
+  --doric-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                        "Helvetica Neue", Arial, sans-serif;
+  --doric-font-mono:   "SFMono-Regular", Consolas, "Liberation Mono", Menlo,
+                        Courier, monospace;
+
+  color-scheme: light dark;
+}
+
+/* ==========================================================================
+   2. DARK MODE — doric-dark via prefers-color-scheme
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --doric-accent:     #cda4df;
+    --doric-accent-bg:  #521e40;
+
+    --doric-red:        #eca28f;
+    --doric-green:      #b9d0aa;
+    --doric-yellow:     #c0b080;
+    --doric-blue:       #9fbfe7;
+    --doric-magenta:    #e9acbf;
+    --doric-cyan:       #a0c0d0;
+
+    --doric-bg-red:     #4d1f20;
+    --doric-bg-green:   #1f402e;
+    --doric-bg-yellow:  #504432;
+    --doric-bg-blue:    #223567;
+    --doric-bg-magenta: #603254;
+    --doric-bg-cyan:    #2f4f54;
+
+    --doric-bg:           #000000;
+    --doric-bg-elevated:  #141118;
+    --doric-bg-alt:       #332d38;
+    --doric-code-bg:      #332d38;
+    --doric-text:         #ffffff;
+    --doric-text-muted:   #a2a0b2;
+    --doric-heading:      #ffffff;
+    --doric-border:       #707070;
+    --doric-border-hover: #8a8a8a;
+    --doric-shadow:       rgba(0, 0, 0, 0.4);
+    --doric-shadow-accent: rgba(205, 164, 223, 0.12);
+
+    --pico-primary-hover:       #dfc0ee;
+    --pico-primary-focus:       rgba(205, 164, 223, 0.22);
+    --pico-accordion-open-summary-color: #c5c7d4;
+
+    --status-positive:    #b9d0aa;
+    --status-positive-bg: color-mix(in srgb, #b9d0aa 15%, transparent);
+    --status-neutral:     #9fbfe7;
+    --status-neutral-bg:  color-mix(in srgb, #9fbfe7 15%, transparent);
+    --status-caution:     #c0b080;
+    --status-caution-bg:  color-mix(in srgb, #c0b080 15%, transparent);
+    --status-negative:    #eca28f;
+    --status-negative-bg: color-mix(in srgb, #eca28f 15%, transparent);
+  }
+}
+
+/* ==========================================================================
+   2b. DARK MODE — [data-theme=dark] (BARK toggle)
+   ========================================================================== */
+
+[data-theme=dark] {
+  --doric-accent:     #cda4df;
+  --doric-accent-bg:  #521e40;
+
+  --doric-red:        #eca28f;
+  --doric-green:      #b9d0aa;
+  --doric-yellow:     #c0b080;
+  --doric-blue:       #9fbfe7;
+  --doric-magenta:    #e9acbf;
+  --doric-cyan:       #a0c0d0;
+
+  --doric-bg-red:     #4d1f20;
+  --doric-bg-green:   #1f402e;
+  --doric-bg-yellow:  #504432;
+  --doric-bg-blue:    #223567;
+  --doric-bg-magenta: #603254;
+  --doric-bg-cyan:    #2f4f54;
+
+  --doric-bg:           #000000;
+  --doric-bg-elevated:  #141118;
+  --doric-bg-alt:       #332d38;
+  --doric-code-bg:      #332d38;
+  --doric-text:         #ffffff;
+  --doric-text-muted:   #a2a0b2;
+  --doric-heading:      #ffffff;
+  --doric-border:       #707070;
+  --doric-border-hover: #8a8a8a;
+  --doric-shadow:       rgba(0, 0, 0, 0.4);
+  --doric-shadow-accent: rgba(205, 164, 223, 0.12);
+
+  --pico-primary-hover:       #dfc0ee;
+  --pico-primary-focus:       rgba(205, 164, 223, 0.22);
+  --pico-accordion-open-summary-color: #c5c7d4;
+
+  --status-positive:    #b9d0aa;
+  --status-positive-bg: color-mix(in srgb, #b9d0aa 15%, transparent);
+  --status-neutral:     #9fbfe7;
+  --status-neutral-bg:  color-mix(in srgb, #9fbfe7 15%, transparent);
+  --status-caution:     #c0b080;
+  --status-caution-bg:  color-mix(in srgb, #c0b080 15%, transparent);
+  --status-negative:    #eca28f;
+  --status-negative-bg: color-mix(in srgb, #eca28f 15%, transparent);
+}
+
+/* ==========================================================================
+   3. BASE ELEMENTS (bare HTML — org-parse, and all others)
+   ========================================================================== */
+
+body {
+  font-family: var(--doric-font-family);
+  color: var(--doric-text);
+  background-color: var(--doric-bg);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--doric-accent);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+a:hover { color: var(--pico-primary-hover); text-decoration: underline; }
+a:focus-visible { outline: 2px solid var(--doric-accent); outline-offset: 2px; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--doric-heading);
+  font-weight: 600;
+}
+
+/* Tables */
+table { border-collapse: collapse; width: 100%; }
+th {
+  background-color: var(--doric-bg-alt);
+  color: var(--doric-heading);
+  font-weight: 600;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 2px solid var(--doric-border);
+}
+thead th {
+  background-color: var(--doric-bg-alt) !important;
+  color: var(--doric-heading) !important;
+  border-bottom: 2px solid var(--doric-border) !important;
+}
+td {
+  border-bottom: 1px solid var(--doric-border);
+  padding: 0.625rem 1rem;
+  color: var(--doric-text);
+  background-color: var(--doric-bg);
+}
+tr:nth-child(even) td { background-color: var(--doric-bg-elevated); }
+tr:hover td { background-color: var(--doric-accent-bg); }
+
+/* Code */
+code {
+  font-family: var(--doric-font-mono);
+  font-size: 0.875em;
+  padding: 0.2em 0.4em;
+  background-color: var(--doric-code-bg);
+  border: 1px solid var(--doric-border);
+  border-radius: 3px;
+  color: var(--doric-text);
+}
+pre {
+  background-color: var(--doric-code-bg);
+  border: 1px solid var(--doric-border);
+  border-radius: 3px;
+  padding: 1rem;
+  overflow-x: auto;
+}
+pre code {
+  padding: 0;
+  background: none;
+  border: none;
+  font-size: 0.875rem;
+  color: var(--doric-heading);
+}
+
+/* Blockquotes — accent bar, subtle background */
+blockquote {
+  border-left: 3px solid var(--doric-accent);
+  background-color: var(--doric-accent-bg);
+  color: var(--doric-text);
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+  border-radius: 0;
+}
+blockquote p:last-child { margin-bottom: 0; }
+
+/* Buttons */
+button,
+[type="submit"],
+[type="button"] {
+  background-color: var(--doric-accent);
+  border-color: var(--doric-accent);
+  color: var(--pico-primary-inverse);
+  border-radius: 3px;
+  font-weight: 500;
+  transition: background-color 0.15s ease, border-color 0.15s ease,
+              box-shadow 0.15s ease;
+}
+button:hover, [type="submit"]:hover, [type="button"]:hover {
+  background-color: var(--pico-primary-hover);
+  border-color: var(--pico-primary-hover);
+}
+button:focus-visible, [type="submit"]:focus-visible, [type="button"]:focus-visible {
+  box-shadow: 0 0 0 3px var(--pico-primary-focus);
+}
+button.secondary, button.outline {
+  background-color: transparent;
+  border: 1px solid var(--doric-border);
+  color: var(--doric-text);
+}
+button.secondary:hover, button.outline:hover {
+  border-color: var(--doric-accent);
+  color: var(--doric-accent);
+  background-color: transparent;
+}
+
+/* Accessibility */
+:focus-visible { outline: 2px solid var(--doric-accent); outline-offset: 2px; }
+::selection { background-color: var(--doric-accent); color: var(--pico-primary-inverse); }
+
+/* ==========================================================================
+   4. PICO CSS OVERRIDES (topics, BARK)
+   ========================================================================== */
+
+header.container {
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  border-bottom: none;
+}
+header h1 { margin-bottom: 0.5rem; }
+header h1 a {
+  color: var(--doric-heading);
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.15s ease;
+}
+header h1 a:hover { color: var(--doric-accent); text-decoration: none; }
+header p { color: var(--doric-text-muted); font-size: 1.1rem; margin-bottom: 0; }
+
+/* Subtle accent line — Doric restraint */
+header.container::after {
+  content: '';
+  display: block;
+  height: 2px;
+  margin-top: 1.5rem;
+  background: var(--doric-border);
+}
+
+/* Search */
+.search-row input[type="search"] {
+  border: 1px solid var(--doric-border);
+  border-radius: 3px;
+  background-color: var(--doric-bg-elevated);
+  color: var(--doric-text);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.search-row input[type="search"]::placeholder { color: var(--doric-text-muted); }
+.search-row input[type="search"]:focus {
+  border-color: var(--doric-accent);
+  box-shadow: 0 0 0 3px var(--pico-primary-focus);
+  outline: none;
+}
+#clear-search {
+  color: var(--doric-text-muted);
+  border-color: var(--doric-border);
+  background-color: var(--doric-bg-elevated);
+  transition: all 0.15s ease;
+}
+#clear-search:hover { color: var(--doric-accent); border-color: var(--doric-accent); }
+
+/* Cards */
+.card {
+  border: 1px solid var(--doric-border);
+  border-radius: 3px;
+  background: var(--doric-bg-elevated);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  border-color: var(--doric-accent);
+  box-shadow: 0 4px 12px var(--doric-shadow-accent);
+}
+.card h2 { color: var(--doric-heading); font-weight: 600; transition: color 0.15s ease; }
+.card:hover h2 { color: var(--doric-accent); }
+.card p { color: var(--doric-text-muted); }
+
+/* Back link, view toggle */
+.back-link { color: var(--doric-accent); font-weight: 500; }
+.back-link:hover { color: var(--pico-primary-hover); }
+.view-toggle { color: var(--doric-text-muted); font-size: 0.95rem; margin-bottom: 1.25rem; }
+.view-toggle a { color: var(--doric-accent); font-weight: 500; }
+.view-toggle a:hover { color: var(--pico-primary-hover); text-decoration: underline; }
+
+/* Details/Accordion */
+details {
+  border: 1px solid var(--doric-border);
+  border-radius: 3px;
+  background-color: var(--doric-bg-elevated);
+  margin-bottom: 0.75rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+details:hover { border-color: var(--doric-border-hover); }
+details[open] { border-color: var(--doric-accent); box-shadow: 0 2px 8px var(--doric-shadow-accent); }
+details summary {
+  color: var(--doric-heading);
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  transition: color 0.15s ease;
+}
+details summary:hover { color: var(--doric-accent); }
+details[open] summary { color: var(--doric-accent); border-bottom: 1px solid var(--doric-border); }
+.permalink { color: var(--doric-text-muted); opacity: 0.5; transition: opacity 0.15s ease, color 0.15s ease; }
+.permalink:hover { color: var(--doric-accent) !important; opacity: 1; }
+details > div, details > p, details > ul, details > ol { padding: 0.625rem 0.75rem; }
+details p, details ul, details ol { color: var(--doric-text); }
+details a { color: var(--doric-accent); }
+details a:hover { color: var(--pico-primary-hover); text-decoration: underline; }
+details pre, details code { background-color: var(--doric-code-bg); }
+details table { margin: 0; }
+
+/* Footer */
+footer.container {
+  border-top: 1px solid var(--doric-border);
+  padding-top: 1.5rem;
+  margin-top: 3rem;
+  color: var(--doric-text-muted);
+  font-size: 0.9rem;
+}
+footer a { color: var(--doric-accent); }
+footer a:hover { color: var(--pico-primary-hover); }
+
+/* ==========================================================================
+   5. BARK-SPECIFIC COMPONENTS
+   ========================================================================== */
+
+/* BARK type badges — via --bark-* variables */
+:root {
+  --bark-mark-bug-bg: #a010101a; --bark-mark-bug: #a01010;
+  --bark-mark-ann-bg: #1030771a; --bark-mark-ann: #103077;
+  --bark-mark-req-bg: #60400f1a; --bark-mark-req: #60400f;
+  --bark-mark-patch-bg: #1067101a; --bark-mark-patch: #106710;
+  --bark-mark-rel-bg: #700d501a; --bark-mark-rel: #700d50;
+  --bark-mark-chg-bg: #5a62681a; --bark-mark-chg: #5a6268;
+  --bark-btn-open: #106710; --bark-btn-open-text: #fff;
+  --bark-btn-acked: #60400f; --bark-btn-acked-text: #fff;
+  --bark-btn-owned: #103077; --bark-btn-owned-text: #fff;
+  --bark-vote-pos-bg: #10671033; --bark-vote-pos: #106710;
+  --bark-vote-neg-bg: #a0101033; --bark-vote-neg: #a01010;
+  --bark-vote-zero-bg: #5a626822; --bark-vote-zero: #5a6268;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bark-mark-bug-bg: #eca28f26; --bark-mark-bug: #eca28f;
+    --bark-mark-ann-bg: #9fbfe726; --bark-mark-ann: #9fbfe7;
+    --bark-mark-req-bg: #c0b08026; --bark-mark-req: #c0b080;
+    --bark-mark-patch-bg: #b9d0aa26; --bark-mark-patch: #b9d0aa;
+    --bark-mark-rel-bg: #e9acbf26; --bark-mark-rel: #e9acbf;
+    --bark-mark-chg-bg: #a2a0b226; --bark-mark-chg: #a2a0b2;
+    --bark-btn-open: #b9d0aa; --bark-btn-open-text: #000;
+    --bark-btn-acked: #c0b080; --bark-btn-acked-text: #000;
+    --bark-btn-owned: #9fbfe7; --bark-btn-owned-text: #000;
+    --bark-vote-pos-bg: #b9d0aa33; --bark-vote-pos: #b9d0aa;
+    --bark-vote-neg-bg: #eca28f33; --bark-vote-neg: #eca28f;
+    --bark-vote-zero-bg: #a2a0b222; --bark-vote-zero: #a2a0b2;
+  }
+}
+[data-theme=dark] {
+  --bark-mark-bug-bg: #eca28f26; --bark-mark-bug: #eca28f;
+  --bark-mark-ann-bg: #9fbfe726; --bark-mark-ann: #9fbfe7;
+  --bark-mark-req-bg: #c0b08026; --bark-mark-req: #c0b080;
+  --bark-mark-patch-bg: #b9d0aa26; --bark-mark-patch: #b9d0aa;
+  --bark-mark-rel-bg: #e9acbf26; --bark-mark-rel: #e9acbf;
+  --bark-mark-chg-bg: #a2a0b226; --bark-mark-chg: #a2a0b2;
+  --bark-btn-open: #b9d0aa; --bark-btn-open-text: #000;
+  --bark-btn-acked: #c0b080; --bark-btn-acked-text: #000;
+  --bark-btn-owned: #9fbfe7; --bark-btn-owned-text: #000;
+  --bark-vote-pos-bg: #b9d0aa33; --bark-vote-pos: #b9d0aa;
+  --bark-vote-neg-bg: #eca28f33; --bark-vote-neg: #eca28f;
+  --bark-vote-zero-bg: #a2a0b222; --bark-vote-zero: #a2a0b2;
+}
+
+.filters button {
+  background-color: var(--doric-accent);
+  border-color: var(--doric-accent);
+  color: var(--pico-primary-inverse);
+  border-radius: 3px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.filters button:hover { background-color: var(--pico-primary-hover); border-color: var(--pico-primary-hover); }
+.filters button.outline {
+  background: none;
+  border: 1px solid var(--doric-border);
+  color: var(--doric-text-muted);
+  opacity: 0.7;
+}
+.filters button.outline:hover { border-color: var(--doric-accent); color: var(--doric-accent); opacity: 1; }
+
+.theme-toggle {
+  cursor: pointer;
+  background: none !important;
+  border: none !important;
+  font-size: 1.2rem;
+  padding: 0.3rem;
+  color: var(--doric-text-muted);
+}
+.theme-toggle:hover { background: none !important; color: var(--doric-accent); }
+
+footer.bark-footer { color: var(--doric-text-muted); border-top: 1px solid var(--doric-border); }
+footer.bark-footer a { color: var(--doric-accent); }
+footer.bark-footer a:hover { color: var(--pico-primary-hover); }
+
+[data-theme=light] { --bark-stripe-bg: var(--doric-bg-alt); --bark-row-bg: var(--doric-bg); }
+[data-theme=dark]  { --bark-stripe-bg: #1a1720; --bark-row-bg: #000000; }
+
+nav ul li a { color: var(--doric-accent); }
+nav ul li a:hover { color: var(--pico-primary-hover); }
+
+/* ==========================================================================
+   6. TREES-SPECIFIC COMPONENTS
+   ========================================================================== */
+
+#app > header {
+  background: var(--doric-bg-alt);
+  border-bottom: 2px solid var(--doric-border);
+}
+#app > header h1 { color: var(--doric-heading); font-weight: 700; }
+#app > header h2 { color: var(--doric-text-muted); }
+#app > footer {
+  background: var(--doric-bg-alt);
+  border-top: 1px solid var(--doric-border);
+  color: var(--doric-text-muted);
+}
+
+progress::-webkit-progress-bar { background: var(--doric-border); }
+progress::-webkit-progress-value { background: var(--doric-accent); }
+progress::-moz-progress-bar { background: var(--doric-accent); }
+
+.trees button.pure-button,
+.trees button.button {
+  border: 1px solid var(--doric-border);
+  border-radius: 3px;
+  background: var(--doric-bg-elevated);
+  color: var(--doric-text);
+  font-weight: 500;
+  padding: 1rem 1.25rem;
+  line-height: 1.5;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.trees button.pure-button:hover,
+.trees button.button:hover {
+  border-color: var(--doric-accent);
+  background: var(--doric-accent-bg);
+}
+.trees button.pure-button:focus,
+.trees button.button:focus { outline: 2px solid var(--doric-accent); outline-offset: 2px; }
+
+.trees button.pure-button.status-positive,
+.trees button.button.status-positive { border-color: var(--status-positive); }
+.trees button.pure-button.status-positive:hover,
+.trees button.button.status-positive:hover { background: var(--status-positive-bg) !important; }
+
+.trees button.pure-button.status-neutral,
+.trees button.button.status-neutral { border-color: var(--status-neutral); }
+.trees button.pure-button.status-neutral:hover,
+.trees button.button.status-neutral:hover { background: var(--status-neutral-bg) !important; }
+
+.trees button.pure-button.status-caution,
+.trees button.button.status-caution { border-color: var(--status-caution); }
+.trees button.pure-button.status-caution:hover,
+.trees button.button.status-caution:hover { background: var(--status-caution-bg) !important; }
+
+.trees button.pure-button.status-negative,
+.trees button.button.status-negative { border-color: var(--status-negative); }
+.trees button.pure-button.status-negative:hover,
+.trees button.button.status-negative:hover { background: var(--status-negative-bg) !important; }
+
+aside.help {
+  background: var(--doric-accent-bg);
+  border-left: 3px solid var(--doric-accent);
+  border-radius: 0;
+  color: var(--doric-text);
+  padding: 1rem 1.5rem;
+}
+
+.summary article {
+  background: var(--doric-bg-alt);
+  border-left: 3px solid var(--doric-border);
+  border-radius: 3px;
+  color: var(--doric-text);
+}
+
+.score-result { border-radius: 3px; }
+
+nav.actions a:hover { background: var(--doric-accent-bg); border-radius: 3px; }
+
+/* ==========================================================================
+   7. org-parse SPECIFIC OVERRIDES
+   ========================================================================== */
+
+header .document-title { border-color: var(--doric-border); }
+.subtitle { color: var(--doric-text-muted); }
+.todo { color: var(--doric-red); }
+.done { color: var(--doric-green); }
+.priority { color: var(--doric-yellow); }
+.tags { color: var(--doric-text-muted); }
+.footnotes { border-top-color: var(--doric-border); }
+.planning { color: var(--doric-text-muted); }
+.warning { background: var(--doric-bg-yellow); border-left-color: var(--doric-yellow); color: var(--doric-text); }
+.note { background: var(--doric-bg-blue); border-left-color: var(--doric-blue); color: var(--doric-text); }
+figcaption { color: var(--doric-text-muted); }
+
+/* ==========================================================================
+   8. SCROLLBARS, PRINT, REDUCED MOTION
+   ========================================================================== */
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--doric-bg-alt); }
+::-webkit-scrollbar-thumb { background: var(--doric-border); border-radius: 5px; border: 2px solid var(--doric-bg-alt); }
+::-webkit-scrollbar-thumb:hover { background: var(--doric-border-hover); }
+* { scrollbar-width: thin; scrollbar-color: var(--doric-border) var(--doric-bg-alt); }
+
+@media print {
+  :root { --doric-text: #000000; --doric-heading: #000000; --doric-bg: #ffffff; --doric-bg-elevated: #ffffff; }
+  a { color: #000000; text-decoration: underline; }
+  a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666666; }
+  details { border: 1px solid #cccccc; }
+  details[open] { box-shadow: none; }
+  .card:hover { transform: none; box-shadow: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .card:hover { transform: none; }
+}
