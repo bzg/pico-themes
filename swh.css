@@ -1,0 +1,600 @@
+/*
+ * swh.css — Unified Software Heritage theme
+ * Works with: topics, trees, BARK, and org-parse
+ *
+ * Based on Software Heritage official brand guidelines
+ * https://www.softwareheritage.org/communication-kit/
+ *
+ * Official color scheme:
+ *   Red:          #e20026  (Primary brand color)
+ *   Orange:       #ef4426  (Secondary accent)
+ *   Light orange: #f79622  (Warm accent)
+ *   Yellow:       #fabf1f  (Highlight accent)
+ *
+ * Supports dark mode via:
+ *   - prefers-color-scheme (topics, trees, org-parse)
+ *   - [data-theme=dark] attribute (BARK)
+ */
+
+/* ==========================================================================
+   1. CUSTOM PROPERTIES — Light Mode (default)
+   ========================================================================== */
+
+:root {
+  /* Brand colors */
+  --swh-red:           #e20026;
+  --swh-orange:        #ef4426;
+  --swh-light-orange:  #f79622;
+  --swh-yellow:        #fabf1f;
+  --swh-grey:          #737373;
+
+  --swh-gradient: linear-gradient(90deg, #e20026 0%, #ef4426 33%, #f79622 66%, #fabf1f 100%);
+
+  /* Light mode */
+  --swh-red-hover:      #c90022;
+  --swh-red-light:      #fce8eb;
+  --swh-orange-light:   #fff8f5;
+  --swh-grey-light:     #f5f5f5;
+  --swh-grey-dark:      #333333;
+  --swh-text:           #444444;
+  --swh-text-muted:     #737373;
+  --swh-border:         #e0e0e0;
+  --swh-border-hover:   #c0c0c0;
+  --swh-bg:             #ffffff;
+  --swh-bg-elevated:    #ffffff;
+  --swh-code-bg:        #f8f8f8;
+  --swh-shadow:         rgba(0, 0, 0, 0.08);
+  --swh-shadow-red:     rgba(226, 0, 38, 0.12);
+
+  /* Pico CSS overrides */
+  --pico-primary:             var(--swh-red);
+  --pico-primary-hover:       var(--swh-red-hover);
+  --pico-primary-focus:       rgba(226, 0, 38, 0.2);
+  --pico-primary-inverse:     #ffffff;
+  --pico-muted-color:         var(--swh-text-muted);
+  --pico-muted-border-color:  var(--swh-border);
+
+  /* Trees status colors */
+  --status-positive:    #18753c;
+  --status-positive-bg: color-mix(in srgb, #18753c 10%, transparent);
+  --status-neutral:     #0063cb;
+  --status-neutral-bg:  color-mix(in srgb, #0063cb 10%, transparent);
+  --status-caution:     var(--swh-orange);
+  --status-caution-bg:  color-mix(in srgb, #ef4426 10%, transparent);
+  --status-negative:    var(--swh-red);
+  --status-negative-bg: color-mix(in srgb, #e20026 10%, transparent);
+
+  /* Typography */
+  --swh-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                     "Helvetica Neue", Arial, sans-serif;
+  --swh-font-mono:   "SFMono-Regular", Consolas, "Liberation Mono", Menlo,
+                     Courier, monospace;
+
+  color-scheme: light dark;
+}
+
+/* ==========================================================================
+   2. DARK MODE — prefers-color-scheme
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --swh-red:           #ff2d4a;
+    --swh-red-hover:     #ff5c73;
+    --swh-red-light:     #3a1a20;
+    --swh-orange-light:  #2d2420;
+    --swh-grey-light:    #252525;
+    --swh-grey-dark:     #e8e8e8;
+    --swh-text:          #c8c8c8;
+    --swh-text-muted:    #999999;
+    --swh-border:        #404040;
+    --swh-border-hover:  #606060;
+    --swh-bg:            #1a1a1a;
+    --swh-bg-elevated:   #222222;
+    --swh-code-bg:       #2a2a2a;
+    --swh-shadow:        rgba(0, 0, 0, 0.4);
+    --swh-shadow-red:    rgba(255, 45, 74, 0.15);
+
+    --pico-primary-focus: rgba(255, 45, 74, 0.25);
+    --pico-accordion-open-summary-color: #c0c0c0;
+
+    --swh-gradient: linear-gradient(90deg, #ff2d4a 0%, #ff5c3d 33%, #ffa033 66%, #ffc82e 100%);
+
+    --status-positive:    #27a658;
+    --status-positive-bg: color-mix(in srgb, #27a658 15%, transparent);
+    --status-neutral:     #518fff;
+    --status-neutral-bg:  color-mix(in srgb, #518fff 15%, transparent);
+    --status-caution:     #ff5c3d;
+    --status-caution-bg:  color-mix(in srgb, #ff5c3d 15%, transparent);
+    --status-negative:    #ff2d4a;
+    --status-negative-bg: color-mix(in srgb, #ff2d4a 15%, transparent);
+  }
+}
+
+/* ==========================================================================
+   2b. DARK MODE — [data-theme=dark] (BARK toggle)
+   ========================================================================== */
+
+[data-theme=dark] {
+  --swh-red:           #ff2d4a;
+  --swh-red-hover:     #ff5c73;
+  --swh-red-light:     #3a1a20;
+  --swh-orange-light:  #2d2420;
+  --swh-grey-light:    #252525;
+  --swh-grey-dark:     #e8e8e8;
+  --swh-text:          #c8c8c8;
+  --swh-text-muted:    #999999;
+  --swh-border:        #404040;
+  --swh-border-hover:  #606060;
+  --swh-bg:            #1a1a1a;
+  --swh-bg-elevated:   #222222;
+  --swh-code-bg:       #2a2a2a;
+  --swh-shadow:        rgba(0, 0, 0, 0.4);
+  --swh-shadow-red:    rgba(255, 45, 74, 0.15);
+
+  --pico-primary-focus: rgba(255, 45, 74, 0.25);
+  --pico-accordion-open-summary-color: #c0c0c0;
+
+  --swh-gradient: linear-gradient(90deg, #ff2d4a 0%, #ff5c3d 33%, #ffa033 66%, #ffc82e 100%);
+
+  --status-positive:    #27a658;
+  --status-positive-bg: color-mix(in srgb, #27a658 15%, transparent);
+  --status-neutral:     #518fff;
+  --status-neutral-bg:  color-mix(in srgb, #518fff 15%, transparent);
+  --status-caution:     #ff5c3d;
+  --status-caution-bg:  color-mix(in srgb, #ff5c3d 15%, transparent);
+  --status-negative:    #ff2d4a;
+  --status-negative-bg: color-mix(in srgb, #ff2d4a 15%, transparent);
+}
+
+/* ==========================================================================
+   3. BASE ELEMENTS (works on bare HTML — org-parse, and all others)
+   ========================================================================== */
+
+body {
+  font-family: var(--swh-font-family);
+  color: var(--swh-text);
+  background-color: var(--swh-bg);
+  line-height: 1.65;
+}
+
+a {
+  color: var(--swh-red);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+a:hover { color: var(--swh-red-hover); text-decoration: underline; }
+a:focus-visible { outline: 2px solid var(--swh-red); outline-offset: 2px; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--swh-grey-dark);
+  font-weight: 600;
+}
+
+/* Tables */
+table { border-collapse: collapse; width: 100%; }
+th {
+  background-color: var(--swh-red);
+  color: #ffffff;
+  font-weight: 600;
+  text-align: left;
+  padding: 0.75rem 1rem;
+}
+thead th {
+  background-color: var(--swh-red) !important;
+  color: #ffffff !important;
+}
+td {
+  border: 1px solid var(--swh-border);
+  padding: 0.625rem 1rem;
+  color: var(--swh-text);
+  background-color: var(--swh-bg-elevated);
+}
+tr:nth-child(even) td { background-color: var(--swh-grey-light); }
+tr:hover td { background-color: var(--swh-red-light); }
+
+/* Code */
+code {
+  font-family: var(--swh-font-mono);
+  font-size: 0.875em;
+  padding: 0.2em 0.4em;
+  background-color: var(--swh-code-bg);
+  border: 1px solid var(--swh-border);
+  border-radius: 4px;
+  color: var(--swh-text);
+}
+pre {
+  background-color: var(--swh-code-bg);
+  border: 1px solid var(--swh-border);
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+}
+pre code {
+  padding: 0;
+  background: none;
+  border: none;
+  font-size: 0.875rem;
+  color: var(--swh-grey-dark);
+}
+
+/* Blockquotes — orange accent (secondary brand color) */
+blockquote {
+  border-left: 4px solid var(--swh-orange);
+  background-color: var(--swh-orange-light);
+  color: var(--swh-text);
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+  border-radius: 0 6px 6px 0;
+}
+blockquote p:last-child { margin-bottom: 0; }
+
+/* Buttons */
+button,
+[type="submit"],
+[type="button"] {
+  background-color: var(--swh-red);
+  border-color: var(--swh-red);
+  color: #ffffff;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background-color 0.15s ease, border-color 0.15s ease,
+              box-shadow 0.15s ease;
+}
+button:hover, [type="submit"]:hover, [type="button"]:hover {
+  background-color: var(--swh-red-hover);
+  border-color: var(--swh-red-hover);
+}
+button:focus-visible, [type="submit"]:focus-visible, [type="button"]:focus-visible {
+  box-shadow: 0 0 0 3px var(--pico-primary-focus);
+}
+button.secondary, button.outline {
+  background-color: transparent;
+  border: 1px solid var(--swh-border);
+  color: var(--swh-text);
+}
+button.secondary:hover, button.outline:hover {
+  border-color: var(--swh-red);
+  color: var(--swh-red);
+  background-color: transparent;
+}
+
+/* Accessibility */
+:focus-visible { outline: 2px solid var(--swh-red); outline-offset: 2px; }
+::selection { background-color: var(--swh-red); color: #ffffff; }
+
+/* ==========================================================================
+   4. PICO CSS OVERRIDES (topics, BARK)
+   ========================================================================== */
+
+header.container {
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  border-bottom: none;
+}
+header h1 { margin-bottom: 0.5rem; }
+header h1 a {
+  color: var(--swh-grey-dark);
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.15s ease;
+}
+header h1 a:hover { color: var(--swh-red); text-decoration: none; }
+header p { color: var(--swh-text-muted); font-size: 1.1rem; margin-bottom: 0; }
+
+/* Signature gradient bar */
+header.container::after {
+  content: '';
+  display: block;
+  height: 4px;
+  margin-top: 1.5rem;
+  background: var(--swh-gradient);
+  border-radius: 2px;
+}
+
+/* Search */
+.search-row input[type="search"] {
+  border: 1px solid var(--swh-border);
+  border-radius: 4px;
+  background-color: var(--swh-bg-elevated);
+  color: var(--swh-text);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.search-row input[type="search"]::placeholder { color: var(--swh-text-muted); }
+.search-row input[type="search"]:focus {
+  border-color: var(--swh-red);
+  box-shadow: 0 0 0 3px var(--pico-primary-focus);
+  outline: none;
+}
+#clear-search {
+  color: var(--swh-text-muted);
+  border-color: var(--swh-border);
+  background-color: var(--swh-bg-elevated);
+  transition: all 0.15s ease;
+}
+#clear-search:hover { color: var(--swh-red); border-color: var(--swh-red); }
+
+/* Cards */
+.card {
+  border: 1px solid var(--swh-border);
+  border-radius: 6px;
+  background: var(--swh-bg-elevated);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+.card:hover {
+  border-color: var(--swh-red);
+  box-shadow: 0 6px 20px var(--swh-shadow-red);
+  transform: translateY(-2px);
+}
+.card h2 { color: var(--swh-grey-dark); font-weight: 600; transition: color 0.15s ease; }
+.card:hover h2 { color: var(--swh-red); }
+.card p { color: var(--swh-text-muted); }
+
+/* Back link, view toggle */
+.back-link { color: var(--swh-red); font-weight: 500; }
+.back-link:hover { color: var(--swh-red-hover); }
+.view-toggle { color: var(--swh-text-muted); font-size: 0.95rem; margin-bottom: 1.25rem; }
+.view-toggle a { color: var(--swh-red); font-weight: 500; }
+.view-toggle a:hover { color: var(--swh-red-hover); text-decoration: underline; }
+
+/* Details/Accordion */
+details {
+  border: 1px solid var(--swh-border);
+  border-radius: 6px;
+  background-color: var(--swh-bg-elevated);
+  margin-bottom: 0.75rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+details:hover { border-color: var(--swh-border-hover); }
+details[open] { border-color: var(--swh-red); box-shadow: 0 2px 12px var(--swh-shadow-red); }
+details summary {
+  color: var(--swh-grey-dark);
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  transition: color 0.15s ease;
+}
+details summary:hover { color: var(--swh-red); }
+details[open] summary { color: var(--swh-red); border-bottom: 1px solid var(--swh-border); }
+.permalink { color: var(--swh-grey); opacity: 0.5; transition: opacity 0.15s ease, color 0.15s ease; }
+.permalink:hover { color: var(--swh-red) !important; opacity: 1; }
+details > div, details > p, details > ul, details > ol { padding: 0.625rem 0.75rem; }
+details p, details ul, details ol { color: var(--swh-text); }
+details a { color: var(--swh-red); }
+details a:hover { color: var(--swh-red-hover); text-decoration: underline; }
+details pre, details code { background-color: var(--swh-code-bg); }
+details table { margin: 0; }
+
+/* Footer */
+footer.container {
+  border-top: 1px solid var(--swh-border);
+  padding-top: 1.5rem;
+  margin-top: 3rem;
+  color: var(--swh-text-muted);
+  font-size: 0.9rem;
+}
+footer a { color: var(--swh-red); }
+footer a:hover { color: var(--swh-red-hover); }
+
+/* ==========================================================================
+   5. BARK-SPECIFIC COMPONENTS
+   ========================================================================== */
+
+/* BARK type badges — override via --bark-* variables */
+:root {
+  --bark-mark-bug-bg: #e200261a; --bark-mark-bug: #c90022;
+  --bark-mark-ann-bg: #0063cb1a; --bark-mark-ann: #0063cb;
+  --bark-mark-req-bg: #b8860b1a; --bark-mark-req: #9a7209;
+  --bark-mark-patch-bg: #18753c1a; --bark-mark-patch: #18753c;
+  --bark-mark-rel-bg: #7b2d8e1a; --bark-mark-rel: #7b2d8e;
+  --bark-mark-chg-bg: #5566771a; --bark-mark-chg: #556677;
+  --bark-btn-open: #18753c; --bark-btn-open-text: #fff;
+  --bark-btn-acked: #b8860b; --bark-btn-acked-text: #fff;
+  --bark-btn-owned: #0063cb; --bark-btn-owned-text: #fff;
+  --bark-vote-pos-bg: #18753c33; --bark-vote-pos: #18753c;
+  --bark-vote-neg-bg: #c9002233; --bark-vote-neg: #c90022;
+  --bark-vote-zero-bg: #55667722; --bark-vote-zero: #556677;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bark-mark-bug-bg: #ff2d4a26; --bark-mark-bug: #ff5c73;
+    --bark-mark-ann-bg: #518fff26; --bark-mark-ann: #518fff;
+    --bark-mark-req-bg: #e8b84d26; --bark-mark-req: #e8b84d;
+    --bark-mark-patch-bg: #27a65826; --bark-mark-patch: #27a658;
+    --bark-mark-rel-bg: #c9a0dc26; --bark-mark-rel: #c9a0dc;
+    --bark-mark-chg-bg: #8899aa26; --bark-mark-chg: #8899aa;
+    --bark-btn-open: #27a658; --bark-btn-open-text: #fff;
+    --bark-btn-acked: #e8b84d; --bark-btn-acked-text: #1a1a1a;
+    --bark-btn-owned: #518fff; --bark-btn-owned-text: #fff;
+    --bark-vote-pos-bg: #27a65833; --bark-vote-pos: #27a658;
+    --bark-vote-neg-bg: #ff5c7333; --bark-vote-neg: #ff5c73;
+    --bark-vote-zero-bg: #8899aa22; --bark-vote-zero: #8899aa;
+  }
+}
+[data-theme=dark] {
+  --bark-mark-bug-bg: #ff2d4a26; --bark-mark-bug: #ff5c73;
+  --bark-mark-ann-bg: #518fff26; --bark-mark-ann: #518fff;
+  --bark-mark-req-bg: #e8b84d26; --bark-mark-req: #e8b84d;
+  --bark-mark-patch-bg: #27a65826; --bark-mark-patch: #27a658;
+  --bark-mark-rel-bg: #c9a0dc26; --bark-mark-rel: #c9a0dc;
+  --bark-mark-chg-bg: #8899aa26; --bark-mark-chg: #8899aa;
+  --bark-btn-open: #27a658; --bark-btn-open-text: #fff;
+  --bark-btn-acked: #e8b84d; --bark-btn-acked-text: #1a1a1a;
+  --bark-btn-owned: #518fff; --bark-btn-owned-text: #fff;
+  --bark-vote-pos-bg: #27a65833; --bark-vote-pos: #27a658;
+  --bark-vote-neg-bg: #ff5c7333; --bark-vote-neg: #ff5c73;
+  --bark-vote-zero-bg: #8899aa22; --bark-vote-zero: #8899aa;
+}
+
+.filters button {
+  background-color: var(--swh-red);
+  border-color: var(--swh-red);
+  color: #ffffff;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.filters button:hover { background-color: var(--swh-red-hover); border-color: var(--swh-red-hover); }
+.filters button.outline {
+  background: none;
+  border: 1px solid var(--swh-border);
+  color: var(--swh-text-muted);
+  opacity: 0.7;
+}
+.filters button.outline:hover { border-color: var(--swh-red); color: var(--swh-red); opacity: 1; }
+
+.theme-toggle {
+  cursor: pointer;
+  background: none !important;
+  border: none !important;
+  font-size: 1.2rem;
+  padding: 0.3rem;
+  color: var(--swh-text-muted);
+}
+.theme-toggle:hover { background: none !important; color: var(--swh-red); }
+
+footer.bark-footer { color: var(--swh-text-muted); border-top: 1px solid var(--swh-border); }
+footer.bark-footer a { color: var(--swh-red); }
+footer.bark-footer a:hover { color: var(--swh-red-hover); }
+
+[data-theme=light] { --bark-stripe-bg: var(--swh-grey-light); --bark-row-bg: var(--swh-bg); }
+[data-theme=dark]  { --bark-stripe-bg: #252525; --bark-row-bg: #1a1a1a; }
+
+nav ul li a { color: var(--swh-red); }
+nav ul li a:hover { color: var(--swh-red-hover); }
+
+/* ==========================================================================
+   6. TREES-SPECIFIC COMPONENTS
+   ========================================================================== */
+
+#app > header {
+  background: var(--swh-grey-light);
+  border-bottom: none;
+}
+#app > header::after {
+  content: '';
+  display: block;
+  height: 4px;
+  background: var(--swh-gradient);
+  border-radius: 2px;
+}
+#app > header h1 { color: var(--swh-grey-dark); font-weight: 700; }
+#app > header h2 { color: var(--swh-text-muted); }
+#app > footer {
+  background: var(--swh-grey-light);
+  border-top: 1px solid var(--swh-border);
+  color: var(--swh-text-muted);
+}
+
+progress::-webkit-progress-bar { background: var(--swh-border); }
+progress::-webkit-progress-value { background: var(--swh-red); }
+progress::-moz-progress-bar { background: var(--swh-red); }
+
+.trees button.pure-button,
+.trees button.button {
+  border: 1px solid var(--swh-border);
+  border-radius: 6px;
+  background: var(--swh-bg-elevated);
+  color: var(--swh-text);
+  font-weight: 500;
+  padding: 1rem 1.25rem;
+  line-height: 1.5;
+  transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+.trees button.pure-button:hover,
+.trees button.button:hover {
+  border-color: var(--swh-red);
+  background: var(--swh-red-light);
+  box-shadow: 0 2px 8px var(--swh-shadow-red);
+}
+.trees button.pure-button:focus,
+.trees button.button:focus { outline: 2px solid var(--swh-red); outline-offset: 2px; }
+
+.trees button.pure-button.status-positive,
+.trees button.button.status-positive { border-color: var(--status-positive); }
+.trees button.pure-button.status-positive:hover,
+.trees button.button.status-positive:hover { background: var(--status-positive-bg) !important; }
+
+.trees button.pure-button.status-neutral,
+.trees button.button.status-neutral { border-color: var(--status-neutral); }
+.trees button.pure-button.status-neutral:hover,
+.trees button.button.status-neutral:hover { background: var(--status-neutral-bg) !important; }
+
+.trees button.pure-button.status-caution,
+.trees button.button.status-caution { border-color: var(--status-caution); }
+.trees button.pure-button.status-caution:hover,
+.trees button.button.status-caution:hover { background: var(--status-caution-bg) !important; }
+
+.trees button.pure-button.status-negative,
+.trees button.button.status-negative { border-color: var(--status-negative); }
+.trees button.pure-button.status-negative:hover,
+.trees button.button.status-negative:hover { background: var(--status-negative-bg) !important; }
+
+aside.help {
+  background: var(--swh-orange-light);
+  border-left: 4px solid var(--swh-orange);
+  border-radius: 0 6px 6px 0;
+  color: var(--swh-text);
+  padding: 1rem 1.5rem;
+}
+
+.summary article {
+  background: var(--swh-grey-light);
+  border-left: 3px solid var(--swh-red);
+  border-radius: 6px;
+  color: var(--swh-text);
+}
+
+.score-result { border-radius: 6px; }
+
+nav.actions a:hover { background: var(--swh-red-light); border-radius: 4px; }
+
+/* ==========================================================================
+   7. org-parse SPECIFIC OVERRIDES
+   ========================================================================== */
+
+header .document-title { border-color: var(--swh-red); }
+.subtitle { color: var(--swh-text-muted); }
+.todo { color: var(--swh-red); }
+.done { color: #18753c; }
+.priority { color: var(--swh-light-orange); }
+.tags { color: var(--swh-text-muted); }
+.footnotes { border-top-color: var(--swh-border); }
+.planning { color: var(--swh-text-muted); }
+.warning { background: var(--swh-orange-light); border-left-color: var(--swh-orange); color: var(--swh-text); }
+.note { background: #e8edff; border-left-color: #0063cb; color: var(--swh-text); }
+figcaption { color: var(--swh-text-muted); }
+
+/* ==========================================================================
+   8. SCROLLBARS, PRINT, REDUCED MOTION
+   ========================================================================== */
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--swh-grey-light); }
+::-webkit-scrollbar-thumb { background: var(--swh-text-muted); border-radius: 5px; border: 2px solid var(--swh-grey-light); }
+::-webkit-scrollbar-thumb:hover { background: var(--swh-grey); }
+* { scrollbar-width: thin; scrollbar-color: var(--swh-text-muted) var(--swh-grey-light); }
+
+/* Utility classes */
+.swh-gradient-text { background: var(--swh-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.swh-gradient-border { border: none; background: var(--swh-gradient); padding: 2px; border-radius: 6px; }
+.swh-gradient-border > * { background: var(--swh-bg-elevated); border-radius: 4px; }
+
+@media print {
+  :root { --swh-text: #000000; --swh-grey-dark: #000000; --swh-bg: #ffffff; --swh-bg-elevated: #ffffff; }
+  header.container::after { background: #e20026; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  a { color: #000000; text-decoration: underline; }
+  a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666666; }
+  details { border: 1px solid #cccccc; }
+  details[open] { box-shadow: none; }
+  .card:hover { transform: none; box-shadow: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .card:hover { transform: none; }
+}
