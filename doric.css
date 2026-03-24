@@ -1,6 +1,6 @@
 /*
  * doric.css — Unified Doric theme (light + dark)
- * Works with: topics, trees, BARK, and org-parse
+ * Works with: topics, trees, and org-parse
  *
  * Adapted from Protesilaos Stavrou's doric-themes for GNU Emacs
  * https://github.com/protesilaos/doric-themes
@@ -14,7 +14,7 @@
  *
  * Supports dark mode via:
  *   - prefers-color-scheme (topics, trees, org-parse)
- *   - [data-theme=dark] attribute (BARK)
+ *   - [data-theme=dark] attribute
  */
 
 /* ==========================================================================
@@ -84,12 +84,6 @@
   --pico-muted-color:         var(--doric-text-muted);
   --pico-muted-border-color:  var(--doric-border);
 
-  /* Chart palette (read by bark-stats.js for Vega) */
-  --bark-chart-1: #084092;
-  --bark-chart-2: #103077;
-  --bark-chart-3: #700d50;
-  --bark-chart-4: #005355;
-  --bark-chart-5: #5a6268;
 }
 
 /* ==========================================================================
@@ -134,12 +128,6 @@
     --pico-muted-color:         var(--doric-text-muted);
     --pico-muted-border-color:  var(--doric-border);
     --pico-accordion-open-summary-color: #c5c7d4;
-    --bark-chart-1: #cda4df;
-    --bark-chart-2: #9fbfe7;
-    --bark-chart-3: #e9acbf;
-    --bark-chart-4: #a0c0d0;
-    --bark-chart-5: #a2a0b2;
-
 
     --status-positive:    #b9d0aa;
     --status-positive-bg: color-mix(in srgb, #b9d0aa 15%, transparent);
@@ -153,7 +141,7 @@
 }
 
 /* ==========================================================================
-   2b. DARK MODE — [data-theme=dark] (BARK toggle)
+   2b. DARK MODE — [data-theme=dark]
    ========================================================================== */
 
 [data-theme=dark] {
@@ -193,12 +181,6 @@
   --pico-muted-color:         var(--doric-text-muted);
   --pico-muted-border-color:  var(--doric-border);
   --pico-accordion-open-summary-color: #c5c7d4;
-  --bark-chart-1: #cda4df;
-  --bark-chart-2: #9fbfe7;
-  --bark-chart-3: #e9acbf;
-  --bark-chart-4: #a0c0d0;
-  --bark-chart-5: #a2a0b2;
-
 
   --status-positive:    #b9d0aa;
   --status-positive-bg: color-mix(in srgb, #b9d0aa 15%, transparent);
@@ -329,7 +311,7 @@ button.secondary:hover, button.outline:hover {
 ::selection { background-color: var(--doric-accent); color: var(--pico-primary-inverse); }
 
 /* ==========================================================================
-   4. PICO CSS OVERRIDES (topics, BARK)
+   4. PICO CSS OVERRIDES (topics)
    ========================================================================== */
 
 header.container {
@@ -440,94 +422,7 @@ footer a { color: var(--doric-accent); }
 footer a:hover { color: var(--pico-primary-hover); }
 
 /* ==========================================================================
-   5. BARK-SPECIFIC COMPONENTS
-   ========================================================================== */
-
-/* BARK type badges — via --bark-* variables */
-:root {
-  --bark-mark-bug-bg: #a010101a; --bark-mark-bug: #a01010;
-  --bark-mark-ann-bg: #1030771a; --bark-mark-ann: #103077;
-  --bark-mark-req-bg: #60400f1a; --bark-mark-req: #60400f;
-  --bark-mark-patch-bg: #1067101a; --bark-mark-patch: #106710;
-  --bark-mark-rel-bg: #700d501a; --bark-mark-rel: #700d50;
-  --bark-mark-chg-bg: #5a62681a; --bark-mark-chg: #5a6268;
-  --bark-btn-open: #106710; --bark-btn-open-text: #fff;
-  --bark-btn-acked: #60400f; --bark-btn-acked-text: #fff;
-  --bark-btn-owned: #103077; --bark-btn-owned-text: #fff;
-  --bark-vote-pos-bg: #10671033; --bark-vote-pos: #106710;
-  --bark-vote-neg-bg: #a0101033; --bark-vote-neg: #a01010;
-  --bark-vote-zero-bg: #5a626822; --bark-vote-zero: #5a6268;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bark-mark-bug-bg: #eca28f26; --bark-mark-bug: #eca28f;
-    --bark-mark-ann-bg: #9fbfe726; --bark-mark-ann: #9fbfe7;
-    --bark-mark-req-bg: #c0b08026; --bark-mark-req: #c0b080;
-    --bark-mark-patch-bg: #b9d0aa26; --bark-mark-patch: #b9d0aa;
-    --bark-mark-rel-bg: #e9acbf26; --bark-mark-rel: #e9acbf;
-    --bark-mark-chg-bg: #a2a0b226; --bark-mark-chg: #a2a0b2;
-    --bark-btn-open: #b9d0aa; --bark-btn-open-text: #000;
-    --bark-btn-acked: #c0b080; --bark-btn-acked-text: #000;
-    --bark-btn-owned: #9fbfe7; --bark-btn-owned-text: #000;
-    --bark-vote-pos-bg: #b9d0aa33; --bark-vote-pos: #b9d0aa;
-    --bark-vote-neg-bg: #eca28f33; --bark-vote-neg: #eca28f;
-    --bark-vote-zero-bg: #a2a0b222; --bark-vote-zero: #a2a0b2;
-  }
-}
-[data-theme=dark] {
-  --bark-mark-bug-bg: #eca28f26; --bark-mark-bug: #eca28f;
-  --bark-mark-ann-bg: #9fbfe726; --bark-mark-ann: #9fbfe7;
-  --bark-mark-req-bg: #c0b08026; --bark-mark-req: #c0b080;
-  --bark-mark-patch-bg: #b9d0aa26; --bark-mark-patch: #b9d0aa;
-  --bark-mark-rel-bg: #e9acbf26; --bark-mark-rel: #e9acbf;
-  --bark-mark-chg-bg: #a2a0b226; --bark-mark-chg: #a2a0b2;
-  --bark-btn-open: #b9d0aa; --bark-btn-open-text: #000;
-  --bark-btn-acked: #c0b080; --bark-btn-acked-text: #000;
-  --bark-btn-owned: #9fbfe7; --bark-btn-owned-text: #000;
-  --bark-vote-pos-bg: #b9d0aa33; --bark-vote-pos: #b9d0aa;
-  --bark-vote-neg-bg: #eca28f33; --bark-vote-neg: #eca28f;
-  --bark-vote-zero-bg: #a2a0b222; --bark-vote-zero: #a2a0b2;
-}
-
-.filters button {
-  background-color: var(--doric-accent);
-  border-color: var(--doric-accent);
-  color: var(--pico-primary-inverse);
-  border-radius: 3px;
-  font-size: 0.8rem;
-  font-weight: 500;
-}
-.filters button:hover { background-color: var(--pico-primary-hover); border-color: var(--pico-primary-hover); }
-.filters button.outline {
-  background: none;
-  border: 1px solid var(--doric-border);
-  color: var(--doric-text-muted);
-  opacity: 0.7;
-}
-.filters button.outline:hover { border-color: var(--doric-accent); color: var(--doric-accent); opacity: 1; }
-
-.theme-toggle {
-  cursor: pointer;
-  background: none !important;
-  border: none !important;
-  font-size: 1.2rem;
-  padding: 0.3rem;
-  color: var(--doric-text-muted);
-}
-.theme-toggle:hover { background: none !important; color: var(--doric-accent); }
-
-footer.bark-footer { color: var(--doric-text-muted); border-top: 1px solid var(--doric-border); }
-footer.bark-footer a { color: var(--doric-accent); }
-footer.bark-footer a:hover { color: var(--pico-primary-hover); }
-
-[data-theme=light] { --bark-stripe-bg: var(--doric-bg-alt); --bark-row-bg: var(--doric-bg); }
-[data-theme=dark]  { --bark-stripe-bg: #1a1720; --bark-row-bg: #000000; }
-
-nav ul li a { color: var(--doric-accent); }
-nav ul li a:hover { color: var(--pico-primary-hover); }
-
-/* ==========================================================================
-   6. TREES-SPECIFIC COMPONENTS
+   5. TREES-SPECIFIC COMPONENTS
    ========================================================================== */
 
 #app > header {
@@ -605,7 +500,7 @@ aside.help {
 nav.actions a:hover { background: var(--doric-accent-bg); border-radius: 3px; }
 
 /* ==========================================================================
-   7. org-parse SPECIFIC OVERRIDES
+   6. org-parse SPECIFIC OVERRIDES
    ========================================================================== */
 
 header .document-title { border-color: var(--doric-border); }
@@ -621,7 +516,7 @@ header .document-title { border-color: var(--doric-border); }
 figcaption { color: var(--doric-text-muted); }
 
 /* ==========================================================================
-   8. SCROLLBARS, PRINT, REDUCED MOTION
+   7. SCROLLBARS, PRINT, REDUCED MOTION
    ========================================================================== */
 
 ::-webkit-scrollbar { width: 10px; height: 10px; }

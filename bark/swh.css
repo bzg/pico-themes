@@ -1,0 +1,119 @@
+/* ==========================================================================
+   bark/swh.css — BARK-specific overrides for the swh theme
+   Load after swh.css:  <link rel="stylesheet" href="bark/swh.css">
+   ========================================================================== */
+
+/* Chart palette (read by bark-stats.js for Vega) */
+:root {
+  --bark-chart-1: #e20026;
+  --bark-chart-2: #ef4426;
+  --bark-chart-3: #f79622;
+  --bark-chart-4: #fabf1f;
+  --bark-chart-5: #737373;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bark-chart-1: #ff2d4a;
+    --bark-chart-2: #ff5c3d;
+    --bark-chart-3: #ffa033;
+    --bark-chart-4: #ffc82e;
+    --bark-chart-5: #999999;
+  }
+}
+
+[data-theme=dark] {
+  --bark-chart-1: #ff2d4a;
+  --bark-chart-2: #ff5c3d;
+  --bark-chart-3: #ffa033;
+  --bark-chart-4: #ffc82e;
+  --bark-chart-5: #999999;
+}
+
+/* ==========================================================================
+   5. BARK-SPECIFIC COMPONENTS
+   ========================================================================== */
+
+/* BARK type badges — override via --bark-* variables */
+:root {
+  --bark-mark-bug-bg: #e200261a; --bark-mark-bug: #c90022;
+  --bark-mark-ann-bg: #0063cb1a; --bark-mark-ann: #0063cb;
+  --bark-mark-req-bg: #b8860b1a; --bark-mark-req: #9a7209;
+  --bark-mark-patch-bg: #18753c1a; --bark-mark-patch: #18753c;
+  --bark-mark-rel-bg: #7b2d8e1a; --bark-mark-rel: #7b2d8e;
+  --bark-mark-chg-bg: #5566771a; --bark-mark-chg: #556677;
+  --bark-btn-open: #18753c; --bark-btn-open-text: #fff;
+  --bark-btn-acked: #b8860b; --bark-btn-acked-text: #fff;
+  --bark-btn-owned: #0063cb; --bark-btn-owned-text: #fff;
+  --bark-vote-pos-bg: #18753c33; --bark-vote-pos: #18753c;
+  --bark-vote-neg-bg: #c9002233; --bark-vote-neg: #c90022;
+  --bark-vote-zero-bg: #55667722; --bark-vote-zero: #556677;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bark-mark-bug-bg: #ff2d4a26; --bark-mark-bug: #ff5c73;
+    --bark-mark-ann-bg: #518fff26; --bark-mark-ann: #518fff;
+    --bark-mark-req-bg: #e8b84d26; --bark-mark-req: #e8b84d;
+    --bark-mark-patch-bg: #27a65826; --bark-mark-patch: #27a658;
+    --bark-mark-rel-bg: #c9a0dc26; --bark-mark-rel: #c9a0dc;
+    --bark-mark-chg-bg: #8899aa26; --bark-mark-chg: #8899aa;
+    --bark-btn-open: #27a658; --bark-btn-open-text: #fff;
+    --bark-btn-acked: #e8b84d; --bark-btn-acked-text: #1a1a1a;
+    --bark-btn-owned: #518fff; --bark-btn-owned-text: #fff;
+    --bark-vote-pos-bg: #27a65833; --bark-vote-pos: #27a658;
+    --bark-vote-neg-bg: #ff5c7333; --bark-vote-neg: #ff5c73;
+    --bark-vote-zero-bg: #8899aa22; --bark-vote-zero: #8899aa;
+  }
+}
+[data-theme=dark] {
+  --bark-mark-bug-bg: #ff2d4a26; --bark-mark-bug: #ff5c73;
+  --bark-mark-ann-bg: #518fff26; --bark-mark-ann: #518fff;
+  --bark-mark-req-bg: #e8b84d26; --bark-mark-req: #e8b84d;
+  --bark-mark-patch-bg: #27a65826; --bark-mark-patch: #27a658;
+  --bark-mark-rel-bg: #c9a0dc26; --bark-mark-rel: #c9a0dc;
+  --bark-mark-chg-bg: #8899aa26; --bark-mark-chg: #8899aa;
+  --bark-btn-open: #27a658; --bark-btn-open-text: #fff;
+  --bark-btn-acked: #e8b84d; --bark-btn-acked-text: #1a1a1a;
+  --bark-btn-owned: #518fff; --bark-btn-owned-text: #fff;
+  --bark-vote-pos-bg: #27a65833; --bark-vote-pos: #27a658;
+  --bark-vote-neg-bg: #ff5c7333; --bark-vote-neg: #ff5c73;
+  --bark-vote-zero-bg: #8899aa22; --bark-vote-zero: #8899aa;
+}
+
+.filters button {
+  background-color: var(--swh-red);
+  border-color: var(--swh-red);
+  color: #ffffff;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.filters button:hover { background-color: var(--swh-red-hover); border-color: var(--swh-red-hover); }
+.filters button.outline {
+  background: none;
+  border: 1px solid var(--swh-border);
+  color: var(--swh-text-muted);
+  opacity: 0.7;
+}
+.filters button.outline:hover { border-color: var(--swh-red); color: var(--swh-red); opacity: 1; }
+
+.theme-toggle {
+  cursor: pointer;
+  background: none !important;
+  border: none !important;
+  font-size: 1.2rem;
+  padding: 0.3rem;
+  color: var(--swh-text-muted);
+}
+.theme-toggle:hover { background: none !important; color: var(--swh-red); }
+
+footer.bark-footer { color: var(--swh-text-muted); border-top: 1px solid var(--swh-border); }
+footer.bark-footer a { color: var(--swh-red); }
+footer.bark-footer a:hover { color: var(--swh-red-hover); }
+
+[data-theme=light] { --bark-stripe-bg: var(--swh-grey-light); --bark-row-bg: var(--swh-bg); }
+[data-theme=dark]  { --bark-stripe-bg: #252525; --bark-row-bg: #1a1a1a; }
+
+nav ul li a { color: var(--swh-red); }
+nav ul li a:hover { color: var(--swh-red-hover); }
+

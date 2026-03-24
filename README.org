@@ -1,6 +1,6 @@
 * Pico themes
 
-Shared CSS themes for [[https://github.com/bzg/topics][topics]], [[https://github.com/bzg/trees][trees]], [[https://github.com/bzg/bark][BARK]], and [[https://github.com/bzg/org-parse][org-parse]].
+Shared CSS themes for [[https://github.com/bzg/topics][topics]], [[https://github.com/bzg/bark][BARK]], and [[https://github.com/bzg/org-parse][org-parse]].
 
 Three themes are available:
 
@@ -11,21 +11,44 @@ Three themes are available:
 | *Org*   | =org.css=   | Org-mode / Worg (Teal, indigo dark mode)  |
 | *Doric* | =doric.css= | Inspired by [[https://protesilaos.com/codelog/2025-05-13-emacs-doric-themes/][Emacs doric-themes]]            |
 
+BARK-specific overlays live in =bark/= (see below).
+
 ** What each theme covers
 
-Each file is self-contained and styles:
+Each theme file is self-contained and styles:
 
 - *Base elements* --- body, links, headings, tables, code, blockquotes,
   buttons (works with org-parse bare HTML)
 - *Pico CSS overrides* --- =--pico-*= variables, cards, details/accordion,
-  search, header/footer (topics, BARK)
-- *BARK components* --- type badges (=mark[data-type=*]=), filter buttons,
-  status buttons, theme toggle, nav, stripe rows
-- *Trees components* --- =--status-*= variables, =.trees button=, =.summary=,
-  =.score-result=, =aside.help=, progress bar
-- *Dark mode* via both =prefers-color-scheme= (automatic) and
-  =[data-theme=dark]= (BARK JS toggle)
+  search, header/footer (topics)
+- *org-parse overrides* --- document title, TODO/DONE/priority keywords,
+  tags, footnotes, admonitions
+- *Dark mode* via =prefers-color-scheme= (automatic) and
+  =[data-theme=dark]= attribute
 - *Print*, reduced motion, scrollbar styling
+
+** BARK overlays
+
+BARK-specific styles live in =bark/=, one file per theme:
+
+| File           | Contents                                         |
+|----------------+--------------------------------------------------|
+| =bark/doric.css= | Chart palette, type badges, buttons, stripe rows |
+| =bark/dsfr.css=  | Chart palette, type badges, buttons, stripe rows |
+| =bark/org.css=   | Chart palette, type badges, buttons, stripe rows |
+| =bark/swh.css=   | Chart palette, type badges, buttons, stripe rows |
+
+Each overlay provides =--bark-chart-*= variables (for Vega), type badge
+colors (=--bark-mark-*=), status button colors (=--bark-btn-*=), vote
+colors (=--bark-vote-*=), =.filters button=, =.theme-toggle=,
+=footer.bark-footer=, and stripe row variables.
+
+Load after the base theme:
+
+#+begin_src html
+<link rel="stylesheet" href="dsfr.css">
+<link rel="stylesheet" href="bark/dsfr.css">
+#+end_src
 
 ** Usage
 
@@ -34,7 +57,7 @@ Each file is self-contained and styles:
 Once this repo is on GitHub, files are available via jsDelivr:
 
 #+begin_src html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bzg/themes@main/dsfr.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bzg/themes@latest/dsfr.css">
 #+end_src
 
 Pin to a specific commit for stability:
@@ -47,19 +70,13 @@ Pin to a specific commit for stability:
 
 *topics* --- set =:theme-url= in config to the CDN URL.
 
-*trees* --- set =theme:= in =config.yml= to a local path or download the
-file:
-
-#+begin_src yaml
-theme: themes/dsfr.css
-#+end_src
-
-*BARK* --- add a =<link>= in =bark-html.clj='s =html-head= function, after the
-Pico CDN link:
+*BARK* --- add two =<link>= tags in =bark-html.clj='s =html-head= function,
+after the Pico CDN link:
 
 #+begin_src clojure
 (str "<link rel=\"stylesheet\" href=\"" pico-cdn "\">\n"
-     "<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/gh/bzg/themes@main/swh.css\">\n")
+     "<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/gh/bzg/themes@main/swh.css\">\n"
+     "<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/gh/bzg/themes@main/bark/swh.css\">\n")
 #+end_src
 
 *org-parse* --- link the theme in the HTML output. Add after the =<style>=
@@ -74,7 +91,7 @@ overrides the defaults.
 
 ** Dark mode
 
-- *topics*, *trees*, *org-parse*: automatic via =prefers-color-scheme=
+- *topics*, *org-parse*: automatic via =prefers-color-scheme=
 - *BARK*: JS toggle sets =[data-theme=dark]= on =<html>= --- themes respond
   to both selectors
 
