@@ -74,6 +74,13 @@
   --pico-primary-inverse:     #ffffff;
   --pico-muted-color:         var(--swh-text-muted);
   --pico-muted-border-color:  var(--swh-border);
+
+  /* Chart palette (read by bark-stats.js for Vega) */
+  --bark-chart-1: #e20026;
+  --bark-chart-2: #ef4426;
+  --bark-chart-3: #f79622;
+  --bark-chart-4: #fabf1f;
+  --bark-chart-5: #737373;
 }
 
 /* ==========================================================================
@@ -105,6 +112,12 @@
     --pico-muted-color:         var(--swh-text-muted);
     --pico-muted-border-color:  var(--swh-border);
     --pico-accordion-open-summary-color: #c0c0c0;
+
+    --bark-chart-1: #ff2d4a;
+    --bark-chart-2: #ff5c3d;
+    --bark-chart-3: #ffa033;
+    --bark-chart-4: #ffc82e;
+    --bark-chart-5: #999999;
 
     --swh-gradient: linear-gradient(90deg, #ff2d4a 0%, #ff5c3d 33%, #ffa033 66%, #ffc82e 100%);
 
@@ -147,6 +160,12 @@
   --pico-muted-color:         var(--swh-text-muted);
   --pico-muted-border-color:  var(--swh-border);
   --pico-accordion-open-summary-color: #c0c0c0;
+
+  --bark-chart-1: #ff2d4a;
+  --bark-chart-2: #ff5c3d;
+  --bark-chart-3: #ffa033;
+  --bark-chart-4: #ffc82e;
+  --bark-chart-5: #999999;
 
   --swh-gradient: linear-gradient(90deg, #ff2d4a 0%, #ff5c3d 33%, #ffa033 66%, #ffc82e 100%);
 
