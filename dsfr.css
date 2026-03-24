@@ -65,14 +65,6 @@
   --dsfr-shadow:       rgba(0, 0, 0, 0.08);
   --dsfr-shadow-blue:  rgba(0, 0, 145, 0.12);
 
-  /* Pico CSS overrides */
-  --pico-primary:             var(--dsfr-blue-france);
-  --pico-primary-hover:       var(--dsfr-blue-hover);
-  --pico-primary-focus:       rgba(0, 0, 145, 0.2);
-  --pico-primary-inverse:     #ffffff;
-  --pico-muted-color:         var(--dsfr-text-muted);
-  --pico-muted-border-color:  var(--dsfr-border);
-
   /* Trees status colors */
   --status-positive:    var(--dsfr-success);
   --status-positive-bg: color-mix(in srgb, #18753c 10%, transparent);
@@ -92,12 +84,23 @@
   color-scheme: light dark;
 }
 
+/* Pico CSS overrides — must match Pico 2's selector specificity */
+[data-theme=light],
+:root:not([data-theme=dark]) {
+  --pico-primary:             var(--dsfr-blue-france);
+  --pico-primary-hover:       var(--dsfr-blue-hover);
+  --pico-primary-focus:       rgba(0, 0, 145, 0.2);
+  --pico-primary-inverse:     #ffffff;
+  --pico-muted-color:         var(--dsfr-text-muted);
+  --pico-muted-border-color:  var(--dsfr-border);
+}
+
 /* ==========================================================================
    2. DARK MODE — prefers-color-scheme (topics, trees, org-parse)
    ========================================================================== */
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
     --dsfr-blue-france:  #8585f6;
     --dsfr-blue-hover:   #9d9dff;
     --dsfr-blue-active:  #b1b1ff;
@@ -132,7 +135,12 @@
     --dsfr-shadow:      rgba(0, 0, 0, 0.4);
     --dsfr-shadow-blue: rgba(133, 133, 246, 0.15);
 
-    --pico-primary-focus: rgba(133, 133, 246, 0.25);
+    --pico-primary:             var(--dsfr-blue-france);
+    --pico-primary-hover:       var(--dsfr-blue-hover);
+    --pico-primary-focus:       rgba(133, 133, 246, 0.25);
+    --pico-primary-inverse:     #ffffff;
+    --pico-muted-color:         var(--dsfr-text-muted);
+    --pico-muted-border-color:  var(--dsfr-border);
     --pico-accordion-open-summary-color: var(--dsfr-grey-800);
 
     --status-positive:    #27a658;
@@ -185,7 +193,12 @@
   --dsfr-shadow:      rgba(0, 0, 0, 0.4);
   --dsfr-shadow-blue: rgba(133, 133, 246, 0.15);
 
-  --pico-primary-focus: rgba(133, 133, 246, 0.25);
+  --pico-primary:             var(--dsfr-blue-france);
+  --pico-primary-hover:       var(--dsfr-blue-hover);
+  --pico-primary-focus:       rgba(133, 133, 246, 0.25);
+  --pico-primary-inverse:     #ffffff;
+  --pico-muted-color:         var(--dsfr-text-muted);
+  --pico-muted-border-color:  var(--dsfr-border);
   --pico-accordion-open-summary-color: var(--dsfr-grey-800);
 
   --status-positive:    #27a658;

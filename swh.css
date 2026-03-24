@@ -46,14 +46,6 @@
   --swh-shadow:         rgba(0, 0, 0, 0.08);
   --swh-shadow-red:     rgba(226, 0, 38, 0.12);
 
-  /* Pico CSS overrides */
-  --pico-primary:             var(--swh-red);
-  --pico-primary-hover:       var(--swh-red-hover);
-  --pico-primary-focus:       rgba(226, 0, 38, 0.2);
-  --pico-primary-inverse:     #ffffff;
-  --pico-muted-color:         var(--swh-text-muted);
-  --pico-muted-border-color:  var(--swh-border);
-
   /* Trees status colors */
   --status-positive:    #18753c;
   --status-positive-bg: color-mix(in srgb, #18753c 10%, transparent);
@@ -73,12 +65,23 @@
   color-scheme: light dark;
 }
 
+/* Pico CSS overrides — must match Pico 2's selector specificity */
+[data-theme=light],
+:root:not([data-theme=dark]) {
+  --pico-primary:             var(--swh-red);
+  --pico-primary-hover:       var(--swh-red-hover);
+  --pico-primary-focus:       rgba(226, 0, 38, 0.2);
+  --pico-primary-inverse:     #ffffff;
+  --pico-muted-color:         var(--swh-text-muted);
+  --pico-muted-border-color:  var(--swh-border);
+}
+
 /* ==========================================================================
    2. DARK MODE — prefers-color-scheme
    ========================================================================== */
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
     --swh-red:           #ff2d4a;
     --swh-red-hover:     #ff5c73;
     --swh-red-light:     #3a1a20;
@@ -95,7 +98,12 @@
     --swh-shadow:        rgba(0, 0, 0, 0.4);
     --swh-shadow-red:    rgba(255, 45, 74, 0.15);
 
-    --pico-primary-focus: rgba(255, 45, 74, 0.25);
+    --pico-primary:             var(--swh-red);
+    --pico-primary-hover:       var(--swh-red-hover);
+    --pico-primary-focus:       rgba(255, 45, 74, 0.25);
+    --pico-primary-inverse:     #ffffff;
+    --pico-muted-color:         var(--swh-text-muted);
+    --pico-muted-border-color:  var(--swh-border);
     --pico-accordion-open-summary-color: #c0c0c0;
 
     --swh-gradient: linear-gradient(90deg, #ff2d4a 0%, #ff5c3d 33%, #ffa033 66%, #ffc82e 100%);
@@ -132,7 +140,12 @@
   --swh-shadow:        rgba(0, 0, 0, 0.4);
   --swh-shadow-red:    rgba(255, 45, 74, 0.15);
 
-  --pico-primary-focus: rgba(255, 45, 74, 0.25);
+  --pico-primary:             var(--swh-red);
+  --pico-primary-hover:       var(--swh-red-hover);
+  --pico-primary-focus:       rgba(255, 45, 74, 0.25);
+  --pico-primary-inverse:     #ffffff;
+  --pico-muted-color:         var(--swh-text-muted);
+  --pico-muted-border-color:  var(--swh-border);
   --pico-accordion-open-summary-color: #c0c0c0;
 
   --swh-gradient: linear-gradient(90deg, #ff2d4a 0%, #ff5c3d 33%, #ffa033 66%, #ffc82e 100%);

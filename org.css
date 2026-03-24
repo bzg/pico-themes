@@ -49,14 +49,6 @@
   --org-shadow:       rgba(0, 0, 0, 0.08);
   --org-shadow-teal:  rgba(61, 90, 80, 0.12);
 
-  /* Pico CSS overrides */
-  --pico-primary:             var(--org-teal);
-  --pico-primary-hover:       var(--org-teal-hover);
-  --pico-primary-focus:       rgba(61, 90, 80, 0.2);
-  --pico-primary-inverse:     #ffffff;
-  --pico-muted-color:         var(--org-text-muted);
-  --pico-muted-border-color:  var(--org-border);
-
   /* Trees status colors */
   --status-positive:    #18753c;
   --status-positive-bg: color-mix(in srgb, #18753c 10%, transparent);
@@ -77,12 +69,23 @@
   color-scheme: light dark;
 }
 
+/* Pico CSS overrides — must match Pico 2's selector specificity */
+[data-theme=light],
+:root:not([data-theme=dark]) {
+  --pico-primary:             var(--org-teal);
+  --pico-primary-hover:       var(--org-teal-hover);
+  --pico-primary-focus:       rgba(61, 90, 80, 0.2);
+  --pico-primary-inverse:     #ffffff;
+  --pico-muted-color:         var(--org-text-muted);
+  --pico-muted-border-color:  var(--org-border);
+}
+
 /* ==========================================================================
    2. DARK MODE — prefers-color-scheme (indigo-tinted from worg)
    ========================================================================== */
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
     --org-teal:         #8fbcaa;
     --org-teal-hover:   #a8d4c2;
     --org-teal-light:   #1e2d28;
@@ -99,7 +102,12 @@
     --org-shadow:       rgba(0, 0, 0, 0.4);
     --org-shadow-teal:  rgba(143, 188, 170, 0.15);
 
-    --pico-primary-focus: rgba(143, 188, 170, 0.25);
+    --pico-primary:             var(--org-teal);
+    --pico-primary-hover:       var(--org-teal-hover);
+    --pico-primary-focus:       rgba(143, 188, 170, 0.25);
+    --pico-primary-inverse:     #ffffff;
+    --pico-muted-color:         var(--org-text-muted);
+    --pico-muted-border-color:  var(--org-border);
     --pico-accordion-open-summary-color: #c0c0c0;
 
     --org-gradient: linear-gradient(90deg, #8fbcaa 0%, #a8d4c2 40%, #d4a76a 70%, #c9a0dc 100%);
@@ -136,7 +144,12 @@
   --org-shadow:       rgba(0, 0, 0, 0.4);
   --org-shadow-teal:  rgba(143, 188, 170, 0.15);
 
-  --pico-primary-focus: rgba(143, 188, 170, 0.25);
+  --pico-primary:             var(--org-teal);
+  --pico-primary-hover:       var(--org-teal-hover);
+  --pico-primary-focus:       rgba(143, 188, 170, 0.25);
+  --pico-primary-inverse:     #ffffff;
+  --pico-muted-color:         var(--org-text-muted);
+  --pico-muted-border-color:  var(--org-border);
   --pico-accordion-open-summary-color: #c0c0c0;
 
   --org-gradient: linear-gradient(90deg, #8fbcaa 0%, #a8d4c2 40%, #d4a76a 70%, #c9a0dc 100%);

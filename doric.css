@@ -55,14 +55,6 @@
   --doric-shadow:       rgba(0, 0, 0, 0.06);
   --doric-shadow-accent: rgba(8, 64, 146, 0.10);
 
-  /* Pico CSS overrides */
-  --pico-primary:             var(--doric-accent);
-  --pico-primary-hover:       #062e6a;
-  --pico-primary-focus:       rgba(8, 64, 146, 0.18);
-  --pico-primary-inverse:     #ffffff;
-  --pico-muted-color:         var(--doric-text-muted);
-  --pico-muted-border-color:  var(--doric-border);
-
   /* Trees status colours */
   --status-positive:    var(--doric-green);
   --status-positive-bg: color-mix(in srgb, #106710 10%, transparent);
@@ -82,12 +74,23 @@
   color-scheme: light dark;
 }
 
+/* Pico CSS overrides — must match Pico 2's selector specificity */
+[data-theme=light],
+:root:not([data-theme=dark]) {
+  --pico-primary:             var(--doric-accent);
+  --pico-primary-hover:       #062e6a;
+  --pico-primary-focus:       rgba(8, 64, 146, 0.18);
+  --pico-primary-inverse:     #ffffff;
+  --pico-muted-color:         var(--doric-text-muted);
+  --pico-muted-border-color:  var(--doric-border);
+}
+
 /* ==========================================================================
    2. DARK MODE — doric-dark via prefers-color-scheme
    ========================================================================== */
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
     --doric-accent:     #cda4df;
     --doric-accent-bg:  #521e40;
 
@@ -117,8 +120,12 @@
     --doric-shadow:       rgba(0, 0, 0, 0.4);
     --doric-shadow-accent: rgba(205, 164, 223, 0.12);
 
+    --pico-primary:             var(--doric-accent);
     --pico-primary-hover:       #dfc0ee;
     --pico-primary-focus:       rgba(205, 164, 223, 0.22);
+    --pico-primary-inverse:     #ffffff;
+    --pico-muted-color:         var(--doric-text-muted);
+    --pico-muted-border-color:  var(--doric-border);
     --pico-accordion-open-summary-color: #c5c7d4;
 
     --status-positive:    #b9d0aa;
@@ -166,8 +173,12 @@
   --doric-shadow:       rgba(0, 0, 0, 0.4);
   --doric-shadow-accent: rgba(205, 164, 223, 0.12);
 
+  --pico-primary:             var(--doric-accent);
   --pico-primary-hover:       #dfc0ee;
   --pico-primary-focus:       rgba(205, 164, 223, 0.22);
+  --pico-primary-inverse:     #ffffff;
+  --pico-muted-color:         var(--doric-text-muted);
+  --pico-muted-border-color:  var(--doric-border);
   --pico-accordion-open-summary-color: #c5c7d4;
 
   --status-positive:    #b9d0aa;
