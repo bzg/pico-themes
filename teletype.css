@@ -1,0 +1,565 @@
+/*
+ * teletype.css — Teletype theme (light + dark)
+ * Works with: topics, trees, and org-parse
+ *
+ * A black & white, monospace variation of the doric theme.
+ * Jazz-club smooth: low contrast, generous letter-spacing,
+ * ruled-paper lines, soft grey ramps.
+ *
+ * "Click click click — ding!"
+ *
+ * No colour. Greys do all the work.
+ * Monospace type and typographic rhythm carry the composition.
+ *
+ * Supports dark mode via:
+ *   - prefers-color-scheme (topics, trees, org-parse)
+ *   - [data-theme=dark] attribute
+ */
+
+/* ==========================================================================
+   1. CUSTOM PROPERTIES — teletype-light (default)
+   ========================================================================== */
+
+:root {
+  /* Accent is simply a warm mid-grey */
+  --doric-accent:     #505050;
+  --doric-accent-bg:  #f0f0f0;
+
+  /* All "hues" collapse to grey steps */
+  --doric-red:        #606060;
+  --doric-green:      #505050;
+  --doric-yellow:     #686868;
+  --doric-blue:       #484848;
+  --doric-magenta:    #585858;
+  --doric-cyan:       #555555;
+
+  /* Semantic backgrounds — faint grey washes */
+  --doric-bg-red:     #f2f2f2;
+  --doric-bg-green:   #f2f2f2;
+  --doric-bg-yellow:  #efefef;
+  --doric-bg-blue:    #f0f0f0;
+  --doric-bg-magenta: #f1f1f1;
+  --doric-bg-cyan:    #f0f0f0;
+
+  /* Surfaces & text — low contrast: not pure black on white */
+  --doric-bg:           #fafafa;
+  --doric-bg-elevated:  #fafafa;
+  --doric-bg-alt:       #f2f2f2;
+  --doric-code-bg:      #f0f0f0;
+  --doric-text:         #2a2a2a;
+  --doric-text-muted:   #808080;
+  --doric-heading:      #1a1a1a;
+  --doric-border:       #d0d0d0;
+  --doric-border-hover: #a0a0a0;
+  --doric-shadow:       rgba(0, 0, 0, 0.04);
+  --doric-shadow-accent: rgba(0, 0, 0, 0.06);
+
+  /* Trees status — grey variants */
+  --status-positive:    #505050;
+  --status-positive-bg: color-mix(in srgb, #505050 8%, transparent);
+  --status-neutral:     #606060;
+  --status-neutral-bg:  color-mix(in srgb, #606060 8%, transparent);
+  --status-caution:     #707070;
+  --status-caution-bg:  color-mix(in srgb, #707070 8%, transparent);
+  --status-negative:    #484848;
+  --status-negative-bg: color-mix(in srgb, #484848 8%, transparent);
+
+  /* Typography — monospace first, jazzy letter-spacing */
+  --doric-font-family: "IBM Plex Mono", "Fira Mono", "JetBrains Mono",
+                        "SF Mono", "Cascadia Mono", "Consolas",
+                        "Liberation Mono", Menlo, Courier, monospace;
+  --doric-font-mono:   "IBM Plex Mono", "Fira Mono", "JetBrains Mono",
+                        "SF Mono", "Cascadia Mono", "Consolas",
+                        "Liberation Mono", Menlo, Courier, monospace;
+
+  color-scheme: light dark;
+}
+
+/* Pico CSS overrides */
+[data-theme=light],
+:root:not([data-theme=dark]) {
+  --pico-primary:             var(--doric-accent);
+  --pico-primary-hover:       #333333;
+  --pico-primary-focus:       rgba(80, 80, 80, 0.15);
+  --pico-primary-inverse:     #fafafa;
+  --pico-muted-color:         var(--doric-text-muted);
+  --pico-muted-border-color:  var(--doric-border);
+}
+
+/* ==========================================================================
+   2. DARK MODE — prefers-color-scheme
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --doric-accent:     #b0b0b0;
+    --doric-accent-bg:  #1e1e1e;
+
+    --doric-red:        #a8a8a8;
+    --doric-green:      #b0b0b0;
+    --doric-yellow:     #a0a0a0;
+    --doric-blue:       #b8b8b8;
+    --doric-magenta:    #aaaaaa;
+    --doric-cyan:       #b4b4b4;
+
+    --doric-bg-red:     #1c1c1c;
+    --doric-bg-green:   #1c1c1c;
+    --doric-bg-yellow:  #1a1a1a;
+    --doric-bg-blue:    #1d1d1d;
+    --doric-bg-magenta: #1b1b1b;
+    --doric-bg-cyan:    #1c1c1c;
+
+    --doric-bg:           #111111;
+    --doric-bg-elevated:  #161616;
+    --doric-bg-alt:       #1c1c1c;
+    --doric-code-bg:      #1a1a1a;
+    --doric-text:         #d0d0d0;
+    --doric-text-muted:   #787878;
+    --doric-heading:      #e0e0e0;
+    --doric-border:       #383838;
+    --doric-border-hover: #585858;
+    --doric-shadow:       rgba(0, 0, 0, 0.3);
+    --doric-shadow-accent: rgba(255, 255, 255, 0.04);
+
+    --pico-primary:             var(--doric-accent);
+    --pico-primary-hover:       #d0d0d0;
+    --pico-primary-focus:       rgba(176, 176, 176, 0.18);
+    --pico-primary-inverse:     #111111;
+    --pico-muted-color:         var(--doric-text-muted);
+    --pico-muted-border-color:  var(--doric-border);
+    --pico-accordion-open-summary-color: #c0c0c0;
+
+    --status-positive:    #b0b0b0;
+    --status-positive-bg: color-mix(in srgb, #b0b0b0 12%, transparent);
+    --status-neutral:     #a0a0a0;
+    --status-neutral-bg:  color-mix(in srgb, #a0a0a0 12%, transparent);
+    --status-caution:     #909090;
+    --status-caution-bg:  color-mix(in srgb, #909090 12%, transparent);
+    --status-negative:    #c0c0c0;
+    --status-negative-bg: color-mix(in srgb, #c0c0c0 12%, transparent);
+  }
+}
+
+/* ==========================================================================
+   2b. DARK MODE — [data-theme=dark]
+   ========================================================================== */
+
+[data-theme=dark] {
+  --doric-accent:     #b0b0b0;
+  --doric-accent-bg:  #1e1e1e;
+
+  --doric-red:        #a8a8a8;
+  --doric-green:      #b0b0b0;
+  --doric-yellow:     #a0a0a0;
+  --doric-blue:       #b8b8b8;
+  --doric-magenta:    #aaaaaa;
+  --doric-cyan:       #b4b4b4;
+
+  --doric-bg-red:     #1c1c1c;
+  --doric-bg-green:   #1c1c1c;
+  --doric-bg-yellow:  #1a1a1a;
+  --doric-bg-blue:    #1d1d1d;
+  --doric-bg-magenta: #1b1b1b;
+  --doric-bg-cyan:    #1c1c1c;
+
+  --doric-bg:           #111111;
+  --doric-bg-elevated:  #161616;
+  --doric-bg-alt:       #1c1c1c;
+  --doric-code-bg:      #1a1a1a;
+  --doric-text:         #d0d0d0;
+  --doric-text-muted:   #787878;
+  --doric-heading:      #e0e0e0;
+  --doric-border:       #383838;
+  --doric-border-hover: #585858;
+  --doric-shadow:       rgba(0, 0, 0, 0.3);
+  --doric-shadow-accent: rgba(255, 255, 255, 0.04);
+
+  --pico-primary:             var(--doric-accent);
+  --pico-primary-hover:       #d0d0d0;
+  --pico-primary-focus:       rgba(176, 176, 176, 0.18);
+  --pico-primary-inverse:     #111111;
+  --pico-muted-color:         var(--doric-text-muted);
+  --pico-muted-border-color:  var(--doric-border);
+  --pico-accordion-open-summary-color: #c0c0c0;
+
+  --status-positive:    #b0b0b0;
+  --status-positive-bg: color-mix(in srgb, #b0b0b0 12%, transparent);
+  --status-neutral:     #a0a0a0;
+  --status-neutral-bg:  color-mix(in srgb, #a0a0a0 12%, transparent);
+  --status-caution:     #909090;
+  --status-caution-bg:  color-mix(in srgb, #909090 12%, transparent);
+  --status-negative:    #c0c0c0;
+  --status-negative-bg: color-mix(in srgb, #c0c0c0 12%, transparent);
+}
+
+/* ==========================================================================
+   3. BASE ELEMENTS
+   ========================================================================== */
+
+body {
+  font-family: var(--doric-font-family);
+  color: var(--doric-text);
+  background-color: var(--doric-bg);
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  font-size: 0.92rem;
+}
+
+a {
+  color: var(--doric-accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+a:hover { color: var(--pico-primary-hover); border-bottom-color: var(--doric-border); text-decoration: none; }
+a:focus-visible { outline: 2px solid var(--doric-accent); outline-offset: 2px; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--doric-heading);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: inherit;
+}
+h1 { font-size: 1.25rem; }
+h2 { font-size: 1.1rem; }
+h3 { font-size: 1rem; }
+
+/* Tables */
+table { border-collapse: collapse; width: 100%; }
+th {
+  background-color: var(--doric-bg-alt);
+  color: var(--doric-heading);
+  font-weight: 500;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 2px solid var(--doric-border);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-size: 0.85em;
+}
+thead th {
+  background-color: var(--doric-bg-alt) !important;
+  color: var(--doric-heading) !important;
+  border-bottom: 2px solid var(--doric-border) !important;
+}
+td {
+  border-bottom: 1px solid var(--doric-border);
+  padding: 0.625rem 1rem;
+  color: var(--doric-text);
+  background-color: var(--doric-bg);
+}
+tr:nth-child(even) td { background-color: var(--doric-bg-elevated); }
+tr:hover td { background-color: var(--doric-accent-bg); }
+
+/* Code — nearly invisible distinction, since everything is mono */
+code {
+  font-family: var(--doric-font-mono);
+  font-size: 0.875em;
+  padding: 0.15em 0.35em;
+  background-color: var(--doric-code-bg);
+  border: 1px solid var(--doric-border);
+  border-radius: 2px;
+  color: var(--doric-text);
+}
+pre {
+  background-color: var(--doric-code-bg);
+  border: 1px solid var(--doric-border);
+  border-radius: 2px;
+  padding: 1rem;
+  overflow-x: auto;
+}
+pre code {
+  padding: 0;
+  background: none;
+  border: none;
+  font-size: 0.875rem;
+  color: var(--doric-heading);
+}
+
+/* Blockquotes — thin rule, no colour accent */
+blockquote {
+  border-left: 2px solid var(--doric-border);
+  background-color: transparent;
+  color: var(--doric-text-muted);
+  padding: 0.75rem 1.5rem;
+  margin: 1rem 0;
+  border-radius: 0;
+  font-style: italic;
+}
+blockquote p:last-child { margin-bottom: 0; }
+
+/* Buttons */
+button,
+[type="submit"],
+[type="button"] {
+  background-color: var(--doric-accent);
+  border-color: var(--doric-accent);
+  color: var(--pico-primary-inverse);
+  border-radius: 2px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.85em;
+  transition: background-color 0.25s ease, border-color 0.25s ease,
+              box-shadow 0.25s ease;
+}
+button:hover, [type="submit"]:hover, [type="button"]:hover {
+  background-color: var(--pico-primary-hover);
+  border-color: var(--pico-primary-hover);
+}
+button:focus-visible, [type="submit"]:focus-visible, [type="button"]:focus-visible {
+  box-shadow: 0 0 0 3px var(--pico-primary-focus);
+}
+button.secondary, button.outline {
+  background-color: transparent;
+  border: 1px solid var(--doric-border);
+  color: var(--doric-text);
+}
+button.secondary:hover, button.outline:hover {
+  border-color: var(--doric-accent);
+  color: var(--doric-accent);
+  background-color: transparent;
+}
+
+/* Accessibility */
+:focus-visible { outline: 2px solid var(--doric-accent); outline-offset: 2px; }
+::selection { background-color: var(--doric-accent); color: var(--pico-primary-inverse); }
+
+/* ==========================================================================
+   4. PICO CSS OVERRIDES (topics)
+   ========================================================================== */
+
+header.container {
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  border-bottom: none;
+}
+header h1 { margin-bottom: 0.5rem; }
+header h1 a {
+  color: var(--doric-heading);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.25s ease;
+}
+header h1 a:hover { color: var(--doric-accent); text-decoration: none; }
+header p { color: var(--doric-text-muted); font-size: 0.95rem; margin-bottom: 0; }
+
+/* Accent line — thin ruled-paper feel */
+header.container::after {
+  content: '';
+  display: block;
+  height: 1px;
+  margin-top: 1.5rem;
+  background: var(--doric-border);
+}
+
+/* Search */
+.search-row input[type="search"] {
+  border: 1px solid var(--doric-border);
+  border-radius: 2px;
+  background-color: var(--doric-bg-elevated);
+  color: var(--doric-text);
+  font-family: var(--doric-font-mono);
+  letter-spacing: 0.02em;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.search-row input[type="search"]::placeholder { color: var(--doric-text-muted); }
+.search-row input[type="search"]:focus {
+  border-color: var(--doric-accent);
+  box-shadow: 0 0 0 3px var(--pico-primary-focus);
+  outline: none;
+}
+#clear-search {
+  color: var(--doric-text-muted);
+  border-color: var(--doric-border);
+  background-color: var(--doric-bg-elevated);
+  transition: all 0.25s ease;
+}
+#clear-search:hover { color: var(--doric-accent); border-color: var(--doric-accent); }
+
+/* Cards */
+.card {
+  border: 1px solid var(--doric-border);
+  border-radius: 2px;
+  background: var(--doric-bg-elevated);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  border-color: var(--doric-accent);
+  box-shadow: 0 2px 8px var(--doric-shadow-accent);
+}
+.card h2 { color: var(--doric-heading); font-weight: 500; transition: color 0.25s ease; }
+.card:hover h2 { color: var(--doric-accent); }
+.card p { color: var(--doric-text-muted); }
+
+/* Back link, view toggle */
+.back-link { color: var(--doric-accent); font-weight: 400; }
+.back-link:hover { color: var(--pico-primary-hover); }
+.view-toggle { color: var(--doric-text-muted); font-size: 0.9rem; margin-bottom: 1.25rem; }
+.view-toggle a { color: var(--doric-accent); font-weight: 400; }
+.view-toggle a:hover { color: var(--pico-primary-hover); }
+
+/* Details/Accordion */
+details {
+  border: 1px solid var(--doric-border);
+  border-radius: 2px;
+  background-color: var(--doric-bg-elevated);
+  margin-bottom: 0.75rem;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+details:hover { border-color: var(--doric-border-hover); }
+details[open] { border-color: var(--doric-accent); box-shadow: 0 1px 6px var(--doric-shadow-accent); }
+details summary {
+  color: var(--doric-heading);
+  font-weight: 400;
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  letter-spacing: 0.02em;
+  transition: color 0.25s ease;
+}
+details summary:hover { color: var(--doric-accent); }
+details[open] summary { color: var(--doric-accent); border-bottom: 1px solid var(--doric-border); }
+.permalink { color: var(--doric-text-muted); opacity: 0.4; transition: opacity 0.25s ease, color 0.25s ease; }
+.permalink:hover { color: var(--doric-accent) !important; opacity: 1; }
+details > div, details > p, details > ul, details > ol { padding: 0.625rem 0.75rem; }
+details p, details ul, details ol { color: var(--doric-text); }
+details a { color: var(--doric-accent); }
+details a:hover { color: var(--pico-primary-hover); }
+details pre, details code { background-color: var(--doric-code-bg); }
+details table { margin: 0; }
+
+/* Footer */
+footer.container {
+  border-top: 1px solid var(--doric-border);
+  padding-top: 1.5rem;
+  margin-top: 3rem;
+  color: var(--doric-text-muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+}
+footer a { color: var(--doric-accent); }
+footer a:hover { color: var(--pico-primary-hover); }
+
+/* ==========================================================================
+   5. TREES-SPECIFIC COMPONENTS
+   ========================================================================== */
+
+#app > header {
+  background: var(--doric-bg-alt);
+  border-bottom: 1px solid var(--doric-border);
+}
+#app > header h1 { color: var(--doric-heading); font-weight: 500; }
+#app > header h2 { color: var(--doric-text-muted); }
+#app > footer {
+  background: var(--doric-bg-alt);
+  border-top: 1px solid var(--doric-border);
+  color: var(--doric-text-muted);
+}
+
+progress::-webkit-progress-bar { background: var(--doric-border); }
+progress::-webkit-progress-value { background: var(--doric-accent); }
+progress::-moz-progress-bar { background: var(--doric-accent); }
+
+.trees button.pure-button,
+.trees button.button {
+  border: 1px solid var(--doric-border);
+  border-radius: 2px;
+  background: var(--doric-bg-elevated);
+  color: var(--doric-text);
+  font-weight: 400;
+  padding: 1rem 1.25rem;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+.trees button.pure-button:hover,
+.trees button.button:hover {
+  border-color: var(--doric-accent);
+  background: var(--doric-accent-bg);
+}
+.trees button.pure-button:focus,
+.trees button.button:focus { outline: 2px solid var(--doric-accent); outline-offset: 2px; }
+
+.trees button.pure-button.status-positive,
+.trees button.button.status-positive { border-color: var(--status-positive); }
+.trees button.pure-button.status-positive:hover,
+.trees button.button.status-positive:hover { background: var(--status-positive-bg) !important; }
+
+.trees button.pure-button.status-neutral,
+.trees button.button.status-neutral { border-color: var(--status-neutral); }
+.trees button.pure-button.status-neutral:hover,
+.trees button.button.status-neutral:hover { background: var(--status-neutral-bg) !important; }
+
+.trees button.pure-button.status-caution,
+.trees button.button.status-caution { border-color: var(--status-caution); }
+.trees button.pure-button.status-caution:hover,
+.trees button.button.status-caution:hover { background: var(--status-caution-bg) !important; }
+
+.trees button.pure-button.status-negative,
+.trees button.button.status-negative { border-color: var(--status-negative); }
+.trees button.pure-button.status-negative:hover,
+.trees button.button.status-negative:hover { background: var(--status-negative-bg) !important; }
+
+aside.help {
+  background: var(--doric-accent-bg);
+  border-left: 2px solid var(--doric-border);
+  border-radius: 0;
+  color: var(--doric-text);
+  padding: 1rem 1.5rem;
+}
+
+.summary article {
+  background: var(--doric-bg-alt);
+  border-left: 2px solid var(--doric-border);
+  border-radius: 2px;
+  color: var(--doric-text);
+}
+
+.score-result { border-radius: 2px; }
+
+nav.actions a:hover { background: var(--doric-accent-bg); border-radius: 2px; }
+
+/* ==========================================================================
+   6. org-parse SPECIFIC OVERRIDES
+   ========================================================================== */
+
+header .document-title { border-color: var(--doric-border); }
+.subtitle { color: var(--doric-text-muted); }
+.todo { color: var(--doric-text); font-weight: 500; }
+.done { color: var(--doric-text-muted); }
+.priority { color: var(--doric-text); }
+.tags { color: var(--doric-text-muted); }
+.footnotes { border-top-color: var(--doric-border); }
+.planning { color: var(--doric-text-muted); }
+.warning { background: var(--doric-bg-alt); border-left-color: var(--doric-border); color: var(--doric-text); }
+.note { background: var(--doric-bg-alt); border-left-color: var(--doric-border); color: var(--doric-text); }
+figcaption { color: var(--doric-text-muted); font-style: italic; }
+
+/* ==========================================================================
+   7. SCROLLBARS, PRINT, REDUCED MOTION
+   ========================================================================== */
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--doric-bg-alt); }
+::-webkit-scrollbar-thumb { background: var(--doric-border); border-radius: 4px; border: 2px solid var(--doric-bg-alt); }
+::-webkit-scrollbar-thumb:hover { background: var(--doric-border-hover); }
+* { scrollbar-width: thin; scrollbar-color: var(--doric-border) var(--doric-bg-alt); }
+
+@media print {
+  :root { --doric-text: #222; --doric-heading: #111; --doric-bg: #fff; --doric-bg-elevated: #fff; }
+  a { color: #222; text-decoration: underline; }
+  a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #888; }
+  details { border: 1px solid #ccc; }
+  details[open] { box-shadow: none; }
+  .card:hover { transform: none; box-shadow: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .card:hover { transform: none; }
+}

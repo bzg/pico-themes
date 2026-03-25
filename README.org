@@ -4,13 +4,14 @@ Shared CSS themes for [[https://github.com/bzg/topics][topics]], [[https://githu
 
 Three themes are available:
 
-| Theme   | File        | Brand                                     |
-|---------+-------------+-------------------------------------------|
-| *DSFR*    | =dsfr.css=    | Système de Design de l'État (Blue France) |
-| *SWH*     | =swh.css=     | Software Heritage (Red→Orange→Yellow)     |
-| *Org*     | =org.css=     | Org-mode / Worg (Teal, indigo dark mode)  |
-| *Doric*   | =doric.css=   | Inspired by [[https://protesilaos.com/codelog/2025-05-13-emacs-doric-themes/][Emacs doric-themes]]            |
-| *Lincoln* | =lincoln.css= | Based on Lincoln blue                     |
+| Theme    | File         | Brand                                     |
+|----------+--------------+-------------------------------------------|
+| *DSFR*     | =dsfr.css=     | Système de Design de l'État (Blue France) |
+| *SWH*      | =swh.css=      | Software Heritage (Red→Orange→Yellow)     |
+| *Org*      | =org.css=      | Org-mode / Worg (Teal, indigo dark mode)  |
+| *Doric*    | =doric.css=    | Inspired by [[https://protesilaos.com/codelog/2025-05-13-emacs-doric-themes/][Emacs doric-themes]]            |
+| *Lincoln*  | =lincoln.css=  | Based on Lincoln blue                     |
+| *Teletype* | teletype.css | Black & White                             |
 
 BARK-specific overlays live in =bark/= (see below).
 
@@ -33,10 +34,12 @@ Each theme file is self-contained and styles:
 BARK-specific styles live in =bark/=, one file per theme, each with
 chart palette, type badges, buttons, stripe rows:
 
-- =bark/doric.css= 
-- =bark/dsfr.css=  
-- =bark/org.css=   
-- =bark/swh.css=   
+- =bark/doric.css=
+- =bark/dsfr.css=
+- =bark/org.css=
+- =bark/swh.css=
+- =bark/lincoln.css=
+- =bark/teletype.css=
 
 Each overlay provides =--bark-chart-*= variables (for Vega), type badge
 colors (=--bark-mark-*=), status button colors (=--bark-btn-*=), vote

@@ -1,0 +1,120 @@
+/* ==========================================================================
+   bark/teletype.css — BARK-specific overrides for the teletype theme
+   Load after teletype.css:  <link rel="stylesheet" href="bark/teletype.css">
+   ========================================================================== */
+
+/* Chart palette — five grey steps (read by bark-stats.js for Vega) */
+:root {
+  --bark-chart-1: #2a2a2a;
+  --bark-chart-2: #505050;
+  --bark-chart-3: #787878;
+  --bark-chart-4: #a0a0a0;
+  --bark-chart-5: #c0c0c0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bark-chart-1: #d8d8d8;
+    --bark-chart-2: #b0b0b0;
+    --bark-chart-3: #888888;
+    --bark-chart-4: #606060;
+    --bark-chart-5: #404040;
+  }
+}
+
+[data-theme=dark] {
+  --bark-chart-1: #d8d8d8;
+  --bark-chart-2: #b0b0b0;
+  --bark-chart-3: #888888;
+  --bark-chart-4: #606060;
+  --bark-chart-5: #404040;
+}
+
+/* ==========================================================================
+   5. BARK-SPECIFIC COMPONENTS
+   ========================================================================== */
+
+/* BARK type badges — grey-only via --bark-* variables */
+:root {
+  --bark-mark-bug-bg: #4848481a; --bark-mark-bug: #484848;
+  --bark-mark-ann-bg: #6060601a; --bark-mark-ann: #606060;
+  --bark-mark-req-bg: #7070701a; --bark-mark-req: #707070;
+  --bark-mark-patch-bg: #5050501a; --bark-mark-patch: #505050;
+  --bark-mark-rel-bg: #5858581a; --bark-mark-rel: #585858;
+  --bark-mark-chg-bg: #8080801a; --bark-mark-chg: #808080;
+  --bark-btn-open: #505050; --bark-btn-open-text: #fafafa;
+  --bark-btn-acked: #707070; --bark-btn-acked-text: #fafafa;
+  --bark-btn-owned: #404040; --bark-btn-owned-text: #fafafa;
+  --bark-vote-pos-bg: #50505022; --bark-vote-pos: #505050;
+  --bark-vote-neg-bg: #48484822; --bark-vote-neg: #484848;
+  --bark-vote-zero-bg: #80808018; --bark-vote-zero: #808080;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bark-mark-bug-bg: #c0c0c026; --bark-mark-bug: #c0c0c0;
+    --bark-mark-ann-bg: #a0a0a026; --bark-mark-ann: #a0a0a0;
+    --bark-mark-req-bg: #90909026; --bark-mark-req: #909090;
+    --bark-mark-patch-bg: #b0b0b026; --bark-mark-patch: #b0b0b0;
+    --bark-mark-rel-bg: #a8a8a826; --bark-mark-rel: #a8a8a8;
+    --bark-mark-chg-bg: #78787826; --bark-mark-chg: #787878;
+    --bark-btn-open: #b0b0b0; --bark-btn-open-text: #111;
+    --bark-btn-acked: #909090; --bark-btn-acked-text: #111;
+    --bark-btn-owned: #c8c8c8; --bark-btn-owned-text: #111;
+    --bark-vote-pos-bg: #b0b0b033; --bark-vote-pos: #b0b0b0;
+    --bark-vote-neg-bg: #c0c0c033; --bark-vote-neg: #c0c0c0;
+    --bark-vote-zero-bg: #78787822; --bark-vote-zero: #787878;
+  }
+}
+[data-theme=dark] {
+  --bark-mark-bug-bg: #c0c0c026; --bark-mark-bug: #c0c0c0;
+  --bark-mark-ann-bg: #a0a0a026; --bark-mark-ann: #a0a0a0;
+  --bark-mark-req-bg: #90909026; --bark-mark-req: #909090;
+  --bark-mark-patch-bg: #b0b0b026; --bark-mark-patch: #b0b0b0;
+  --bark-mark-rel-bg: #a8a8a826; --bark-mark-rel: #a8a8a8;
+  --bark-mark-chg-bg: #78787826; --bark-mark-chg: #787878;
+  --bark-btn-open: #b0b0b0; --bark-btn-open-text: #111;
+  --bark-btn-acked: #909090; --bark-btn-acked-text: #111;
+  --bark-btn-owned: #c8c8c8; --bark-btn-owned-text: #111;
+  --bark-vote-pos-bg: #b0b0b033; --bark-vote-pos: #b0b0b0;
+  --bark-vote-neg-bg: #c0c0c033; --bark-vote-neg: #c0c0c0;
+  --bark-vote-zero-bg: #78787822; --bark-vote-zero: #787878;
+}
+
+.filters button {
+  background-color: var(--doric-accent);
+  border-color: var(--doric-accent);
+  color: var(--pico-primary-inverse);
+  border-radius: 2px;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.filters button:hover { background-color: var(--pico-primary-hover); border-color: var(--pico-primary-hover); }
+.filters button.outline {
+  background: none;
+  border: 1px solid var(--doric-border);
+  color: var(--doric-text-muted);
+  opacity: 0.6;
+}
+.filters button.outline:hover { border-color: var(--doric-accent); color: var(--doric-accent); opacity: 1; }
+
+.theme-toggle {
+  cursor: pointer;
+  background: none !important;
+  border: none !important;
+  font-size: 1.2rem;
+  padding: 0.3rem;
+  color: var(--doric-text-muted);
+}
+.theme-toggle:hover { background: none !important; color: var(--doric-accent); }
+
+footer.bark-footer { color: var(--doric-text-muted); border-top: 1px solid var(--doric-border); }
+footer.bark-footer a { color: var(--doric-accent); }
+footer.bark-footer a:hover { color: var(--pico-primary-hover); }
+
+[data-theme=light] { --bark-stripe-bg: var(--doric-bg-alt); --bark-row-bg: var(--doric-bg); }
+[data-theme=dark]  { --bark-stripe-bg: #1a1a1a; --bark-row-bg: #111111; }
+
+nav ul li a { color: var(--doric-accent); }
+nav ul li a:hover { color: var(--pico-primary-hover); }
