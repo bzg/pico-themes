@@ -10,7 +10,7 @@ Three themes are available:
 | *SWH*     | =swh.css=     | Software Heritage (Red→Orange→Yellow)     |
 | *Org*     | =org.css=     | Org-mode / Worg (Teal, indigo dark mode)  |
 | *Doric*   | =doric.css=   | Inspired by [[https://protesilaos.com/codelog/2025-05-13-emacs-doric-themes/][Emacs doric-themes]]            |
-| Lincoln | =lincoln.css= | Based on Lincoln blue                     |
+| *Lincoln* | =lincoln.css= | Based on Lincoln blue                     |
 
 BARK-specific overlays live in =bark/= (see below).
 
