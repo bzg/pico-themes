@@ -5,13 +5,18 @@
  * Based on Worg's visual identity and color palette
  * https://orgmode.org  —  https://git.sr.ht/~bzg/worg
  *
- * Official color scheme (derived from worg.css):
- *   Teal:         #3d5a50  (Primary heading/accent)
- *   Deep teal:    #2a3f38  (Hover variant)
- *   Light teal:   #8fbcaa  (Secondary / dark mode headings)
- *   Warm brown:   #8a6508  (Secondary accent)
- *   Soft red:     #a3425e  (Constants/emphasis)
- *   Indigo bg:    #1a1a2e  (Dark mode background from worg)
+ * Official color scheme (derived from worg.css font-lock faces):
+ *   Teal:         #3d5a50  (h2/h3/h4 headings — primary accent)
+ *   Dark teal:    #3a7678  (function-name / org-level-6)
+ *   Light teal:   #8fbcaa  (dark-mode headings)
+ *   Warm brown:   #8a6508  (org-ellipsis / org-level-2)
+ *   Firebrick:    #b22222  (org-level-4)
+ *   Soft red:     #a3425e  (constant)
+ *   Steel blue:   #4682b4  (keyword)
+ *   Purple:       #a020f0  (org-level-3 / org-link)
+ *   Plum:         #8b3d87  (preprocessor / org-level-7)
+ *   Grey:         #595959  (org-archived / org-code)
+ *   Indigo bg:    #1a1a2e  (dark mode background from worg)
  *
  * Supports dark mode via:
  *   - prefers-color-scheme (topics, trees, org-parse)
@@ -23,15 +28,20 @@
    ========================================================================== */
 
 :root {
-  /* Brand colors */
-  --org-teal:         #3d5a50;
-  --org-light-teal:   #8fbcaa;
-  --org-warm-brown:   #8a6508;
-  --org-soft-red:     #a3425e;
-  --org-purple:       #a020f0;
-  --org-grey:         #595959;
+  /* Brand colors — worg font-lock derived
+     See worg.css heading/face origins in comments */
+  --org-teal:         #3d5a50;  /* h2/h3/h4 headings */
+  --org-light-teal:   #8fbcaa;  /* dark-mode headings */
+  --org-dark-teal:    #3a7678;  /* .function-name / org-level-6 */
+  --org-warm-brown:   #8a6508;  /* .org-ellipsis / org-level-2 */
+  --org-soft-red:     #a3425e;  /* .constant */
+  --org-firebrick:    #b22222;  /* org-level-4 */
+  --org-steel-blue:   #4682b4;  /* .keyword */
+  --org-purple:       #a020f0;  /* org-level-3 / .org-link */
+  --org-plum:         #8b3d87;  /* .preprocessor / org-level-7 */
+  --org-grey:         #595959;  /* .org-archived / .org-code */
 
-  --org-gradient: linear-gradient(90deg, #3d5a50 0%, #8fbcaa 40%, #8a6508 70%, #a3425e 100%);
+  --org-gradient: linear-gradient(90deg, #3d5a50 0%, #3a7678 25%, #8a6508 50%, #4682b4 75%, #a020f0 100%);
 
   /* Light mode */
   --org-teal-hover:   #2a3f38;
@@ -111,7 +121,7 @@
     --pico-muted-border-color:  var(--org-border);
     --pico-accordion-open-summary-color: #c0c0c0;
 
-    --org-gradient: linear-gradient(90deg, #8fbcaa 0%, #a8d4c2 40%, #d4a76a 70%, #c9a0dc 100%);
+    --org-gradient: linear-gradient(90deg, #8fbcaa 0%, #7ec8ca 25%, #d4a76a 50%, #7aa2d4 75%, #c9a0dc 100%);
 
     --status-positive:    #27a658;
     --status-positive-bg: color-mix(in srgb, #27a658 15%, transparent);
@@ -153,7 +163,7 @@
   --pico-muted-border-color:  var(--org-border);
   --pico-accordion-open-summary-color: #c0c0c0;
 
-  --org-gradient: linear-gradient(90deg, #8fbcaa 0%, #a8d4c2 40%, #d4a76a 70%, #c9a0dc 100%);
+  --org-gradient: linear-gradient(90deg, #8fbcaa 0%, #7ec8ca 25%, #d4a76a 50%, #7aa2d4 75%, #c9a0dc 100%);
 
   --status-positive:    #27a658;
   --status-positive-bg: color-mix(in srgb, #27a658 15%, transparent);
