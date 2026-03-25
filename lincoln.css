@@ -1,0 +1,583 @@
+/*
+ * lincoln.css — Pico 2 theme: Lincoln Blue
+ * Works with: topics, trees, bark, and org-parse
+ *
+ * Color scheme:
+ *   Lincoln Blue:   #191970  (Dominant — headings, thead, primary)
+ *   Cool Grey:      #8E9AAF  (Secondary — muted text, borders)
+ *   Burned Orange:  #D66853  (Accent — blockquotes, warnings, highlights)
+ *   Ghost White:    #F8F9FA  (Background)
+ *   Charcoal:       #212529  (Text)
+ *
+ * Derived palette:
+ *   Navy hover:     #0f0f4d  (Lincoln Blue darkened)
+ *   Navy light:     #e8e8f4  (Lincoln Blue @ 8% on white)
+ *   Orange light:   #fdf0ee  (Burned Orange @ 8% on white)
+ *   Slate:          #6c757d  (Charcoal lightened for muted)
+ *   Lavender:       #7B68AE  (Complement — links, level-3)
+ *   Steel:          #4A6FA5  (Mid-blue — keywords, status-neutral)
+ *   Forest:         #2D6A4F  (Status-positive)
+ *   Gold:           #B8860B  (Status-caution)
+ *
+ * Supports dark mode via:
+ *   - prefers-color-scheme
+ *   - [data-theme=dark] attribute
+ */
+
+/* ==========================================================================
+   1. CUSTOM PROPERTIES — Light Mode (default)
+   ========================================================================== */
+
+:root {
+  /* Brand colors */
+  --org-teal:         #191970;  /* Lincoln Blue — dominant */
+  --org-light-teal:   #7B8FBF;  /* Lincoln Blue lightened for dark-mode headings */
+  --org-dark-teal:    #4A6FA5;  /* Steel — secondary blue */
+  --org-warm-brown:   #D66853;  /* Burned Orange — accent */
+  --org-soft-red:     #D66853;  /* alias: accent */
+  --org-firebrick:    #C1513E;  /* Burned Orange darkened */
+  --org-steel-blue:   #4A6FA5;  /* Steel */
+  --org-purple:       #7B68AE;  /* Lavender complement */
+  --org-plum:         #6A5097;  /* Lavender darkened */
+  --org-grey:         #6c757d;  /* Slate */
+
+  --org-gradient: linear-gradient(90deg, #191970 0%, #4A6FA5 30%, #8E9AAF 55%, #D66853 80%, #7B68AE 100%);
+
+  /* Light mode */
+  --org-teal-hover:   #0f0f4d;
+  --org-teal-light:   #e8e8f4;
+  --org-brown-light:  #fdf0ee;
+  --org-grey-light:   #F8F9FA;
+  --org-grey-dark:    #212529;
+  --org-text:         #212529;
+  --org-text-muted:   #8E9AAF;
+  --org-border:       #dee2e6;
+  --org-border-hover: #adb5bd;
+  --org-bg:           #ffffff;
+  --org-bg-elevated:  #ffffff;
+  --org-code-bg:      #F8F9FA;
+  --org-shadow:       rgba(0, 0, 0, 0.08);
+  --org-shadow-teal:  rgba(25, 25, 112, 0.10);
+
+  /* Trees status colors */
+  --status-positive:    #2D6A4F;
+  --status-positive-bg: color-mix(in srgb, #2D6A4F 10%, transparent);
+  --status-neutral:     #4A6FA5;
+  --status-neutral-bg:  color-mix(in srgb, #4A6FA5 10%, transparent);
+  --status-caution:     #B8860B;
+  --status-caution-bg:  color-mix(in srgb, #B8860B 10%, transparent);
+  --status-negative:    #D66853;
+  --status-negative-bg: color-mix(in srgb, #D66853 10%, transparent);
+
+  /* Typography — system stack */
+  --org-font-family: Georgia, "Times New Roman", serif;
+  --org-font-sans:   -apple-system, BlinkMacSystemFont, "Segoe UI",
+                     Roboto, "Helvetica Neue", Arial, sans-serif;
+  --org-font-mono:   "SFMono-Regular", Consolas,
+                     "Liberation Mono", Menlo, Courier, monospace;
+
+  color-scheme: light dark;
+}
+
+/* Pico CSS overrides — must match Pico 2's selector specificity */
+[data-theme=light],
+:root:not([data-theme=dark]) {
+  --pico-primary:             var(--org-teal);
+  --pico-primary-hover:       var(--org-teal-hover);
+  --pico-primary-focus:       rgba(25, 25, 112, 0.2);
+  --pico-primary-inverse:     #ffffff;
+  --pico-muted-color:         var(--org-text-muted);
+  --pico-muted-border-color:  var(--org-border);
+}
+
+/* ==========================================================================
+   2. DARK MODE — prefers-color-scheme
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --org-teal:         #7B8FBF;
+    --org-teal-hover:   #9BADD4;
+    --org-teal-light:   #1a1a2e;
+    --org-brown-light:  #2e2220;
+    --org-grey-light:   #1e2028;
+    --org-grey-dark:    #e0e0e0;
+    --org-text:         #c8c8c8;
+    --org-text-muted:   #8E9AAF;
+    --org-border:       #343a50;
+    --org-border-hover: #4e5570;
+    --org-bg:           #141420;
+    --org-bg-elevated:  #1c1c32;
+    --org-code-bg:      #1e2028;
+    --org-shadow:       rgba(0, 0, 0, 0.4);
+    --org-shadow-teal:  rgba(123, 143, 191, 0.12);
+
+    --pico-primary:             var(--org-teal);
+    --pico-primary-hover:       var(--org-teal-hover);
+    --pico-primary-focus:       rgba(123, 143, 191, 0.25);
+    --pico-primary-inverse:     #ffffff;
+    --pico-muted-color:         var(--org-text-muted);
+    --pico-muted-border-color:  var(--org-border);
+    --pico-accordion-open-summary-color: #c0c0c0;
+
+    --org-gradient: linear-gradient(90deg, #7B8FBF 0%, #7EB3D4 30%, #8E9AAF 55%, #E8937E 80%, #A899CC 100%);
+
+    --status-positive:    #52B788;
+    --status-positive-bg: color-mix(in srgb, #52B788 15%, transparent);
+    --status-neutral:     #7EB3D4;
+    --status-neutral-bg:  color-mix(in srgb, #7EB3D4 15%, transparent);
+    --status-caution:     #DAA520;
+    --status-caution-bg:  color-mix(in srgb, #DAA520 15%, transparent);
+    --status-negative:    #E8937E;
+    --status-negative-bg: color-mix(in srgb, #E8937E 15%, transparent);
+  }
+}
+
+/* ==========================================================================
+   2b. DARK MODE — [data-theme=dark]
+   ========================================================================== */
+
+[data-theme=dark] {
+  --org-teal:         #7B8FBF;
+  --org-teal-hover:   #9BADD4;
+  --org-teal-light:   #1a1a2e;
+  --org-brown-light:  #2e2220;
+  --org-grey-light:   #1e2028;
+  --org-grey-dark:    #e0e0e0;
+  --org-text:         #c8c8c8;
+  --org-text-muted:   #8E9AAF;
+  --org-border:       #343a50;
+  --org-border-hover: #4e5570;
+  --org-bg:           #141420;
+  --org-bg-elevated:  #1c1c32;
+  --org-code-bg:      #1e2028;
+  --org-shadow:       rgba(0, 0, 0, 0.4);
+  --org-shadow-teal:  rgba(123, 143, 191, 0.12);
+
+  --pico-primary:             var(--org-teal);
+  --pico-primary-hover:       var(--org-teal-hover);
+  --pico-primary-focus:       rgba(123, 143, 191, 0.25);
+  --pico-primary-inverse:     #ffffff;
+  --pico-muted-color:         var(--org-text-muted);
+  --pico-muted-border-color:  var(--org-border);
+  --pico-accordion-open-summary-color: #c0c0c0;
+
+  --org-gradient: linear-gradient(90deg, #7B8FBF 0%, #7EB3D4 30%, #8E9AAF 55%, #E8937E 80%, #A899CC 100%);
+
+  --status-positive:    #52B788;
+  --status-positive-bg: color-mix(in srgb, #52B788 15%, transparent);
+  --status-neutral:     #7EB3D4;
+  --status-neutral-bg:  color-mix(in srgb, #7EB3D4 15%, transparent);
+  --status-caution:     #DAA520;
+  --status-caution-bg:  color-mix(in srgb, #DAA520 15%, transparent);
+  --status-negative:    #E8937E;
+  --status-negative-bg: color-mix(in srgb, #E8937E 15%, transparent);
+}
+
+/* ==========================================================================
+   3. BASE ELEMENTS (works on bare HTML — org-parse, and all others)
+   ========================================================================== */
+
+body {
+  font-family: var(--org-font-sans);
+  color: var(--org-text);
+  background-color: var(--org-bg);
+  line-height: 1.65;
+}
+
+a {
+  color: var(--org-teal);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+a:hover { color: var(--org-teal-hover); text-decoration: underline; }
+a:focus-visible { outline: 2px solid var(--org-teal); outline-offset: 2px; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--org-teal);
+  font-weight: 600;
+}
+h2 { border-bottom: 1px solid var(--org-border); padding-bottom: 0.4rem; }
+
+/* Tables */
+table { border-collapse: collapse; width: 100%; }
+th {
+  background-color: var(--org-teal);
+  color: #ffffff;
+  font-weight: 600;
+  text-align: left;
+  padding: 0.75rem 1rem;
+}
+thead th {
+  background-color: var(--org-teal) !important;
+  color: #ffffff !important;
+}
+td {
+  border: 1px solid var(--org-border);
+  padding: 0.625rem 1rem;
+  color: var(--org-text);
+  background-color: var(--org-bg-elevated);
+}
+tr:nth-child(even) td { background-color: var(--org-grey-light); }
+tr:hover td { background-color: var(--org-teal-light); }
+
+/* Code */
+code {
+  font-family: var(--org-font-mono);
+  font-size: 0.875em;
+  padding: 0.2em 0.4em;
+  background-color: var(--org-code-bg);
+  border: 1px solid var(--org-border);
+  border-radius: 4px;
+  color: var(--org-text);
+}
+pre {
+  font-family: var(--org-font-mono);
+  background-color: var(--org-code-bg);
+  border: 1px solid var(--org-border);
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+}
+pre code {
+  padding: 0;
+  background: none;
+  border: none;
+  font-size: 0.875rem;
+  color: var(--org-grey-dark);
+}
+
+/* Blockquotes — Burned Orange accent */
+blockquote {
+  border-left: 4px solid var(--org-warm-brown);
+  background-color: var(--org-brown-light);
+  color: var(--org-text);
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+  border-radius: 0 6px 6px 0;
+}
+blockquote p:last-child { margin-bottom: 0; }
+
+/* Buttons */
+button,
+[type="submit"],
+[type="button"] {
+  background-color: var(--org-teal);
+  border-color: var(--org-teal);
+  color: #ffffff;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background-color 0.15s ease, border-color 0.15s ease,
+              box-shadow 0.15s ease;
+}
+button:hover, [type="submit"]:hover, [type="button"]:hover {
+  background-color: var(--org-teal-hover);
+  border-color: var(--org-teal-hover);
+}
+button:focus-visible, [type="submit"]:focus-visible, [type="button"]:focus-visible {
+  box-shadow: 0 0 0 3px var(--pico-primary-focus);
+}
+button.secondary, button.outline {
+  background-color: transparent;
+  border: 1px solid var(--org-border);
+  color: var(--org-text);
+}
+button.secondary:hover, button.outline:hover {
+  border-color: var(--org-teal);
+  color: var(--org-teal);
+  background-color: transparent;
+}
+
+/* Accessibility */
+:focus-visible { outline: 2px solid var(--org-teal); outline-offset: 2px; }
+::selection { background-color: var(--org-teal); color: #ffffff; }
+
+/* Syntax Highlighting — Lincoln palette mapped */
+.builtin        { color: #B8860B; }  /* gold */
+.comment, .comment-delimiter { color: #8E9AAF; }  /* cool grey */
+.constant       { color: #D66853; }  /* burned orange */
+.doc            { color: #8E9AAF; }
+.function-name  { color: #4A6FA5; }  /* steel */
+.keyword        { color: #191970; }  /* lincoln blue */
+.string         { color: #2D6A4F; }  /* forest */
+.variable-name  { color: #7B68AE; }  /* lavender */
+.todo           { color: #C1513E; }  /* darkened orange */
+.done           { color: #2D6A4F; }
+
+@media (prefers-color-scheme: dark) {
+  .builtin        { color: #DAA520; }
+  .comment, .comment-delimiter { color: #8E9AAF; }
+  .constant       { color: #E8937E; }
+  .doc            { color: #a0a0a0; }
+  .function-name  { color: #7EB3D4; }
+  .keyword        { color: #7B8FBF; }
+  .string         { color: #52B788; }
+  .variable-name  { color: #A899CC; }
+  .todo           { color: #E8937E; }
+  .done           { color: #52B788; }
+}
+[data-theme=dark] {
+  .builtin        { color: #DAA520; }
+  .comment, .comment-delimiter { color: #8E9AAF; }
+  .constant       { color: #E8937E; }
+  .doc            { color: #a0a0a0; }
+  .function-name  { color: #7EB3D4; }
+  .keyword        { color: #7B8FBF; }
+  .string         { color: #52B788; }
+  .variable-name  { color: #A899CC; }
+  .todo           { color: #E8937E; }
+  .done           { color: #52B788; }
+}
+
+/* ==========================================================================
+   4. PICO CSS OVERRIDES (topics)
+   ========================================================================== */
+
+header.container {
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  border-bottom: none;
+}
+header h1 { margin-bottom: 0.5rem; }
+header h1 a {
+  color: var(--org-grey-dark);
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.15s ease;
+}
+header h1 a:hover { color: var(--org-teal); text-decoration: none; }
+header p { color: var(--org-text-muted); font-size: 1.1rem; margin-bottom: 0; }
+
+/* Gradient bar */
+header.container::after {
+  content: '';
+  display: block;
+  height: 4px;
+  margin-top: 1.5rem;
+  background: var(--org-gradient);
+  border-radius: 2px;
+}
+
+/* Search */
+.search-row input[type="search"] {
+  border: 1px solid var(--org-border);
+  border-radius: 4px;
+  background-color: var(--org-bg-elevated);
+  color: var(--org-text);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.search-row input[type="search"]::placeholder { color: var(--org-text-muted); }
+.search-row input[type="search"]:focus {
+  border-color: var(--org-teal);
+  box-shadow: 0 0 0 3px var(--pico-primary-focus);
+  outline: none;
+}
+#clear-search {
+  color: var(--org-text-muted);
+  border-color: var(--org-border);
+  background-color: var(--org-bg-elevated);
+  transition: all 0.15s ease;
+}
+#clear-search:hover { color: var(--org-teal); border-color: var(--org-teal); }
+
+/* Cards */
+.card {
+  border: 1px solid var(--org-border);
+  border-radius: 6px;
+  background: var(--org-bg-elevated);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+.card:hover {
+  border-color: var(--org-teal);
+  box-shadow: 0 6px 20px var(--org-shadow-teal);
+  transform: translateY(-2px);
+}
+.card h2 {
+  color: var(--org-teal);
+  font-weight: 600;
+  border-bottom: none;
+  padding-bottom: 0;
+  transition: color 0.15s ease;
+}
+.card:hover h2 { color: var(--org-teal-hover); }
+.card p { color: var(--org-text-muted); }
+
+/* Back link, view toggle */
+.back-link { color: var(--org-teal); font-weight: 500; }
+.back-link:hover { color: var(--org-teal-hover); }
+.view-toggle { color: var(--org-text-muted); font-size: 0.95rem; margin-bottom: 1.25rem; }
+.view-toggle a { color: var(--org-teal); font-weight: 500; }
+.view-toggle a:hover { color: var(--org-teal-hover); text-decoration: underline; }
+
+/* Details/Accordion */
+details {
+  border: 1px solid var(--org-border);
+  border-radius: 6px;
+  background-color: var(--org-bg-elevated);
+  margin-bottom: 0.75rem;
+  padding: .6rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+details:hover { border-color: var(--org-border-hover); }
+details[open] { border-color: var(--org-teal); box-shadow: 0 2px 12px var(--org-shadow-teal); }
+details summary {
+  color: var(--org-grey-dark);
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  transition: color 0.15s ease;
+}
+details summary:hover { color: var(--org-teal); }
+details[open] summary { color: var(--org-teal); border-bottom: 1px solid var(--org-border); }
+.permalink { color: var(--org-grey); opacity: 0.5; transition: opacity 0.15s ease, color 0.15s ease; }
+.permalink:hover { color: var(--org-teal) !important; opacity: 1; }
+details > div, details > p, details > ul, details > ol { padding: 0.625rem 0.75rem; }
+details p, details ul, details ol { color: var(--org-text); }
+details a { color: var(--org-teal); }
+details a:hover { color: var(--org-teal-hover); text-decoration: underline; }
+details pre, details code { background-color: var(--org-code-bg); }
+details table { margin: 0; }
+
+/* Footer */
+footer.container {
+  border-top: 1px solid var(--org-border);
+  padding-top: 1.5rem;
+  margin-top: 3rem;
+  color: var(--org-text-muted);
+  font-size: 0.9rem;
+}
+footer a { color: var(--org-teal); }
+footer a:hover { color: var(--org-teal-hover); }
+
+/* ==========================================================================
+   5. TREES-SPECIFIC COMPONENTS
+   ========================================================================== */
+
+#app > header {
+  background: var(--org-grey-light);
+  border-bottom: none;
+}
+#app > header::after {
+  content: '';
+  display: block;
+  height: 4px;
+  background: var(--org-gradient);
+  border-radius: 2px;
+}
+#app > header h1 { color: var(--org-teal); font-weight: 700; }
+#app > header h2 { color: var(--org-text-muted); }
+#app > footer {
+  background: var(--org-grey-light);
+  border-top: 1px solid var(--org-border);
+  color: var(--org-text-muted);
+}
+
+progress::-webkit-progress-bar { background: var(--org-border); }
+progress::-webkit-progress-value { background: var(--org-teal); }
+progress::-moz-progress-bar { background: var(--org-teal); }
+
+.trees button.pure-button,
+.trees button.button {
+  border: 1px solid var(--org-border);
+  border-radius: 6px;
+  background: var(--org-bg-elevated);
+  color: var(--org-text);
+  font-weight: 500;
+  padding: 1rem 1.25rem;
+  line-height: 1.5;
+  transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+.trees button.pure-button:hover,
+.trees button.button:hover {
+  border-color: var(--org-teal);
+  background: var(--org-teal-light);
+  box-shadow: 0 2px 8px var(--org-shadow-teal);
+}
+.trees button.pure-button:focus,
+.trees button.button:focus { outline: 2px solid var(--org-teal); outline-offset: 2px; }
+
+.trees button.pure-button.status-positive,
+.trees button.button.status-positive { border-color: var(--status-positive); }
+.trees button.pure-button.status-positive:hover,
+.trees button.button.status-positive:hover { background: var(--status-positive-bg) !important; }
+
+.trees button.pure-button.status-neutral,
+.trees button.button.status-neutral { border-color: var(--status-neutral); }
+.trees button.pure-button.status-neutral:hover,
+.trees button.button.status-neutral:hover { background: var(--status-neutral-bg) !important; }
+
+.trees button.pure-button.status-caution,
+.trees button.button.status-caution { border-color: var(--status-caution); }
+.trees button.pure-button.status-caution:hover,
+.trees button.button.status-caution:hover { background: var(--status-caution-bg) !important; }
+
+.trees button.pure-button.status-negative,
+.trees button.button.status-negative { border-color: var(--status-negative); }
+.trees button.pure-button.status-negative:hover,
+.trees button.button.status-negative:hover { background: var(--status-negative-bg) !important; }
+
+aside.help {
+  background: var(--org-brown-light);
+  border-left: 4px solid var(--org-warm-brown);
+  border-radius: 0 6px 6px 0;
+  color: var(--org-text);
+  padding: 1rem 1.5rem;
+}
+
+.summary article {
+  background: var(--org-grey-light);
+  border-left: 3px solid var(--org-teal);
+  border-radius: 6px;
+  color: var(--org-text);
+}
+
+.score-result { border-radius: 6px; }
+
+nav.actions a:hover { background: var(--org-teal-light); border-radius: 4px; }
+
+/* ==========================================================================
+   6. org-parse SPECIFIC OVERRIDES
+   ========================================================================== */
+
+header .document-title { border-color: var(--org-teal); }
+.subtitle { color: var(--org-text-muted); }
+.priority { color: var(--org-warm-brown); }
+.tags { color: var(--org-text-muted); }
+.footnotes { border-top-color: var(--org-border); }
+.planning { color: var(--org-text-muted); }
+.warning { background: var(--org-brown-light); border-left-color: var(--org-warm-brown); color: var(--org-text); }
+.note { background: var(--org-teal-light); border-left-color: var(--org-teal); color: var(--org-text); }
+figcaption { color: var(--org-text-muted); }
+
+/* ==========================================================================
+   7. SCROLLBARS, PRINT, REDUCED MOTION
+   ========================================================================== */
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--org-grey-light); }
+::-webkit-scrollbar-thumb { background: var(--org-text-muted); border-radius: 5px; border: 2px solid var(--org-grey-light); }
+::-webkit-scrollbar-thumb:hover { background: var(--org-grey); }
+* { scrollbar-width: thin; scrollbar-color: var(--org-text-muted) var(--org-grey-light); }
+
+.org-gradient-text { background: var(--org-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.org-gradient-border { border: none; background: var(--org-gradient); padding: 2px; border-radius: 6px; }
+.org-gradient-border > * { background: var(--org-bg-elevated); border-radius: 4px; }
+
+@media print {
+  :root { --org-text: #000000; --org-grey-dark: #000000; --org-bg: #ffffff; --org-bg-elevated: #ffffff; }
+  header.container::after { background: #191970; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  a { color: #000000; text-decoration: underline; }
+  a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666666; }
+  details { border: 1px solid #cccccc; }
+  details[open] { box-shadow: none; }
+  .card:hover { transform: none; box-shadow: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .card:hover { transform: none; }
+}

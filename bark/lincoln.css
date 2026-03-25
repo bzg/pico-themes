@@ -1,0 +1,124 @@
+/* ==========================================================================
+   bark/lincoln.css — BARK-specific overrides for the Lincoln Blue theme
+   Load after lincoln.css:  <link rel="stylesheet" href="bark/lincoln.css">
+   ========================================================================== */
+
+/* Chart palette (Vega)
+   1: #191970 (lincoln blue)   2: #4A6FA5 (steel)
+   3: #D66853 (burned orange)  4: #7B68AE (lavender)
+   5: #8E9AAF (cool grey)                              */
+:root {
+  --bark-chart-1: #191970;
+  --bark-chart-2: #4A6FA5;
+  --bark-chart-3: #D66853;
+  --bark-chart-4: #7B68AE;
+  --bark-chart-5: #8E9AAF;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bark-chart-1: #7B8FBF;
+    --bark-chart-2: #7EB3D4;
+    --bark-chart-3: #E8937E;
+    --bark-chart-4: #A899CC;
+    --bark-chart-5: #8E9AAF;
+  }
+}
+
+[data-theme=dark] {
+  --bark-chart-1: #7B8FBF;
+  --bark-chart-2: #7EB3D4;
+  --bark-chart-3: #E8937E;
+  --bark-chart-4: #A899CC;
+  --bark-chart-5: #8E9AAF;
+}
+
+/* ==========================================================================
+   5. BARK-SPECIFIC COMPONENTS
+   ========================================================================== */
+
+/* BARK type badges — Lincoln palette derived
+   bug:   burned orange         patch: steel blue
+   req:   gold                  ann:   lincoln blue
+   rel:   lavender              chg:   cool grey           */
+:root {
+  --bark-mark-bug-bg: #D668531a; --bark-mark-bug: #D66853;
+  --bark-mark-ann-bg: #1919701a; --bark-mark-ann: #191970;
+  --bark-mark-req-bg: #B8860B1a; --bark-mark-req: #B8860B;
+  --bark-mark-patch-bg: #4A6FA51a; --bark-mark-patch: #4A6FA5;
+  --bark-mark-rel-bg: #7B68AE1a; --bark-mark-rel: #7B68AE;
+  --bark-mark-chg-bg: #8E9AAF1a; --bark-mark-chg: #8E9AAF;
+  --bark-btn-open: #191970; --bark-btn-open-text: #fff;
+  --bark-btn-acked: #B8860B; --bark-btn-acked-text: #fff;
+  --bark-btn-owned: #4A6FA5; --bark-btn-owned-text: #fff;
+  --bark-vote-pos-bg: #2D6A4F33; --bark-vote-pos: #2D6A4F;
+  --bark-vote-neg-bg: #D6685333; --bark-vote-neg: #D66853;
+  --bark-vote-zero-bg: #8E9AAF22; --bark-vote-zero: #8E9AAF;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bark-mark-bug-bg: #E8937E26; --bark-mark-bug: #E8937E;
+    --bark-mark-ann-bg: #7B8FBF26; --bark-mark-ann: #7B8FBF;
+    --bark-mark-req-bg: #DAA52026; --bark-mark-req: #DAA520;
+    --bark-mark-patch-bg: #7EB3D426; --bark-mark-patch: #7EB3D4;
+    --bark-mark-rel-bg: #A899CC26; --bark-mark-rel: #A899CC;
+    --bark-mark-chg-bg: #8E9AAF22; --bark-mark-chg: #8E9AAF;
+    --bark-btn-open: #7B8FBF; --bark-btn-open-text: #141420;
+    --bark-btn-acked: #DAA520; --bark-btn-acked-text: #141420;
+    --bark-btn-owned: #7EB3D4; --bark-btn-owned-text: #141420;
+    --bark-vote-pos-bg: #52B78833; --bark-vote-pos: #52B788;
+    --bark-vote-neg-bg: #E8937E33; --bark-vote-neg: #E8937E;
+    --bark-vote-zero-bg: #8E9AAF22; --bark-vote-zero: #8E9AAF;
+  }
+}
+[data-theme=dark] {
+  --bark-mark-bug-bg: #E8937E26; --bark-mark-bug: #E8937E;
+  --bark-mark-ann-bg: #7B8FBF26; --bark-mark-ann: #7B8FBF;
+  --bark-mark-req-bg: #DAA52026; --bark-mark-req: #DAA520;
+  --bark-mark-patch-bg: #7EB3D426; --bark-mark-patch: #7EB3D4;
+  --bark-mark-rel-bg: #A899CC26; --bark-mark-rel: #A899CC;
+  --bark-mark-chg-bg: #8E9AAF22; --bark-mark-chg: #8E9AAF;
+  --bark-btn-open: #7B8FBF; --bark-btn-open-text: #141420;
+  --bark-btn-acked: #DAA520; --bark-btn-acked-text: #141420;
+  --bark-btn-owned: #7EB3D4; --bark-btn-owned-text: #141420;
+  --bark-vote-pos-bg: #52B78833; --bark-vote-pos: #52B788;
+  --bark-vote-neg-bg: #E8937E33; --bark-vote-neg: #E8937E;
+  --bark-vote-zero-bg: #8E9AAF22; --bark-vote-zero: #8E9AAF;
+}
+
+.filters button {
+  background-color: var(--org-teal);
+  border-color: var(--org-teal);
+  color: #ffffff;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.filters button:hover { background-color: var(--org-teal-hover); border-color: var(--org-teal-hover); }
+.filters button.outline {
+  background: none;
+  border: 1px solid var(--org-border);
+  color: var(--org-text-muted);
+  opacity: 0.7;
+}
+.filters button.outline:hover { border-color: var(--org-teal); color: var(--org-teal); opacity: 1; }
+
+.theme-toggle {
+  cursor: pointer;
+  background: none !important;
+  border: none !important;
+  font-size: 1.2rem;
+  padding: 0.3rem;
+  color: var(--org-text-muted);
+}
+.theme-toggle:hover { background: none !important; color: var(--org-teal); }
+
+footer.bark-footer { color: var(--org-text-muted); border-top: 1px solid var(--org-border); }
+footer.bark-footer a { color: var(--org-teal); }
+footer.bark-footer a:hover { color: var(--org-teal-hover); }
+
+[data-theme=light] { --bark-stripe-bg: var(--org-grey-light); --bark-row-bg: var(--org-bg); }
+[data-theme=dark]  { --bark-stripe-bg: #1e2028; --bark-row-bg: #141420; }
+
+nav ul li a { color: var(--org-teal); }
+nav ul li a:hover { color: var(--org-teal-hover); }
