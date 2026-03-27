@@ -248,6 +248,14 @@ pre code {
   color: var(--org-grey-dark);
 }
 
+/* Time — mark-like but uncolored */
+time {
+  padding: 0.15em 0.4em;
+  background-color: var(--org-code-bg);
+  color: var(--org-text-muted);
+  border-radius: 4px;
+}
+
 /* Blockquotes — warm-brown accent */
 blockquote {
   border-left: 4px solid var(--org-warm-brown);

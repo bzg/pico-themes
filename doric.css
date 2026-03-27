@@ -265,6 +265,14 @@ pre code {
   color: var(--doric-heading);
 }
 
+/* Time — mark-like but uncolored */
+time {
+  padding: 0.15em 0.4em;
+  background-color: var(--doric-code-bg);
+  color: var(--doric-text-muted);
+  border-radius: 3px;
+}
+
 /* Blockquotes — accent bar, subtle background */
 blockquote {
   border-left: 3px solid var(--doric-accent);

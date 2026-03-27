@@ -232,6 +232,14 @@ pre code {
   color: var(--swh-grey-dark);
 }
 
+/* Time — mark-like but uncolored */
+time {
+  padding: 0.15em 0.4em;
+  background-color: var(--swh-code-bg);
+  color: var(--swh-text-muted);
+  border-radius: 4px;
+}
+
 /* Blockquotes — orange accent (secondary brand color) */
 blockquote {
   border-left: 4px solid var(--swh-orange);

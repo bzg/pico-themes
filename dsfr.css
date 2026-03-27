@@ -304,6 +304,14 @@ pre code {
   color: var(--dsfr-heading);
 }
 
+/* Time — mark-like but uncolored */
+time {
+  padding: 0.15em 0.4em;
+  background-color: var(--dsfr-code-bg);
+  color: var(--dsfr-text-muted);
+  border-radius: 0;
+}
+
 /* Blockquotes */
 blockquote {
   border-left: 4px solid var(--dsfr-blue-france);
