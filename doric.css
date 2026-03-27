@@ -265,6 +265,12 @@ pre code {
   color: var(--doric-heading);
 }
 
+/* Images — subtle rounding and shadow */
+img {
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
 /* Time — mark-like but uncolored */
 time {
   padding: 0.15em 0.4em;
