@@ -353,7 +353,7 @@ header.container {
   margin-bottom: 2rem;
   border-bottom: none;
 }
-header h1 { margin-bottom: 0.5rem; }
+header h1 { margin-bottom: 0.75rem; font-variant: small-caps; }
 header h1 a {
   color: var(--org-grey-dark);
   text-decoration: none;
