@@ -1,6 +1,6 @@
 * Pico themes
 
-Shared CSS themes for [[https://github.com/bzg/topics][topics]], [[https://github.com/bzg/bark][BARK]], and [[https://github.com/bzg/org-parse][org-parse]].
+Shared CSS themes for [[https://codeberg.org/bzg/topics][topics]], [[https://codeberg.org/bzg/bark][BARK]], and [[https://codeberg.org/bzg/hop][hop]].
 
 Seven themes are available:
 
