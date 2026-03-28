@@ -2,16 +2,49 @@
 
 Shared CSS themes for [[https://github.com/bzg/topics][topics]], [[https://github.com/bzg/bark][BARK]], and [[https://github.com/bzg/org-parse][org-parse]].
 
-Three themes are available:
+Seven themes are available:
 
-| Theme    | File         | Brand                                     |
-|----------+--------------+-------------------------------------------|
-| *DSFR*     | =dsfr.css=     | Système de Design de l'État (Blue France) |
-| *SWH*      | =swh.css=      | Software Heritage (Red→Orange→Yellow)     |
-| *Org*      | =org.css=      | Org-mode / Worg (Teal, indigo dark mode)  |
-| *Doric*    | =doric.css=    | Inspired by [[https://protesilaos.com/codelog/2025-05-13-emacs-doric-themes/][Emacs doric-themes]]            |
-| *Lincoln*  | =lincoln.css=  | Based on Lincoln blue                     |
-| *Teletype* | teletype.css | Black & White                             |
+| Theme    | File         | Brand                                       |
+|----------+--------------+---------------------------------------------|
+| *DSFR*     | =dsfr.css=     | Système de Design de l'État (Blue France)   |
+| *SWH*      | =swh.css=      | Software Heritage (Red→Orange→Yellow)       |
+| *Org*      | =org.css=      | Org-mode / Worg (Teal, indigo dark mode)    |
+| *Doric*    | =doric.css=    | Inspired by [[https://protesilaos.com/codelog/2025-05-13-emacs-doric-themes/][Emacs doric-themes]]              |
+| *Lincoln*  | =lincoln.css=  | Based on Lincoln blue                       |
+| *Teletype* | =teletype.css= | Black & White                               |
+| *Ashes*    | =ashes.css=    | Inspired by [[https://bzg.fr][bzg.fr]] (monospace, grey embers) |
+
+** Color palettes
+
+Each theme supports light and dark mode.  Here are the palettes:
+
+*** DSFR
+
+[[file:images/palette-dsfr.svg]]
+
+*** SWH
+
+[[file:images/palette-swh.svg]]
+
+*** Org
+
+[[file:images/palette-org.svg]]
+
+*** Doric
+
+[[file:images/palette-doric.svg]]
+
+*** Lincoln
+
+[[file:images/palette-lincoln.svg]]
+
+*** Teletype
+
+[[file:images/palette-teletype.svg]]
+
+*** Ashes
+
+[[file:images/palette-ashes.svg]]
 
 BARK-specific overlays live in =bark/= (see below).
 
@@ -40,6 +73,7 @@ chart palette, type badges, buttons, stripe rows:
 - =bark/swh.css=
 - =bark/lincoln.css=
 - =bark/teletype.css=
+- =bark/ashes.css=
 
 Each overlay provides =--bark-chart-*= variables (for Vega), type badge
 colors (=--bark-mark-*=), status button colors (=--bark-btn-*=), vote

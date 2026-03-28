@@ -1,0 +1,118 @@
+/* ==========================================================================
+   bark/ashes.css — BARK-specific overrides for the ashes theme
+   Load after ashes.css:  <link rel="stylesheet" href="bark/ashes.css">
+   ========================================================================== */
+
+/* Chart palette — grey ramp with ember-blue anchor */
+:root {
+  --bark-chart-1: #333333;
+  --bark-chart-2: #666666;
+  --bark-chart-3: #888888;
+  --bark-chart-4: #aaaaaa;
+  --bark-chart-5: #cecece;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bark-chart-1: #e0e0e0;
+    --bark-chart-2: #a0a0a0;
+    --bark-chart-3: #808080;
+    --bark-chart-4: #606060;
+    --bark-chart-5: #404040;
+  }
+}
+
+[data-theme=dark] {
+  --bark-chart-1: #e0e0e0;
+  --bark-chart-2: #a0a0a0;
+  --bark-chart-3: #808080;
+  --bark-chart-4: #606060;
+  --bark-chart-5: #404040;
+}
+
+/* ==========================================================================
+   BARK-SPECIFIC COMPONENTS
+   ========================================================================== */
+
+/* BARK type badges — ashen greys with muted functional tones */
+:root {
+  --bark-mark-bug-bg: #8a4a4a1a; --bark-mark-bug: #8a4a4a;
+  --bark-mark-ann-bg: #4a6f8a1a; --bark-mark-ann: #4a6f8a;
+  --bark-mark-req-bg: #8a70401a; --bark-mark-req: #8a7040;
+  --bark-mark-patch-bg: #4a7a5e1a; --bark-mark-patch: #4a7a5e;
+  --bark-mark-rel-bg: #6666661a; --bark-mark-rel: #666666;
+  --bark-mark-chg-bg: #8888881a; --bark-mark-chg: #888888;
+  --bark-btn-open: #666666; --bark-btn-open-text: #ffffff;
+  --bark-btn-acked: #888888; --bark-btn-acked-text: #ffffff;
+  --bark-btn-owned: #444444; --bark-btn-owned-text: #ffffff;
+  --bark-vote-pos-bg: #4a7a5e22; --bark-vote-pos: #4a7a5e;
+  --bark-vote-neg-bg: #8a4a4a22; --bark-vote-neg: #8a4a4a;
+  --bark-vote-zero-bg: #88888818; --bark-vote-zero: #888888;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bark-mark-bug-bg: #ba6a6a26; --bark-mark-bug: #ba6a6a;
+    --bark-mark-ann-bg: #6a9fba26; --bark-mark-ann: #6a9fba;
+    --bark-mark-req-bg: #baa06026; --bark-mark-req: #baa060;
+    --bark-mark-patch-bg: #6aaa7e26; --bark-mark-patch: #6aaa7e;
+    --bark-mark-rel-bg: #a0a0a026; --bark-mark-rel: #a0a0a0;
+    --bark-mark-chg-bg: #80808026; --bark-mark-chg: #808080;
+    --bark-btn-open: #a0a0a0; --bark-btn-open-text: #0a0a17;
+    --bark-btn-acked: #808080; --bark-btn-acked-text: #0a0a17;
+    --bark-btn-owned: #c0c0c0; --bark-btn-owned-text: #0a0a17;
+    --bark-vote-pos-bg: #6aaa7e33; --bark-vote-pos: #6aaa7e;
+    --bark-vote-neg-bg: #ba6a6a33; --bark-vote-neg: #ba6a6a;
+    --bark-vote-zero-bg: #80808022; --bark-vote-zero: #808080;
+  }
+}
+[data-theme=dark] {
+  --bark-mark-bug-bg: #ba6a6a26; --bark-mark-bug: #ba6a6a;
+  --bark-mark-ann-bg: #6a9fba26; --bark-mark-ann: #6a9fba;
+  --bark-mark-req-bg: #baa06026; --bark-mark-req: #baa060;
+  --bark-mark-patch-bg: #6aaa7e26; --bark-mark-patch: #6aaa7e;
+  --bark-mark-rel-bg: #a0a0a026; --bark-mark-rel: #a0a0a0;
+  --bark-mark-chg-bg: #80808026; --bark-mark-chg: #808080;
+  --bark-btn-open: #a0a0a0; --bark-btn-open-text: #0a0a17;
+  --bark-btn-acked: #808080; --bark-btn-acked-text: #0a0a17;
+  --bark-btn-owned: #c0c0c0; --bark-btn-owned-text: #0a0a17;
+  --bark-vote-pos-bg: #6aaa7e33; --bark-vote-pos: #6aaa7e;
+  --bark-vote-neg-bg: #ba6a6a33; --bark-vote-neg: #ba6a6a;
+  --bark-vote-zero-bg: #80808022; --bark-vote-zero: #808080;
+}
+
+.filters button {
+  background-color: var(--ashes-primary);
+  border-color: var(--ashes-primary);
+  color: var(--pico-primary-inverse);
+  border-radius: 3px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.filters button:hover { background-color: var(--pico-primary-hover); border-color: var(--pico-primary-hover); }
+.filters button.outline {
+  background: none;
+  border: 1px solid var(--ashes-border);
+  color: var(--ashes-text-muted);
+  opacity: 0.6;
+}
+.filters button.outline:hover { border-color: var(--ashes-accent); color: var(--ashes-accent); opacity: 1; }
+
+.theme-toggle {
+  cursor: pointer;
+  background: none !important;
+  border: none !important;
+  font-size: 1.2rem;
+  padding: 0.3rem;
+  color: var(--ashes-text-muted);
+}
+.theme-toggle:hover { background: none !important; color: var(--ashes-accent); }
+
+footer.bark-footer { color: var(--ashes-text-muted); border-top: 1px solid var(--ashes-border); }
+footer.bark-footer a { color: var(--ashes-accent); }
+footer.bark-footer a:hover { color: var(--ashes-accent-hover); }
+
+[data-theme=light] { --bark-stripe-bg: var(--ashes-bg-alt); --bark-row-bg: var(--ashes-bg); }
+[data-theme=dark]  { --bark-stripe-bg: #0e0e1a; --bark-row-bg: #0a0a17; }
+
+nav ul li a { color: var(--ashes-accent); }
+nav ul li a:hover { color: var(--ashes-accent-hover); }

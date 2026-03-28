@@ -1,0 +1,632 @@
+/*
+ * ashes.css — Ashes theme (light + dark)
+ * Works with: topics, trees, and org-parse
+ *
+ * Inspired by bzg.fr — monochrome embers, monospace type,
+ * quiet greys with a faint blue glow on links.
+ *
+ * Color scheme:
+ *   Ash Grey:      #666666  (Primary — headings, buttons)
+ *   Charcoal:      #333333  (Text)
+ *   Ember Blue:    #004d99  (Accent — links only)
+ *   Smoke:         #f7f7f7  (Background)
+ *   Soot:          #cecece  (Borders)
+ *
+ * Derived palette:
+ *   Ash hover:     #444444  (darkened primary)
+ *   Ash light:     #f0f0f0  (primary @ 6% on white)
+ *   Ember hover:   #003366  (Ember Blue darkened)
+ *   Ember light:   #e8f0fa  (Ember Blue @ 8% on white)
+ *   Cinder:        #888888  (Muted text)
+ *   Smoke Dark:    #0a0a17  (Dark bg — cool blue-black)
+ *
+ * Supports dark mode via:
+ *   - prefers-color-scheme (topics, trees, org-parse)
+ *   - [data-theme=dark] attribute
+ */
+
+/* ==========================================================================
+   1. CUSTOM PROPERTIES — Light Mode (default)
+   ========================================================================== */
+
+:root {
+  /* Brand colors */
+  --ashes-primary:      #666666;
+  --ashes-primary-dark: #444444;
+  --ashes-accent:       #004d99;
+  --ashes-accent-hover: #003366;
+  --ashes-accent-light: #e8f0fa;
+
+  /* Grey ramp */
+  --ashes-grey-900:  #1a1a1a;
+  --ashes-grey-800:  #333333;
+  --ashes-grey-700:  #444444;
+  --ashes-grey-600:  #666666;
+  --ashes-grey-500:  #888888;
+  --ashes-grey-400:  #aaaaaa;
+  --ashes-grey-300:  #bbbbbb;
+  --ashes-grey-200:  #cecece;
+  --ashes-grey-100:  #e8e8e8;
+  --ashes-grey-50:   #f0f0f0;
+
+  /* Functional colors — muted, ashen tones */
+  --ashes-success:    #4a7a5e;
+  --ashes-success-bg: #edf5f0;
+  --ashes-info:       #4a6f8a;
+  --ashes-info-bg:    #edf2f7;
+  --ashes-warning:    #8a7040;
+  --ashes-warning-bg: #f7f2e8;
+  --ashes-error:      #8a4a4a;
+  --ashes-error-bg:   #f7eded;
+
+  /* Semantic aliases */
+  --ashes-text:         var(--ashes-grey-800);
+  --ashes-text-muted:   var(--ashes-grey-500);
+  --ashes-heading:      var(--ashes-grey-900);
+  --ashes-border:       var(--ashes-grey-200);
+  --ashes-border-hover: var(--ashes-grey-400);
+  --ashes-bg:           #ffffff;
+  --ashes-bg-elevated:  #ffffff;
+  --ashes-bg-alt:       #f7f7f7;
+  --ashes-code-bg:      #f7f7f7;
+  --ashes-time-bg:      #f5f5f5;
+  --ashes-time-color:   #c8c8c8;
+  --ashes-shadow:       0 3px 3px var(--ashes-grey-300);
+  --ashes-shadow-raw:   rgba(0, 0, 0, 0.06);
+  --ashes-shadow-accent: rgba(0, 77, 153, 0.08);
+
+  /* Trees status colors */
+  --status-positive:    var(--ashes-success);
+  --status-positive-bg: color-mix(in srgb, #4a7a5e 10%, transparent);
+  --status-neutral:     var(--ashes-info);
+  --status-neutral-bg:  color-mix(in srgb, #4a6f8a 10%, transparent);
+  --status-caution:     var(--ashes-warning);
+  --status-caution-bg:  color-mix(in srgb, #8a7040 10%, transparent);
+  --status-negative:    var(--ashes-error);
+  --status-negative-bg: color-mix(in srgb, #8a4a4a 10%, transparent);
+
+  /* Typography — Inconsolata-first monospace stack */
+  --ashes-font-family: "Inconsolata", "Roboto Mono", "Consolas", "Monaco",
+                        "Liberation Mono", Menlo, Courier, monospace;
+  --ashes-font-mono:   "Inconsolata", "Roboto Mono", "Consolas", "Monaco",
+                        "Liberation Mono", Menlo, Courier, monospace;
+
+  color-scheme: light dark;
+}
+
+/* Pico CSS overrides */
+[data-theme=light],
+:root:not([data-theme=dark]) {
+  --pico-primary:             var(--ashes-primary);
+  --pico-primary-hover:       var(--ashes-primary-dark);
+  --pico-primary-focus:       rgba(102, 102, 102, 0.15);
+  --pico-primary-inverse:     #ffffff;
+  --pico-muted-color:         var(--ashes-text-muted);
+  --pico-muted-border-color:  var(--ashes-border);
+}
+
+/* ==========================================================================
+   2. DARK MODE — prefers-color-scheme
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --ashes-primary:      #a0a0a0;
+    --ashes-primary-dark: #c0c0c0;
+    --ashes-accent:       #64b5f6;
+    --ashes-accent-hover: #90caf9;
+    --ashes-accent-light: #121828;
+
+    --ashes-grey-900:  #e8e8e8;
+    --ashes-grey-800:  #e0e0e0;
+    --ashes-grey-700:  #c0c0c0;
+    --ashes-grey-600:  #a0a0a0;
+    --ashes-grey-500:  #808080;
+    --ashes-grey-400:  #606060;
+    --ashes-grey-300:  #444444;
+    --ashes-grey-200:  #333333;
+    --ashes-grey-100:  #222222;
+    --ashes-grey-50:   #161616;
+
+    --ashes-success:    #6aaa7e;
+    --ashes-success-bg: #1a2e22;
+    --ashes-info:       #6a9fba;
+    --ashes-info-bg:    #1a2233;
+    --ashes-warning:    #baa060;
+    --ashes-warning-bg: #2e2a1a;
+    --ashes-error:      #ba6a6a;
+    --ashes-error-bg:   #2e1a1a;
+
+    --ashes-bg:           #0a0a17;
+    --ashes-bg-elevated:  #111122;
+    --ashes-bg-alt:       #0d0d1f;
+    --ashes-code-bg:      #111122;
+    --ashes-time-bg:      #0e0e1a;
+    --ashes-time-color:   #2a2a3a;
+    --ashes-shadow:       0 3px 3px #050510;
+    --ashes-shadow-raw:   rgba(0, 0, 0, 0.4);
+    --ashes-shadow-accent: rgba(100, 181, 246, 0.10);
+
+    --pico-primary:             var(--ashes-primary);
+    --pico-primary-hover:       var(--ashes-primary-dark);
+    --pico-primary-focus:       rgba(160, 160, 160, 0.18);
+    --pico-primary-inverse:     #0a0a17;
+    --pico-muted-color:         var(--ashes-text-muted);
+    --pico-muted-border-color:  var(--ashes-border);
+    --pico-accordion-open-summary-color: #c0c0c0;
+
+    --status-positive:    #6aaa7e;
+    --status-positive-bg: color-mix(in srgb, #6aaa7e 15%, transparent);
+    --status-neutral:     #6a9fba;
+    --status-neutral-bg:  color-mix(in srgb, #6a9fba 15%, transparent);
+    --status-caution:     #baa060;
+    --status-caution-bg:  color-mix(in srgb, #baa060 15%, transparent);
+    --status-negative:    #ba6a6a;
+    --status-negative-bg: color-mix(in srgb, #ba6a6a 15%, transparent);
+  }
+}
+
+/* ==========================================================================
+   2b. DARK MODE — [data-theme=dark]
+   ========================================================================== */
+
+[data-theme=dark] {
+  --ashes-primary:      #a0a0a0;
+  --ashes-primary-dark: #c0c0c0;
+  --ashes-accent:       #64b5f6;
+  --ashes-accent-hover: #90caf9;
+  --ashes-accent-light: #121828;
+
+  --ashes-grey-900:  #e8e8e8;
+  --ashes-grey-800:  #e0e0e0;
+  --ashes-grey-700:  #c0c0c0;
+  --ashes-grey-600:  #a0a0a0;
+  --ashes-grey-500:  #808080;
+  --ashes-grey-400:  #606060;
+  --ashes-grey-300:  #444444;
+  --ashes-grey-200:  #333333;
+  --ashes-grey-100:  #222222;
+  --ashes-grey-50:   #161616;
+
+  --ashes-success:    #6aaa7e;
+  --ashes-success-bg: #1a2e22;
+  --ashes-info:       #6a9fba;
+  --ashes-info-bg:    #1a2233;
+  --ashes-warning:    #baa060;
+  --ashes-warning-bg: #2e2a1a;
+  --ashes-error:      #ba6a6a;
+  --ashes-error-bg:   #2e1a1a;
+
+  --ashes-bg:           #0a0a17;
+  --ashes-bg-elevated:  #111122;
+  --ashes-bg-alt:       #0d0d1f;
+  --ashes-code-bg:      #111122;
+  --ashes-time-bg:      #0e0e1a;
+  --ashes-time-color:   #2a2a3a;
+  --ashes-shadow:       0 3px 3px #050510;
+  --ashes-shadow-raw:   rgba(0, 0, 0, 0.4);
+  --ashes-shadow-accent: rgba(100, 181, 246, 0.10);
+
+  --pico-primary:             var(--ashes-primary);
+  --pico-primary-hover:       var(--ashes-primary-dark);
+  --pico-primary-focus:       rgba(160, 160, 160, 0.18);
+  --pico-primary-inverse:     #0a0a17;
+  --pico-muted-color:         var(--ashes-text-muted);
+  --pico-muted-border-color:  var(--ashes-border);
+  --pico-accordion-open-summary-color: #c0c0c0;
+
+  --status-positive:    #6aaa7e;
+  --status-positive-bg: color-mix(in srgb, #6aaa7e 15%, transparent);
+  --status-neutral:     #6a9fba;
+  --status-neutral-bg:  color-mix(in srgb, #6a9fba 15%, transparent);
+  --status-caution:     #baa060;
+  --status-caution-bg:  color-mix(in srgb, #baa060 15%, transparent);
+  --status-negative:    #ba6a6a;
+  --status-negative-bg: color-mix(in srgb, #ba6a6a 15%, transparent);
+}
+
+/* ==========================================================================
+   3. BASE ELEMENTS (works on bare HTML — org-parse, and all others)
+   ========================================================================== */
+
+body {
+  font-family: var(--ashes-font-family);
+  color: var(--ashes-text);
+  background-color: var(--ashes-bg);
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+a {
+  color: var(--ashes-accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+a:hover { color: var(--ashes-accent-hover); text-decoration: underline; }
+a:focus-visible { outline: 2px solid var(--ashes-accent); outline-offset: 2px; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--ashes-heading);
+  font-weight: 600;
+}
+
+/* Tables */
+table { border-collapse: collapse; width: 100%; }
+th {
+  background-color: var(--ashes-bg-alt);
+  color: var(--ashes-heading);
+  font-weight: 600;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 2px solid var(--ashes-border);
+}
+thead th {
+  background-color: var(--ashes-bg-alt) !important;
+  color: var(--ashes-heading) !important;
+  border-bottom: 2px solid var(--ashes-border) !important;
+}
+td {
+  border-bottom: 1px solid var(--ashes-border);
+  padding: 0.625rem 1rem;
+  color: var(--ashes-text);
+  background-color: var(--ashes-bg);
+}
+tr:nth-child(even) td { background-color: var(--ashes-bg-elevated); }
+tr:hover td { background-color: var(--ashes-accent-light); }
+
+/* Code */
+code {
+  font-family: var(--ashes-font-mono);
+  font-size: 0.875em;
+  padding: 0.2em 0.4em;
+  background-color: var(--ashes-code-bg);
+  border: 1px solid var(--ashes-border);
+  border-radius: 3px;
+  color: var(--ashes-text);
+}
+pre {
+  background-color: var(--ashes-code-bg);
+  border: 1px solid var(--ashes-border);
+  border-radius: 3px;
+  padding: 1rem;
+  overflow-x: auto;
+}
+pre code {
+  padding: 0;
+  background: none;
+  border: none;
+  font-size: 0.875rem;
+  color: var(--ashes-heading);
+}
+
+/* Images */
+img {
+  border-radius: 3px;
+  box-shadow: 0 1px 3px var(--ashes-shadow-raw);
+  margin: 0.25rem;
+}
+
+/* Time — mark-like but uncolored */
+time {
+  padding: 0.15em 0.4em;
+  background-color: var(--ashes-time-bg);
+  color: var(--ashes-time-color);
+  border-radius: 3px;
+}
+
+/* Blockquotes — thin grey rule, no colour accent */
+blockquote {
+  border-left: 3px solid var(--ashes-border);
+  background-color: var(--ashes-bg-alt);
+  color: var(--ashes-text);
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+  border-radius: 0;
+}
+blockquote p:last-child { margin-bottom: 0; }
+
+/* Buttons */
+button,
+[type="submit"],
+[type="button"] {
+  background-color: var(--ashes-primary);
+  border-color: var(--ashes-primary);
+  color: var(--pico-primary-inverse);
+  border-radius: 3px;
+  font-weight: 500;
+  transition: background-color 0.2s ease, border-color 0.2s ease,
+              box-shadow 0.2s ease;
+}
+button:hover, [type="submit"]:hover, [type="button"]:hover {
+  background-color: var(--ashes-primary-dark);
+  border-color: var(--ashes-primary-dark);
+}
+button:focus-visible, [type="submit"]:focus-visible, [type="button"]:focus-visible {
+  box-shadow: 0 0 0 3px var(--pico-primary-focus);
+}
+button.secondary, button.outline {
+  background-color: transparent;
+  border: 1px solid var(--ashes-border);
+  color: var(--ashes-text);
+}
+button.secondary:hover, button.outline:hover {
+  border-color: var(--ashes-primary);
+  color: var(--ashes-primary);
+  background-color: transparent;
+}
+
+/* Accessibility */
+:focus-visible { outline: 2px solid var(--ashes-accent); outline-offset: 2px; }
+::selection { background-color: var(--ashes-primary); color: var(--pico-primary-inverse); }
+
+/* Syntax Highlighting — ashen tones with ember-blue keywords */
+.builtin        { color: #8a7040; }
+.comment, .comment-delimiter { color: #888888; font-style: italic; }
+.constant       { color: #8a4a4a; }
+.doc            { color: #888888; }
+.function-name  { color: #4a6f8a; }
+.keyword        { color: #004d99; }
+.string         { color: #4a7a5e; }
+.variable-name  { color: #666666; }
+.todo           { color: #8a4a4a; }
+.done           { color: #4a7a5e; }
+
+@media (prefers-color-scheme: dark) {
+  .builtin        { color: #baa060; }
+  .comment, .comment-delimiter { color: #808080; font-style: italic; }
+  .constant       { color: #ba6a6a; }
+  .doc            { color: #808080; }
+  .function-name  { color: #6a9fba; }
+  .keyword        { color: #64b5f6; }
+  .string         { color: #6aaa7e; }
+  .variable-name  { color: #a0a0a0; }
+  .todo           { color: #ba6a6a; }
+  .done           { color: #6aaa7e; }
+}
+[data-theme=dark] {
+  .builtin        { color: #baa060; }
+  .comment, .comment-delimiter { color: #808080; font-style: italic; }
+  .constant       { color: #ba6a6a; }
+  .doc            { color: #808080; }
+  .function-name  { color: #6a9fba; }
+  .keyword        { color: #64b5f6; }
+  .string         { color: #6aaa7e; }
+  .variable-name  { color: #a0a0a0; }
+  .todo           { color: #ba6a6a; }
+  .done           { color: #6aaa7e; }
+}
+
+/* ==========================================================================
+   4. PICO CSS OVERRIDES (topics)
+   ========================================================================== */
+
+header.container {
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  border-bottom: none;
+}
+header h1 { margin-bottom: 0.75rem; font-variant: small-caps; }
+header h1 a {
+  color: var(--ashes-heading);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+header h1 a:hover { color: var(--ashes-accent); text-decoration: none; }
+header p { color: var(--ashes-text-muted); font-size: 1rem; margin-bottom: 0; }
+
+/* Thin ash line — like bzg.fr's understated hr */
+header.container::after {
+  content: '';
+  display: block;
+  height: 1px;
+  margin-top: 1.5rem;
+  background: var(--ashes-border);
+}
+
+/* Search */
+.search-row input[type="search"] {
+  border: 1px solid var(--ashes-border);
+  border-radius: 3px;
+  background-color: var(--ashes-bg-elevated);
+  color: var(--ashes-text);
+  font-family: var(--ashes-font-mono);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.search-row input[type="search"]::placeholder { color: var(--ashes-text-muted); }
+.search-row input[type="search"]:focus {
+  border-color: var(--ashes-accent);
+  box-shadow: 0 0 0 3px var(--pico-primary-focus);
+  outline: none;
+}
+#clear-search {
+  color: var(--ashes-text-muted);
+  border-color: var(--ashes-border);
+  background-color: var(--ashes-bg-elevated);
+  transition: all 0.2s ease;
+}
+#clear-search:hover { color: var(--ashes-accent); border-color: var(--ashes-accent); }
+
+/* Cards */
+.card {
+  border: 1px solid var(--ashes-border);
+  border-radius: 3px;
+  background: var(--ashes-bg-elevated);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  border-color: var(--ashes-accent);
+  box-shadow: 0 3px 12px var(--ashes-shadow-accent);
+}
+.card h2 { color: var(--ashes-heading); font-weight: 600; transition: color 0.2s ease; }
+.card:hover h2 { color: var(--ashes-accent); }
+.card p { color: var(--ashes-text-muted); }
+
+/* Back link, view toggle */
+.back-link { color: var(--ashes-accent); font-weight: 500; }
+.back-link:hover { color: var(--ashes-accent-hover); }
+.view-toggle { color: var(--ashes-text-muted); font-size: 0.95rem; margin-bottom: 1.25rem; }
+.view-toggle a { color: var(--ashes-accent); font-weight: 500; }
+.view-toggle a:hover { color: var(--ashes-accent-hover); text-decoration: underline; }
+
+/* Details/Accordion */
+details {
+  border: 1px solid var(--ashes-border);
+  border-radius: 3px;
+  background-color: var(--ashes-bg-elevated);
+  margin-bottom: 0.75rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+details:hover { border-color: var(--ashes-border-hover); }
+details[open] { border-color: var(--ashes-accent); box-shadow: 0 2px 8px var(--ashes-shadow-accent); }
+details summary {
+  color: var(--ashes-heading);
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  transition: color 0.2s ease;
+}
+details summary:hover { color: var(--ashes-accent); }
+details[open] summary { color: var(--ashes-accent); border-bottom: 1px solid var(--ashes-border); }
+.permalink { color: var(--ashes-text-muted); opacity: 0.5; transition: opacity 0.2s ease, color 0.2s ease; }
+.permalink:hover { color: var(--ashes-accent) !important; opacity: 1; }
+details > div, details > p, details > ul, details > ol { padding: 0.625rem 0.75rem; }
+details p, details ul, details ol { color: var(--ashes-text); }
+details a { color: var(--ashes-accent); }
+details a:hover { color: var(--ashes-accent-hover); text-decoration: underline; }
+details pre, details code { background-color: var(--ashes-code-bg); }
+details table { margin: 0; }
+
+/* Footer */
+footer.container {
+  border-top: 1px solid var(--ashes-border);
+  padding-top: 1.5rem;
+  margin-top: 3rem;
+  color: var(--ashes-text-muted);
+  font-size: 0.9rem;
+}
+footer a { color: var(--ashes-accent); }
+footer a:hover { color: var(--ashes-accent-hover); }
+
+/* ==========================================================================
+   5. TREES-SPECIFIC COMPONENTS
+   ========================================================================== */
+
+#app > header {
+  background: var(--ashes-bg-alt);
+  border-bottom: 1px solid var(--ashes-border);
+}
+#app > header h1 { color: var(--ashes-heading); font-weight: 600; }
+#app > header h2 { color: var(--ashes-text-muted); }
+#app > footer {
+  background: var(--ashes-bg-alt);
+  border-top: 1px solid var(--ashes-border);
+  color: var(--ashes-text-muted);
+}
+
+progress::-webkit-progress-bar { background: var(--ashes-border); }
+progress::-webkit-progress-value { background: var(--ashes-primary); }
+progress::-moz-progress-bar { background: var(--ashes-primary); }
+
+.trees button.pure-button,
+.trees button.button {
+  border: 1px solid var(--ashes-border);
+  border-radius: 3px;
+  background: var(--ashes-bg-elevated);
+  color: var(--ashes-text);
+  font-weight: 500;
+  padding: 1rem 1.25rem;
+  line-height: 1.5;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+.trees button.pure-button:hover,
+.trees button.button:hover {
+  border-color: var(--ashes-primary);
+  background: var(--ashes-bg-alt);
+  box-shadow: 0 2px 6px var(--ashes-shadow-raw);
+}
+.trees button.pure-button:focus,
+.trees button.button:focus { outline: 2px solid var(--ashes-accent); outline-offset: 2px; }
+
+.trees button.pure-button.status-positive,
+.trees button.button.status-positive { border-color: var(--status-positive); }
+.trees button.pure-button.status-positive:hover,
+.trees button.button.status-positive:hover { background: var(--status-positive-bg) !important; }
+
+.trees button.pure-button.status-neutral,
+.trees button.button.status-neutral { border-color: var(--status-neutral); }
+.trees button.pure-button.status-neutral:hover,
+.trees button.button.status-neutral:hover { background: var(--status-neutral-bg) !important; }
+
+.trees button.pure-button.status-caution,
+.trees button.button.status-caution { border-color: var(--status-caution); }
+.trees button.pure-button.status-caution:hover,
+.trees button.button.status-caution:hover { background: var(--status-caution-bg) !important; }
+
+.trees button.pure-button.status-negative,
+.trees button.button.status-negative { border-color: var(--status-negative); }
+.trees button.pure-button.status-negative:hover,
+.trees button.button.status-negative:hover { background: var(--status-negative-bg) !important; }
+
+aside.help {
+  background: var(--ashes-bg-alt);
+  border-left: 3px solid var(--ashes-border);
+  border-radius: 0;
+  color: var(--ashes-text);
+  padding: 1rem 1.5rem;
+}
+
+.summary article {
+  background: var(--ashes-bg-alt);
+  border-left: 3px solid var(--ashes-primary);
+  border-radius: 3px;
+  color: var(--ashes-text);
+}
+
+.score-result { border-radius: 3px; }
+
+nav.actions a:hover { background: var(--ashes-accent-light); border-radius: 3px; }
+
+/* ==========================================================================
+   6. org-parse SPECIFIC OVERRIDES
+   ========================================================================== */
+
+header .document-title { border-color: var(--ashes-border); }
+.subtitle { color: var(--ashes-text-muted); }
+.todo { color: var(--ashes-error); }
+.done { color: var(--ashes-success); }
+.priority { color: var(--ashes-warning); }
+.tags { color: var(--ashes-text-muted); }
+.footnotes { border-top-color: var(--ashes-border); }
+.planning { color: var(--ashes-text-muted); }
+.warning { background: var(--ashes-warning-bg); border-left-color: var(--ashes-warning); color: var(--ashes-text); }
+.note { background: var(--ashes-info-bg); border-left-color: var(--ashes-info); color: var(--ashes-text); }
+figcaption { color: var(--ashes-text-muted); }
+
+/* ==========================================================================
+   7. SCROLLBARS, PRINT, REDUCED MOTION
+   ========================================================================== */
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--ashes-bg-alt); }
+::-webkit-scrollbar-thumb { background: var(--ashes-grey-400); border-radius: 4px; border: 2px solid var(--ashes-bg-alt); }
+::-webkit-scrollbar-thumb:hover { background: var(--ashes-grey-500); }
+* { scrollbar-width: thin; scrollbar-color: var(--ashes-grey-400) var(--ashes-bg-alt); }
+
+@media print {
+  :root { --ashes-text: #000000; --ashes-heading: #000000; --ashes-bg: #ffffff; --ashes-bg-elevated: #ffffff; }
+  a { color: #000000; text-decoration: underline; }
+  a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666666; }
+  details { border: 1px solid #cccccc; }
+  details[open] { box-shadow: none; }
+  .card:hover { transform: none; box-shadow: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .card:hover { transform: none; }
+}
