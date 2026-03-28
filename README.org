@@ -2,11 +2,10 @@
 
 Shared CSS themes for [[https://codeberg.org/bzg/topics][topics]], [[https://codeberg.org/bzg/bark][BARK]], and [[https://codeberg.org/bzg/hop][hop]].
 
-Seven themes are available:
+Six themes are available:
 
 | Theme    | File         | Brand                                       |
 |----------+--------------+---------------------------------------------|
-| *DSFR*     | =dsfr.css=     | Système de Design de l'État (Blue France)   |
 | *SWH*      | =swh.css=      | Software Heritage (Red→Orange→Yellow)       |
 | *Org*      | =org.css=      | Org-mode / Worg (Teal, indigo dark mode)    |
 | *Doric*    | =doric.css=    | Inspired by [[https://protesilaos.com/codelog/2025-05-13-emacs-doric-themes/][Emacs doric-themes]]              |
@@ -17,10 +16,6 @@ Seven themes are available:
 ** Color palettes
 
 Each theme supports light and dark mode.  Here are the palettes:
-
-*** DSFR
-
-[[file:images/palette-dsfr.svg]]
 
 *** SWH
 
@@ -68,7 +63,6 @@ BARK-specific styles live in =bark/=, one file per theme, each with
 chart palette, type badges, buttons, stripe rows:
 
 - =bark/doric.css=
-- =bark/dsfr.css=
 - =bark/org.css=
 - =bark/swh.css=
 - =bark/lincoln.css=
@@ -83,8 +77,8 @@ colors (=--bark-vote-*=), =.filters button=, =.theme-toggle=,
 Load after the base theme:
 
 #+begin_src html
-<link rel="stylesheet" href="dsfr.css">
-<link rel="stylesheet" href="bark/dsfr.css">
+<link rel="stylesheet" href="doric.css">
+<link rel="stylesheet" href="bark/doric.css">
 #+end_src
 
 ** Usage
@@ -94,7 +88,7 @@ Load after the base theme:
 Once this repo is on GitHub, files are available via jsDelivr:
 
 #+begin_src html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bzg/themes@latest/dsfr.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bzg/themes@latest/doric.css">
 #+end_src
 
 Pin to a specific commit for stability:
