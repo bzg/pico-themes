@@ -273,6 +273,7 @@ pre code {
 img {
   border-radius: 2px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  margin: 0.25rem;
 }
 
 /* Time — mark-like but uncolored */
