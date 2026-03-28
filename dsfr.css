@@ -62,6 +62,8 @@
   --dsfr-bg-elevated:  #ffffff;
   --dsfr-bg-alt:       var(--dsfr-grey-50);
   --dsfr-code-bg:      var(--dsfr-grey-50);
+  --dsfr-time-bg:      #fafafa;
+  --dsfr-time-color:   #d0d0d0;
   --dsfr-shadow:       rgba(0, 0, 0, 0.08);
   --dsfr-shadow-blue:  rgba(0, 0, 145, 0.12);
 
@@ -133,6 +135,8 @@
     --dsfr-bg-elevated: #242424;
     --dsfr-bg-alt:      #1e1e1e;
     --dsfr-code-bg:     #2a2a2a;
+    --dsfr-time-bg:     #1f1f1f;
+    --dsfr-time-color:  #3a3a3a;
     --dsfr-shadow:      rgba(0, 0, 0, 0.4);
     --dsfr-shadow-blue: rgba(133, 133, 246, 0.15);
 
@@ -313,8 +317,8 @@ img {
 /* Time — mark-like but uncolored */
 time {
   padding: 0.15em 0.4em;
-  background-color: var(--dsfr-code-bg);
-  color: var(--dsfr-text-muted);
+  background-color: var(--dsfr-time-bg);
+  color: var(--dsfr-time-color);
   border-radius: 0;
 }
 
