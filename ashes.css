@@ -303,7 +303,7 @@ pre code {
 img {
   border-radius: 3px;
   box-shadow: 0 1px 3px var(--ashes-shadow-raw);
-  margin: 0.25rem;
+  margin: 1rem;
 }
 
 /* Time — mark-like but uncolored */
