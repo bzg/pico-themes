@@ -298,7 +298,7 @@ header.container {
   margin-bottom: 2rem;
   border-bottom: none;
 }
-header h1 { margin-bottom: 0.75rem; font-variant: small-caps; }
+header h1 { margin-bottom: 0.75rem; }
 header h1 a {
   color: var(--swh-grey-dark);
   text-decoration: none;
@@ -486,6 +486,7 @@ aside.help {
 
 .score-result { border-radius: 6px; }
 
+nav a { font-variant: small-caps; }
 nav.actions a:hover { background: var(--swh-red-light); border-radius: 4px; }
 
 /* ==========================================================================

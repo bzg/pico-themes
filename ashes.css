@@ -396,7 +396,7 @@ header.container {
   margin-bottom: 2rem;
   border-bottom: none;
 }
-header h1 { margin-bottom: 0.75rem; font-variant: small-caps; }
+header h1 { margin-bottom: 0.75rem; }
 header h1 a {
   color: var(--ashes-heading);
   text-decoration: none;
@@ -576,6 +576,7 @@ aside.help {
 
 .score-result { border-radius: 3px; }
 
+nav a { font-variant: small-caps; }
 nav.actions a:hover { background: var(--ashes-accent-light); border-radius: 3px; }
 
 /* ==========================================================================

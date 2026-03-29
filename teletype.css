@@ -216,7 +216,6 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--doric-heading);
   font-weight: 500;
   letter-spacing: 0.04em;
-  font-variant: small-caps;
   font-size: inherit;
 }
 h1 { font-size: 1.25rem; }
@@ -345,7 +344,7 @@ header.container {
   margin-bottom: 2rem;
   border-bottom: none;
 }
-header h1 { margin-bottom: 0.75rem; font-variant: small-caps; }
+header h1 { margin-bottom: 0.75rem; }
 header h1 a {
   color: var(--doric-heading);
   text-decoration: none;
@@ -528,6 +527,7 @@ aside.help {
 
 .score-result { border-radius: 2px; }
 
+nav a { font-variant: small-caps; }
 nav.actions a:hover { background: var(--doric-accent-bg); border-radius: 2px; }
 
 /* ==========================================================================
