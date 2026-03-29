@@ -71,11 +71,11 @@
   --status-negative:    var(--org-soft-red);
   --status-negative-bg: color-mix(in srgb, #a3425e 10%, transparent);
 
-  /* Typography — Droid font stack from worg, with system fallbacks */
-  --org-font-family: "Droid Serif", Georgia, "Times New Roman", serif;
-  --org-font-sans:   "Droid Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+  /* Typography — system font stacks */
+  --org-font-family: Georgia, "Times New Roman", serif;
+  --org-font-sans:   -apple-system, BlinkMacSystemFont, "Segoe UI",
                      Roboto, "Helvetica Neue", Arial, sans-serif;
-  --org-font-mono:   "Droid Sans Mono", "SFMono-Regular", Consolas,
+  --org-font-mono:   "SFMono-Regular", Consolas,
                      "Liberation Mono", Menlo, Courier, monospace;
 
   color-scheme: light dark;

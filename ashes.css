@@ -85,10 +85,10 @@
   --status-negative:    var(--ashes-error);
   --status-negative-bg: color-mix(in srgb, #8a4a4a 10%, transparent);
 
-  /* Typography — Inconsolata-first monospace stack */
-  --ashes-font-family: "Inconsolata", "Roboto Mono", "Consolas", "Monaco",
+  /* Typography — system monospace */
+  --ashes-font-family: Consolas, "Monaco",
                         "Liberation Mono", Menlo, Courier, monospace;
-  --ashes-font-mono:   "Inconsolata", "Roboto Mono", "Consolas", "Monaco",
+  --ashes-font-mono:   Consolas, "Monaco",
                         "Liberation Mono", Menlo, Courier, monospace;
 
   color-scheme: light dark;

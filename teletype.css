@@ -64,12 +64,10 @@
   --status-negative:    #484848;
   --status-negative-bg: color-mix(in srgb, #484848 8%, transparent);
 
-  /* Typography — monospace first, jazzy letter-spacing */
-  --doric-font-family: "IBM Plex Mono", "Fira Mono", "JetBrains Mono",
-                        "SF Mono", "Cascadia Mono", "Consolas",
+  /* Typography — system monospace */
+  --doric-font-family: "SF Mono", "Cascadia Mono", Consolas,
                         "Liberation Mono", Menlo, Courier, monospace;
-  --doric-font-mono:   "IBM Plex Mono", "Fira Mono", "JetBrains Mono",
-                        "SF Mono", "Cascadia Mono", "Consolas",
+  --doric-font-mono:   "SF Mono", "Cascadia Mono", Consolas,
                         "Liberation Mono", Menlo, Courier, monospace;
 
   color-scheme: light dark;

@@ -67,9 +67,8 @@
   --status-negative:    var(--doric-red);
   --status-negative-bg: color-mix(in srgb, #a01010 10%, transparent);
 
-  /* Typography — system sans, monochromatic spirit */
-  --doric-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-                        "Helvetica Neue", Arial, sans-serif;
+  /* Typography — system serif, monochromatic spirit */
+  --doric-font-family: Georgia, "Times New Roman", serif;
   --doric-font-mono:   "SFMono-Regular", Consolas, "Liberation Mono", Menlo,
                         Courier, monospace;
 
