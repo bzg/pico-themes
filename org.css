@@ -56,8 +56,6 @@
   --org-bg:           #ffffff;
   --org-bg-elevated:  #ffffff;
   --org-code-bg:      #f2f2f2;
-  --org-time-bg:      #f9f9f9;
-  --org-time-color:   #d0d0d0;
   --org-shadow:       rgba(0, 0, 0, 0.08);
   --org-shadow-teal:  rgba(61, 90, 80, 0.12);
 
@@ -112,8 +110,6 @@
     --org-bg:           #1a1a2e;
     --org-bg-elevated:  #222240;
     --org-code-bg:      #252540;
-    --org-time-bg:      #1e1e34;
-    --org-time-color:   #3a3a55;
     --org-shadow:       rgba(0, 0, 0, 0.4);
     --org-shadow-teal:  rgba(143, 188, 170, 0.15);
 
@@ -259,12 +255,9 @@ img {
   margin: 1rem;
 }
 
-/* Time — mark-like but uncolored */
+/* Time — subtle, no background */
 time {
-  padding: 0.15em 0.4em;
-  background-color: var(--org-time-bg);
-  color: var(--org-time-color);
-  border-radius: 4px;
+  color: var(--org-text-muted);
 }
 
 /* Blockquotes — warm-brown accent */

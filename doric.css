@@ -47,8 +47,6 @@
   --doric-bg-elevated:  #ffffff;
   --doric-bg-alt:       #efeff2;
   --doric-code-bg:      #efeff2;
-  --doric-time-bg:      #f7f7f9;
-  --doric-time-color:   #d0d0d5;
   --doric-text:         #000000;
   --doric-text-muted:   #5a6268;
   --doric-heading:      #000000;
@@ -114,8 +112,6 @@
     --doric-bg-elevated:  #141118;
     --doric-bg-alt:       #332d38;
     --doric-code-bg:      #332d38;
-    --doric-time-bg:      #18151c;
-    --doric-time-color:   #302a35;
     --doric-text:         #ffffff;
     --doric-text-muted:   #a2a0b2;
     --doric-heading:      #ffffff;
@@ -275,12 +271,9 @@ img {
   margin: 1rem;
 }
 
-/* Time — mark-like but uncolored */
+/* Time — subtle, no background */
 time {
-  padding: 0.15em 0.4em;
-  background-color: var(--doric-time-bg);
-  color: var(--doric-time-color);
-  border-radius: 3px;
+  color: var(--doric-text-muted);
 }
 
 /* Blockquotes — accent bar, subtle background */

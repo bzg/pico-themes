@@ -69,8 +69,6 @@
   --ashes-bg-elevated:  #ffffff;
   --ashes-bg-alt:       #f7f7f7;
   --ashes-code-bg:      #f7f7f7;
-  --ashes-time-bg:      #f5f5f5;
-  --ashes-time-color:   #c8c8c8;
   --ashes-shadow:       0 3px 3px var(--ashes-grey-300);
   --ashes-shadow-raw:   rgba(0, 0, 0, 0.06);
   --ashes-shadow-accent: rgba(0, 77, 153, 0.08);
@@ -141,8 +139,6 @@
     --ashes-bg-elevated:  #111122;
     --ashes-bg-alt:       #0d0d1f;
     --ashes-code-bg:      #111122;
-    --ashes-time-bg:      #0e0e1a;
-    --ashes-time-color:   #2a2a3a;
     --ashes-shadow:       0 3px 3px #050510;
     --ashes-shadow-raw:   rgba(0, 0, 0, 0.4);
     --ashes-shadow-accent: rgba(100, 181, 246, 0.10);
@@ -201,8 +197,6 @@
   --ashes-bg-elevated:  #111122;
   --ashes-bg-alt:       #0d0d1f;
   --ashes-code-bg:      #111122;
-  --ashes-time-bg:      #0e0e1a;
-  --ashes-time-color:   #2a2a3a;
   --ashes-shadow:       0 3px 3px #050510;
   --ashes-shadow-raw:   rgba(0, 0, 0, 0.4);
   --ashes-shadow-accent: rgba(100, 181, 246, 0.10);
@@ -306,12 +300,9 @@ img {
   margin: 1rem;
 }
 
-/* Time — mark-like but uncolored */
+/* Time — subtle, no background */
 time {
-  padding: 0.15em 0.4em;
-  background-color: var(--ashes-time-bg);
-  color: var(--ashes-time-color);
-  border-radius: 3px;
+  color: var(--ashes-text-muted);
 }
 
 /* Blockquotes — thin grey rule, no colour accent */

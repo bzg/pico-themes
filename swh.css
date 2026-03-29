@@ -43,8 +43,6 @@
   --swh-bg:             #ffffff;
   --swh-bg-elevated:    #ffffff;
   --swh-code-bg:        #f8f8f8;
-  --swh-time-bg:        #fbfbfb;
-  --swh-time-color:     #d0d0d0;
   --swh-shadow:         rgba(0, 0, 0, 0.08);
   --swh-shadow-red:     rgba(226, 0, 38, 0.12);
 
@@ -98,8 +96,6 @@
     --swh-bg:            #1a1a1a;
     --swh-bg-elevated:   #222222;
     --swh-code-bg:       #2a2a2a;
-    --swh-time-bg:       #1f1f1f;
-    --swh-time-color:    #3a3a3a;
     --swh-shadow:        rgba(0, 0, 0, 0.4);
     --swh-shadow-red:    rgba(255, 45, 74, 0.15);
 
@@ -243,12 +239,9 @@ img {
   margin: 1rem;
 }
 
-/* Time — mark-like but uncolored */
+/* Time — subtle, no background */
 time {
-  padding: 0.15em 0.4em;
-  background-color: var(--swh-time-bg);
-  color: var(--swh-time-color);
-  border-radius: 4px;
+  color: var(--swh-text-muted);
 }
 
 /* Blockquotes — orange accent (secondary brand color) */
