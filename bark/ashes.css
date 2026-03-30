@@ -42,9 +42,6 @@
   --bark-mark-patch-bg: #4a7a5e1a; --bark-mark-patch: #4a7a5e;
   --bark-mark-rel-bg: #6666661a; --bark-mark-rel: #666666;
   --bark-mark-chg-bg: #8888881a; --bark-mark-chg: #888888;
-  --bark-btn-open: #666666; --bark-btn-open-text: #ffffff;
-  --bark-btn-acked: #888888; --bark-btn-acked-text: #ffffff;
-  --bark-btn-owned: #444444; --bark-btn-owned-text: #ffffff;
   --bark-vote-pos-bg: #4a7a5e22; --bark-vote-pos: #4a7a5e;
   --bark-vote-neg-bg: #8a4a4a22; --bark-vote-neg: #8a4a4a;
   --bark-vote-zero-bg: #88888818; --bark-vote-zero: #888888;
@@ -57,9 +54,6 @@
     --bark-mark-patch-bg: #6aaa7e26; --bark-mark-patch: #6aaa7e;
     --bark-mark-rel-bg: #a0a0a026; --bark-mark-rel: #a0a0a0;
     --bark-mark-chg-bg: #80808026; --bark-mark-chg: #808080;
-    --bark-btn-open: #a0a0a0; --bark-btn-open-text: #0a0a17;
-    --bark-btn-acked: #808080; --bark-btn-acked-text: #0a0a17;
-    --bark-btn-owned: #c0c0c0; --bark-btn-owned-text: #0a0a17;
     --bark-vote-pos-bg: #6aaa7e33; --bark-vote-pos: #6aaa7e;
     --bark-vote-neg-bg: #ba6a6a33; --bark-vote-neg: #ba6a6a;
     --bark-vote-zero-bg: #80808022; --bark-vote-zero: #808080;
@@ -72,9 +66,6 @@
   --bark-mark-patch-bg: #6aaa7e26; --bark-mark-patch: #6aaa7e;
   --bark-mark-rel-bg: #a0a0a026; --bark-mark-rel: #a0a0a0;
   --bark-mark-chg-bg: #80808026; --bark-mark-chg: #808080;
-  --bark-btn-open: #a0a0a0; --bark-btn-open-text: #0a0a17;
-  --bark-btn-acked: #808080; --bark-btn-acked-text: #0a0a17;
-  --bark-btn-owned: #c0c0c0; --bark-btn-owned-text: #0a0a17;
   --bark-vote-pos-bg: #6aaa7e33; --bark-vote-pos: #6aaa7e;
   --bark-vote-neg-bg: #ba6a6a33; --bark-vote-neg: #ba6a6a;
   --bark-vote-zero-bg: #80808022; --bark-vote-zero: #808080;
