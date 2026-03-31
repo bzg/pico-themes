@@ -1,4 +1,4 @@
-* Pico themes
+#+title: Pico themes
 
 Shared CSS themes for [[https://codeberg.org/bzg/topics][topics]], [[https://codeberg.org/bzg/bark][BARK]], and [[https://codeberg.org/bzg/hop][hop]].
 
@@ -13,37 +13,37 @@ Six themes are available:
 | *Teletype* | =teletype.css= | Black & White                               |
 | *Ashes*    | =ashes.css=    | Inspired by [[https://bzg.fr][bzg.fr]] (monospace, grey embers) |
 
-** Color palettes
+* Color palettes
 
 Each theme supports light and dark mode.  Here are the palettes:
 
-*** SWH
+** SWH
 
 [[file:images/palette-swh.svg]]
 
-*** Org
+** Org
 
 [[file:images/palette-org.svg]]
 
-*** Doric
+** Doric
 
 [[file:images/palette-doric.svg]]
 
-*** Lincoln
+** Lincoln
 
 [[file:images/palette-lincoln.svg]]
 
-*** Teletype
+** Teletype
 
 [[file:images/palette-teletype.svg]]
 
-*** Ashes
+** Ashes
 
 [[file:images/palette-ashes.svg]]
 
 BARK-specific overlays live in =bark/= (see below).
 
-** What each theme covers
+* What each theme covers
 
 Each theme file is self-contained and styles:
 
@@ -57,7 +57,7 @@ Each theme file is self-contained and styles:
   =[data-theme=dark]= attribute
 - *Print*, reduced motion, scrollbar styling
 
-** BARK overlays
+* BARK overlays
 
 BARK-specific styles live in =bark/=, one file per theme, each with
 chart palette, type badges, buttons, stripe rows:
@@ -81,9 +81,9 @@ Load after the base theme:
 <link rel="stylesheet" href="bark/doric.css">
 #+end_src
 
-** Usage
+* Usage
 
-*** Via jsDelivr CDN (recommended)
+** Via jsDelivr CDN (recommended)
 
 Once this repo is on GitHub, files are available via jsDelivr:
 
@@ -97,7 +97,7 @@ Pin to a specific commit for stability:
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bzg/themes@COMMIT_SHA/swh.css">
 #+end_src
 
-*** Per project
+** Per project
 
 *topics* --- set =:theme-url= in config to the CDN URL.
 
@@ -120,12 +120,21 @@ block in =html-template=:
 The theme =<link>= must come *after* any inline =<style>= block so it
 overrides the defaults.
 
-** Dark mode
+* Dark mode
 
 - *topics*, *org-parse*: automatic via =prefers-color-scheme=
 - *BARK*: JS toggle sets =[data-theme=dark]= on =<html>= --- themes respond
   to both selectors
 
-** License
+* Contributing
+
+- Send a [[mailto:~bzg/dev@lists.sr.ht][bug report]] with =[BUG] pico-themes: <SHORT EXPLICIT BUG DESCRIPTION>=
+- Send a [[mailto:~bzg/dev@lists.sr.ht][patch]] with =[PATCH] pico-themes: <COMMIT SUMMARY>=
+- Send a [[mailto:~bzg/dev@lists.sr.ht][feature request]] with =[FR] pico-themes: <FEATURE REQUEST>=
+- Share any [[mailto:~bzg/dev@lists.sr.ht][other question or idea]]
+
+You can also [[mailto:bzg@bzg.fr][send me an email]] and support my work on [[https://liberapay.com/bzg/][liberapay]].
+
+* License
 
 CSS files in this repository are published under MPL.
