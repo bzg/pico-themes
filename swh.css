@@ -242,6 +242,7 @@ img {
 /* Time — subtle, no background */
 time {
   color: var(--swh-text-muted);
+  background-color: transparent;
 }
 
 /* Blockquotes — orange accent (secondary brand color) */

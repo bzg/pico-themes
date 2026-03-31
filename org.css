@@ -258,6 +258,7 @@ img {
 /* Time — subtle, no background */
 time {
   color: var(--org-text-muted);
+  background-color: transparent;
 }
 
 /* Blockquotes — warm-brown accent */

@@ -284,6 +284,7 @@ img {
 /* Time — subtle, no background */
 time {
   color: var(--doric-text-muted);
+  background-color: transparent;
 }
 
 /* Blockquotes — thin rule, no colour accent */
