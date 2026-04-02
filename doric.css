@@ -274,7 +274,7 @@ img {
 /* Time — subtle, no background */
 time {
   color: var(--doric-text-muted);
-  background-color: transparent;
+  background: transparent;
 }
 
 /* Blockquotes — accent bar, subtle background */

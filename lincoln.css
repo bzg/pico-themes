@@ -257,7 +257,7 @@ img {
 /* Time — subtle, no background */
 time {
   color: var(--org-text-muted);
-  background-color: transparent;
+  background: transparent;
 }
 
 /* Blockquotes — Burned Orange accent */

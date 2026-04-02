@@ -303,7 +303,7 @@ img {
 /* Time — subtle, no background */
 time {
   color: var(--ashes-text-muted);
-  background-color: transparent;
+  background: transparent;
 }
 
 /* Blockquotes — thin grey rule, no colour accent */
