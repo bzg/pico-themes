@@ -256,6 +256,9 @@ blockquote {
 }
 blockquote p:last-child { margin-bottom: 0; }
 
+/* Description lists */
+dd { margin-bottom: .8rem; }
+
 /* Buttons */
 button,
 [type="submit"],
