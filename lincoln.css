@@ -564,7 +564,7 @@ header .document-title { border-color: var(--org-teal); }
 .planning { color: var(--org-text-muted); }
 .warning { background: var(--org-brown-light); border-left-color: var(--org-warm-brown); color: var(--org-text); }
 .note { background: var(--org-teal-light); border-left-color: var(--org-teal); color: var(--org-text); }
-figure { width: fit-content; }
+figure { width: fit-content; margin-block: calc(var(--pico-typography-spacing-vertical, 1rem) + 0.4rem); }
 figure > img { display: block; margin-bottom: 0.25rem; }
 figure figcaption { color: var(--org-text-muted); font-size: 0.875em; padding: 0; }
 figure.align-center { margin-left: auto; margin-right: auto; }

@@ -529,7 +529,7 @@ header .document-title { border-color: var(--doric-border); }
 .planning { color: var(--doric-text-muted); }
 .warning { background: var(--doric-bg-yellow); border-left-color: var(--doric-yellow); color: var(--doric-text); }
 .note { background: var(--doric-bg-blue); border-left-color: var(--doric-blue); color: var(--doric-text); }
-figure { width: fit-content; }
+figure { width: fit-content; margin-block: calc(var(--pico-typography-spacing-vertical, 1rem) + 0.4rem); }
 figure > img { display: block; margin-bottom: 0.25rem; }
 figure figcaption { color: var(--doric-text-muted); font-size: 0.875em; padding: 0; }
 figure.align-center { margin-left: auto; margin-right: auto; }

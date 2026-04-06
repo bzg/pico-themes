@@ -548,7 +548,7 @@ header .document-title { border-color: var(--doric-border); }
 .planning { color: var(--doric-text-muted); }
 .warning { background: var(--doric-bg-alt); border-left-color: var(--doric-border); color: var(--doric-text); }
 .note { background: var(--doric-bg-alt); border-left-color: var(--doric-border); color: var(--doric-text); }
-figure { width: fit-content; }
+figure { width: fit-content; margin-block: calc(var(--pico-typography-spacing-vertical, 1rem) + 0.4rem); }
 figure > img { display: block; margin-bottom: 0.25rem; }
 figure figcaption { color: var(--doric-text-muted); font-style: italic; font-size: 0.875em; padding: 0; }
 figure.align-center { margin-left: auto; margin-right: auto; }

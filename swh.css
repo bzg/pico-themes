@@ -507,7 +507,7 @@ header .document-title { border-color: var(--swh-red); }
 .planning { color: var(--swh-text-muted); }
 .warning { background: var(--swh-orange-light); border-left-color: var(--swh-orange); color: var(--swh-text); }
 .note { background: #e8edff; border-left-color: #0063cb; color: var(--swh-text); }
-figure { width: fit-content; }
+figure { width: fit-content; margin-block: calc(var(--pico-typography-spacing-vertical, 1rem) + 0.4rem); }
 figure > img { display: block; margin-bottom: 0.25rem; }
 figure figcaption { color: var(--swh-text-muted); font-size: 0.875em; padding: 0; }
 figure.align-center { margin-left: auto; margin-right: auto; }

@@ -597,7 +597,7 @@ header .document-title { border-color: var(--ashes-border); }
 .planning { color: var(--ashes-text-muted); }
 .warning { background: var(--ashes-warning-bg); border-left-color: var(--ashes-warning); color: var(--ashes-text); }
 .note { background: var(--ashes-info-bg); border-left-color: var(--ashes-info); color: var(--ashes-text); }
-figure { width: fit-content; }
+figure { width: fit-content; margin-block: calc(var(--pico-typography-spacing-vertical, 1rem) + 0.4rem); }
 figure > img { display: block; margin-bottom: 0.25rem; }
 figcaption { color: var(--ashes-text-muted); font-size: 0.875em; }
 figure.align-center { margin-left: auto; margin-right: auto; }
