@@ -565,7 +565,9 @@ header .document-title { border-color: var(--org-teal); }
 .planning { color: var(--org-text-muted); }
 .warning { background: var(--org-brown-light); border-left-color: var(--org-warm-brown); color: var(--org-text); }
 .note { background: var(--org-teal-light); border-left-color: var(--org-teal); color: var(--org-text); }
-figcaption { color: var(--org-text-muted); }
+figure { width: fit-content; }
+figure > img { display: block; margin-bottom: 0.25rem; }
+figure figcaption { color: var(--org-text-muted); font-size: 0.875em; padding: 0; }
 
 /* ==========================================================================
    7. SCROLLBARS, PRINT, REDUCED MOTION
