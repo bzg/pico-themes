@@ -532,6 +532,15 @@ header .document-title { border-color: var(--doric-border); }
 figure { width: fit-content; }
 figure > img { display: block; margin-bottom: 0.25rem; }
 figure figcaption { color: var(--doric-text-muted); font-size: 0.875em; padding: 0; }
+figure.align-center { margin-left: auto; margin-right: auto; }
+figure.align-center > img { margin-left: auto; margin-right: auto; }
+figure.align-center > figcaption { text-align: center; }
+figure.align-right { margin-left: auto; margin-right: 0; }
+figure.align-right > img { margin-left: auto; margin-right: 0; }
+figure.align-right > figcaption { text-align: right; }
+figure.align-left { margin-left: 0; margin-right: auto; }
+figure.align-left > img { margin-left: 0; margin-right: auto; }
+figure.align-left > figcaption { text-align: left; }
 
 /* ==========================================================================
    7. SCROLLBARS, PRINT, REDUCED MOTION
