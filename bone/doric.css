@@ -1,0 +1,110 @@
+/* ==========================================================================
+   bone/doric.css — BONE-specific overrides for the doric theme
+   Load after doric.css:  <link rel="stylesheet" href="bone/doric.css">
+   ========================================================================== */
+
+/* Chart palette (read by bone-stats.js for Vega) */
+:root {
+  --bone-chart-1: #084092;
+  --bone-chart-2: #103077;
+  --bone-chart-3: #700d50;
+  --bone-chart-4: #005355;
+  --bone-chart-5: #5a6268;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bone-chart-1: #cda4df;
+    --bone-chart-2: #9fbfe7;
+    --bone-chart-3: #e9acbf;
+    --bone-chart-4: #a0c0d0;
+    --bone-chart-5: #a2a0b2;
+  }
+}
+
+[data-theme=dark] {
+  --bone-chart-1: #cda4df;
+  --bone-chart-2: #9fbfe7;
+  --bone-chart-3: #e9acbf;
+  --bone-chart-4: #a0c0d0;
+  --bone-chart-5: #a2a0b2;
+}
+
+/* ==========================================================================
+   5. BONE-SPECIFIC COMPONENTS
+   ========================================================================== */
+
+/* BONE type badges — via --bone-* variables */
+:root {
+  --bone-mark-bug-bg: #a010101a; --bone-mark-bug: #a01010;
+  --bone-mark-ann-bg: #1030771a; --bone-mark-ann: #103077;
+  --bone-mark-req-bg: #60400f1a; --bone-mark-req: #60400f;
+  --bone-mark-patch-bg: #1067101a; --bone-mark-patch: #106710;
+  --bone-mark-rel-bg: #700d501a; --bone-mark-rel: #700d50;
+  --bone-mark-chg-bg: #5a62681a; --bone-mark-chg: #5a6268;
+  --bone-vote-pos-bg: #10671033; --bone-vote-pos: #106710;
+  --bone-vote-neg-bg: #a0101033; --bone-vote-neg: #a01010;
+  --bone-vote-zero-bg: #5a626822; --bone-vote-zero: #5a6268;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bone-mark-bug-bg: #eca28f26; --bone-mark-bug: #eca28f;
+    --bone-mark-ann-bg: #9fbfe726; --bone-mark-ann: #9fbfe7;
+    --bone-mark-req-bg: #c0b08026; --bone-mark-req: #c0b080;
+    --bone-mark-patch-bg: #b9d0aa26; --bone-mark-patch: #b9d0aa;
+    --bone-mark-rel-bg: #e9acbf26; --bone-mark-rel: #e9acbf;
+    --bone-mark-chg-bg: #a2a0b226; --bone-mark-chg: #a2a0b2;
+    --bone-vote-pos-bg: #b9d0aa33; --bone-vote-pos: #b9d0aa;
+    --bone-vote-neg-bg: #eca28f33; --bone-vote-neg: #eca28f;
+    --bone-vote-zero-bg: #a2a0b222; --bone-vote-zero: #a2a0b2;
+  }
+}
+[data-theme=dark] {
+  --bone-mark-bug-bg: #eca28f26; --bone-mark-bug: #eca28f;
+  --bone-mark-ann-bg: #9fbfe726; --bone-mark-ann: #9fbfe7;
+  --bone-mark-req-bg: #c0b08026; --bone-mark-req: #c0b080;
+  --bone-mark-patch-bg: #b9d0aa26; --bone-mark-patch: #b9d0aa;
+  --bone-mark-rel-bg: #e9acbf26; --bone-mark-rel: #e9acbf;
+  --bone-mark-chg-bg: #a2a0b226; --bone-mark-chg: #a2a0b2;
+  --bone-vote-pos-bg: #b9d0aa33; --bone-vote-pos: #b9d0aa;
+  --bone-vote-neg-bg: #eca28f33; --bone-vote-neg: #eca28f;
+  --bone-vote-zero-bg: #a2a0b222; --bone-vote-zero: #a2a0b2;
+}
+
+.filters button {
+  background-color: var(--doric-accent);
+  border-color: var(--doric-accent);
+  color: var(--pico-primary-inverse);
+  border-radius: 3px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.filters button:hover { background-color: var(--pico-primary-hover); border-color: var(--pico-primary-hover); }
+.filters button.outline {
+  background: none;
+  border: 1px solid var(--doric-border);
+  color: var(--doric-text-muted);
+  opacity: 0.7;
+}
+.filters button.outline:hover { border-color: var(--doric-accent); color: var(--doric-accent); opacity: 1; }
+
+.theme-toggle {
+  cursor: pointer;
+  background: none !important;
+  border: none !important;
+  font-size: 1.2rem;
+  padding: 0.3rem;
+  color: var(--doric-text-muted);
+}
+.theme-toggle:hover { background: none !important; color: var(--doric-accent); }
+
+footer.bone-footer { color: var(--doric-text-muted); border-top: 1px solid var(--doric-border); }
+footer.bone-footer a { color: var(--doric-accent); }
+footer.bone-footer a:hover { color: var(--pico-primary-hover); }
+
+[data-theme=light] { --bone-stripe-bg: var(--doric-bg-alt); --bone-row-bg: var(--doric-bg); }
+[data-theme=dark]  { --bone-stripe-bg: #1a1720; --bone-row-bg: #000000; }
+
+nav ul li a { color: var(--doric-accent); }
+nav ul li a:hover { color: var(--pico-primary-hover); }
+

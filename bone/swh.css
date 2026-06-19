@@ -1,0 +1,110 @@
+/* ==========================================================================
+   bone/swh.css — BONE-specific overrides for the swh theme
+   Load after swh.css:  <link rel="stylesheet" href="bone/swh.css">
+   ========================================================================== */
+
+/* Chart palette (read by bone-stats.js for Vega) */
+:root {
+  --bone-chart-1: #e20026;
+  --bone-chart-2: #ef4426;
+  --bone-chart-3: #f79622;
+  --bone-chart-4: #fabf1f;
+  --bone-chart-5: #737373;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bone-chart-1: #ff2d4a;
+    --bone-chart-2: #ff5c3d;
+    --bone-chart-3: #ffa033;
+    --bone-chart-4: #ffc82e;
+    --bone-chart-5: #999999;
+  }
+}
+
+[data-theme=dark] {
+  --bone-chart-1: #ff2d4a;
+  --bone-chart-2: #ff5c3d;
+  --bone-chart-3: #ffa033;
+  --bone-chart-4: #ffc82e;
+  --bone-chart-5: #999999;
+}
+
+/* ==========================================================================
+   5. BONE-SPECIFIC COMPONENTS
+   ========================================================================== */
+
+/* BONE type badges — override via --bone-* variables */
+:root {
+  --bone-mark-bug-bg: #e200261a; --bone-mark-bug: #c90022;
+  --bone-mark-ann-bg: #0063cb1a; --bone-mark-ann: #0063cb;
+  --bone-mark-req-bg: #b8860b1a; --bone-mark-req: #9a7209;
+  --bone-mark-patch-bg: #18753c1a; --bone-mark-patch: #18753c;
+  --bone-mark-rel-bg: #7b2d8e1a; --bone-mark-rel: #7b2d8e;
+  --bone-mark-chg-bg: #5566771a; --bone-mark-chg: #556677;
+  --bone-vote-pos-bg: #18753c33; --bone-vote-pos: #18753c;
+  --bone-vote-neg-bg: #c9002233; --bone-vote-neg: #c90022;
+  --bone-vote-zero-bg: #55667722; --bone-vote-zero: #556677;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bone-mark-bug-bg: #ff2d4a26; --bone-mark-bug: #ff5c73;
+    --bone-mark-ann-bg: #518fff26; --bone-mark-ann: #518fff;
+    --bone-mark-req-bg: #e8b84d26; --bone-mark-req: #e8b84d;
+    --bone-mark-patch-bg: #27a65826; --bone-mark-patch: #27a658;
+    --bone-mark-rel-bg: #c9a0dc26; --bone-mark-rel: #c9a0dc;
+    --bone-mark-chg-bg: #8899aa26; --bone-mark-chg: #8899aa;
+    --bone-vote-pos-bg: #27a65833; --bone-vote-pos: #27a658;
+    --bone-vote-neg-bg: #ff5c7333; --bone-vote-neg: #ff5c73;
+    --bone-vote-zero-bg: #8899aa22; --bone-vote-zero: #8899aa;
+  }
+}
+[data-theme=dark] {
+  --bone-mark-bug-bg: #ff2d4a26; --bone-mark-bug: #ff5c73;
+  --bone-mark-ann-bg: #518fff26; --bone-mark-ann: #518fff;
+  --bone-mark-req-bg: #e8b84d26; --bone-mark-req: #e8b84d;
+  --bone-mark-patch-bg: #27a65826; --bone-mark-patch: #27a658;
+  --bone-mark-rel-bg: #c9a0dc26; --bone-mark-rel: #c9a0dc;
+  --bone-mark-chg-bg: #8899aa26; --bone-mark-chg: #8899aa;
+  --bone-vote-pos-bg: #27a65833; --bone-vote-pos: #27a658;
+  --bone-vote-neg-bg: #ff5c7333; --bone-vote-neg: #ff5c73;
+  --bone-vote-zero-bg: #8899aa22; --bone-vote-zero: #8899aa;
+}
+
+.filters button {
+  background-color: var(--swh-red);
+  border-color: var(--swh-red);
+  color: #ffffff;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.filters button:hover { background-color: var(--swh-red-hover); border-color: var(--swh-red-hover); }
+.filters button.outline {
+  background: none;
+  border: 1px solid var(--swh-border);
+  color: var(--swh-text-muted);
+  opacity: 0.7;
+}
+.filters button.outline:hover { border-color: var(--swh-red); color: var(--swh-red); opacity: 1; }
+
+.theme-toggle {
+  cursor: pointer;
+  background: none !important;
+  border: none !important;
+  font-size: 1.2rem;
+  padding: 0.3rem;
+  color: var(--swh-text-muted);
+}
+.theme-toggle:hover { background: none !important; color: var(--swh-red); }
+
+footer.bone-footer { color: var(--swh-text-muted); border-top: 1px solid var(--swh-border); }
+footer.bone-footer a { color: var(--swh-red); }
+footer.bone-footer a:hover { color: var(--swh-red-hover); }
+
+[data-theme=light] { --bone-stripe-bg: var(--swh-grey-light); --bone-row-bg: var(--swh-bg); }
+[data-theme=dark]  { --bone-stripe-bg: #252525; --bone-row-bg: #1a1a1a; }
+
+nav ul li a { color: var(--swh-red); }
+nav ul li a:hover { color: var(--swh-red-hover); }
+

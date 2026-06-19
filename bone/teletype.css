@@ -1,0 +1,111 @@
+/* ==========================================================================
+   bone/teletype.css — BONE-specific overrides for the teletype theme
+   Load after teletype.css:  <link rel="stylesheet" href="bone/teletype.css">
+   ========================================================================== */
+
+/* Chart palette — five grey steps (read by bone-stats.js for Vega) */
+:root {
+  --bone-chart-1: #2a2a2a;
+  --bone-chart-2: #505050;
+  --bone-chart-3: #787878;
+  --bone-chart-4: #a0a0a0;
+  --bone-chart-5: #c0c0c0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bone-chart-1: #d8d8d8;
+    --bone-chart-2: #b0b0b0;
+    --bone-chart-3: #888888;
+    --bone-chart-4: #606060;
+    --bone-chart-5: #404040;
+  }
+}
+
+[data-theme=dark] {
+  --bone-chart-1: #d8d8d8;
+  --bone-chart-2: #b0b0b0;
+  --bone-chart-3: #888888;
+  --bone-chart-4: #606060;
+  --bone-chart-5: #404040;
+}
+
+/* ==========================================================================
+   5. BONE-SPECIFIC COMPONENTS
+   ========================================================================== */
+
+/* BONE type badges — grey-only via --bone-* variables */
+:root {
+  --bone-mark-bug-bg: #4848481a; --bone-mark-bug: #484848;
+  --bone-mark-ann-bg: #6060601a; --bone-mark-ann: #606060;
+  --bone-mark-req-bg: #7070701a; --bone-mark-req: #707070;
+  --bone-mark-patch-bg: #5050501a; --bone-mark-patch: #505050;
+  --bone-mark-rel-bg: #5858581a; --bone-mark-rel: #585858;
+  --bone-mark-chg-bg: #8080801a; --bone-mark-chg: #808080;
+  --bone-vote-pos-bg: #50505022; --bone-vote-pos: #505050;
+  --bone-vote-neg-bg: #48484822; --bone-vote-neg: #484848;
+  --bone-vote-zero-bg: #80808018; --bone-vote-zero: #808080;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bone-mark-bug-bg: #c0c0c026; --bone-mark-bug: #c0c0c0;
+    --bone-mark-ann-bg: #a0a0a026; --bone-mark-ann: #a0a0a0;
+    --bone-mark-req-bg: #90909026; --bone-mark-req: #909090;
+    --bone-mark-patch-bg: #b0b0b026; --bone-mark-patch: #b0b0b0;
+    --bone-mark-rel-bg: #a8a8a826; --bone-mark-rel: #a8a8a8;
+    --bone-mark-chg-bg: #78787826; --bone-mark-chg: #787878;
+    --bone-vote-pos-bg: #b0b0b033; --bone-vote-pos: #b0b0b0;
+    --bone-vote-neg-bg: #c0c0c033; --bone-vote-neg: #c0c0c0;
+    --bone-vote-zero-bg: #78787822; --bone-vote-zero: #787878;
+  }
+}
+[data-theme=dark] {
+  --bone-mark-bug-bg: #c0c0c026; --bone-mark-bug: #c0c0c0;
+  --bone-mark-ann-bg: #a0a0a026; --bone-mark-ann: #a0a0a0;
+  --bone-mark-req-bg: #90909026; --bone-mark-req: #909090;
+  --bone-mark-patch-bg: #b0b0b026; --bone-mark-patch: #b0b0b0;
+  --bone-mark-rel-bg: #a8a8a826; --bone-mark-rel: #a8a8a8;
+  --bone-mark-chg-bg: #78787826; --bone-mark-chg: #787878;
+  --bone-vote-pos-bg: #b0b0b033; --bone-vote-pos: #b0b0b0;
+  --bone-vote-neg-bg: #c0c0c033; --bone-vote-neg: #c0c0c0;
+  --bone-vote-zero-bg: #78787822; --bone-vote-zero: #787878;
+}
+
+.filters button {
+  background-color: var(--doric-accent);
+  border-color: var(--doric-accent);
+  color: var(--pico-primary-inverse);
+  border-radius: 2px;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.filters button:hover { background-color: var(--pico-primary-hover); border-color: var(--pico-primary-hover); }
+.filters button.outline {
+  background: none;
+  border: 1px solid var(--doric-border);
+  color: var(--doric-text-muted);
+  opacity: 0.6;
+}
+.filters button.outline:hover { border-color: var(--doric-accent); color: var(--doric-accent); opacity: 1; }
+
+.theme-toggle {
+  cursor: pointer;
+  background: none !important;
+  border: none !important;
+  font-size: 1.2rem;
+  padding: 0.3rem;
+  color: var(--doric-text-muted);
+}
+.theme-toggle:hover { background: none !important; color: var(--doric-accent); }
+
+footer.bone-footer { color: var(--doric-text-muted); border-top: 1px solid var(--doric-border); }
+footer.bone-footer a { color: var(--doric-accent); }
+footer.bone-footer a:hover { color: var(--pico-primary-hover); }
+
+[data-theme=light] { --bone-stripe-bg: var(--doric-bg-alt); --bone-row-bg: var(--doric-bg); }
+[data-theme=dark]  { --bone-stripe-bg: #1a1a1a; --bone-row-bg: #111111; }
+
+nav ul li a { color: var(--doric-accent); }
+nav ul li a:hover { color: var(--pico-primary-hover); }

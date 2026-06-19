@@ -1,0 +1,109 @@
+/* ==========================================================================
+   bone/ashes.css — BONE-specific overrides for the ashes theme
+   Load after ashes.css:  <link rel="stylesheet" href="bone/ashes.css">
+   ========================================================================== */
+
+/* Chart palette — grey ramp with ember-blue anchor */
+:root {
+  --bone-chart-1: #333333;
+  --bone-chart-2: #666666;
+  --bone-chart-3: #888888;
+  --bone-chart-4: #aaaaaa;
+  --bone-chart-5: #cecece;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bone-chart-1: #e0e0e0;
+    --bone-chart-2: #a0a0a0;
+    --bone-chart-3: #808080;
+    --bone-chart-4: #606060;
+    --bone-chart-5: #404040;
+  }
+}
+
+[data-theme=dark] {
+  --bone-chart-1: #e0e0e0;
+  --bone-chart-2: #a0a0a0;
+  --bone-chart-3: #808080;
+  --bone-chart-4: #606060;
+  --bone-chart-5: #404040;
+}
+
+/* ==========================================================================
+   BONE-SPECIFIC COMPONENTS
+   ========================================================================== */
+
+/* BONE type badges — ashen greys with muted functional tones */
+:root {
+  --bone-mark-bug-bg: #8a4a4a1a; --bone-mark-bug: #8a4a4a;
+  --bone-mark-ann-bg: #4a6f8a1a; --bone-mark-ann: #4a6f8a;
+  --bone-mark-req-bg: #8a70401a; --bone-mark-req: #8a7040;
+  --bone-mark-patch-bg: #4a7a5e1a; --bone-mark-patch: #4a7a5e;
+  --bone-mark-rel-bg: #6666661a; --bone-mark-rel: #666666;
+  --bone-mark-chg-bg: #8888881a; --bone-mark-chg: #888888;
+  --bone-vote-pos-bg: #4a7a5e22; --bone-vote-pos: #4a7a5e;
+  --bone-vote-neg-bg: #8a4a4a22; --bone-vote-neg: #8a4a4a;
+  --bone-vote-zero-bg: #88888818; --bone-vote-zero: #888888;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bone-mark-bug-bg: #ba6a6a26; --bone-mark-bug: #ba6a6a;
+    --bone-mark-ann-bg: #6a9fba26; --bone-mark-ann: #6a9fba;
+    --bone-mark-req-bg: #baa06026; --bone-mark-req: #baa060;
+    --bone-mark-patch-bg: #6aaa7e26; --bone-mark-patch: #6aaa7e;
+    --bone-mark-rel-bg: #a0a0a026; --bone-mark-rel: #a0a0a0;
+    --bone-mark-chg-bg: #80808026; --bone-mark-chg: #808080;
+    --bone-vote-pos-bg: #6aaa7e33; --bone-vote-pos: #6aaa7e;
+    --bone-vote-neg-bg: #ba6a6a33; --bone-vote-neg: #ba6a6a;
+    --bone-vote-zero-bg: #80808022; --bone-vote-zero: #808080;
+  }
+}
+[data-theme=dark] {
+  --bone-mark-bug-bg: #ba6a6a26; --bone-mark-bug: #ba6a6a;
+  --bone-mark-ann-bg: #6a9fba26; --bone-mark-ann: #6a9fba;
+  --bone-mark-req-bg: #baa06026; --bone-mark-req: #baa060;
+  --bone-mark-patch-bg: #6aaa7e26; --bone-mark-patch: #6aaa7e;
+  --bone-mark-rel-bg: #a0a0a026; --bone-mark-rel: #a0a0a0;
+  --bone-mark-chg-bg: #80808026; --bone-mark-chg: #808080;
+  --bone-vote-pos-bg: #6aaa7e33; --bone-vote-pos: #6aaa7e;
+  --bone-vote-neg-bg: #ba6a6a33; --bone-vote-neg: #ba6a6a;
+  --bone-vote-zero-bg: #80808022; --bone-vote-zero: #808080;
+}
+
+.filters button {
+  background-color: var(--ashes-primary);
+  border-color: var(--ashes-primary);
+  color: var(--pico-primary-inverse);
+  border-radius: 3px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.filters button:hover { background-color: var(--pico-primary-hover); border-color: var(--pico-primary-hover); }
+.filters button.outline {
+  background: none;
+  border: 1px solid var(--ashes-border);
+  color: var(--ashes-text-muted);
+  opacity: 0.6;
+}
+.filters button.outline:hover { border-color: var(--ashes-accent); color: var(--ashes-accent); opacity: 1; }
+
+.theme-toggle {
+  cursor: pointer;
+  background: none !important;
+  border: none !important;
+  font-size: 1.2rem;
+  padding: 0.3rem;
+  color: var(--ashes-text-muted);
+}
+.theme-toggle:hover { background: none !important; color: var(--ashes-accent); }
+
+footer.bone-footer { color: var(--ashes-text-muted); border-top: 1px solid var(--ashes-border); }
+footer.bone-footer a { color: var(--ashes-accent); }
+footer.bone-footer a:hover { color: var(--ashes-accent-hover); }
+
+[data-theme=light] { --bone-stripe-bg: var(--ashes-bg-alt); --bone-row-bg: var(--ashes-bg); }
+[data-theme=dark]  { --bone-stripe-bg: #0e0e1a; --bone-row-bg: #0a0a17; }
+
+nav ul li a { color: var(--ashes-accent); }
+nav ul li a:hover { color: var(--ashes-accent-hover); }

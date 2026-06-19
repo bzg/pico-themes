@@ -1,0 +1,115 @@
+/* ==========================================================================
+   bone/lincoln.css — BONE-specific overrides for the Lincoln Blue theme
+   Load after lincoln.css:  <link rel="stylesheet" href="bone/lincoln.css">
+   ========================================================================== */
+
+/* Chart palette (Vega)
+   1: #191970 (lincoln blue)   2: #4A6FA5 (steel)
+   3: #D66853 (burned orange)  4: #7B68AE (lavender)
+   5: #8E9AAF (cool grey)                              */
+:root {
+  --bone-chart-1: #191970;
+  --bone-chart-2: #4A6FA5;
+  --bone-chart-3: #D66853;
+  --bone-chart-4: #7B68AE;
+  --bone-chart-5: #8E9AAF;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bone-chart-1: #7B8FBF;
+    --bone-chart-2: #7EB3D4;
+    --bone-chart-3: #E8937E;
+    --bone-chart-4: #A899CC;
+    --bone-chart-5: #8E9AAF;
+  }
+}
+
+[data-theme=dark] {
+  --bone-chart-1: #7B8FBF;
+  --bone-chart-2: #7EB3D4;
+  --bone-chart-3: #E8937E;
+  --bone-chart-4: #A899CC;
+  --bone-chart-5: #8E9AAF;
+}
+
+/* ==========================================================================
+   5. BONE-SPECIFIC COMPONENTS
+   ========================================================================== */
+
+/* BONE type badges — Lincoln palette derived
+   bug:   burned orange         patch: steel blue
+   req:   gold                  ann:   lincoln blue
+   rel:   lavender              chg:   cool grey           */
+:root {
+  --bone-mark-bug-bg: #D668531a; --bone-mark-bug: #D66853;
+  --bone-mark-ann-bg: #1919701a; --bone-mark-ann: #191970;
+  --bone-mark-req-bg: #B8860B1a; --bone-mark-req: #B8860B;
+  --bone-mark-patch-bg: #4A6FA51a; --bone-mark-patch: #4A6FA5;
+  --bone-mark-rel-bg: #7B68AE1a; --bone-mark-rel: #7B68AE;
+  --bone-mark-chg-bg: #8E9AAF1a; --bone-mark-chg: #8E9AAF;
+  --bone-vote-pos-bg: #2D6A4F33; --bone-vote-pos: #2D6A4F;
+  --bone-vote-neg-bg: #D6685333; --bone-vote-neg: #D66853;
+  --bone-vote-zero-bg: #8E9AAF22; --bone-vote-zero: #8E9AAF;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bone-mark-bug-bg: #E8937E26; --bone-mark-bug: #E8937E;
+    --bone-mark-ann-bg: #7B8FBF26; --bone-mark-ann: #7B8FBF;
+    --bone-mark-req-bg: #DAA52026; --bone-mark-req: #DAA520;
+    --bone-mark-patch-bg: #7EB3D426; --bone-mark-patch: #7EB3D4;
+    --bone-mark-rel-bg: #A899CC26; --bone-mark-rel: #A899CC;
+    --bone-mark-chg-bg: #8E9AAF22; --bone-mark-chg: #8E9AAF;
+    --bone-vote-pos-bg: #52B78833; --bone-vote-pos: #52B788;
+    --bone-vote-neg-bg: #E8937E33; --bone-vote-neg: #E8937E;
+    --bone-vote-zero-bg: #8E9AAF22; --bone-vote-zero: #8E9AAF;
+  }
+}
+[data-theme=dark] {
+  --bone-mark-bug-bg: #E8937E26; --bone-mark-bug: #E8937E;
+  --bone-mark-ann-bg: #7B8FBF26; --bone-mark-ann: #7B8FBF;
+  --bone-mark-req-bg: #DAA52026; --bone-mark-req: #DAA520;
+  --bone-mark-patch-bg: #7EB3D426; --bone-mark-patch: #7EB3D4;
+  --bone-mark-rel-bg: #A899CC26; --bone-mark-rel: #A899CC;
+  --bone-mark-chg-bg: #8E9AAF22; --bone-mark-chg: #8E9AAF;
+  --bone-vote-pos-bg: #52B78833; --bone-vote-pos: #52B788;
+  --bone-vote-neg-bg: #E8937E33; --bone-vote-neg: #E8937E;
+  --bone-vote-zero-bg: #8E9AAF22; --bone-vote-zero: #8E9AAF;
+}
+
+.filters button {
+  background-color: var(--org-teal);
+  border-color: var(--org-teal);
+  color: #ffffff;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.filters button:hover { background-color: var(--org-teal-hover); border-color: var(--org-teal-hover); }
+.filters button.outline {
+  background: none;
+  border: 1px solid var(--org-border);
+  color: var(--org-text-muted);
+  opacity: 0.7;
+}
+.filters button.outline:hover { border-color: var(--org-teal); color: var(--org-teal); opacity: 1; }
+
+.theme-toggle {
+  cursor: pointer;
+  background: none !important;
+  border: none !important;
+  font-size: 1.2rem;
+  padding: 0.3rem;
+  color: var(--org-text-muted);
+}
+.theme-toggle:hover { background: none !important; color: var(--org-teal); }
+
+footer.bone-footer { color: var(--org-text-muted); border-top: 1px solid var(--org-border); }
+footer.bone-footer a { color: var(--org-teal); }
+footer.bone-footer a:hover { color: var(--org-teal-hover); }
+
+[data-theme=light] { --bone-stripe-bg: var(--org-grey-light); --bone-row-bg: var(--org-bg); }
+[data-theme=dark]  { --bone-stripe-bg: #1e2028; --bone-row-bg: #141420; }
+
+nav ul li a { color: var(--org-teal); }
+nav ul li a:hover { color: var(--org-teal-hover); }

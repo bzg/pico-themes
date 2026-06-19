@@ -2,7 +2,7 @@
 
 [[https://intver.org/][https://img.shields.io/badge/versioning-intver.org-blue.svg?style=for-the-badge]]
 
-Shared CSS themes for [[https://codeberg.org/bzg/topics][topics]], [[https://codeberg.org/bzg/bark][BARK]], and [[https://codeberg.org/bzg/hop][hop]].
+Shared CSS themes for [[https://codeberg.org/bzg/topics][topics]], [[https://codeberg.org/bzg/bone][BONE]], and [[https://codeberg.org/bzg/hop][hop]].
 
 Six themes are available:
 
@@ -43,7 +43,7 @@ Each theme supports light and dark mode.  Here are the palettes:
 
 [[file:images/palette-ashes.svg]]
 
-BARK-specific overlays live in =bark/= (see below).
+BONE-specific overlays live in =bone/= (see below).
 
 * What each theme covers
 
@@ -59,28 +59,28 @@ Each theme file is self-contained and styles:
   =[data-theme=dark]= attribute
 - *Print*, reduced motion, scrollbar styling
 
-* BARK overlays
+* BONE overlays
 
-BARK-specific styles live in =bark/=, one file per theme, each with
+BONE-specific styles live in =bone/=, one file per theme, each with
 chart palette, type badges, buttons, stripe rows:
 
-- =bark/doric.css=
-- =bark/org.css=
-- =bark/swh.css=
-- =bark/lincoln.css=
-- =bark/teletype.css=
-- =bark/ashes.css=
+- =bone/doric.css=
+- =bone/org.css=
+- =bone/swh.css=
+- =bone/lincoln.css=
+- =bone/teletype.css=
+- =bone/ashes.css=
 
-Each overlay provides =--bark-chart-*= variables (for Vega), type badge
-colors (=--bark-mark-*=), status button colors (=--bark-btn-*=), vote
-colors (=--bark-vote-*=), =.filters button=, =.theme-toggle=,
-=footer.bark-footer=, and stripe row variables.
+Each overlay provides =--bone-chart-*= variables (for Vega), type badge
+colors (=--bone-mark-*=), status button colors (=--bone-btn-*=), vote
+colors (=--bone-vote-*=), =.filters button=, =.theme-toggle=,
+=footer.bone-footer=, and stripe row variables.
 
 Load after the base theme:
 
 #+begin_src html
 <link rel="stylesheet" href="doric.css">
-<link rel="stylesheet" href="bark/doric.css">
+<link rel="stylesheet" href="bone/doric.css">
 #+end_src
 
 * Usage
@@ -103,13 +103,13 @@ Pin to a specific commit for stability:
 
 *topics* --- set =:theme-url= in config to the CDN URL.
 
-*BARK* --- add two =<link>= tags in =bark-html.clj='s =html-head= function,
+*BONE* --- add two =<link>= tags in =bone-html.clj='s =html-head= function,
 after the Pico CDN link:
 
 #+begin_src clojure
 (str "<link rel=\"stylesheet\" href=\"" pico-cdn "\">\n"
      "<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/gh/bzg/themes@main/swh.css\">\n"
-     "<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/gh/bzg/themes@main/bark/swh.css\">\n")
+     "<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/gh/bzg/themes@main/bone/swh.css\">\n")
 #+end_src
 
 *org-parse* --- link the theme in the HTML output. Add after the =<style>=
@@ -125,7 +125,7 @@ overrides the defaults.
 * Dark mode
 
 - *topics*, *org-parse*: automatic via =prefers-color-scheme=
-- *BARK*: JS toggle sets =[data-theme=dark]= on =<html>= --- themes respond
+- *BONE*: JS toggle sets =[data-theme=dark]= on =<html>= --- themes respond
   to both selectors
 
 * Contributing

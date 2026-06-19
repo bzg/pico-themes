@@ -1,0 +1,116 @@
+/* ==========================================================================
+   bone/org.css — BONE-specific overrides for the org theme
+   Load after org.css:  <link rel="stylesheet" href="bone/org.css">
+   ========================================================================== */
+
+/* Chart palette (read by bone-stats.js for Vega)
+   Derived from worg font-lock faces:
+   1: #3d5a50 (heading green)  2: #3a7678 (function-name teal)
+   3: #8a6508 (org-level-2)    4: #b22222 (org-level-4)
+   5: #595959 (org-archived)                                    */
+:root {
+  --bone-chart-1: #3d5a50;
+  --bone-chart-2: #3a7678;
+  --bone-chart-3: #8a6508;
+  --bone-chart-4: #b22222;
+  --bone-chart-5: #595959;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bone-chart-1: #8fbcaa;
+    --bone-chart-2: #7ec8ca;
+    --bone-chart-3: #d4a76a;
+    --bone-chart-4: #d47272;
+    --bone-chart-5: #a0a0a0;
+  }
+}
+
+[data-theme=dark] {
+  --bone-chart-1: #8fbcaa;
+  --bone-chart-2: #7ec8ca;
+  --bone-chart-3: #d4a76a;
+  --bone-chart-4: #d47272;
+  --bone-chart-5: #a0a0a0;
+}
+
+/* ==========================================================================
+   5. BONE-SPECIFIC COMPONENTS
+   ========================================================================== */
+
+/* BONE type badges — worg font-lock derived
+   bug:   org-level-4 firebrick   patch: function-name teal
+   req:   org-level-2 dark gold   ann:   keyword steel blue
+   rel:   org-level-3 purple      chg:   org-archived gray    */
+:root {
+  --bone-mark-bug-bg: #b222221a; --bone-mark-bug: #b22222;
+  --bone-mark-ann-bg: #4682b41a; --bone-mark-ann: #4682b4;
+  --bone-mark-req-bg: #8a65081a; --bone-mark-req: #8a6508;
+  --bone-mark-patch-bg: #3a76781a; --bone-mark-patch: #3a7678;
+  --bone-mark-rel-bg: #a020f01a; --bone-mark-rel: #a020f0;
+  --bone-mark-chg-bg: #5959591a; --bone-mark-chg: #595959;
+  --bone-vote-pos-bg: #3a767833; --bone-vote-pos: #3a7678;
+  --bone-vote-neg-bg: #b2222233; --bone-vote-neg: #b22222;
+  --bone-vote-zero-bg: #59595922; --bone-vote-zero: #595959;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bone-mark-bug-bg: #d4727226; --bone-mark-bug: #d47272;
+    --bone-mark-ann-bg: #7aa2d426; --bone-mark-ann: #7aa2d4;
+    --bone-mark-req-bg: #d4a76a26; --bone-mark-req: #d4a76a;
+    --bone-mark-patch-bg: #7ec8ca26; --bone-mark-patch: #7ec8ca;
+    --bone-mark-rel-bg: #c9a0dc26; --bone-mark-rel: #c9a0dc;
+    --bone-mark-chg-bg: #a0a0a022; --bone-mark-chg: #a0a0a0;
+    --bone-vote-pos-bg: #7ec8ca33; --bone-vote-pos: #7ec8ca;
+    --bone-vote-neg-bg: #d4727233; --bone-vote-neg: #d47272;
+    --bone-vote-zero-bg: #a0a0a022; --bone-vote-zero: #a0a0a0;
+  }
+}
+[data-theme=dark] {
+  --bone-mark-bug-bg: #d4727226; --bone-mark-bug: #d47272;
+  --bone-mark-ann-bg: #7aa2d426; --bone-mark-ann: #7aa2d4;
+  --bone-mark-req-bg: #d4a76a26; --bone-mark-req: #d4a76a;
+  --bone-mark-patch-bg: #7ec8ca26; --bone-mark-patch: #7ec8ca;
+  --bone-mark-rel-bg: #c9a0dc26; --bone-mark-rel: #c9a0dc;
+  --bone-mark-chg-bg: #a0a0a022; --bone-mark-chg: #a0a0a0;
+  --bone-vote-pos-bg: #7ec8ca33; --bone-vote-pos: #7ec8ca;
+  --bone-vote-neg-bg: #d4727233; --bone-vote-neg: #d47272;
+  --bone-vote-zero-bg: #a0a0a022; --bone-vote-zero: #a0a0a0;
+}
+
+.filters button {
+  background-color: var(--org-teal);
+  border-color: var(--org-teal);
+  color: #ffffff;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.filters button:hover { background-color: var(--org-teal-hover); border-color: var(--org-teal-hover); }
+.filters button.outline {
+  background: none;
+  border: 1px solid var(--org-border);
+  color: var(--org-text-muted);
+  opacity: 0.7;
+}
+.filters button.outline:hover { border-color: var(--org-teal); color: var(--org-teal); opacity: 1; }
+
+.theme-toggle {
+  cursor: pointer;
+  background: none !important;
+  border: none !important;
+  font-size: 1.2rem;
+  padding: 0.3rem;
+  color: var(--org-text-muted);
+}
+.theme-toggle:hover { background: none !important; color: var(--org-teal); }
+
+footer.bone-footer { color: var(--org-text-muted); border-top: 1px solid var(--org-border); }
+footer.bone-footer a { color: var(--org-teal); }
+footer.bone-footer a:hover { color: var(--org-teal-hover); }
+
+[data-theme=light] { --bone-stripe-bg: var(--org-grey-light); --bone-row-bg: var(--org-bg); }
+[data-theme=dark]  { --bone-stripe-bg: #252540; --bone-row-bg: #1a1a2e; }
+
+nav ul li a { color: var(--org-teal); }
+nav ul li a:hover { color: var(--org-teal-hover); }
