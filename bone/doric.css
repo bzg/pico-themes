@@ -13,7 +13,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
     --bone-chart-1: #cda4df;
     --bone-chart-2: #9fbfe7;
     --bone-chart-3: #e9acbf;
@@ -47,7 +47,7 @@
   --bone-vote-zero-bg: #5a626822; --bone-vote-zero: #5a6268;
 }
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
     --bone-mark-bug-bg: #eca28f26; --bone-mark-bug: #eca28f;
     --bone-mark-ann-bg: #9fbfe726; --bone-mark-ann: #9fbfe7;
     --bone-mark-req-bg: #c0b08026; --bone-mark-req: #c0b080;

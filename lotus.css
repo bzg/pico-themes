@@ -1,6 +1,6 @@
 /*
- * lotus.css — White Lotus theme (light + dark)
- * Works with: topics, trees, bone, and org-parse
+ * lotus.css -- White Lotus theme (light + dark)
+ * Works with: topics, trees, bone, and hop
  *
  * Palette sampled from The White Lotus, season 1 (Hawaii):
  * faded linen, wet lava, tropical shade and one dark red note.
@@ -18,16 +18,16 @@
  * never need a dark-mode copy.
  *
  * Supports dark mode via:
- *   - prefers-color-scheme (topics, trees, org-parse)
+ *   - prefers-color-scheme (topics, trees, hop)
  *   - [data-theme=dark] attribute
  */
 
 /* ==========================================================================
-   1. CUSTOM PROPERTIES — Light Mode (default)
+   1. CUSTOM PROPERTIES -- Light Mode (default)
    ========================================================================== */
 
 :root {
-  /* Season 1 palette — constant in both modes */
+  /* Season 1 palette -- constant in both modes */
   --lotus-stone:   #a69e8e;
   --lotus-taupe:   #807a6e;
   --lotus-lichen:  #59564b;
@@ -79,15 +79,14 @@
   --status-negative:    #5e2a29;
   --status-negative-bg: color-mix(in srgb, #5e2a29 10%, transparent);
 
-  /* Typography — system font stacks */
-  --lotus-font-family:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-                        "Helvetica Neue", Arial, sans-serif;
-  --lotus-font-heading: Georgia, "Times New Roman", serif;
+  /* Typography -- one round, highly legible system face.
+     DejaVu Sans is the Verdana-like default on Linux. */
+  --lotus-font-family:  Verdana, "DejaVu Sans", Tahoma, Geneva, sans-serif;
   --lotus-font-mono:    "SFMono-Regular", Consolas, "Liberation Mono", Menlo,
                         Courier, monospace;
 }
 
-/* Pico CSS overrides — must match Pico 2's selector specificity */
+/* Pico CSS overrides -- must match Pico 2's selector specificity */
 [data-theme=light],
 :root:not([data-theme=dark]) {
   --pico-background-color:    var(--lotus-bg);
@@ -109,7 +108,7 @@
 }
 
 /* ==========================================================================
-   2. DARK MODE — prefers-color-scheme
+   2. DARK MODE -- prefers-color-scheme
    ========================================================================== */
 
 @media (prefers-color-scheme: dark) {
@@ -172,7 +171,7 @@
 }
 
 /* ==========================================================================
-   2b. DARK MODE — [data-theme=dark]
+   2b. DARK MODE -- [data-theme=dark]
    ========================================================================== */
 
 [data-theme=dark] {
@@ -233,7 +232,7 @@
 }
 
 /* ==========================================================================
-   3. BASE ELEMENTS (works on bare HTML — org-parse, and all others)
+   3. BASE ELEMENTS (works on bare HTML -- hop, and all others)
    ========================================================================== */
 
 body {
@@ -241,6 +240,7 @@ body {
   color: var(--lotus-text);
   background-color: var(--lotus-bg);
   line-height: 1.65;
+  font-size: 0.95rem;  /* Verdana runs wide */
 }
 
 a {
@@ -260,7 +260,6 @@ p a, li a, td a, dd a, blockquote a {
 nav a { text-decoration: none; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--lotus-font-heading);
   color: var(--lotus-heading);
   font-weight: 600;
 }
@@ -313,7 +312,7 @@ pre code {
   color: var(--lotus-heading);
 }
 
-/* Images — the width limit accounts for the side margins */
+/* Images -- the width limit accounts for the side margins */
 img {
   border-radius: 3px;
   box-shadow: 0 1px 3px var(--lotus-shadow);
@@ -321,13 +320,13 @@ img {
   max-width: calc(100% - 2rem);
 }
 
-/* Time — subtle, no background */
+/* Time -- subtle, no background */
 time {
   color: var(--lotus-text-muted);
   background: transparent;
 }
 
-/* Blockquotes — oxblood rule on warm paper */
+/* Blockquotes -- oxblood rule on warm paper */
 blockquote {
   border-left: 3px solid var(--lotus-accent);
   background-color: var(--lotus-warm-light);
@@ -375,7 +374,7 @@ button.secondary:hover, button.outline:hover {
 :focus-visible { outline: 2px solid var(--lotus-accent); outline-offset: 2px; }
 ::selection { background-color: var(--lotus-primary); color: var(--pico-primary-inverse); }
 
-/* Syntax highlighting — semantic variables cover both modes */
+/* Syntax highlighting -- semantic variables cover both modes */
 .builtin        { color: var(--lotus-warning); }
 .comment, .comment-delimiter { color: var(--lotus-text-muted); font-style: italic; }
 .constant       { color: var(--lotus-error); }
@@ -585,7 +584,7 @@ nav a { font-variant: small-caps; }
 nav.actions a:hover { background: var(--lotus-accent-light); border-radius: 3px; }
 
 /* ==========================================================================
-   6. org-parse SPECIFIC OVERRIDES
+   6. hop SPECIFIC OVERRIDES
    ========================================================================== */
 
 header .document-title { border-color: var(--lotus-accent); }
@@ -624,7 +623,7 @@ figure.align-left > figcaption { text-align: left; }
 @media print {
   /* Selectors match section 2 so that dark mode cannot win on paper */
   :root:not([data-theme]), [data-theme] {
-    --lotus-text: #000000; --lotus-heading: #000000;
+    --lotus-text: #000000; --lotus-heading: #000000; --lotus-text-muted: #555555;
     --lotus-bg: #ffffff; --lotus-bg-elevated: #ffffff;
     --lotus-bg-alt: #f2f2f2; --lotus-code-bg: #f2f2f2;
     --lotus-border: #cccccc; --lotus-primary: #373829;

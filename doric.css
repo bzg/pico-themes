@@ -1,6 +1,6 @@
 /*
  * doric.css — Unified Doric theme (light + dark)
- * Works with: topics, trees, and org-parse
+ * Works with: topics, trees, and hop
  *
  * Adapted from Protesilaos Stavrou's doric-themes for GNU Emacs
  * https://github.com/protesilaos/doric-themes
@@ -13,7 +13,7 @@
  * Typography and subtle grey gradients establish the visual rhythm.
  *
  * Supports dark mode via:
- *   - prefers-color-scheme (topics, trees, org-parse)
+ *   - prefers-color-scheme (topics, trees, hop)
  *   - [data-theme=dark] attribute
  */
 
@@ -31,16 +31,10 @@
   --doric-green:      #106710;
   --doric-yellow:     #60400f;
   --doric-blue:       #103077;
-  --doric-magenta:    #700d50;
-  --doric-cyan:       #005355;
 
   /* Semantic backgrounds */
-  --doric-bg-red:     #f0c4c4;
-  --doric-bg-green:   #c0e8c2;
   --doric-bg-yellow:  #f0f0b0;
   --doric-bg-blue:    #c4cfe8;
-  --doric-bg-magenta: #eec2e6;
-  --doric-bg-cyan:    #c1ebe4;
 
   /* Surfaces & text */
   --doric-bg:           #ffffff;
@@ -52,7 +46,6 @@
   --doric-heading:      #000000;
   --doric-border:       #b0b0b0;
   --doric-border-hover: #8a8a8a;
-  --doric-shadow:       rgba(0, 0, 0, 0.06);
   --doric-shadow-accent: rgba(8, 64, 146, 0.10);
 
   /* Trees status colours */
@@ -69,8 +62,6 @@
   --doric-font-family: Georgia, "Times New Roman", serif;
   --doric-font-mono:   "SFMono-Regular", Consolas, "Liberation Mono", Menlo,
                         Courier, monospace;
-
-  color-scheme: light dark;
 }
 
 /* Pico CSS overrides — must match Pico 2's selector specificity */
@@ -78,11 +69,17 @@
 :root:not([data-theme=dark]) {
   --pico-primary:             var(--doric-accent);
   --pico-primary-hover:       #062e6a;
+  --pico-primary-background: var(--doric-accent);
+  --pico-primary-border: var(--doric-accent);
+  --pico-primary-underline: color-mix(in srgb, var(--pico-primary) 50%, transparent);
+  --pico-primary-hover-background: var(--pico-primary-hover);
+  --pico-primary-hover-border: var(--pico-primary-hover);
+  --pico-primary-hover-underline: var(--pico-primary-hover);
   --pico-primary-focus:       rgba(8, 64, 146, 0.18);
   --pico-primary-inverse:     #ffffff;
   --pico-muted-color:         var(--doric-text-muted);
   --pico-muted-border-color:  var(--doric-border);
-
+  color-scheme: light;
 }
 
 /* ==========================================================================
@@ -98,15 +95,9 @@
     --doric-green:      #b9d0aa;
     --doric-yellow:     #c0b080;
     --doric-blue:       #9fbfe7;
-    --doric-magenta:    #e9acbf;
-    --doric-cyan:       #a0c0d0;
 
-    --doric-bg-red:     #4d1f20;
-    --doric-bg-green:   #1f402e;
     --doric-bg-yellow:  #504432;
     --doric-bg-blue:    #223567;
-    --doric-bg-magenta: #603254;
-    --doric-bg-cyan:    #2f4f54;
 
     --doric-bg:           #000000;
     --doric-bg-elevated:  #141118;
@@ -117,15 +108,21 @@
     --doric-heading:      #ffffff;
     --doric-border:       #707070;
     --doric-border-hover: #8a8a8a;
-    --doric-shadow:       rgba(0, 0, 0, 0.4);
     --doric-shadow-accent: rgba(205, 164, 223, 0.12);
 
     --pico-primary:             var(--doric-accent);
     --pico-primary-hover:       #dfc0ee;
+    --pico-primary-background: var(--doric-accent);
+    --pico-primary-border: var(--doric-accent);
+    --pico-primary-underline: color-mix(in srgb, var(--pico-primary) 50%, transparent);
+    --pico-primary-hover-background: var(--pico-primary-hover);
+    --pico-primary-hover-border: var(--pico-primary-hover);
+    --pico-primary-hover-underline: var(--pico-primary-hover);
     --pico-primary-focus:       rgba(205, 164, 223, 0.22);
-    --pico-primary-inverse:     #ffffff;
+    --pico-primary-inverse:     #000000;
     --pico-muted-color:         var(--doric-text-muted);
     --pico-muted-border-color:  var(--doric-border);
+    color-scheme: dark;
     --pico-accordion-open-summary-color: #c5c7d4;
 
     --status-positive:    #b9d0aa;
@@ -151,15 +148,9 @@
   --doric-green:      #b9d0aa;
   --doric-yellow:     #c0b080;
   --doric-blue:       #9fbfe7;
-  --doric-magenta:    #e9acbf;
-  --doric-cyan:       #a0c0d0;
 
-  --doric-bg-red:     #4d1f20;
-  --doric-bg-green:   #1f402e;
   --doric-bg-yellow:  #504432;
   --doric-bg-blue:    #223567;
-  --doric-bg-magenta: #603254;
-  --doric-bg-cyan:    #2f4f54;
 
   --doric-bg:           #000000;
   --doric-bg-elevated:  #141118;
@@ -170,15 +161,21 @@
   --doric-heading:      #ffffff;
   --doric-border:       #707070;
   --doric-border-hover: #8a8a8a;
-  --doric-shadow:       rgba(0, 0, 0, 0.4);
   --doric-shadow-accent: rgba(205, 164, 223, 0.12);
 
   --pico-primary:             var(--doric-accent);
   --pico-primary-hover:       #dfc0ee;
+  --pico-primary-background: var(--doric-accent);
+  --pico-primary-border: var(--doric-accent);
+  --pico-primary-underline: color-mix(in srgb, var(--pico-primary) 50%, transparent);
+  --pico-primary-hover-background: var(--pico-primary-hover);
+  --pico-primary-hover-border: var(--pico-primary-hover);
+  --pico-primary-hover-underline: var(--pico-primary-hover);
   --pico-primary-focus:       rgba(205, 164, 223, 0.22);
-  --pico-primary-inverse:     #ffffff;
+  --pico-primary-inverse:     #000000;
   --pico-muted-color:         var(--doric-text-muted);
   --pico-muted-border-color:  var(--doric-border);
+  color-scheme: dark;
   --pico-accordion-open-summary-color: #c5c7d4;
 
   --status-positive:    #b9d0aa;
@@ -192,7 +189,7 @@
 }
 
 /* ==========================================================================
-   3. BASE ELEMENTS (bare HTML — org-parse, and all others)
+   3. BASE ELEMENTS (bare HTML -- hop, and all others)
    ========================================================================== */
 
 body {
@@ -236,7 +233,7 @@ td {
   color: var(--doric-text);
   background-color: var(--doric-bg);
 }
-tr:nth-child(even) td { background-color: var(--doric-bg-elevated); }
+tr:nth-child(even) td { background-color: var(--doric-bg-alt); }
 tr:hover td { background-color: var(--doric-accent-bg); }
 
 /* Code */
@@ -269,6 +266,7 @@ img {
   border-radius: 2px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
   margin: 1rem;
+  max-width: calc(100% - 2rem);
 }
 
 /* Time — subtle, no background */
@@ -516,7 +514,7 @@ nav a { font-variant: small-caps; }
 nav.actions a:hover { background: var(--doric-accent-bg); border-radius: 3px; }
 
 /* ==========================================================================
-   6. org-parse SPECIFIC OVERRIDES
+   6. hop SPECIFIC OVERRIDES
    ========================================================================== */
 
 header .document-title { border-color: var(--doric-border); }
@@ -530,7 +528,7 @@ header .document-title { border-color: var(--doric-border); }
 .warning { background: var(--doric-bg-yellow); border-left-color: var(--doric-yellow); color: var(--doric-text); }
 .note { background: var(--doric-bg-blue); border-left-color: var(--doric-blue); color: var(--doric-text); }
 figure { width: fit-content; margin-block: calc(var(--pico-typography-spacing-vertical, 1rem) + 0.4rem); }
-figure > img { display: block; margin-bottom: 0.25rem; }
+figure > img { display: block; margin-inline: 0; margin-bottom: 0.25rem; max-width: 100%; }
 figure figcaption { color: var(--doric-text-muted); font-size: 0.875em; padding: 0; }
 figure.align-center { margin-left: auto; margin-right: auto; }
 figure.align-center > img { margin-left: auto; margin-right: auto; }
@@ -553,7 +551,8 @@ figure.align-left > figcaption { text-align: left; }
 * { scrollbar-width: thin; scrollbar-color: var(--doric-border) var(--doric-bg-alt); }
 
 @media print {
-  :root { --doric-text: #000000; --doric-heading: #000000; --doric-bg: #ffffff; --doric-bg-elevated: #ffffff; }
+  /* Same selectors as section 2, so that dark mode cannot win on paper */
+  :root:not([data-theme]), [data-theme] { --doric-text: #000000; --doric-heading: #000000; --doric-bg: #ffffff; --doric-bg-elevated: #ffffff; --doric-bg-alt: #f2f2f2; --doric-code-bg: #f2f2f2; --doric-text-muted: #555555; color-scheme: light; }
   a { color: #000000; text-decoration: underline; }
   a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666666; }
   details { border: 1px solid #cccccc; }

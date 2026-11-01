@@ -17,7 +17,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
     --bone-chart-1: #8fbcaa;
     --bone-chart-2: #7ec8ca;
     --bone-chart-3: #d4a76a;
@@ -54,7 +54,7 @@
   --bone-vote-zero-bg: #59595922; --bone-vote-zero: #595959;
 }
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
     --bone-mark-bug-bg: #d4727226; --bone-mark-bug: #d47272;
     --bone-mark-ann-bg: #7aa2d426; --bone-mark-ann: #7aa2d4;
     --bone-mark-req-bg: #d4a76a26; --bone-mark-req: #d4a76a;
@@ -81,7 +81,7 @@
 .filters button {
   background-color: var(--org-teal);
   border-color: var(--org-teal);
-  color: #ffffff;
+  color: var(--pico-primary-inverse);
   border-radius: 4px;
   font-size: 0.8rem;
   font-weight: 500;

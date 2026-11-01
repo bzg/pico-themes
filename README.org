@@ -2,7 +2,8 @@
 
 [[https://intver.org/][https://img.shields.io/badge/versioning-intver.org-blue.svg?style=for-the-badge]]
 
-Shared CSS themes for [[https://codeberg.org/bzg/topics][topics]], [[https://codeberg.org/bzg/bone][BONE]], and [[https://codeberg.org/bzg/hop][hop]].
+Shared CSS themes for [[https://codeberg.org/bzg/topics][topics]], [[https://codeberg.org/bzg/bone][BONE]], [[https://codeberg.org/bzg/trees][trees]], [[https://codeberg.org/bzg/hop][hop]], and other tools
+such as orgy and subscribe.
 
 Seven themes are available:
 
@@ -55,10 +56,10 @@ BONE-specific overlays live in =bone/= (see below).
 Each theme file is self-contained and styles:
 
 - *Base elements* --- body, links, headings, tables, code, blockquotes,
-  buttons (works with org-parse bare HTML)
+  buttons (works with hop bare HTML)
 - *Pico CSS overrides* --- =--pico-*= variables, cards, details/accordion,
   search, header/footer (topics)
-- *org-parse overrides* --- document title, TODO/DONE/priority keywords,
+- *hop overrides* --- document title, TODO/DONE/priority keywords,
   tags, footnotes, admonitions
 - *Dark mode* via =prefers-color-scheme= (automatic) and
   =[data-theme=dark]= attribute
@@ -78,7 +79,7 @@ chart palette, type badges, buttons, stripe rows:
 - =bone/lotus.css=
 
 Each overlay provides =--bone-chart-*= variables (for Vega), type badge
-colors (=--bone-mark-*=), status button colors (=--bone-btn-*=), vote
+colors (=--bone-mark-*=), vote
 colors (=--bone-vote-*=), =.filters button=, =.theme-toggle=,
 =footer.bone-footer=, and stripe row variables.
 
@@ -93,16 +94,16 @@ Load after the base theme:
 
 ** Via jsDelivr CDN (recommended)
 
-Once this repo is on GitHub, files are available via jsDelivr:
+Files are available via jsDelivr:
 
 #+begin_src html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bzg/themes@latest/doric.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bzg/pico-themes@latest/doric.css">
 #+end_src
 
 Pin to a specific commit for stability:
 
 #+begin_src html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bzg/themes@COMMIT_SHA/swh.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bzg/pico-themes@COMMIT_SHA/swh.css">
 #+end_src
 
 ** Per project
@@ -114,23 +115,16 @@ after the Pico CDN link:
 
 #+begin_src clojure
 (str "<link rel=\"stylesheet\" href=\"" pico-cdn "\">\n"
-     "<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/gh/bzg/themes@main/swh.css\">\n"
-     "<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/gh/bzg/themes@main/bone/swh.css\">\n")
+     "<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/gh/bzg/pico-themes@main/swh.css\">\n"
+     "<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/gh/bzg/pico-themes@main/bone/swh.css\">\n")
 #+end_src
 
-*org-parse* --- link the theme in the HTML output. Add after the =<style>=
-block in =html-template=:
-
-#+begin_src clojure
-(str "  <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/gh/bzg/themes@main/org.css\">\n")
-#+end_src
-
-The theme =<link>= must come *after* any inline =<style>= block so it
-overrides the defaults.
+*hop*, *trees*, *orgy*, *subscribe* --- pass a theme name to the tool's CSS
+theme option: the name resolves to the CDN URL.
 
 * Dark mode
 
-- *topics*, *org-parse*: automatic via =prefers-color-scheme=
+- *topics*, *hop*: automatic via =prefers-color-scheme=
 - *BONE*: JS toggle sets =[data-theme=dark]= on =<html>= --- themes respond
   to both selectors
 

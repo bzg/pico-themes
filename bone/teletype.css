@@ -6,28 +6,28 @@
 /* Chart palette — five grey steps (read by bone-stats.js for Vega) */
 :root {
   --bone-chart-1: #2a2a2a;
-  --bone-chart-2: #505050;
-  --bone-chart-3: #787878;
-  --bone-chart-4: #a0a0a0;
-  --bone-chart-5: #c0c0c0;
+  --bone-chart-2: #484848;
+  --bone-chart-3: #666666;
+  --bone-chart-4: #7a7a7a;
+  --bone-chart-5: #8c8c8c;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
     --bone-chart-1: #d8d8d8;
     --bone-chart-2: #b0b0b0;
-    --bone-chart-3: #888888;
-    --bone-chart-4: #606060;
-    --bone-chart-5: #404040;
+    --bone-chart-3: #909090;
+    --bone-chart-4: #787878;
+    --bone-chart-5: #686868;
   }
 }
 
 [data-theme=dark] {
   --bone-chart-1: #d8d8d8;
   --bone-chart-2: #b0b0b0;
-  --bone-chart-3: #888888;
-  --bone-chart-4: #606060;
-  --bone-chart-5: #404040;
+  --bone-chart-3: #909090;
+  --bone-chart-4: #787878;
+  --bone-chart-5: #686868;
 }
 
 /* ==========================================================================
@@ -47,7 +47,7 @@
   --bone-vote-zero-bg: #80808018; --bone-vote-zero: #808080;
 }
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
     --bone-mark-bug-bg: #c0c0c026; --bone-mark-bug: #c0c0c0;
     --bone-mark-ann-bg: #a0a0a026; --bone-mark-ann: #a0a0a0;
     --bone-mark-req-bg: #90909026; --bone-mark-req: #909090;
@@ -72,8 +72,8 @@
 }
 
 .filters button {
-  background-color: var(--doric-accent);
-  border-color: var(--doric-accent);
+  background-color: var(--teletype-accent);
+  border-color: var(--teletype-accent);
   color: var(--pico-primary-inverse);
   border-radius: 2px;
   font-size: 0.8rem;
@@ -84,11 +84,11 @@
 .filters button:hover { background-color: var(--pico-primary-hover); border-color: var(--pico-primary-hover); }
 .filters button.outline {
   background: none;
-  border: 1px solid var(--doric-border);
-  color: var(--doric-text-muted);
+  border: 1px solid var(--teletype-border);
+  color: var(--teletype-text-muted);
   opacity: 0.6;
 }
-.filters button.outline:hover { border-color: var(--doric-accent); color: var(--doric-accent); opacity: 1; }
+.filters button.outline:hover { border-color: var(--teletype-accent); color: var(--teletype-accent); opacity: 1; }
 
 .theme-toggle {
   cursor: pointer;
@@ -96,16 +96,16 @@
   border: none !important;
   font-size: 1.2rem;
   padding: 0.3rem;
-  color: var(--doric-text-muted);
+  color: var(--teletype-text-muted);
 }
-.theme-toggle:hover { background: none !important; color: var(--doric-accent); }
+.theme-toggle:hover { background: none !important; color: var(--teletype-accent); }
 
-footer.bone-footer { color: var(--doric-text-muted); border-top: 1px solid var(--doric-border); }
-footer.bone-footer a { color: var(--doric-accent); }
+footer.bone-footer { color: var(--teletype-text-muted); border-top: 1px solid var(--teletype-border); }
+footer.bone-footer a { color: var(--teletype-accent); }
 footer.bone-footer a:hover { color: var(--pico-primary-hover); }
 
-[data-theme=light] { --bone-stripe-bg: var(--doric-bg-alt); --bone-row-bg: var(--doric-bg); }
+[data-theme=light] { --bone-stripe-bg: var(--teletype-bg-alt); --bone-row-bg: var(--teletype-bg); }
 [data-theme=dark]  { --bone-stripe-bg: #1a1a1a; --bone-row-bg: #111111; }
 
-nav ul li a { color: var(--doric-accent); }
+nav ul li a { color: var(--teletype-accent); }
 nav ul li a:hover { color: var(--pico-primary-hover); }

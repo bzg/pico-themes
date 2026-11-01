@@ -1,12 +1,12 @@
 /*
  * ashes.css — Ashes theme (light + dark)
- * Works with: topics, trees, and org-parse
+ * Works with: topics, trees, and hop
  *
  * Inspired by bzg.fr — monochrome embers, monospace type,
  * quiet greys with a faint blue glow on links.
  *
  * Color scheme:
- *   Ash Grey:      #666666  (Primary — headings, buttons)
+ *   Ash Grey:      #666666  (Primary -- buttons, muted text)
  *   Charcoal:      #333333  (Text)
  *   Ember Blue:    #004d99  (Accent — links only)
  *   Smoke:         #f7f7f7  (Background)
@@ -17,11 +17,11 @@
  *   Ash light:     #f0f0f0  (primary @ 6% on white)
  *   Ember hover:   #003366  (Ember Blue darkened)
  *   Ember light:   #e8f0fa  (Ember Blue @ 8% on white)
- *   Cinder:        #888888  (Muted text)
+ *   Cinder:        #888888  (Scrollbar hover)
  *   Smoke Dark:    #0a0a17  (Dark bg — cool blue-black)
  *
  * Supports dark mode via:
- *   - prefers-color-scheme (topics, trees, org-parse)
+ *   - prefers-color-scheme (topics, trees, hop)
  *   - [data-theme=dark] attribute
  */
 
@@ -40,28 +40,22 @@
   /* Grey ramp */
   --ashes-grey-900:  #1a1a1a;
   --ashes-grey-800:  #333333;
-  --ashes-grey-700:  #444444;
   --ashes-grey-600:  #666666;
   --ashes-grey-500:  #888888;
   --ashes-grey-400:  #aaaaaa;
-  --ashes-grey-300:  #bbbbbb;
   --ashes-grey-200:  #cecece;
-  --ashes-grey-100:  #e8e8e8;
-  --ashes-grey-50:   #f0f0f0;
 
   /* Functional colors — muted, ashen tones */
   --ashes-success:    #4a7a5e;
-  --ashes-success-bg: #edf5f0;
   --ashes-info:       #4a6f8a;
   --ashes-info-bg:    #edf2f7;
   --ashes-warning:    #8a7040;
   --ashes-warning-bg: #f7f2e8;
   --ashes-error:      #8a4a4a;
-  --ashes-error-bg:   #f7eded;
 
   /* Semantic aliases */
   --ashes-text:         var(--ashes-grey-800);
-  --ashes-text-muted:   var(--ashes-grey-500);
+  --ashes-text-muted:   var(--ashes-grey-600);
   --ashes-heading:      var(--ashes-grey-900);
   --ashes-border:       var(--ashes-grey-200);
   --ashes-border-hover: var(--ashes-grey-400);
@@ -69,7 +63,6 @@
   --ashes-bg-elevated:  #ffffff;
   --ashes-bg-alt:       #f7f7f7;
   --ashes-code-bg:      #f7f7f7;
-  --ashes-shadow:       0 3px 3px var(--ashes-grey-300);
   --ashes-shadow-raw:   rgba(0, 0, 0, 0.06);
   --ashes-shadow-accent: rgba(0, 77, 153, 0.08);
 
@@ -88,8 +81,6 @@
                         "Liberation Mono", Menlo, Courier, monospace;
   --ashes-font-mono:   Consolas, "Monaco",
                         "Liberation Mono", Menlo, Courier, monospace;
-
-  color-scheme: light dark;
 }
 
 /* Pico CSS overrides */
@@ -97,10 +88,17 @@
 :root:not([data-theme=dark]) {
   --pico-primary:             var(--ashes-primary);
   --pico-primary-hover:       var(--ashes-primary-dark);
+  --pico-primary-background: var(--ashes-primary);
+  --pico-primary-border: var(--ashes-primary);
+  --pico-primary-underline: color-mix(in srgb, var(--pico-primary) 50%, transparent);
+  --pico-primary-hover-background: var(--ashes-primary-dark);
+  --pico-primary-hover-border: var(--ashes-primary-dark);
+  --pico-primary-hover-underline: var(--pico-primary-hover);
   --pico-primary-focus:       rgba(102, 102, 102, 0.15);
   --pico-primary-inverse:     #ffffff;
   --pico-muted-color:         var(--ashes-text-muted);
   --pico-muted-border-color:  var(--ashes-border);
+  color-scheme: light;
 }
 
 /* ==========================================================================
@@ -117,38 +115,38 @@
 
     --ashes-grey-900:  #e8e8e8;
     --ashes-grey-800:  #e0e0e0;
-    --ashes-grey-700:  #c0c0c0;
     --ashes-grey-600:  #a0a0a0;
     --ashes-grey-500:  #808080;
     --ashes-grey-400:  #606060;
-    --ashes-grey-300:  #444444;
     --ashes-grey-200:  #333333;
-    --ashes-grey-100:  #222222;
-    --ashes-grey-50:   #161616;
 
     --ashes-success:    #6aaa7e;
-    --ashes-success-bg: #1a2e22;
     --ashes-info:       #6a9fba;
     --ashes-info-bg:    #1a2233;
     --ashes-warning:    #baa060;
     --ashes-warning-bg: #2e2a1a;
     --ashes-error:      #ba6a6a;
-    --ashes-error-bg:   #2e1a1a;
 
     --ashes-bg:           #0a0a17;
     --ashes-bg-elevated:  #111122;
     --ashes-bg-alt:       #0d0d1f;
     --ashes-code-bg:      #111122;
-    --ashes-shadow:       0 3px 3px #050510;
     --ashes-shadow-raw:   rgba(0, 0, 0, 0.4);
     --ashes-shadow-accent: rgba(100, 181, 246, 0.10);
 
     --pico-primary:             var(--ashes-primary);
     --pico-primary-hover:       var(--ashes-primary-dark);
+    --pico-primary-background: var(--ashes-primary);
+    --pico-primary-border: var(--ashes-primary);
+    --pico-primary-underline: color-mix(in srgb, var(--pico-primary) 50%, transparent);
+    --pico-primary-hover-background: var(--ashes-primary-dark);
+    --pico-primary-hover-border: var(--ashes-primary-dark);
+    --pico-primary-hover-underline: var(--pico-primary-hover);
     --pico-primary-focus:       rgba(160, 160, 160, 0.18);
     --pico-primary-inverse:     #0a0a17;
     --pico-muted-color:         var(--ashes-text-muted);
     --pico-muted-border-color:  var(--ashes-border);
+    color-scheme: dark;
     --pico-accordion-open-summary-color: #c0c0c0;
 
     --status-positive:    #6aaa7e;
@@ -175,38 +173,38 @@
 
   --ashes-grey-900:  #e8e8e8;
   --ashes-grey-800:  #e0e0e0;
-  --ashes-grey-700:  #c0c0c0;
   --ashes-grey-600:  #a0a0a0;
   --ashes-grey-500:  #808080;
   --ashes-grey-400:  #606060;
-  --ashes-grey-300:  #444444;
   --ashes-grey-200:  #333333;
-  --ashes-grey-100:  #222222;
-  --ashes-grey-50:   #161616;
 
   --ashes-success:    #6aaa7e;
-  --ashes-success-bg: #1a2e22;
   --ashes-info:       #6a9fba;
   --ashes-info-bg:    #1a2233;
   --ashes-warning:    #baa060;
   --ashes-warning-bg: #2e2a1a;
   --ashes-error:      #ba6a6a;
-  --ashes-error-bg:   #2e1a1a;
 
   --ashes-bg:           #0a0a17;
   --ashes-bg-elevated:  #111122;
   --ashes-bg-alt:       #0d0d1f;
   --ashes-code-bg:      #111122;
-  --ashes-shadow:       0 3px 3px #050510;
   --ashes-shadow-raw:   rgba(0, 0, 0, 0.4);
   --ashes-shadow-accent: rgba(100, 181, 246, 0.10);
 
   --pico-primary:             var(--ashes-primary);
   --pico-primary-hover:       var(--ashes-primary-dark);
+  --pico-primary-background: var(--ashes-primary);
+  --pico-primary-border: var(--ashes-primary);
+  --pico-primary-underline: color-mix(in srgb, var(--pico-primary) 50%, transparent);
+  --pico-primary-hover-background: var(--ashes-primary-dark);
+  --pico-primary-hover-border: var(--ashes-primary-dark);
+  --pico-primary-hover-underline: var(--pico-primary-hover);
   --pico-primary-focus:       rgba(160, 160, 160, 0.18);
   --pico-primary-inverse:     #0a0a17;
   --pico-muted-color:         var(--ashes-text-muted);
   --pico-muted-border-color:  var(--ashes-border);
+  color-scheme: dark;
   --pico-accordion-open-summary-color: #c0c0c0;
 
   --status-positive:    #6aaa7e;
@@ -220,7 +218,7 @@
 }
 
 /* ==========================================================================
-   3. BASE ELEMENTS (works on bare HTML — org-parse, and all others)
+   3. BASE ELEMENTS (works on bare HTML -- hop, and all others)
    ========================================================================== */
 
 body {
@@ -265,7 +263,7 @@ td {
   color: var(--ashes-text);
   background-color: var(--ashes-bg);
 }
-tr:nth-child(even) td { background-color: var(--ashes-bg-elevated); }
+tr:nth-child(even) td { background-color: var(--ashes-bg-alt); }
 tr:hover td { background-color: var(--ashes-accent-light); }
 
 /* Code */
@@ -298,6 +296,7 @@ img {
   border-radius: 3px;
   box-shadow: 0 1px 3px var(--ashes-shadow-raw);
   margin: 1rem;
+  max-width: calc(100% - 2rem);
 }
 
 /* Time — subtle, no background */
@@ -356,9 +355,9 @@ button.secondary:hover, button.outline:hover {
 
 /* Syntax Highlighting — ashen tones with ember-blue keywords */
 .builtin        { color: #8a7040; }
-.comment, .comment-delimiter { color: #888888; font-style: italic; }
+.comment, .comment-delimiter { color: #666666; font-style: italic; }
 .constant       { color: #8a4a4a; }
-.doc            { color: #888888; }
+.doc            { color: #666666; }
 .function-name  { color: #4a6f8a; }
 .keyword        { color: #004d99; }
 .string         { color: #4a7a5e; }
@@ -367,16 +366,18 @@ button.secondary:hover, button.outline:hover {
 .done           { color: #4a7a5e; }
 
 @media (prefers-color-scheme: dark) {
-  .builtin        { color: #baa060; }
-  .comment, .comment-delimiter { color: #808080; font-style: italic; }
-  .constant       { color: #ba6a6a; }
-  .doc            { color: #808080; }
-  .function-name  { color: #6a9fba; }
-  .keyword        { color: #64b5f6; }
-  .string         { color: #6aaa7e; }
-  .variable-name  { color: #a0a0a0; }
-  .todo           { color: #ba6a6a; }
-  .done           { color: #6aaa7e; }
+  :root:not([data-theme]) {
+    .builtin        { color: #baa060; }
+    .comment, .comment-delimiter { color: #808080; font-style: italic; }
+    .constant       { color: #ba6a6a; }
+    .doc            { color: #808080; }
+    .function-name  { color: #6a9fba; }
+    .keyword        { color: #64b5f6; }
+    .string         { color: #6aaa7e; }
+    .variable-name  { color: #a0a0a0; }
+    .todo           { color: #ba6a6a; }
+    .done           { color: #6aaa7e; }
+  }
 }
 [data-theme=dark] {
   .builtin        { color: #baa060; }
@@ -584,7 +585,7 @@ nav a { font-variant: small-caps; }
 nav.actions a:hover { background: var(--ashes-accent-light); border-radius: 3px; }
 
 /* ==========================================================================
-   6. org-parse SPECIFIC OVERRIDES
+   6. hop SPECIFIC OVERRIDES
    ========================================================================== */
 
 header .document-title { border-color: var(--ashes-border); }
@@ -598,8 +599,8 @@ header .document-title { border-color: var(--ashes-border); }
 .warning { background: var(--ashes-warning-bg); border-left-color: var(--ashes-warning); color: var(--ashes-text); }
 .note { background: var(--ashes-info-bg); border-left-color: var(--ashes-info); color: var(--ashes-text); }
 figure { width: fit-content; margin-block: calc(var(--pico-typography-spacing-vertical, 1rem) + 0.4rem); }
-figure > img { display: block; margin-bottom: 0.25rem; }
-figcaption { color: var(--ashes-text-muted); font-size: 0.875em; }
+figure > img { display: block; margin-inline: 0; margin-bottom: 0.25rem; max-width: 100%; }
+figure figcaption { color: var(--ashes-text-muted); font-size: 0.875em; padding: 0; }
 figure.align-center { margin-left: auto; margin-right: auto; }
 figure.align-center > img { margin-left: auto; margin-right: auto; }
 figure.align-center > figcaption { text-align: center; }
@@ -621,7 +622,8 @@ figure.align-left > figcaption { text-align: left; }
 * { scrollbar-width: thin; scrollbar-color: var(--ashes-grey-400) var(--ashes-bg-alt); }
 
 @media print {
-  :root { --ashes-text: #000000; --ashes-heading: #000000; --ashes-bg: #ffffff; --ashes-bg-elevated: #ffffff; }
+  /* Same selectors as section 2, so that dark mode cannot win on paper */
+  :root:not([data-theme]), [data-theme] { --ashes-text: #000000; --ashes-heading: #000000; --ashes-bg: #ffffff; --ashes-bg-elevated: #ffffff; --ashes-bg-alt: #f2f2f2; --ashes-code-bg: #f2f2f2; --ashes-text-muted: #555555; color-scheme: light; }
   a { color: #000000; text-decoration: underline; }
   a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666666; }
   details { border: 1px solid #cccccc; }

@@ -3,17 +3,18 @@
    Load after swh.css:  <link rel="stylesheet" href="bone/swh.css">
    ========================================================================== */
 
-/* Chart palette (read by bone-stats.js for Vega) */
+/* Chart palette (read by bone-stats.js for Vega)
+   Light mode darkens the brand orange and yellow, unreadable on white. */
 :root {
   --bone-chart-1: #e20026;
   --bone-chart-2: #ef4426;
-  --bone-chart-3: #f79622;
-  --bone-chart-4: #fabf1f;
+  --bone-chart-3: #d97a00;
+  --bone-chart-4: #a87c00;
   --bone-chart-5: #737373;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
     --bone-chart-1: #ff2d4a;
     --bone-chart-2: #ff5c3d;
     --bone-chart-3: #ffa033;
@@ -47,7 +48,7 @@
   --bone-vote-zero-bg: #55667722; --bone-vote-zero: #556677;
 }
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
     --bone-mark-bug-bg: #ff2d4a26; --bone-mark-bug: #ff5c73;
     --bone-mark-ann-bg: #518fff26; --bone-mark-ann: #518fff;
     --bone-mark-req-bg: #e8b84d26; --bone-mark-req: #e8b84d;
@@ -74,7 +75,7 @@
 .filters button {
   background-color: var(--swh-red);
   border-color: var(--swh-red);
-  color: #ffffff;
+  color: var(--pico-primary-inverse);
   border-radius: 4px;
   font-size: 0.8rem;
   font-weight: 500;

@@ -1,6 +1,6 @@
 /*
  * org.css — Unified Org-mode / Worg theme
- * Works with: topics, trees, and org-parse
+ * Works with: topics, trees, and hop
  *
  * Based on Worg's visual identity and color palette
  * https://orgmode.org  —  https://git.sr.ht/~bzg/worg
@@ -19,7 +19,7 @@
  *   Indigo bg:    #1a1a2e  (dark mode background from worg)
  *
  * Supports dark mode via:
- *   - prefers-color-scheme (topics, trees, org-parse)
+ *   - prefers-color-scheme (topics, trees, hop)
  *   - [data-theme=dark] attribute
  */
 
@@ -31,14 +31,8 @@
   /* Brand colors — worg font-lock derived
      See worg.css heading/face origins in comments */
   --org-teal:         #3d5a50;  /* h2/h3/h4 headings */
-  --org-light-teal:   #8fbcaa;  /* dark-mode headings */
-  --org-dark-teal:    #3a7678;  /* .function-name / org-level-6 */
   --org-warm-brown:   #8a6508;  /* .org-ellipsis / org-level-2 */
   --org-soft-red:     #a3425e;  /* .constant */
-  --org-firebrick:    #b22222;  /* org-level-4 */
-  --org-steel-blue:   #4682b4;  /* .keyword */
-  --org-purple:       #a020f0;  /* org-level-3 / .org-link */
-  --org-plum:         #8b3d87;  /* .preprocessor / org-level-7 */
   --org-grey:         #595959;  /* .org-archived / .org-code */
 
   --org-gradient: linear-gradient(90deg, #3d5a50 0%, #3a7678 25%, #8a6508 50%, #4682b4 75%, #a020f0 100%);
@@ -56,7 +50,6 @@
   --org-bg:           #ffffff;
   --org-bg-elevated:  #ffffff;
   --org-code-bg:      #f2f2f2;
-  --org-shadow:       rgba(0, 0, 0, 0.08);
   --org-shadow-teal:  rgba(61, 90, 80, 0.12);
 
   /* Trees status colors */
@@ -70,13 +63,10 @@
   --status-negative-bg: color-mix(in srgb, #a3425e 10%, transparent);
 
   /* Typography — system font stacks */
-  --org-font-family: Georgia, "Times New Roman", serif;
   --org-font-sans:   -apple-system, BlinkMacSystemFont, "Segoe UI",
                      Roboto, "Helvetica Neue", Arial, sans-serif;
   --org-font-mono:   "SFMono-Regular", Consolas,
                      "Liberation Mono", Menlo, Courier, monospace;
-
-  color-scheme: light dark;
 }
 
 /* Pico CSS overrides — must match Pico 2's selector specificity */
@@ -84,11 +74,17 @@
 :root:not([data-theme=dark]) {
   --pico-primary:             var(--org-teal);
   --pico-primary-hover:       var(--org-teal-hover);
+  --pico-primary-background: var(--org-teal);
+  --pico-primary-border: var(--org-teal);
+  --pico-primary-underline: color-mix(in srgb, var(--pico-primary) 50%, transparent);
+  --pico-primary-hover-background: var(--org-teal-hover);
+  --pico-primary-hover-border: var(--org-teal-hover);
+  --pico-primary-hover-underline: var(--pico-primary-hover);
   --pico-primary-focus:       rgba(61, 90, 80, 0.2);
   --pico-primary-inverse:     #ffffff;
   --pico-muted-color:         var(--org-text-muted);
   --pico-muted-border-color:  var(--org-border);
-
+  color-scheme: light;
 }
 
 /* ==========================================================================
@@ -99,6 +95,7 @@
   :root:not([data-theme]) {
     --org-teal:         #8fbcaa;
     --org-teal-hover:   #a8d4c2;
+    --org-warm-brown:  #d4a76a;
     --org-teal-light:   #1e2d28;
     --org-brown-light:  #2a2520;
     --org-grey-light:   #252540;
@@ -110,15 +107,21 @@
     --org-bg:           #1a1a2e;
     --org-bg-elevated:  #222240;
     --org-code-bg:      #252540;
-    --org-shadow:       rgba(0, 0, 0, 0.4);
     --org-shadow-teal:  rgba(143, 188, 170, 0.15);
 
     --pico-primary:             var(--org-teal);
     --pico-primary-hover:       var(--org-teal-hover);
+    --pico-primary-background: var(--org-teal);
+    --pico-primary-border: var(--org-teal);
+    --pico-primary-underline: color-mix(in srgb, var(--pico-primary) 50%, transparent);
+    --pico-primary-hover-background: var(--org-teal-hover);
+    --pico-primary-hover-border: var(--org-teal-hover);
+    --pico-primary-hover-underline: var(--pico-primary-hover);
     --pico-primary-focus:       rgba(143, 188, 170, 0.25);
-    --pico-primary-inverse:     #ffffff;
+    --pico-primary-inverse:     #1a1a2e;
     --pico-muted-color:         var(--org-text-muted);
     --pico-muted-border-color:  var(--org-border);
+    color-scheme: dark;
     --pico-accordion-open-summary-color: #c0c0c0;
 
     --org-gradient: linear-gradient(90deg, #8fbcaa 0%, #7ec8ca 25%, #d4a76a 50%, #7aa2d4 75%, #c9a0dc 100%);
@@ -129,8 +132,8 @@
     --status-neutral-bg:  color-mix(in srgb, #518fff 15%, transparent);
     --status-caution:     #d4a76a;
     --status-caution-bg:  color-mix(in srgb, #d4a76a 15%, transparent);
-    --status-negative:    #c9a0dc;
-    --status-negative-bg: color-mix(in srgb, #c9a0dc 15%, transparent);
+    --status-negative:    #d47272;
+    --status-negative-bg: color-mix(in srgb, #d47272 15%, transparent);
   }
 }
 
@@ -141,6 +144,7 @@
 [data-theme=dark] {
   --org-teal:         #8fbcaa;
   --org-teal-hover:   #a8d4c2;
+  --org-warm-brown:  #d4a76a;
   --org-teal-light:   #1e2d28;
   --org-brown-light:  #2a2520;
   --org-grey-light:   #252540;
@@ -152,15 +156,21 @@
   --org-bg:           #1a1a2e;
   --org-bg-elevated:  #222240;
   --org-code-bg:      #252540;
-  --org-shadow:       rgba(0, 0, 0, 0.4);
   --org-shadow-teal:  rgba(143, 188, 170, 0.15);
 
   --pico-primary:             var(--org-teal);
   --pico-primary-hover:       var(--org-teal-hover);
+  --pico-primary-background: var(--org-teal);
+  --pico-primary-border: var(--org-teal);
+  --pico-primary-underline: color-mix(in srgb, var(--pico-primary) 50%, transparent);
+  --pico-primary-hover-background: var(--org-teal-hover);
+  --pico-primary-hover-border: var(--org-teal-hover);
+  --pico-primary-hover-underline: var(--pico-primary-hover);
   --pico-primary-focus:       rgba(143, 188, 170, 0.25);
-  --pico-primary-inverse:     #ffffff;
+  --pico-primary-inverse:     #1a1a2e;
   --pico-muted-color:         var(--org-text-muted);
   --pico-muted-border-color:  var(--org-border);
+  color-scheme: dark;
   --pico-accordion-open-summary-color: #c0c0c0;
 
   --org-gradient: linear-gradient(90deg, #8fbcaa 0%, #7ec8ca 25%, #d4a76a 50%, #7aa2d4 75%, #c9a0dc 100%);
@@ -171,12 +181,12 @@
   --status-neutral-bg:  color-mix(in srgb, #518fff 15%, transparent);
   --status-caution:     #d4a76a;
   --status-caution-bg:  color-mix(in srgb, #d4a76a 15%, transparent);
-  --status-negative:    #c9a0dc;
-  --status-negative-bg: color-mix(in srgb, #c9a0dc 15%, transparent);
+  --status-negative:    #d47272;
+  --status-negative-bg: color-mix(in srgb, #d47272 15%, transparent);
 }
 
 /* ==========================================================================
-   3. BASE ELEMENTS (works on bare HTML — org-parse, and all others)
+   3. BASE ELEMENTS (works on bare HTML -- hop, and all others)
    ========================================================================== */
 
 body {
@@ -204,14 +214,14 @@ h2 { border-bottom: 1px solid var(--org-border); padding-bottom: 0.4rem; }
 table { border-collapse: collapse; width: 100%; }
 th {
   background-color: var(--org-teal);
-  color: #ffffff;
+  color: var(--pico-primary-inverse);
   font-weight: 600;
   text-align: left;
   padding: 0.75rem 1rem;
 }
 thead th {
   background-color: var(--org-teal) !important;
-  color: #ffffff !important;
+  color: var(--pico-primary-inverse) !important;
 }
 td {
   border: 1px solid var(--org-border);
@@ -253,6 +263,7 @@ img {
   border-radius: 3px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
   margin: 1rem;
+  max-width: calc(100% - 2rem);
 }
 
 /* Time — subtle, no background */
@@ -281,7 +292,7 @@ button,
 [type="button"] {
   background-color: var(--org-teal);
   border-color: var(--org-teal);
-  color: #ffffff;
+  color: var(--pico-primary-inverse);
   border-radius: 4px;
   font-weight: 500;
   transition: background-color 0.15s ease, border-color 0.15s ease,
@@ -307,7 +318,7 @@ button.secondary:hover, button.outline:hover {
 
 /* Accessibility */
 :focus-visible { outline: 2px solid var(--org-teal); outline-offset: 2px; }
-::selection { background-color: var(--org-teal); color: #ffffff; }
+::selection { background-color: var(--org-teal); color: var(--pico-primary-inverse); }
 
 /* Syntax Highlighting (from worg) */
 .builtin        { color: #8a5d2e; }
@@ -322,16 +333,18 @@ button.secondary:hover, button.outline:hover {
 .done           { color: #006666; }
 
 @media (prefers-color-scheme: dark) {
-  .builtin        { color: #c9a0dc; }
-  .comment, .comment-delimiter { color: #8b9dc3; }
-  .constant       { color: #7ec8ca; }
-  .doc            { color: #a0a0a0; }
-  .function-name  { color: #7ec8ca; }
-  .keyword        { color: #7aa2d4; }
-  .string         { color: #c9b89a; }
-  .variable-name  { color: #d4a76a; }
-  .todo           { color: #ff6b6b; }
-  .done           { color: #4ecdc4; }
+  :root:not([data-theme]) {
+    .builtin        { color: #c9a0dc; }
+    .comment, .comment-delimiter { color: #8b9dc3; }
+    .constant       { color: #7ec8ca; }
+    .doc            { color: #a0a0a0; }
+    .function-name  { color: #7ec8ca; }
+    .keyword        { color: #7aa2d4; }
+    .string         { color: #c9b89a; }
+    .variable-name  { color: #d4a76a; }
+    .todo           { color: #ff6b6b; }
+    .done           { color: #4ecdc4; }
+  }
 }
 [data-theme=dark] {
   .builtin        { color: #c9a0dc; }
@@ -554,7 +567,7 @@ nav a { font-variant: small-caps; }
 nav.actions a:hover { background: var(--org-teal-light); border-radius: 4px; }
 
 /* ==========================================================================
-   6. org-parse SPECIFIC OVERRIDES
+   6. hop SPECIFIC OVERRIDES
    ========================================================================== */
 
 header .document-title { border-color: var(--org-teal); }
@@ -566,7 +579,7 @@ header .document-title { border-color: var(--org-teal); }
 .warning { background: var(--org-brown-light); border-left-color: var(--org-warm-brown); color: var(--org-text); }
 .note { background: var(--org-teal-light); border-left-color: var(--org-teal); color: var(--org-text); }
 figure { width: fit-content; margin-block: calc(var(--pico-typography-spacing-vertical, 1rem) + 0.4rem); }
-figure > img { display: block; margin-bottom: 0.25rem; }
+figure > img { display: block; margin-inline: 0; margin-bottom: 0.25rem; max-width: 100%; }
 figure figcaption { color: var(--org-text-muted); font-size: 0.875em; padding: 0; }
 figure.align-center { margin-left: auto; margin-right: auto; }
 figure.align-center > img { margin-left: auto; margin-right: auto; }
@@ -593,7 +606,8 @@ figure.align-left > figcaption { text-align: left; }
 .org-gradient-border > * { background: var(--org-bg-elevated); border-radius: 4px; }
 
 @media print {
-  :root { --org-text: #000000; --org-grey-dark: #000000; --org-bg: #ffffff; --org-bg-elevated: #ffffff; }
+  /* Same selectors as section 2, so that dark mode cannot win on paper */
+  :root:not([data-theme]), [data-theme] { --org-text: #000000; --org-grey-dark: #000000; --org-bg: #ffffff; --org-bg-elevated: #ffffff; --org-grey-light: #f2f2f2; --org-code-bg: #f2f2f2; --org-text-muted: #555555; color-scheme: light; }
   header.container::after { background: #3d5a50; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   a { color: #000000; text-decoration: underline; }
   a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666666; }

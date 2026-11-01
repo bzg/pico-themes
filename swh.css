@@ -1,6 +1,6 @@
 /*
  * swh.css — Unified Software Heritage theme
- * Works with: topics, trees, and org-parse
+ * Works with: topics, trees, and hop
  *
  * Based on Software Heritage official brand guidelines
  * https://www.softwareheritage.org/communication-kit/
@@ -12,7 +12,7 @@
  *   Yellow:       #fabf1f  (Highlight accent)
  *
  * Supports dark mode via:
- *   - prefers-color-scheme (topics, trees, org-parse)
+ *   - prefers-color-scheme (topics, trees, hop)
  *   - [data-theme=dark] attribute
  */
 
@@ -25,7 +25,6 @@
   --swh-red:           #e20026;
   --swh-orange:        #ef4426;
   --swh-light-orange:  #f79622;
-  --swh-yellow:        #fabf1f;
   --swh-grey:          #737373;
 
   --swh-gradient: linear-gradient(90deg, #e20026 0%, #ef4426 33%, #f79622 66%, #fabf1f 100%);
@@ -43,7 +42,6 @@
   --swh-bg:             #ffffff;
   --swh-bg-elevated:    #ffffff;
   --swh-code-bg:        #f8f8f8;
-  --swh-shadow:         rgba(0, 0, 0, 0.08);
   --swh-shadow-red:     rgba(226, 0, 38, 0.12);
 
   /* Trees status colors */
@@ -61,8 +59,6 @@
                      "Helvetica Neue", Arial, sans-serif;
   --swh-font-mono:   "SFMono-Regular", Consolas, "Liberation Mono", Menlo,
                      Courier, monospace;
-
-  color-scheme: light dark;
 }
 
 /* Pico CSS overrides — must match Pico 2's selector specificity */
@@ -70,11 +66,17 @@
 :root:not([data-theme=dark]) {
   --pico-primary:             var(--swh-red);
   --pico-primary-hover:       var(--swh-red-hover);
+  --pico-primary-background: var(--swh-red);
+  --pico-primary-border: var(--swh-red);
+  --pico-primary-underline: color-mix(in srgb, var(--pico-primary) 50%, transparent);
+  --pico-primary-hover-background: var(--swh-red-hover);
+  --pico-primary-hover-border: var(--swh-red-hover);
+  --pico-primary-hover-underline: var(--pico-primary-hover);
   --pico-primary-focus:       rgba(226, 0, 38, 0.2);
   --pico-primary-inverse:     #ffffff;
   --pico-muted-color:         var(--swh-text-muted);
   --pico-muted-border-color:  var(--swh-border);
-
+  color-scheme: light;
 }
 
 /* ==========================================================================
@@ -96,15 +98,21 @@
     --swh-bg:            #1a1a1a;
     --swh-bg-elevated:   #222222;
     --swh-code-bg:       #2a2a2a;
-    --swh-shadow:        rgba(0, 0, 0, 0.4);
     --swh-shadow-red:    rgba(255, 45, 74, 0.15);
 
     --pico-primary:             var(--swh-red);
     --pico-primary-hover:       var(--swh-red-hover);
+    --pico-primary-background: var(--swh-red);
+    --pico-primary-border: var(--swh-red);
+    --pico-primary-underline: color-mix(in srgb, var(--pico-primary) 50%, transparent);
+    --pico-primary-hover-background: var(--swh-red-hover);
+    --pico-primary-hover-border: var(--swh-red-hover);
+    --pico-primary-hover-underline: var(--pico-primary-hover);
     --pico-primary-focus:       rgba(255, 45, 74, 0.25);
-    --pico-primary-inverse:     #ffffff;
+    --pico-primary-inverse:     #1a1a1a;
     --pico-muted-color:         var(--swh-text-muted);
     --pico-muted-border-color:  var(--swh-border);
+    color-scheme: dark;
     --pico-accordion-open-summary-color: #c0c0c0;
 
     --swh-gradient: linear-gradient(90deg, #ff2d4a 0%, #ff5c3d 33%, #ffa033 66%, #ffc82e 100%);
@@ -138,15 +146,21 @@
   --swh-bg:            #1a1a1a;
   --swh-bg-elevated:   #222222;
   --swh-code-bg:       #2a2a2a;
-  --swh-shadow:        rgba(0, 0, 0, 0.4);
   --swh-shadow-red:    rgba(255, 45, 74, 0.15);
 
   --pico-primary:             var(--swh-red);
   --pico-primary-hover:       var(--swh-red-hover);
+  --pico-primary-background: var(--swh-red);
+  --pico-primary-border: var(--swh-red);
+  --pico-primary-underline: color-mix(in srgb, var(--pico-primary) 50%, transparent);
+  --pico-primary-hover-background: var(--swh-red-hover);
+  --pico-primary-hover-border: var(--swh-red-hover);
+  --pico-primary-hover-underline: var(--pico-primary-hover);
   --pico-primary-focus:       rgba(255, 45, 74, 0.25);
-  --pico-primary-inverse:     #ffffff;
+  --pico-primary-inverse:     #1a1a1a;
   --pico-muted-color:         var(--swh-text-muted);
   --pico-muted-border-color:  var(--swh-border);
+  color-scheme: dark;
   --pico-accordion-open-summary-color: #c0c0c0;
 
   --swh-gradient: linear-gradient(90deg, #ff2d4a 0%, #ff5c3d 33%, #ffa033 66%, #ffc82e 100%);
@@ -162,7 +176,7 @@
 }
 
 /* ==========================================================================
-   3. BASE ELEMENTS (works on bare HTML — org-parse, and all others)
+   3. BASE ELEMENTS (works on bare HTML -- hop, and all others)
    ========================================================================== */
 
 body {
@@ -189,14 +203,14 @@ h1, h2, h3, h4, h5, h6 {
 table { border-collapse: collapse; width: 100%; }
 th {
   background-color: var(--swh-red);
-  color: #ffffff;
+  color: var(--pico-primary-inverse);
   font-weight: 600;
   text-align: left;
   padding: 0.75rem 1rem;
 }
 thead th {
   background-color: var(--swh-red) !important;
-  color: #ffffff !important;
+  color: var(--pico-primary-inverse) !important;
 }
 td {
   border: 1px solid var(--swh-border);
@@ -237,6 +251,7 @@ img {
   border-radius: 3px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
   margin: 1rem;
+  max-width: calc(100% - 2rem);
 }
 
 /* Time — subtle, no background */
@@ -265,7 +280,7 @@ button,
 [type="button"] {
   background-color: var(--swh-red);
   border-color: var(--swh-red);
-  color: #ffffff;
+  color: var(--pico-primary-inverse);
   border-radius: 4px;
   font-weight: 500;
   transition: background-color 0.15s ease, border-color 0.15s ease,
@@ -291,7 +306,7 @@ button.secondary:hover, button.outline:hover {
 
 /* Accessibility */
 :focus-visible { outline: 2px solid var(--swh-red); outline-offset: 2px; }
-::selection { background-color: var(--swh-red); color: #ffffff; }
+::selection { background-color: var(--swh-red); color: var(--pico-primary-inverse); }
 
 /* ==========================================================================
    4. PICO CSS OVERRIDES (topics)
@@ -494,21 +509,21 @@ nav a { font-variant: small-caps; }
 nav.actions a:hover { background: var(--swh-red-light); border-radius: 4px; }
 
 /* ==========================================================================
-   6. org-parse SPECIFIC OVERRIDES
+   6. hop SPECIFIC OVERRIDES
    ========================================================================== */
 
 header .document-title { border-color: var(--swh-red); }
 .subtitle { color: var(--swh-text-muted); }
 .todo { color: var(--swh-red); }
-.done { color: #18753c; }
+.done { color: var(--status-positive); }
 .priority { color: var(--swh-light-orange); }
 .tags { color: var(--swh-text-muted); }
 .footnotes { border-top-color: var(--swh-border); }
 .planning { color: var(--swh-text-muted); }
 .warning { background: var(--swh-orange-light); border-left-color: var(--swh-orange); color: var(--swh-text); }
-.note { background: #e8edff; border-left-color: #0063cb; color: var(--swh-text); }
+.note { background: var(--status-neutral-bg); border-left-color: var(--status-neutral); color: var(--swh-text); }
 figure { width: fit-content; margin-block: calc(var(--pico-typography-spacing-vertical, 1rem) + 0.4rem); }
-figure > img { display: block; margin-bottom: 0.25rem; }
+figure > img { display: block; margin-inline: 0; margin-bottom: 0.25rem; max-width: 100%; }
 figure figcaption { color: var(--swh-text-muted); font-size: 0.875em; padding: 0; }
 figure.align-center { margin-left: auto; margin-right: auto; }
 figure.align-center > img { margin-left: auto; margin-right: auto; }
@@ -536,7 +551,8 @@ figure.align-left > figcaption { text-align: left; }
 .swh-gradient-border > * { background: var(--swh-bg-elevated); border-radius: 4px; }
 
 @media print {
-  :root { --swh-text: #000000; --swh-grey-dark: #000000; --swh-bg: #ffffff; --swh-bg-elevated: #ffffff; }
+  /* Same selectors as section 2, so that dark mode cannot win on paper */
+  :root:not([data-theme]), [data-theme] { --swh-text: #000000; --swh-grey-dark: #000000; --swh-bg: #ffffff; --swh-bg-elevated: #ffffff; --swh-grey-light: #f2f2f2; --swh-code-bg: #f2f2f2; --swh-text-muted: #555555; color-scheme: light; }
   header.container::after { background: #e20026; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   a { color: #000000; text-decoration: underline; }
   a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666666; }

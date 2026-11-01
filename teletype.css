@@ -1,6 +1,6 @@
 /*
  * teletype.css — Teletype theme (light + dark)
- * Works with: topics, trees, and org-parse
+ * Works with: topics, trees, and hop
  *
  * A black & white, monospace variation of the doric theme.
  * Jazz-club smooth: low contrast, generous letter-spacing,
@@ -12,7 +12,7 @@
  * Monospace type and typographic rhythm carry the composition.
  *
  * Supports dark mode via:
- *   - prefers-color-scheme (topics, trees, org-parse)
+ *   - prefers-color-scheme (topics, trees, hop)
  *   - [data-theme=dark] attribute
  */
 
@@ -22,37 +22,20 @@
 
 :root {
   /* Accent is simply a warm mid-grey */
-  --doric-accent:     #505050;
-  --doric-accent-bg:  #f0f0f0;
-
-  /* All "hues" collapse to grey steps */
-  --doric-red:        #606060;
-  --doric-green:      #505050;
-  --doric-yellow:     #686868;
-  --doric-blue:       #484848;
-  --doric-magenta:    #585858;
-  --doric-cyan:       #555555;
-
-  /* Semantic backgrounds — faint grey washes */
-  --doric-bg-red:     #f2f2f2;
-  --doric-bg-green:   #f2f2f2;
-  --doric-bg-yellow:  #efefef;
-  --doric-bg-blue:    #f0f0f0;
-  --doric-bg-magenta: #f1f1f1;
-  --doric-bg-cyan:    #f0f0f0;
+  --teletype-accent:     #505050;
+  --teletype-accent-bg:  #f0f0f0;
 
   /* Surfaces & text — low contrast: not pure black on white */
-  --doric-bg:           #fafafa;
-  --doric-bg-elevated:  #fafafa;
-  --doric-bg-alt:       #f2f2f2;
-  --doric-code-bg:      #f0f0f0;
-  --doric-text:         #2a2a2a;
-  --doric-text-muted:   #808080;
-  --doric-heading:      #1a1a1a;
-  --doric-border:       #d0d0d0;
-  --doric-border-hover: #a0a0a0;
-  --doric-shadow:       rgba(0, 0, 0, 0.04);
-  --doric-shadow-accent: rgba(0, 0, 0, 0.06);
+  --teletype-bg:           #fafafa;
+  --teletype-bg-elevated:  #fafafa;
+  --teletype-bg-alt:       #f2f2f2;
+  --teletype-code-bg:      #f0f0f0;
+  --teletype-text:         #2a2a2a;
+  --teletype-text-muted:   #6e6e6e;
+  --teletype-heading:      #1a1a1a;
+  --teletype-border:       #d0d0d0;
+  --teletype-border-hover: #a0a0a0;
+  --teletype-shadow-accent: rgba(0, 0, 0, 0.06);
 
   /* Trees status — grey variants */
   --status-positive:    #505050;
@@ -65,23 +48,28 @@
   --status-negative-bg: color-mix(in srgb, #484848 8%, transparent);
 
   /* Typography — system monospace */
-  --doric-font-family: "SF Mono", "Cascadia Mono", Consolas,
+  --teletype-font-family: "SF Mono", "Cascadia Mono", Consolas,
                         "Liberation Mono", Menlo, Courier, monospace;
-  --doric-font-mono:   "SF Mono", "Cascadia Mono", Consolas,
+  --teletype-font-mono:   "SF Mono", "Cascadia Mono", Consolas,
                         "Liberation Mono", Menlo, Courier, monospace;
-
-  color-scheme: light dark;
 }
 
 /* Pico CSS overrides */
 [data-theme=light],
 :root:not([data-theme=dark]) {
-  --pico-primary:             var(--doric-accent);
+  --pico-primary:             var(--teletype-accent);
   --pico-primary-hover:       #333333;
+  --pico-primary-background: var(--teletype-accent);
+  --pico-primary-border: var(--teletype-accent);
+  --pico-primary-underline: color-mix(in srgb, var(--pico-primary) 50%, transparent);
+  --pico-primary-hover-background: var(--pico-primary-hover);
+  --pico-primary-hover-border: var(--pico-primary-hover);
+  --pico-primary-hover-underline: var(--pico-primary-hover);
   --pico-primary-focus:       rgba(80, 80, 80, 0.15);
   --pico-primary-inverse:     #fafafa;
-  --pico-muted-color:         var(--doric-text-muted);
-  --pico-muted-border-color:  var(--doric-border);
+  --pico-muted-color:         var(--teletype-text-muted);
+  --pico-muted-border-color:  var(--teletype-border);
+  color-scheme: light;
 }
 
 /* ==========================================================================
@@ -90,41 +78,33 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
-    --doric-accent:     #b0b0b0;
-    --doric-accent-bg:  #1e1e1e;
+    --teletype-accent:     #b0b0b0;
+    --teletype-accent-bg:  #1e1e1e;
 
-    --doric-red:        #a8a8a8;
-    --doric-green:      #b0b0b0;
-    --doric-yellow:     #a0a0a0;
-    --doric-blue:       #b8b8b8;
-    --doric-magenta:    #aaaaaa;
-    --doric-cyan:       #b4b4b4;
+    --teletype-bg:           #111111;
+    --teletype-bg-elevated:  #161616;
+    --teletype-bg-alt:       #1c1c1c;
+    --teletype-code-bg:      #1a1a1a;
+    --teletype-text:         #d0d0d0;
+    --teletype-text-muted:   #8a8a8a;
+    --teletype-heading:      #e0e0e0;
+    --teletype-border:       #383838;
+    --teletype-border-hover: #585858;
+    --teletype-shadow-accent: rgba(255, 255, 255, 0.04);
 
-    --doric-bg-red:     #1c1c1c;
-    --doric-bg-green:   #1c1c1c;
-    --doric-bg-yellow:  #1a1a1a;
-    --doric-bg-blue:    #1d1d1d;
-    --doric-bg-magenta: #1b1b1b;
-    --doric-bg-cyan:    #1c1c1c;
-
-    --doric-bg:           #111111;
-    --doric-bg-elevated:  #161616;
-    --doric-bg-alt:       #1c1c1c;
-    --doric-code-bg:      #1a1a1a;
-    --doric-text:         #d0d0d0;
-    --doric-text-muted:   #787878;
-    --doric-heading:      #e0e0e0;
-    --doric-border:       #383838;
-    --doric-border-hover: #585858;
-    --doric-shadow:       rgba(0, 0, 0, 0.3);
-    --doric-shadow-accent: rgba(255, 255, 255, 0.04);
-
-    --pico-primary:             var(--doric-accent);
+    --pico-primary:             var(--teletype-accent);
     --pico-primary-hover:       #d0d0d0;
+    --pico-primary-background: var(--teletype-accent);
+    --pico-primary-border: var(--teletype-accent);
+    --pico-primary-underline: color-mix(in srgb, var(--pico-primary) 50%, transparent);
+    --pico-primary-hover-background: var(--pico-primary-hover);
+    --pico-primary-hover-border: var(--pico-primary-hover);
+    --pico-primary-hover-underline: var(--pico-primary-hover);
     --pico-primary-focus:       rgba(176, 176, 176, 0.18);
     --pico-primary-inverse:     #111111;
-    --pico-muted-color:         var(--doric-text-muted);
-    --pico-muted-border-color:  var(--doric-border);
+    --pico-muted-color:         var(--teletype-text-muted);
+    --pico-muted-border-color:  var(--teletype-border);
+    color-scheme: dark;
     --pico-accordion-open-summary-color: #c0c0c0;
 
     --status-positive:    #b0b0b0;
@@ -143,41 +123,33 @@
    ========================================================================== */
 
 [data-theme=dark] {
-  --doric-accent:     #b0b0b0;
-  --doric-accent-bg:  #1e1e1e;
+  --teletype-accent:     #b0b0b0;
+  --teletype-accent-bg:  #1e1e1e;
 
-  --doric-red:        #a8a8a8;
-  --doric-green:      #b0b0b0;
-  --doric-yellow:     #a0a0a0;
-  --doric-blue:       #b8b8b8;
-  --doric-magenta:    #aaaaaa;
-  --doric-cyan:       #b4b4b4;
+  --teletype-bg:           #111111;
+  --teletype-bg-elevated:  #161616;
+  --teletype-bg-alt:       #1c1c1c;
+  --teletype-code-bg:      #1a1a1a;
+  --teletype-text:         #d0d0d0;
+  --teletype-text-muted:   #8a8a8a;
+  --teletype-heading:      #e0e0e0;
+  --teletype-border:       #383838;
+  --teletype-border-hover: #585858;
+  --teletype-shadow-accent: rgba(255, 255, 255, 0.04);
 
-  --doric-bg-red:     #1c1c1c;
-  --doric-bg-green:   #1c1c1c;
-  --doric-bg-yellow:  #1a1a1a;
-  --doric-bg-blue:    #1d1d1d;
-  --doric-bg-magenta: #1b1b1b;
-  --doric-bg-cyan:    #1c1c1c;
-
-  --doric-bg:           #111111;
-  --doric-bg-elevated:  #161616;
-  --doric-bg-alt:       #1c1c1c;
-  --doric-code-bg:      #1a1a1a;
-  --doric-text:         #d0d0d0;
-  --doric-text-muted:   #787878;
-  --doric-heading:      #e0e0e0;
-  --doric-border:       #383838;
-  --doric-border-hover: #585858;
-  --doric-shadow:       rgba(0, 0, 0, 0.3);
-  --doric-shadow-accent: rgba(255, 255, 255, 0.04);
-
-  --pico-primary:             var(--doric-accent);
+  --pico-primary:             var(--teletype-accent);
   --pico-primary-hover:       #d0d0d0;
+  --pico-primary-background: var(--teletype-accent);
+  --pico-primary-border: var(--teletype-accent);
+  --pico-primary-underline: color-mix(in srgb, var(--pico-primary) 50%, transparent);
+  --pico-primary-hover-background: var(--pico-primary-hover);
+  --pico-primary-hover-border: var(--pico-primary-hover);
+  --pico-primary-hover-underline: var(--pico-primary-hover);
   --pico-primary-focus:       rgba(176, 176, 176, 0.18);
   --pico-primary-inverse:     #111111;
-  --pico-muted-color:         var(--doric-text-muted);
-  --pico-muted-border-color:  var(--doric-border);
+  --pico-muted-color:         var(--teletype-text-muted);
+  --pico-muted-border-color:  var(--teletype-border);
+  color-scheme: dark;
   --pico-accordion-open-summary-color: #c0c0c0;
 
   --status-positive:    #b0b0b0;
@@ -195,25 +167,25 @@
    ========================================================================== */
 
 body {
-  font-family: var(--doric-font-family);
-  color: var(--doric-text);
-  background-color: var(--doric-bg);
+  font-family: var(--teletype-font-family);
+  color: var(--teletype-text);
+  background-color: var(--teletype-bg);
   line-height: 1.7;
   letter-spacing: 0.01em;
   font-size: 0.92rem;
 }
 
 a {
-  color: var(--doric-accent);
+  color: var(--teletype-accent);
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: color 0.25s ease, border-color 0.25s ease;
 }
-a:hover { color: var(--pico-primary-hover); border-bottom-color: var(--doric-border); text-decoration: none; }
-a:focus-visible { outline: 2px solid var(--doric-accent); outline-offset: 2px; }
+a:hover { color: var(--pico-primary-hover); border-bottom-color: var(--teletype-border); text-decoration: none; }
+a:focus-visible { outline: 2px solid var(--teletype-accent); outline-offset: 2px; }
 
 h1, h2, h3, h4, h5, h6 {
-  color: var(--doric-heading);
+  color: var(--teletype-heading);
   font-weight: 500;
   letter-spacing: 0.04em;
   font-size: inherit;
@@ -225,43 +197,43 @@ h3 { font-size: 1rem; }
 /* Tables */
 table { border-collapse: collapse; width: 100%; }
 th {
-  background-color: var(--doric-bg-alt);
-  color: var(--doric-heading);
+  background-color: var(--teletype-bg-alt);
+  color: var(--teletype-heading);
   font-weight: 500;
   text-align: left;
   padding: 0.75rem 1rem;
-  border-bottom: 2px solid var(--doric-border);
+  border-bottom: 2px solid var(--teletype-border);
   letter-spacing: 0.03em;
   text-transform: uppercase;
   font-size: 0.85em;
 }
 thead th {
-  background-color: var(--doric-bg-alt) !important;
-  color: var(--doric-heading) !important;
-  border-bottom: 2px solid var(--doric-border) !important;
+  background-color: var(--teletype-bg-alt) !important;
+  color: var(--teletype-heading) !important;
+  border-bottom: 2px solid var(--teletype-border) !important;
 }
 td {
-  border-bottom: 1px solid var(--doric-border);
+  border-bottom: 1px solid var(--teletype-border);
   padding: 0.625rem 1rem;
-  color: var(--doric-text);
-  background-color: var(--doric-bg);
+  color: var(--teletype-text);
+  background-color: var(--teletype-bg);
 }
-tr:nth-child(even) td { background-color: var(--doric-bg-elevated); }
-tr:hover td { background-color: var(--doric-accent-bg); }
+tr:nth-child(even) td { background-color: var(--teletype-bg-alt); }
+tr:hover td { background-color: var(--teletype-accent-bg); }
 
 /* Code — nearly invisible distinction, since everything is mono */
 code {
-  font-family: var(--doric-font-mono);
+  font-family: var(--teletype-font-mono);
   font-size: 0.875em;
   padding: 0.15em 0.35em;
-  background-color: var(--doric-code-bg);
-  border: 1px solid var(--doric-border);
+  background-color: var(--teletype-code-bg);
+  border: 1px solid var(--teletype-border);
   border-radius: 2px;
-  color: var(--doric-text);
+  color: var(--teletype-text);
 }
 pre {
-  background-color: var(--doric-code-bg);
-  border: 1px solid var(--doric-border);
+  background-color: var(--teletype-code-bg);
+  border: 1px solid var(--teletype-border);
   border-radius: 2px;
   padding: 1rem;
   overflow-x: auto;
@@ -271,7 +243,7 @@ pre code {
   background: none;
   border: none;
   font-size: 0.875rem;
-  color: var(--doric-heading);
+  color: var(--teletype-heading);
 }
 
 /* Images — subtle rounding and shadow */
@@ -279,19 +251,20 @@ img {
   border-radius: 2px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
   margin: 1rem;
+  max-width: calc(100% - 2rem);
 }
 
 /* Time — subtle, no background */
 time {
-  color: var(--doric-text-muted);
+  color: var(--teletype-text-muted);
   background: transparent;
 }
 
 /* Blockquotes — thin rule, no colour accent */
 blockquote {
-  border-left: 2px solid var(--doric-border);
+  border-left: 2px solid var(--teletype-border);
   background-color: transparent;
-  color: var(--doric-text-muted);
+  color: var(--teletype-text-muted);
   padding: 0.75rem 1.5rem;
   margin: 1rem 0;
   border-radius: 0;
@@ -306,8 +279,8 @@ dd { margin-bottom: .8rem; }
 button,
 [type="submit"],
 [type="button"] {
-  background-color: var(--doric-accent);
-  border-color: var(--doric-accent);
+  background-color: var(--teletype-accent);
+  border-color: var(--teletype-accent);
   color: var(--pico-primary-inverse);
   border-radius: 2px;
   font-weight: 400;
@@ -326,18 +299,18 @@ button:focus-visible, [type="submit"]:focus-visible, [type="button"]:focus-visib
 }
 button.secondary, button.outline {
   background-color: transparent;
-  border: 1px solid var(--doric-border);
-  color: var(--doric-text);
+  border: 1px solid var(--teletype-border);
+  color: var(--teletype-text);
 }
 button.secondary:hover, button.outline:hover {
-  border-color: var(--doric-accent);
-  color: var(--doric-accent);
+  border-color: var(--teletype-accent);
+  color: var(--teletype-accent);
   background-color: transparent;
 }
 
 /* Accessibility */
-:focus-visible { outline: 2px solid var(--doric-accent); outline-offset: 2px; }
-::selection { background-color: var(--doric-accent); color: var(--pico-primary-inverse); }
+:focus-visible { outline: 2px solid var(--teletype-accent); outline-offset: 2px; }
+::selection { background-color: var(--teletype-accent); color: var(--pico-primary-inverse); }
 
 /* ==========================================================================
    4. PICO CSS OVERRIDES (topics)
@@ -350,13 +323,13 @@ header.container {
 }
 header h1 { margin-bottom: 0.75rem; }
 header h1 a {
-  color: var(--doric-heading);
+  color: var(--teletype-heading);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.25s ease;
 }
-header h1 a:hover { color: var(--doric-accent); text-decoration: none; }
-header p { color: var(--doric-text-muted); font-size: 0.95rem; margin-bottom: 0; }
+header h1 a:hover { color: var(--teletype-accent); text-decoration: none; }
+header p { color: var(--teletype-text-muted); font-size: 0.95rem; margin-bottom: 0; }
 
 /* Accent line — thin ruled-paper feel */
 header.container::after {
@@ -364,94 +337,94 @@ header.container::after {
   display: block;
   height: 1px;
   margin-top: 1.5rem;
-  background: var(--doric-border);
+  background: var(--teletype-border);
 }
 
 /* Search */
 .search-row input[type="search"] {
-  border: 1px solid var(--doric-border);
+  border: 1px solid var(--teletype-border);
   border-radius: 2px;
-  background-color: var(--doric-bg-elevated);
-  color: var(--doric-text);
-  font-family: var(--doric-font-mono);
+  background-color: var(--teletype-bg-elevated);
+  color: var(--teletype-text);
+  font-family: var(--teletype-font-mono);
   letter-spacing: 0.02em;
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
-.search-row input[type="search"]::placeholder { color: var(--doric-text-muted); }
+.search-row input[type="search"]::placeholder { color: var(--teletype-text-muted); }
 .search-row input[type="search"]:focus {
-  border-color: var(--doric-accent);
+  border-color: var(--teletype-accent);
   box-shadow: 0 0 0 3px var(--pico-primary-focus);
   outline: none;
 }
 #clear-search {
-  color: var(--doric-text-muted);
-  border-color: var(--doric-border);
-  background-color: var(--doric-bg-elevated);
+  color: var(--teletype-text-muted);
+  border-color: var(--teletype-border);
+  background-color: var(--teletype-bg-elevated);
   transition: all 0.25s ease;
 }
-#clear-search:hover { color: var(--doric-accent); border-color: var(--doric-accent); }
+#clear-search:hover { color: var(--teletype-accent); border-color: var(--teletype-accent); }
 
 /* Cards */
 .card {
-  border: 1px solid var(--doric-border);
+  border: 1px solid var(--teletype-border);
   border-radius: 2px;
-  background: var(--doric-bg-elevated);
+  background: var(--teletype-bg-elevated);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 .card:hover {
-  border-color: var(--doric-accent);
-  box-shadow: 0 2px 8px var(--doric-shadow-accent);
+  border-color: var(--teletype-accent);
+  box-shadow: 0 2px 8px var(--teletype-shadow-accent);
 }
-.card h2 { color: var(--doric-heading); font-weight: 500; transition: color 0.25s ease; }
-.card:hover h2 { color: var(--doric-accent); }
-.card p { color: var(--doric-text-muted); }
+.card h2 { color: var(--teletype-heading); font-weight: 500; transition: color 0.25s ease; }
+.card:hover h2 { color: var(--teletype-accent); }
+.card p { color: var(--teletype-text-muted); }
 
 /* Back link, view toggle */
-.back-link { color: var(--doric-accent); font-weight: 400; }
+.back-link { color: var(--teletype-accent); font-weight: 400; }
 .back-link:hover { color: var(--pico-primary-hover); }
-.view-toggle { color: var(--doric-text-muted); font-size: 0.9rem; margin-bottom: 1.25rem; }
-.view-toggle a { color: var(--doric-accent); font-weight: 400; }
+.view-toggle { color: var(--teletype-text-muted); font-size: 0.9rem; margin-bottom: 1.25rem; }
+.view-toggle a { color: var(--teletype-accent); font-weight: 400; }
 .view-toggle a:hover { color: var(--pico-primary-hover); }
 
 /* Details/Accordion */
 details {
-  border: 1px solid var(--doric-border);
+  border: 1px solid var(--teletype-border);
   border-radius: 2px;
-  background-color: var(--doric-bg-elevated);
+  background-color: var(--teletype-bg-elevated);
   margin-bottom: 0.75rem;
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
-details:hover { border-color: var(--doric-border-hover); }
-details[open] { border-color: var(--doric-accent); box-shadow: 0 1px 6px var(--doric-shadow-accent); }
+details:hover { border-color: var(--teletype-border-hover); }
+details[open] { border-color: var(--teletype-accent); box-shadow: 0 1px 6px var(--teletype-shadow-accent); }
 details summary {
-  color: var(--doric-heading);
+  color: var(--teletype-heading);
   font-weight: 400;
   cursor: pointer;
   padding: 0.5rem 0.75rem;
   letter-spacing: 0.02em;
   transition: color 0.25s ease;
 }
-details summary:hover { color: var(--doric-accent); }
-details[open] summary { color: var(--doric-accent); border-bottom: 1px solid var(--doric-border); }
-.permalink { color: var(--doric-text-muted); opacity: 0.4; transition: opacity 0.25s ease, color 0.25s ease; }
-.permalink:hover { color: var(--doric-accent) !important; opacity: 1; }
+details summary:hover { color: var(--teletype-accent); }
+details[open] summary { color: var(--teletype-accent); border-bottom: 1px solid var(--teletype-border); }
+.permalink { color: var(--teletype-text-muted); opacity: 0.4; transition: opacity 0.25s ease, color 0.25s ease; }
+.permalink:hover { color: var(--teletype-accent) !important; opacity: 1; }
 details > div, details > p, details > ul, details > ol { padding: 0.625rem 0.75rem; }
-details p, details ul, details ol { color: var(--doric-text); }
-details a { color: var(--doric-accent); }
+details p, details ul, details ol { color: var(--teletype-text); }
+details a { color: var(--teletype-accent); }
 details a:hover { color: var(--pico-primary-hover); }
-details pre, details code { background-color: var(--doric-code-bg); }
+details pre, details code { background-color: var(--teletype-code-bg); }
 details table { margin: 0; }
 
 /* Footer */
 footer.container {
-  border-top: 1px solid var(--doric-border);
+  border-top: 1px solid var(--teletype-border);
   padding-top: 1.5rem;
   margin-top: 3rem;
-  color: var(--doric-text-muted);
+  color: var(--teletype-text-muted);
   font-size: 0.85rem;
   letter-spacing: 0.02em;
 }
-footer a { color: var(--doric-accent); }
+footer a { color: var(--teletype-accent); }
 footer a:hover { color: var(--pico-primary-hover); }
 
 /* ==========================================================================
@@ -459,27 +432,27 @@ footer a:hover { color: var(--pico-primary-hover); }
    ========================================================================== */
 
 #app > header {
-  background: var(--doric-bg-alt);
-  border-bottom: 1px solid var(--doric-border);
+  background: var(--teletype-bg-alt);
+  border-bottom: 1px solid var(--teletype-border);
 }
-#app > header h1 { color: var(--doric-heading); font-weight: 500; }
-#app > header h2 { color: var(--doric-text-muted); }
+#app > header h1 { color: var(--teletype-heading); font-weight: 500; }
+#app > header h2 { color: var(--teletype-text-muted); }
 #app > footer {
-  background: var(--doric-bg-alt);
-  border-top: 1px solid var(--doric-border);
-  color: var(--doric-text-muted);
+  background: var(--teletype-bg-alt);
+  border-top: 1px solid var(--teletype-border);
+  color: var(--teletype-text-muted);
 }
 
-progress::-webkit-progress-bar { background: var(--doric-border); }
-progress::-webkit-progress-value { background: var(--doric-accent); }
-progress::-moz-progress-bar { background: var(--doric-accent); }
+progress::-webkit-progress-bar { background: var(--teletype-border); }
+progress::-webkit-progress-value { background: var(--teletype-accent); }
+progress::-moz-progress-bar { background: var(--teletype-accent); }
 
 .trees button.pure-button,
 .trees button.button {
-  border: 1px solid var(--doric-border);
+  border: 1px solid var(--teletype-border);
   border-radius: 2px;
-  background: var(--doric-bg-elevated);
-  color: var(--doric-text);
+  background: var(--teletype-bg-elevated);
+  color: var(--teletype-text);
   font-weight: 400;
   padding: 1rem 1.25rem;
   line-height: 1.5;
@@ -488,11 +461,11 @@ progress::-moz-progress-bar { background: var(--doric-accent); }
 }
 .trees button.pure-button:hover,
 .trees button.button:hover {
-  border-color: var(--doric-accent);
-  background: var(--doric-accent-bg);
+  border-color: var(--teletype-accent);
+  background: var(--teletype-accent-bg);
 }
 .trees button.pure-button:focus,
-.trees button.button:focus { outline: 2px solid var(--doric-accent); outline-offset: 2px; }
+.trees button.button:focus { outline: 2px solid var(--teletype-accent); outline-offset: 2px; }
 
 .trees button.pure-button.status-positive,
 .trees button.button.status-positive { border-color: var(--status-positive); }
@@ -515,42 +488,42 @@ progress::-moz-progress-bar { background: var(--doric-accent); }
 .trees button.button.status-negative:hover { background: var(--status-negative-bg) !important; }
 
 aside.help {
-  background: var(--doric-accent-bg);
-  border-left: 2px solid var(--doric-border);
+  background: var(--teletype-accent-bg);
+  border-left: 2px solid var(--teletype-border);
   border-radius: 0;
-  color: var(--doric-text);
+  color: var(--teletype-text);
   padding: 1rem 1.5rem;
 }
 
 .summary article {
-  background: var(--doric-bg-alt);
-  border-left: 2px solid var(--doric-border);
+  background: var(--teletype-bg-alt);
+  border-left: 2px solid var(--teletype-border);
   border-radius: 2px;
-  color: var(--doric-text);
+  color: var(--teletype-text);
 }
 
 .score-result { border-radius: 2px; }
 
 nav a { font-variant: small-caps; }
-nav.actions a:hover { background: var(--doric-accent-bg); border-radius: 2px; }
+nav.actions a:hover { background: var(--teletype-accent-bg); border-radius: 2px; }
 
 /* ==========================================================================
-   6. org-parse SPECIFIC OVERRIDES
+   6. hop SPECIFIC OVERRIDES
    ========================================================================== */
 
-header .document-title { border-color: var(--doric-border); }
-.subtitle { color: var(--doric-text-muted); }
-.todo { color: var(--doric-text); font-weight: 500; }
-.done { color: var(--doric-text-muted); }
-.priority { color: var(--doric-text); }
-.tags { color: var(--doric-text-muted); }
-.footnotes { border-top-color: var(--doric-border); }
-.planning { color: var(--doric-text-muted); }
-.warning { background: var(--doric-bg-alt); border-left-color: var(--doric-border); color: var(--doric-text); }
-.note { background: var(--doric-bg-alt); border-left-color: var(--doric-border); color: var(--doric-text); }
+header .document-title { border-color: var(--teletype-border); }
+.subtitle { color: var(--teletype-text-muted); }
+.todo { color: var(--teletype-text); font-weight: 500; }
+.done { color: var(--teletype-text-muted); }
+.priority { color: var(--teletype-text); }
+.tags { color: var(--teletype-text-muted); }
+.footnotes { border-top-color: var(--teletype-border); }
+.planning { color: var(--teletype-text-muted); }
+.warning { background: var(--teletype-bg-alt); border-left-color: var(--teletype-border); color: var(--teletype-text); }
+.note { background: var(--teletype-bg-alt); border-left-color: var(--teletype-border); color: var(--teletype-text); }
 figure { width: fit-content; margin-block: calc(var(--pico-typography-spacing-vertical, 1rem) + 0.4rem); }
-figure > img { display: block; margin-bottom: 0.25rem; }
-figure figcaption { color: var(--doric-text-muted); font-style: italic; font-size: 0.875em; padding: 0; }
+figure > img { display: block; margin-inline: 0; margin-bottom: 0.25rem; max-width: 100%; }
+figure figcaption { color: var(--teletype-text-muted); font-style: italic; font-size: 0.875em; padding: 0; }
 figure.align-center { margin-left: auto; margin-right: auto; }
 figure.align-center > img { margin-left: auto; margin-right: auto; }
 figure.align-center > figcaption { text-align: center; }
@@ -566,13 +539,14 @@ figure.align-left > figcaption { text-align: left; }
    ========================================================================== */
 
 ::-webkit-scrollbar { width: 8px; height: 8px; }
-::-webkit-scrollbar-track { background: var(--doric-bg-alt); }
-::-webkit-scrollbar-thumb { background: var(--doric-border); border-radius: 4px; border: 2px solid var(--doric-bg-alt); }
-::-webkit-scrollbar-thumb:hover { background: var(--doric-border-hover); }
-* { scrollbar-width: thin; scrollbar-color: var(--doric-border) var(--doric-bg-alt); }
+::-webkit-scrollbar-track { background: var(--teletype-bg-alt); }
+::-webkit-scrollbar-thumb { background: var(--teletype-border); border-radius: 4px; border: 2px solid var(--teletype-bg-alt); }
+::-webkit-scrollbar-thumb:hover { background: var(--teletype-border-hover); }
+* { scrollbar-width: thin; scrollbar-color: var(--teletype-border) var(--teletype-bg-alt); }
 
 @media print {
-  :root { --doric-text: #222; --doric-heading: #111; --doric-bg: #fff; --doric-bg-elevated: #fff; }
+  /* Same selectors as section 2, so that dark mode cannot win on paper */
+  :root:not([data-theme]), [data-theme] { --teletype-text: #222; --teletype-heading: #111; --teletype-bg: #fff; --teletype-bg-elevated: #fff; --teletype-bg-alt: #f2f2f2; --teletype-code-bg: #f2f2f2; --teletype-text-muted: #555555; color-scheme: light; }
   a { color: #222; text-decoration: underline; }
   a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #888; }
   details { border: 1px solid #ccc; }
