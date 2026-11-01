@@ -1,0 +1,116 @@
+/* ==========================================================================
+   bone/lotus.css — BONE-specific overrides for the lotus theme
+   Load after lotus.css:  <link rel="stylesheet" href="bone/lotus.css">
+   ========================================================================== */
+
+/* Chart palette (read by bone-stats.js for Vega)
+   Dark values use :not([data-theme]) because BONE always sets data-theme
+   and an explicit light choice must win over a dark system preference. */
+:root {
+  --bone-chart-1: #373829;
+  --bone-chart-2: #5e2a29;
+  --bone-chart-3: #7a6d49;
+  --bone-chart-4: #33373c;
+  --bone-chart-5: #807a6e;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --bone-chart-1: #cec2ae;
+    --bone-chart-2: #d8a094;
+    --bone-chart-3: #a9b27e;
+    --bone-chart-4: #9fb0bd;
+    --bone-chart-5: #c9b37a;
+  }
+}
+
+[data-theme=dark] {
+  --bone-chart-1: #cec2ae;
+  --bone-chart-2: #d8a094;
+  --bone-chart-3: #a9b27e;
+  --bone-chart-4: #9fb0bd;
+  --bone-chart-5: #c9b37a;
+}
+
+/* ==========================================================================
+   5. BONE-SPECIFIC COMPONENTS
+   ========================================================================== */
+
+/* BONE type badges
+   bug:   oxblood   patch: moss green
+   req:   olive     ann:   slate
+   rel:   umber     chg:   lichen      */
+:root {
+  --bone-mark-bug-bg: #5e2a291a; --bone-mark-bug: #5e2a29;
+  --bone-mark-ann-bg: #33373c1a; --bone-mark-ann: #33373c;
+  --bone-mark-req-bg: #675b391a; --bone-mark-req: #675b39;
+  --bone-mark-patch-bg: #4f5a351a; --bone-mark-patch: #4f5a35;
+  --bone-mark-rel-bg: #6f52401a; --bone-mark-rel: #6f5240;
+  --bone-mark-chg-bg: #59564b1a; --bone-mark-chg: #59564b;
+  --bone-vote-pos-bg: #4f5a3533; --bone-vote-pos: #4f5a35;
+  --bone-vote-neg-bg: #5e2a2933; --bone-vote-neg: #5e2a29;
+  --bone-vote-zero-bg: #59564b22; --bone-vote-zero: #59564b;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --bone-mark-bug-bg: #d8a09426; --bone-mark-bug: #d8a094;
+    --bone-mark-ann-bg: #9fb0bd26; --bone-mark-ann: #9fb0bd;
+    --bone-mark-req-bg: #c9b37a26; --bone-mark-req: #c9b37a;
+    --bone-mark-patch-bg: #a9b27e26; --bone-mark-patch: #a9b27e;
+    --bone-mark-rel-bg: #cec2ae26; --bone-mark-rel: #cec2ae;
+    --bone-mark-chg-bg: #a69e8e26; --bone-mark-chg: #a69e8e;
+    --bone-vote-pos-bg: #a9b27e33; --bone-vote-pos: #a9b27e;
+    --bone-vote-neg-bg: #d8a09433; --bone-vote-neg: #d8a094;
+    --bone-vote-zero-bg: #a69e8e22; --bone-vote-zero: #a69e8e;
+  }
+}
+[data-theme=dark] {
+  --bone-mark-bug-bg: #d8a09426; --bone-mark-bug: #d8a094;
+  --bone-mark-ann-bg: #9fb0bd26; --bone-mark-ann: #9fb0bd;
+  --bone-mark-req-bg: #c9b37a26; --bone-mark-req: #c9b37a;
+  --bone-mark-patch-bg: #a9b27e26; --bone-mark-patch: #a9b27e;
+  --bone-mark-rel-bg: #cec2ae26; --bone-mark-rel: #cec2ae;
+  --bone-mark-chg-bg: #a69e8e26; --bone-mark-chg: #a69e8e;
+  --bone-vote-pos-bg: #a9b27e33; --bone-vote-pos: #a9b27e;
+  --bone-vote-neg-bg: #d8a09433; --bone-vote-neg: #d8a094;
+  --bone-vote-zero-bg: #a69e8e22; --bone-vote-zero: #a69e8e;
+}
+
+.filters button {
+  background-color: var(--lotus-primary);
+  border-color: var(--lotus-primary);
+  color: var(--pico-primary-inverse);
+  border-radius: 3px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.filters button:hover { background-color: var(--lotus-primary-hover); border-color: var(--lotus-primary-hover); }
+.filters button.outline {
+  background: none;
+  border: 1px solid var(--lotus-border);
+  color: var(--lotus-text-muted);
+}
+.filters button.outline:hover { border-color: var(--lotus-accent); color: var(--lotus-accent); }
+
+.theme-toggle {
+  cursor: pointer;
+  background: none !important;
+  border: none !important;
+  font-size: 1.2rem;
+  padding: 0.3rem;
+  color: var(--lotus-text-muted);
+}
+.theme-toggle:hover { background: none !important; color: var(--lotus-accent); }
+
+footer.bone-footer { color: var(--lotus-text-muted); border-top: 1px solid var(--lotus-border); }
+footer.bone-footer a { color: var(--lotus-accent); }
+footer.bone-footer a:hover { color: var(--lotus-accent-hover); }
+
+/* Semantic variables already follow the mode */
+:root, [data-theme=light], [data-theme=dark] {
+  --bone-stripe-bg: var(--lotus-bg-alt);
+  --bone-row-bg: var(--lotus-bg);
+}
+
+nav ul li a { color: var(--lotus-accent); }
+nav ul li a:hover { color: var(--lotus-accent-hover); }

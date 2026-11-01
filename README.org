@@ -4,16 +4,17 @@
 
 Shared CSS themes for [[https://codeberg.org/bzg/topics][topics]], [[https://codeberg.org/bzg/bone][BONE]], and [[https://codeberg.org/bzg/hop][hop]].
 
-Six themes are available:
+Seven themes are available:
 
-| Theme    | File         | Brand                                       |
-|----------+--------------+---------------------------------------------|
-| *SWH*      | =swh.css=      | Software Heritage (Red→Orange→Yellow)       |
-| *Org*      | =org.css=      | Org-mode / Worg (Teal, indigo dark mode)    |
-| *Doric*    | =doric.css=    | Inspired by [[https://protesilaos.com/codelog/2025-05-13-emacs-doric-themes/][Emacs doric-themes]]              |
-| *Lincoln*  | =lincoln.css=  | Based on Lincoln blue                       |
-| *Teletype* | =teletype.css= | Black & White                               |
-| *Ashes*    | =ashes.css=    | Inspired by [[https://bzg.fr][bzg.fr]] (monospace, grey embers) |
+| Theme    | File         | Brand                                            |
+|----------+--------------+--------------------------------------------------|
+| *SWH*      | =swh.css=      | Software Heritage (Red→Orange→Yellow)            |
+| *Org*      | =org.css=      | Org-mode / Worg (Teal, indigo dark mode)         |
+| *Doric*    | =doric.css=    | Inspired by [[https://protesilaos.com/codelog/2025-05-13-emacs-doric-themes/][Emacs doric-themes]]                   |
+| *Lincoln*  | =lincoln.css=  | Based on Lincoln blue                            |
+| *Teletype* | =teletype.css= | Black & White                                    |
+| *Ashes*    | =ashes.css=    | Inspired by [[https://bzg.fr][bzg.fr]] (monospace, grey embers)      |
+| *Lotus*    | =lotus.css=    | The White Lotus, season 1 (linen, moss, oxblood) |
 
 * Color palettes
 
@@ -43,6 +44,10 @@ Each theme supports light and dark mode.  Here are the palettes:
 
 [[file:images/palette-ashes.svg]]
 
+** Lotus
+
+[[file:images/palette-lotus.svg]]
+
 BONE-specific overlays live in =bone/= (see below).
 
 * What each theme covers
@@ -70,6 +75,7 @@ chart palette, type badges, buttons, stripe rows:
 - =bone/lincoln.css=
 - =bone/teletype.css=
 - =bone/ashes.css=
+- =bone/lotus.css=
 
 Each overlay provides =--bone-chart-*= variables (for Vega), type badge
 colors (=--bone-mark-*=), status button colors (=--bone-btn-*=), vote

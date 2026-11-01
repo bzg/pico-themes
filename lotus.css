@@ -1,0 +1,648 @@
+/*
+ * lotus.css — White Lotus theme (light + dark)
+ * Works with: topics, trees, bone, and org-parse
+ *
+ * Palette sampled from The White Lotus, season 1 (Hawaii):
+ * faded linen, wet lava, tropical shade and one dark red note.
+ *
+ * Source colours:
+ *   Stone:    #a69e8e   Sand:     #cec2ae
+ *   Taupe:    #807a6e   Ink:      #1b1f21
+ *   Lichen:   #59564b   Slate:    #33373c
+ *   Moss:     #373829   Olive:    #7a6d49
+ *   Umber:    #6f5240   Oxblood:  #5e2a29
+ *
+ * The source tones are too muted or too dark for some roles, so
+ * paper backgrounds and dark-mode accents are derived from them.
+ * Semantic variables switch with the mode: rules below section 2
+ * never need a dark-mode copy.
+ *
+ * Supports dark mode via:
+ *   - prefers-color-scheme (topics, trees, org-parse)
+ *   - [data-theme=dark] attribute
+ */
+
+/* ==========================================================================
+   1. CUSTOM PROPERTIES — Light Mode (default)
+   ========================================================================== */
+
+:root {
+  /* Season 1 palette — constant in both modes */
+  --lotus-stone:   #a69e8e;
+  --lotus-taupe:   #807a6e;
+  --lotus-lichen:  #59564b;
+  --lotus-moss:    #373829;
+  --lotus-sand:    #cec2ae;
+  --lotus-ink:     #1b1f21;
+  --lotus-slate:   #33373c;
+  --lotus-olive:   #7a6d49;
+  --lotus-umber:   #6f5240;
+  --lotus-oxblood: #5e2a29;
+
+  /* Semantic colours */
+  --lotus-primary:       var(--lotus-moss);
+  --lotus-primary-hover: var(--lotus-ink);
+  --lotus-accent:        var(--lotus-oxblood);
+  --lotus-accent-hover:  #7d3a38;
+  --lotus-accent-light:  #f1e4df;
+  --lotus-warm-light:    #f4efe4;
+
+  --lotus-text:          var(--lotus-ink);
+  --lotus-text-muted:    var(--lotus-lichen);
+  --lotus-heading:       var(--lotus-moss);
+  --lotus-border:        var(--lotus-sand);
+  --lotus-border-hover:  var(--lotus-stone);
+  --lotus-bg:            #fbf8f2;
+  --lotus-bg-elevated:   #fffdf9;
+  --lotus-bg-alt:        #f1ebdf;
+  --lotus-code-bg:       #f1ebdf;
+  --lotus-shadow:        rgba(27, 31, 33, 0.08);
+  --lotus-shadow-accent: rgba(94, 42, 41, 0.10);
+
+  --lotus-gradient: linear-gradient(90deg, var(--lotus-moss) 0%, var(--lotus-olive) 40%, var(--lotus-umber) 70%, var(--lotus-oxblood) 100%);
+
+  /* Functional colours */
+  --lotus-success:    #4f5a35;
+  --lotus-info:       var(--lotus-slate);
+  --lotus-warning:    #675b39;
+  --lotus-error:      var(--lotus-oxblood);
+  --lotus-info-bg:    #e9ebec;
+  --lotus-warning-bg: #f1ead6;
+
+  /* Trees status colours */
+  --status-positive:    #4f5a35;
+  --status-positive-bg: color-mix(in srgb, #4f5a35 10%, transparent);
+  --status-neutral:     #33373c;
+  --status-neutral-bg:  color-mix(in srgb, #33373c 10%, transparent);
+  --status-caution:     #675b39;
+  --status-caution-bg:  color-mix(in srgb, #675b39 10%, transparent);
+  --status-negative:    #5e2a29;
+  --status-negative-bg: color-mix(in srgb, #5e2a29 10%, transparent);
+
+  /* Typography — system font stacks */
+  --lotus-font-family:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                        "Helvetica Neue", Arial, sans-serif;
+  --lotus-font-heading: Georgia, "Times New Roman", serif;
+  --lotus-font-mono:    "SFMono-Regular", Consolas, "Liberation Mono", Menlo,
+                        Courier, monospace;
+}
+
+/* Pico CSS overrides — must match Pico 2's selector specificity */
+[data-theme=light],
+:root:not([data-theme=dark]) {
+  --pico-background-color:    var(--lotus-bg);
+  --pico-color:               var(--lotus-text);
+  --pico-primary:             var(--lotus-accent);
+  --pico-primary-background:  var(--lotus-primary);
+  --pico-primary-border:      var(--lotus-primary);
+  --pico-primary-underline:   rgba(94, 42, 41, 0.5);
+  --pico-primary-hover:       var(--lotus-accent-hover);
+  --pico-primary-hover-background: var(--lotus-primary-hover);
+  --pico-primary-hover-border:     var(--lotus-primary-hover);
+  --pico-primary-hover-underline:  var(--lotus-accent-hover);
+  --pico-primary-focus:       rgba(55, 56, 41, 0.2);
+  --pico-primary-inverse:     #fbf8f2;
+  --pico-muted-color:         var(--lotus-text-muted);
+  --pico-muted-border-color:  var(--lotus-border);
+
+  color-scheme: light;
+}
+
+/* ==========================================================================
+   2. DARK MODE — prefers-color-scheme
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --lotus-primary:       #cec2ae;
+    --lotus-primary-hover: #e6ddcd;
+    --lotus-accent:        #d8a094;
+    --lotus-accent-hover:  #e8bdb3;
+    --lotus-accent-light:  #3a2624;
+    --lotus-warm-light:    #2a2c26;
+
+    --lotus-text:          #cec2ae;
+    --lotus-text-muted:    #a69e8e;
+    --lotus-heading:       #e6ddcd;
+    --lotus-border:        #59564b;
+    --lotus-border-hover:  var(--lotus-taupe);
+    --lotus-bg:            #1b1f21;
+    --lotus-bg-elevated:   #23282a;
+    --lotus-bg-alt:        #2b2f33;
+    --lotus-code-bg:       #262a2d;
+    --lotus-shadow:        rgba(0, 0, 0, 0.4);
+    --lotus-shadow-accent: rgba(216, 160, 148, 0.12);
+
+    --lotus-gradient: linear-gradient(90deg, #cec2ae 0%, #c9b37a 40%, #b8957f 70%, #d8a094 100%);
+
+    --lotus-success:    #a9b27e;
+    --lotus-info:       #9fb0bd;
+    --lotus-warning:    #c9b37a;
+    --lotus-error:      #d8a094;
+    --lotus-info-bg:    #262d33;
+    --lotus-warning-bg: #2f2b1f;
+
+    --pico-background-color:    var(--lotus-bg);
+    --pico-color:               var(--lotus-text);
+    --pico-primary:             var(--lotus-accent);
+    --pico-primary-background:  var(--lotus-primary);
+    --pico-primary-border:      var(--lotus-primary);
+    --pico-primary-underline:   rgba(216, 160, 148, 0.5);
+    --pico-primary-hover:       var(--lotus-accent-hover);
+    --pico-primary-hover-background: var(--lotus-primary-hover);
+    --pico-primary-hover-border:     var(--lotus-primary-hover);
+    --pico-primary-hover-underline:  var(--lotus-accent-hover);
+    --pico-primary-focus:       rgba(206, 194, 174, 0.25);
+    --pico-primary-inverse:     #1b1f21;
+    --pico-muted-color:         var(--lotus-text-muted);
+    --pico-muted-border-color:  var(--lotus-border);
+    --pico-accordion-open-summary-color: #cec2ae;
+
+    --status-positive:    #a9b27e;
+    --status-positive-bg: color-mix(in srgb, #a9b27e 15%, transparent);
+    --status-neutral:     #9fb0bd;
+    --status-neutral-bg:  color-mix(in srgb, #9fb0bd 15%, transparent);
+    --status-caution:     #c9b37a;
+    --status-caution-bg:  color-mix(in srgb, #c9b37a 15%, transparent);
+    --status-negative:    #d8a094;
+    --status-negative-bg: color-mix(in srgb, #d8a094 15%, transparent);
+
+    color-scheme: dark;
+  }
+}
+
+/* ==========================================================================
+   2b. DARK MODE — [data-theme=dark]
+   ========================================================================== */
+
+[data-theme=dark] {
+  --lotus-primary:       #cec2ae;
+  --lotus-primary-hover: #e6ddcd;
+  --lotus-accent:        #d8a094;
+  --lotus-accent-hover:  #e8bdb3;
+  --lotus-accent-light:  #3a2624;
+  --lotus-warm-light:    #2a2c26;
+
+  --lotus-text:          #cec2ae;
+  --lotus-text-muted:    #a69e8e;
+  --lotus-heading:       #e6ddcd;
+  --lotus-border:        #59564b;
+  --lotus-border-hover:  var(--lotus-taupe);
+  --lotus-bg:            #1b1f21;
+  --lotus-bg-elevated:   #23282a;
+  --lotus-bg-alt:        #2b2f33;
+  --lotus-code-bg:       #262a2d;
+  --lotus-shadow:        rgba(0, 0, 0, 0.4);
+  --lotus-shadow-accent: rgba(216, 160, 148, 0.12);
+
+  --lotus-gradient: linear-gradient(90deg, #cec2ae 0%, #c9b37a 40%, #b8957f 70%, #d8a094 100%);
+
+  --lotus-success:    #a9b27e;
+  --lotus-info:       #9fb0bd;
+  --lotus-warning:    #c9b37a;
+  --lotus-error:      #d8a094;
+  --lotus-info-bg:    #262d33;
+  --lotus-warning-bg: #2f2b1f;
+
+  --pico-background-color:    var(--lotus-bg);
+  --pico-color:               var(--lotus-text);
+  --pico-primary:             var(--lotus-accent);
+  --pico-primary-background:  var(--lotus-primary);
+  --pico-primary-border:      var(--lotus-primary);
+  --pico-primary-underline:   rgba(216, 160, 148, 0.5);
+  --pico-primary-hover:       var(--lotus-accent-hover);
+  --pico-primary-hover-background: var(--lotus-primary-hover);
+  --pico-primary-hover-border:     var(--lotus-primary-hover);
+  --pico-primary-hover-underline:  var(--lotus-accent-hover);
+  --pico-primary-focus:       rgba(206, 194, 174, 0.25);
+  --pico-primary-inverse:     #1b1f21;
+  --pico-muted-color:         var(--lotus-text-muted);
+  --pico-muted-border-color:  var(--lotus-border);
+  --pico-accordion-open-summary-color: #cec2ae;
+
+  --status-positive:    #a9b27e;
+  --status-positive-bg: color-mix(in srgb, #a9b27e 15%, transparent);
+  --status-neutral:     #9fb0bd;
+  --status-neutral-bg:  color-mix(in srgb, #9fb0bd 15%, transparent);
+  --status-caution:     #c9b37a;
+  --status-caution-bg:  color-mix(in srgb, #c9b37a 15%, transparent);
+  --status-negative:    #d8a094;
+  --status-negative-bg: color-mix(in srgb, #d8a094 15%, transparent);
+
+  color-scheme: dark;
+}
+
+/* ==========================================================================
+   3. BASE ELEMENTS (works on bare HTML — org-parse, and all others)
+   ========================================================================== */
+
+body {
+  font-family: var(--lotus-font-family);
+  color: var(--lotus-text);
+  background-color: var(--lotus-bg);
+  line-height: 1.65;
+}
+
+a {
+  color: var(--lotus-accent);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+a:hover { color: var(--lotus-accent-hover); text-decoration: underline; }
+a:focus-visible { outline: 2px solid var(--lotus-accent); outline-offset: 2px; }
+
+/* Oxblood is too close to ink to mark a link by colour alone */
+p a, li a, td a, dd a, blockquote a {
+  text-decoration: underline;
+  text-decoration-color: var(--pico-primary-underline);
+  text-underline-offset: 0.15em;
+}
+nav a { text-decoration: none; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--lotus-font-heading);
+  color: var(--lotus-heading);
+  font-weight: 600;
+}
+
+/* Tables */
+table { border-collapse: collapse; width: 100%; }
+th {
+  background-color: var(--lotus-primary);
+  color: var(--pico-primary-inverse);
+  font-weight: 600;
+  text-align: left;
+  padding: 0.75rem 1rem;
+}
+thead th {
+  background-color: var(--lotus-primary) !important;
+  color: var(--pico-primary-inverse) !important;
+}
+td {
+  border-bottom: 1px solid var(--lotus-border);
+  padding: 0.625rem 1rem;
+  color: var(--lotus-text);
+  background-color: var(--lotus-bg);
+}
+tr:nth-child(even) td { background-color: var(--lotus-bg-alt); }
+tr:hover td { background-color: var(--lotus-accent-light); }
+
+/* Code */
+code {
+  font-family: var(--lotus-font-mono);
+  font-size: 0.875em;
+  padding: 0.2em 0.4em;
+  background-color: var(--lotus-code-bg);
+  border: 1px solid var(--lotus-border);
+  border-radius: 3px;
+  color: var(--lotus-text);
+}
+pre {
+  font-family: var(--lotus-font-mono);
+  background-color: var(--lotus-code-bg);
+  border: 1px solid var(--lotus-border);
+  border-radius: 4px;
+  padding: 1rem;
+  overflow-x: auto;
+}
+pre code {
+  padding: 0;
+  background: none;
+  border: none;
+  font-size: 0.875rem;
+  color: var(--lotus-heading);
+}
+
+/* Images — the width limit accounts for the side margins */
+img {
+  border-radius: 3px;
+  box-shadow: 0 1px 3px var(--lotus-shadow);
+  margin: 1rem;
+  max-width: calc(100% - 2rem);
+}
+
+/* Time — subtle, no background */
+time {
+  color: var(--lotus-text-muted);
+  background: transparent;
+}
+
+/* Blockquotes — oxblood rule on warm paper */
+blockquote {
+  border-left: 3px solid var(--lotus-accent);
+  background-color: var(--lotus-warm-light);
+  color: var(--lotus-text);
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+  border-radius: 0 4px 4px 0;
+}
+blockquote p:last-child { margin-bottom: 0; }
+
+/* Description lists */
+dd { margin-bottom: .8rem; }
+
+/* Buttons */
+button,
+[type="submit"],
+[type="button"] {
+  background-color: var(--lotus-primary);
+  border-color: var(--lotus-primary);
+  color: var(--pico-primary-inverse);
+  border-radius: 3px;
+  font-weight: 500;
+  transition: background-color 0.15s ease, border-color 0.15s ease,
+              box-shadow 0.15s ease;
+}
+button:hover, [type="submit"]:hover, [type="button"]:hover {
+  background-color: var(--lotus-primary-hover);
+  border-color: var(--lotus-primary-hover);
+}
+button:focus-visible, [type="submit"]:focus-visible, [type="button"]:focus-visible {
+  box-shadow: 0 0 0 3px var(--pico-primary-focus);
+}
+button.secondary, button.outline {
+  background-color: transparent;
+  border: 1px solid var(--lotus-border);
+  color: var(--lotus-text);
+}
+button.secondary:hover, button.outline:hover {
+  border-color: var(--lotus-accent);
+  color: var(--lotus-accent);
+  background-color: transparent;
+}
+
+/* Accessibility */
+:focus-visible { outline: 2px solid var(--lotus-accent); outline-offset: 2px; }
+::selection { background-color: var(--lotus-primary); color: var(--pico-primary-inverse); }
+
+/* Syntax highlighting — semantic variables cover both modes */
+.builtin        { color: var(--lotus-warning); }
+.comment, .comment-delimiter { color: var(--lotus-text-muted); font-style: italic; }
+.constant       { color: var(--lotus-error); }
+.doc            { color: var(--lotus-text-muted); }
+.function-name  { color: var(--lotus-info); }
+.keyword        { color: var(--lotus-accent); }
+.string         { color: var(--lotus-success); }
+.variable-name  { color: var(--lotus-heading); }
+
+/* ==========================================================================
+   4. PICO CSS OVERRIDES (topics)
+   ========================================================================== */
+
+header.container {
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  border-bottom: none;
+}
+header h1 { margin-bottom: 0.75rem; }
+header h1 a {
+  color: var(--lotus-heading);
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.15s ease;
+}
+header h1 a:hover { color: var(--lotus-accent); text-decoration: none; }
+header p { color: var(--lotus-text-muted); font-size: 1.1rem; margin-bottom: 0; }
+
+/* Gradient bar */
+header.container::after {
+  content: '';
+  display: block;
+  height: 3px;
+  margin-top: 1.5rem;
+  background: var(--lotus-gradient);
+  border-radius: 2px;
+}
+
+/* Search */
+.search-row input[type="search"] {
+  border: 1px solid var(--lotus-border);
+  border-radius: 3px;
+  background-color: var(--lotus-bg-elevated);
+  color: var(--lotus-text);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.search-row input[type="search"]::placeholder { color: var(--lotus-text-muted); }
+.search-row input[type="search"]:focus {
+  border-color: var(--lotus-accent);
+  box-shadow: 0 0 0 3px var(--pico-primary-focus);
+  outline: none;
+}
+#clear-search {
+  color: var(--lotus-text-muted);
+  border-color: var(--lotus-border);
+  background-color: var(--lotus-bg-elevated);
+  transition: all 0.15s ease;
+}
+#clear-search:hover { color: var(--lotus-accent); border-color: var(--lotus-accent); }
+
+/* Cards */
+.card {
+  border: 1px solid var(--lotus-border);
+  border-radius: 4px;
+  background: var(--lotus-bg-elevated);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  border-color: var(--lotus-accent);
+  box-shadow: 0 4px 14px var(--lotus-shadow-accent);
+}
+.card h2 { color: var(--lotus-heading); font-weight: 600; transition: color 0.15s ease; }
+.card:hover h2 { color: var(--lotus-accent); }
+.card p { color: var(--lotus-text-muted); }
+
+/* Back link, view toggle */
+.back-link { color: var(--lotus-accent); font-weight: 500; }
+.back-link:hover { color: var(--lotus-accent-hover); }
+.view-toggle { color: var(--lotus-text-muted); font-size: 0.95rem; margin-bottom: 1.25rem; }
+.view-toggle a { color: var(--lotus-accent); font-weight: 500; }
+.view-toggle a:hover { color: var(--lotus-accent-hover); text-decoration: underline; }
+
+/* Details/Accordion */
+details {
+  border: 1px solid var(--lotus-border);
+  border-radius: 4px;
+  background-color: var(--lotus-bg-elevated);
+  margin-bottom: 0.75rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+details:hover { border-color: var(--lotus-border-hover); }
+details[open] { border-color: var(--lotus-accent); box-shadow: 0 2px 10px var(--lotus-shadow-accent); }
+details summary {
+  color: var(--lotus-heading);
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  transition: color 0.15s ease;
+}
+details summary:hover { color: var(--lotus-accent); }
+details[open] summary { color: var(--lotus-accent); border-bottom: 1px solid var(--lotus-border); }
+.permalink { color: var(--lotus-text-muted); opacity: 0.6; transition: opacity 0.15s ease, color 0.15s ease; }
+.permalink:hover { color: var(--lotus-accent) !important; opacity: 1; }
+details > div, details > p, details > ul, details > ol { padding: 0.625rem 0.75rem; }
+details p, details ul, details ol { color: var(--lotus-text); }
+details a { color: var(--lotus-accent); }
+details a:hover { color: var(--lotus-accent-hover); text-decoration: underline; }
+details pre, details code { background-color: var(--lotus-code-bg); }
+details table { margin: 0; }
+
+/* Footer */
+footer.container {
+  border-top: 1px solid var(--lotus-border);
+  padding-top: 1.5rem;
+  margin-top: 3rem;
+  color: var(--lotus-text-muted);
+  font-size: 0.9rem;
+}
+footer a { color: var(--lotus-accent); }
+footer a:hover { color: var(--lotus-accent-hover); }
+
+/* ==========================================================================
+   5. TREES-SPECIFIC COMPONENTS
+   ========================================================================== */
+
+#app > header {
+  background: var(--lotus-bg-alt);
+  border-bottom: none;
+}
+#app > header::after {
+  content: '';
+  display: block;
+  height: 3px;
+  background: var(--lotus-gradient);
+  border-radius: 2px;
+}
+#app > header h1 { color: var(--lotus-heading); font-weight: 700; }
+#app > header h2 { color: var(--lotus-text-muted); }
+#app > footer {
+  background: var(--lotus-bg-alt);
+  border-top: 1px solid var(--lotus-border);
+  color: var(--lotus-text-muted);
+}
+
+progress::-webkit-progress-bar { background: var(--lotus-border); }
+progress::-webkit-progress-value { background: var(--lotus-primary); }
+progress::-moz-progress-bar { background: var(--lotus-primary); }
+
+.trees button.pure-button,
+.trees button.button {
+  border: 1px solid var(--lotus-border);
+  border-radius: 4px;
+  background: var(--lotus-bg-elevated);
+  color: var(--lotus-text);
+  font-weight: 500;
+  padding: 1rem 1.25rem;
+  line-height: 1.5;
+  transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+.trees button.pure-button:hover,
+.trees button.button:hover {
+  border-color: var(--lotus-accent);
+  background: var(--lotus-accent-light);
+  box-shadow: 0 2px 8px var(--lotus-shadow-accent);
+}
+.trees button.pure-button:focus,
+.trees button.button:focus { outline: 2px solid var(--lotus-accent); outline-offset: 2px; }
+
+.trees button.pure-button.status-positive,
+.trees button.button.status-positive { border-color: var(--status-positive); }
+.trees button.pure-button.status-positive:hover,
+.trees button.button.status-positive:hover { background: var(--status-positive-bg) !important; }
+
+.trees button.pure-button.status-neutral,
+.trees button.button.status-neutral { border-color: var(--status-neutral); }
+.trees button.pure-button.status-neutral:hover,
+.trees button.button.status-neutral:hover { background: var(--status-neutral-bg) !important; }
+
+.trees button.pure-button.status-caution,
+.trees button.button.status-caution { border-color: var(--status-caution); }
+.trees button.pure-button.status-caution:hover,
+.trees button.button.status-caution:hover { background: var(--status-caution-bg) !important; }
+
+.trees button.pure-button.status-negative,
+.trees button.button.status-negative { border-color: var(--status-negative); }
+.trees button.pure-button.status-negative:hover,
+.trees button.button.status-negative:hover { background: var(--status-negative-bg) !important; }
+
+aside.help {
+  background: var(--lotus-warm-light);
+  border-left: 3px solid var(--lotus-accent);
+  border-radius: 0 4px 4px 0;
+  color: var(--lotus-text);
+  padding: 1rem 1.5rem;
+}
+
+.summary article {
+  background: var(--lotus-bg-alt);
+  border-left: 3px solid var(--lotus-primary);
+  border-radius: 4px;
+  color: var(--lotus-text);
+}
+
+.score-result { border-radius: 4px; }
+
+nav a { font-variant: small-caps; }
+nav.actions a:hover { background: var(--lotus-accent-light); border-radius: 3px; }
+
+/* ==========================================================================
+   6. org-parse SPECIFIC OVERRIDES
+   ========================================================================== */
+
+header .document-title { border-color: var(--lotus-accent); }
+.subtitle { color: var(--lotus-text-muted); }
+.todo { color: var(--lotus-error); }
+.done { color: var(--lotus-success); }
+.priority { color: var(--lotus-warning); }
+.tags { color: var(--lotus-text-muted); }
+.footnotes { border-top-color: var(--lotus-border); }
+.planning { color: var(--lotus-text-muted); }
+.warning { background: var(--lotus-warning-bg); border-left-color: var(--lotus-warning); color: var(--lotus-text); }
+.note { background: var(--lotus-info-bg); border-left-color: var(--lotus-info); color: var(--lotus-text); }
+figure { width: fit-content; margin-block: calc(var(--pico-typography-spacing-vertical, 1rem) + 0.4rem); }
+figure > img { display: block; margin: 0 0 0.25rem; max-width: 100%; }
+figure figcaption { color: var(--lotus-text-muted); font-size: 0.875em; padding: 0; }
+figure.align-center { margin-left: auto; margin-right: auto; }
+figure.align-center > img { margin-left: auto; margin-right: auto; }
+figure.align-center > figcaption { text-align: center; }
+figure.align-right { margin-left: auto; margin-right: 0; }
+figure.align-right > img { margin-left: auto; margin-right: 0; }
+figure.align-right > figcaption { text-align: right; }
+figure.align-left { margin-left: 0; margin-right: auto; }
+figure.align-left > img { margin-left: 0; margin-right: auto; }
+figure.align-left > figcaption { text-align: left; }
+
+/* ==========================================================================
+   7. SCROLLBARS, PRINT, REDUCED MOTION
+   ========================================================================== */
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--lotus-bg-alt); }
+::-webkit-scrollbar-thumb { background: var(--lotus-border-hover); border-radius: 5px; border: 2px solid var(--lotus-bg-alt); }
+::-webkit-scrollbar-thumb:hover { background: var(--lotus-text-muted); }
+* { scrollbar-width: thin; scrollbar-color: var(--lotus-border-hover) var(--lotus-bg-alt); }
+
+@media print {
+  /* Selectors match section 2 so that dark mode cannot win on paper */
+  :root:not([data-theme]), [data-theme] {
+    --lotus-text: #000000; --lotus-heading: #000000;
+    --lotus-bg: #ffffff; --lotus-bg-elevated: #ffffff;
+    --lotus-bg-alt: #f2f2f2; --lotus-code-bg: #f2f2f2;
+    --lotus-border: #cccccc; --lotus-primary: #373829;
+    --pico-primary-inverse: #ffffff;
+    color-scheme: light;
+  }
+  header.container::after { background: #5e2a29; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  a { color: #000000; text-decoration: underline; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666666; }
+  details { border: 1px solid #cccccc; }
+  details[open] { box-shadow: none; }
+  .card:hover { box-shadow: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
