@@ -360,13 +360,13 @@ button.secondary:hover, button.outline:hover {
 ::selection { background-color: var(--ashes-primary); color: var(--pico-primary-inverse); }
 
 /* Syntax Highlighting -- ashen tones with ember-blue keywords */
-.builtin        { color: #8a7040; }
+.builtin        { color: #82693c; }
 .comment, .comment-delimiter { color: #666666; font-style: italic; }
 .constant       { color: #8a4a4a; }
 .doc            { color: #666666; }
 .function-name  { color: #4a6f8a; }
 .keyword        { color: #004d99; }
-.string         { color: #4a7a5e; }
+.string         { color: #48775c; }
 .variable-name  { color: #666666; }
 .todo           { color: #8a4a4a; }
 .done           { color: #4a7a5e; }
@@ -685,13 +685,13 @@ figure.align-left > figcaption { text-align: left; }
     color-scheme: light;
   }
   :root:not([data-theme]), [data-theme] {
-    .builtin        { color: #8a7040; }
+    .builtin        { color: #82693c; }
     .comment, .comment-delimiter { color: #666666; font-style: italic; }
     .constant       { color: #8a4a4a; }
     .doc            { color: #666666; }
     .function-name  { color: #4a6f8a; }
     .keyword        { color: #004d99; }
-    .string         { color: #4a7a5e; }
+    .string         { color: #48775c; }
     .variable-name  { color: #666666; }
     .todo           { color: #8a4a4a; }
     .done           { color: #4a7a5e; }

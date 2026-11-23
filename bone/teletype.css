@@ -9,7 +9,7 @@
   --bone-chart-2: #484848;
   --bone-chart-3: #666666;
   --bone-chart-4: #7a7a7a;
-  --bone-chart-5: #8c8c8c;
+  --bone-chart-5: #898989;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -38,37 +38,37 @@
 :root {
   --bone-mark-bug-bg: #4848481a; --bone-mark-bug: #484848;
   --bone-mark-ann-bg: #6060601a; --bone-mark-ann: #606060;
-  --bone-mark-req-bg: #7070701a; --bone-mark-req: #707070;
+  --bone-mark-req-bg: #7070701a; --bone-mark-req: #656565;
   --bone-mark-patch-bg: #5050501a; --bone-mark-patch: #505050;
   --bone-mark-rel-bg: #5858581a; --bone-mark-rel: #585858;
-  --bone-mark-chg-bg: #8080801a; --bone-mark-chg: #808080;
+  --bone-mark-chg-bg: #8080801a; --bone-mark-chg: #666666;
   --bone-vote-pos-bg: #50505022; --bone-vote-pos: #505050;
   --bone-vote-neg-bg: #48484822; --bone-vote-neg: #484848;
-  --bone-vote-zero-bg: #80808018; --bone-vote-zero: #808080;
+  --bone-vote-zero-bg: #80808018; --bone-vote-zero: #666666;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
     --bone-mark-bug-bg: #c0c0c026; --bone-mark-bug: #c0c0c0;
     --bone-mark-ann-bg: #a0a0a026; --bone-mark-ann: #a0a0a0;
-    --bone-mark-req-bg: #90909026; --bone-mark-req: #909090;
+    --bone-mark-req-bg: #90909026; --bone-mark-req: #959595;
     --bone-mark-patch-bg: #b0b0b026; --bone-mark-patch: #b0b0b0;
     --bone-mark-rel-bg: #a8a8a826; --bone-mark-rel: #a8a8a8;
-    --bone-mark-chg-bg: #78787826; --bone-mark-chg: #787878;
+    --bone-mark-chg-bg: #78787826; --bone-mark-chg: #919191;
     --bone-vote-pos-bg: #b0b0b033; --bone-vote-pos: #b0b0b0;
     --bone-vote-neg-bg: #c0c0c033; --bone-vote-neg: #c0c0c0;
-    --bone-vote-zero-bg: #78787822; --bone-vote-zero: #787878;
+    --bone-vote-zero-bg: #78787822; --bone-vote-zero: #909090;
   }
 }
 [data-theme=dark] {
   --bone-mark-bug-bg: #c0c0c026; --bone-mark-bug: #c0c0c0;
   --bone-mark-ann-bg: #a0a0a026; --bone-mark-ann: #a0a0a0;
-  --bone-mark-req-bg: #90909026; --bone-mark-req: #909090;
+  --bone-mark-req-bg: #90909026; --bone-mark-req: #959595;
   --bone-mark-patch-bg: #b0b0b026; --bone-mark-patch: #b0b0b0;
   --bone-mark-rel-bg: #a8a8a826; --bone-mark-rel: #a8a8a8;
-  --bone-mark-chg-bg: #78787826; --bone-mark-chg: #787878;
+  --bone-mark-chg-bg: #78787826; --bone-mark-chg: #919191;
   --bone-vote-pos-bg: #b0b0b033; --bone-vote-pos: #b0b0b0;
   --bone-vote-neg-bg: #c0c0c033; --bone-vote-neg: #c0c0c0;
-  --bone-vote-zero-bg: #78787822; --bone-vote-zero: #787878;
+  --bone-vote-zero-bg: #78787822; --bone-vote-zero: #909090;
 }
 
 .filters button {
@@ -118,16 +118,16 @@ nav ul li a:hover { color: var(--pico-primary-hover); }
     --bone-chart-2: #484848;
     --bone-chart-3: #666666;
     --bone-chart-4: #7a7a7a;
-    --bone-chart-5: #8c8c8c;
+    --bone-chart-5: #898989;
     --bone-mark-bug-bg: #4848481a; --bone-mark-bug: #484848;
     --bone-mark-ann-bg: #6060601a; --bone-mark-ann: #606060;
-    --bone-mark-req-bg: #7070701a; --bone-mark-req: #707070;
+    --bone-mark-req-bg: #7070701a; --bone-mark-req: #656565;
     --bone-mark-patch-bg: #5050501a; --bone-mark-patch: #505050;
     --bone-mark-rel-bg: #5858581a; --bone-mark-rel: #585858;
-    --bone-mark-chg-bg: #8080801a; --bone-mark-chg: #808080;
+    --bone-mark-chg-bg: #8080801a; --bone-mark-chg: #666666;
     --bone-vote-pos-bg: #50505022; --bone-vote-pos: #505050;
     --bone-vote-neg-bg: #48484822; --bone-vote-neg: #484848;
-    --bone-vote-zero-bg: #80808018; --bone-vote-zero: #808080;
+    --bone-vote-zero-bg: #80808018; --bone-vote-zero: #666666;
     --bone-stripe-bg: var(--teletype-bg-alt); --bone-row-bg: var(--teletype-bg);
   }
 }

@@ -56,24 +56,24 @@
     --bone-mark-bug-bg: #d8a09426; --bone-mark-bug: #d8a094;
     --bone-mark-ann-bg: #9fb0bd26; --bone-mark-ann: #9fb0bd;
     --bone-mark-req-bg: #c9b37a26; --bone-mark-req: #c9b37a;
-    --bone-mark-patch-bg: #a9b27e26; --bone-mark-patch: #a9b27e;
+    --bone-mark-patch-bg: #a9b27e26; --bone-mark-patch: #a9b27f;
     --bone-mark-rel-bg: #cec2ae26; --bone-mark-rel: #cec2ae;
-    --bone-mark-chg-bg: #a69e8e26; --bone-mark-chg: #a69e8e;
-    --bone-vote-pos-bg: #a9b27e33; --bone-vote-pos: #a9b27e;
-    --bone-vote-neg-bg: #d8a09433; --bone-vote-neg: #d8a094;
-    --bone-vote-zero-bg: #a69e8e22; --bone-vote-zero: #a69e8e;
+    --bone-mark-chg-bg: #a69e8e26; --bone-mark-chg: #b1aa9c;
+    --bone-vote-pos-bg: #a9b27e33; --bone-vote-pos: #b3bb8d;
+    --bone-vote-neg-bg: #d8a09433; --bone-vote-neg: #dcaba0;
+    --bone-vote-zero-bg: #a69e8e22; --bone-vote-zero: #afa899;
   }
 }
 [data-theme=dark] {
   --bone-mark-bug-bg: #d8a09426; --bone-mark-bug: #d8a094;
   --bone-mark-ann-bg: #9fb0bd26; --bone-mark-ann: #9fb0bd;
   --bone-mark-req-bg: #c9b37a26; --bone-mark-req: #c9b37a;
-  --bone-mark-patch-bg: #a9b27e26; --bone-mark-patch: #a9b27e;
+  --bone-mark-patch-bg: #a9b27e26; --bone-mark-patch: #a9b27f;
   --bone-mark-rel-bg: #cec2ae26; --bone-mark-rel: #cec2ae;
-  --bone-mark-chg-bg: #a69e8e26; --bone-mark-chg: #a69e8e;
-  --bone-vote-pos-bg: #a9b27e33; --bone-vote-pos: #a9b27e;
-  --bone-vote-neg-bg: #d8a09433; --bone-vote-neg: #d8a094;
-  --bone-vote-zero-bg: #a69e8e22; --bone-vote-zero: #a69e8e;
+  --bone-mark-chg-bg: #a69e8e26; --bone-mark-chg: #b1aa9c;
+  --bone-vote-pos-bg: #a9b27e33; --bone-vote-pos: #b3bb8d;
+  --bone-vote-neg-bg: #d8a09433; --bone-vote-neg: #dcaba0;
+  --bone-vote-zero-bg: #a69e8e22; --bone-vote-zero: #afa899;
 }
 
 .filters button {

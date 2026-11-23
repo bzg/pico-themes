@@ -44,7 +44,7 @@
   --org-grey-light:   #f5f5f5;
   --org-grey-dark:    #333333;
   --org-text:         #444444;
-  --org-text-muted:   #737373;
+  --org-text-muted:   #6d6d6d;
   --org-border:       #dddddd;
   --org-border-hover: #bbbbbb;
   --org-bg:           #ffffff;
@@ -332,7 +332,7 @@ button.secondary:hover, button.outline:hover {
 .constant       { color: #a3425e; }
 .doc            { color: #636363; }
 .function-name  { color: #3a7678; }
-.keyword        { color: #4682b4; }
+.keyword        { color: #3d729e; }
 .string         { color: #6e6a3a; }
 .variable-name  { color: #c0392b; }
 .todo           { color: #CA0000; }
@@ -664,7 +664,7 @@ figure.align-left > figcaption { text-align: left; }
     .constant       { color: #a3425e; }
     .doc            { color: #636363; }
     .function-name  { color: #3a7678; }
-    .keyword        { color: #4682b4; }
+    .keyword        { color: #3d729e; }
     .string         { color: #6e6a3a; }
     .variable-name  { color: #c0392b; }
     .todo           { color: #CA0000; }

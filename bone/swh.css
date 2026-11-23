@@ -8,14 +8,14 @@
 :root {
   --bone-chart-1: #e20026;
   --bone-chart-2: #ef4426;
-  --bone-chart-3: #d97a00;
+  --bone-chart-3: #d17600;
   --bone-chart-4: #a87c00;
   --bone-chart-5: #737373;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
-    --bone-chart-1: #ff2d4a;
+    --bone-chart-1: #ff556c;
     --bone-chart-2: #ff5c3d;
     --bone-chart-3: #ffa033;
     --bone-chart-4: #ffc82e;
@@ -24,7 +24,7 @@
 }
 
 [data-theme=dark] {
-  --bone-chart-1: #ff2d4a;
+  --bone-chart-1: #ff556c;
   --bone-chart-2: #ff5c3d;
   --bone-chart-3: #ffa033;
   --bone-chart-4: #ffc82e;
@@ -39,37 +39,37 @@
 :root {
   --bone-mark-bug-bg: #e200261a; --bone-mark-bug: #c90022;
   --bone-mark-ann-bg: #0063cb1a; --bone-mark-ann: #0063cb;
-  --bone-mark-req-bg: #b8860b1a; --bone-mark-req: #9a7209;
+  --bone-mark-req-bg: #b8860b1a; --bone-mark-req: #866308;
   --bone-mark-patch-bg: #18753c1a; --bone-mark-patch: #18753c;
   --bone-mark-rel-bg: #7b2d8e1a; --bone-mark-rel: #7b2d8e;
   --bone-mark-chg-bg: #5566771a; --bone-mark-chg: #556677;
-  --bone-vote-pos-bg: #18753c33; --bone-vote-pos: #18753c;
-  --bone-vote-neg-bg: #c9002233; --bone-vote-neg: #c90022;
-  --bone-vote-zero-bg: #55667722; --bone-vote-zero: #556677;
+  --bone-vote-pos-bg: #18753c33; --bone-vote-pos: #166b37;
+  --bone-vote-neg-bg: #c9002233; --bone-vote-neg: #b2001e;
+  --bone-vote-zero-bg: #55667722; --bone-vote-zero: #556576;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
-    --bone-mark-bug-bg: #ff2d4a26; --bone-mark-bug: #ff5c73;
-    --bone-mark-ann-bg: #518fff26; --bone-mark-ann: #518fff;
+    --bone-mark-bug-bg: #ff556c26; --bone-mark-bug: #ff7487;
+    --bone-mark-ann-bg: #518fff26; --bone-mark-ann: #6ea1ff;
     --bone-mark-req-bg: #e8b84d26; --bone-mark-req: #e8b84d;
-    --bone-mark-patch-bg: #27a65826; --bone-mark-patch: #27a658;
+    --bone-mark-patch-bg: #27a65826; --bone-mark-patch: #4cb574;
     --bone-mark-rel-bg: #c9a0dc26; --bone-mark-rel: #c9a0dc;
-    --bone-mark-chg-bg: #8899aa26; --bone-mark-chg: #8899aa;
-    --bone-vote-pos-bg: #27a65833; --bone-vote-pos: #27a658;
-    --bone-vote-neg-bg: #ff5c7333; --bone-vote-neg: #ff5c73;
-    --bone-vote-zero-bg: #8899aa22; --bone-vote-zero: #8899aa;
+    --bone-mark-chg-bg: #8899aa26; --bone-mark-chg: #97a6b5;
+    --bone-vote-pos-bg: #27a65833; --bone-vote-pos: #5abb7f;
+    --bone-vote-neg-bg: #ff5c7333; --bone-vote-neg: #ff8192;
+    --bone-vote-zero-bg: #8899aa22; --bone-vote-zero: #95a4b3;
   }
 }
 [data-theme=dark] {
-  --bone-mark-bug-bg: #ff2d4a26; --bone-mark-bug: #ff5c73;
-  --bone-mark-ann-bg: #518fff26; --bone-mark-ann: #518fff;
+  --bone-mark-bug-bg: #ff556c26; --bone-mark-bug: #ff7487;
+  --bone-mark-ann-bg: #518fff26; --bone-mark-ann: #6ea1ff;
   --bone-mark-req-bg: #e8b84d26; --bone-mark-req: #e8b84d;
-  --bone-mark-patch-bg: #27a65826; --bone-mark-patch: #27a658;
+  --bone-mark-patch-bg: #27a65826; --bone-mark-patch: #4cb574;
   --bone-mark-rel-bg: #c9a0dc26; --bone-mark-rel: #c9a0dc;
-  --bone-mark-chg-bg: #8899aa26; --bone-mark-chg: #8899aa;
-  --bone-vote-pos-bg: #27a65833; --bone-vote-pos: #27a658;
-  --bone-vote-neg-bg: #ff5c7333; --bone-vote-neg: #ff5c73;
-  --bone-vote-zero-bg: #8899aa22; --bone-vote-zero: #8899aa;
+  --bone-mark-chg-bg: #8899aa26; --bone-mark-chg: #97a6b5;
+  --bone-vote-pos-bg: #27a65833; --bone-vote-pos: #5abb7f;
+  --bone-vote-neg-bg: #ff5c7333; --bone-vote-neg: #ff8192;
+  --bone-vote-zero-bg: #8899aa22; --bone-vote-zero: #95a4b3;
 }
 
 .filters button {
@@ -115,18 +115,18 @@ nav ul li a:hover { color: var(--swh-red-hover); }
   :root:not([data-theme]), [data-theme] {
     --bone-chart-1: #e20026;
     --bone-chart-2: #ef4426;
-    --bone-chart-3: #d97a00;
+    --bone-chart-3: #d17600;
     --bone-chart-4: #a87c00;
     --bone-chart-5: #737373;
     --bone-mark-bug-bg: #e200261a; --bone-mark-bug: #c90022;
     --bone-mark-ann-bg: #0063cb1a; --bone-mark-ann: #0063cb;
-    --bone-mark-req-bg: #b8860b1a; --bone-mark-req: #9a7209;
+    --bone-mark-req-bg: #b8860b1a; --bone-mark-req: #866308;
     --bone-mark-patch-bg: #18753c1a; --bone-mark-patch: #18753c;
     --bone-mark-rel-bg: #7b2d8e1a; --bone-mark-rel: #7b2d8e;
     --bone-mark-chg-bg: #5566771a; --bone-mark-chg: #556677;
-    --bone-vote-pos-bg: #18753c33; --bone-vote-pos: #18753c;
-    --bone-vote-neg-bg: #c9002233; --bone-vote-neg: #c90022;
-    --bone-vote-zero-bg: #55667722; --bone-vote-zero: #556677;
+    --bone-vote-pos-bg: #18753c33; --bone-vote-pos: #166b37;
+    --bone-vote-neg-bg: #c9002233; --bone-vote-neg: #b2001e;
+    --bone-vote-zero-bg: #55667722; --bone-vote-zero: #556576;
     --bone-stripe-bg: var(--swh-grey-light); --bone-row-bg: var(--swh-bg);
   }
 }

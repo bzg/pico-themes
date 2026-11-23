@@ -36,13 +36,14 @@
   --swh-grey-light:     #f5f5f5;
   --swh-grey-dark:      #333333;
   --swh-text:           #444444;
-  --swh-text-muted:     #737373;
+  --swh-text-muted:     #6f6f6f;
   --swh-border:         #e0e0e0;
   --swh-border-hover:   #c0c0c0;
   --swh-bg:             #ffffff;
   --swh-bg-elevated:    #ffffff;
   --swh-code-bg:        #f8f8f8;
   --swh-shadow-red:     rgba(226, 0, 38, 0.12);
+  --swh-priority:       #9e6016;  /* light orange, darkened for text */
 
   /* Trees status colors */
   --status-positive:    #18753c;
@@ -87,7 +88,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
-    --swh-red:           #ff2d4a;
+    --swh-red:           #ff556c;
     --swh-red-hover:     #ff5c73;
     --swh-red-light:     #3a1a20;
     --swh-orange-light:  #2d2420;
@@ -101,6 +102,7 @@
     --swh-bg-elevated:   #222222;
     --swh-code-bg:       #2a2a2a;
     --swh-shadow-red:    rgba(255, 45, 74, 0.15);
+    --swh-priority:      var(--swh-light-orange);
 
     --pico-background-color:    var(--swh-bg);
     --pico-color:               var(--swh-text);
@@ -119,7 +121,7 @@
     color-scheme: dark;
     --pico-accordion-open-summary-color: #c0c0c0;
 
-    --swh-gradient: linear-gradient(90deg, #ff2d4a 0%, #ff5c3d 33%, #ffa033 66%, #ffc82e 100%);
+    --swh-gradient: linear-gradient(90deg, #ff556c 0%, #ff5c3d 33%, #ffa033 66%, #ffc82e 100%);
 
     --status-positive:    #27a658;
     --status-positive-bg: color-mix(in srgb, #27a658 15%, transparent);
@@ -127,8 +129,8 @@
     --status-neutral-bg:  color-mix(in srgb, #518fff 15%, transparent);
     --status-caution:     #ff5c3d;
     --status-caution-bg:  color-mix(in srgb, #ff5c3d 15%, transparent);
-    --status-negative:    #ff2d4a;
-    --status-negative-bg: color-mix(in srgb, #ff2d4a 15%, transparent);
+    --status-negative:    #ff556c;
+    --status-negative-bg: color-mix(in srgb, #ff556c 15%, transparent);
   }
 }
 
@@ -137,7 +139,7 @@
    ========================================================================== */
 
 [data-theme=dark] {
-  --swh-red:           #ff2d4a;
+  --swh-red:           #ff556c;
   --swh-red-hover:     #ff5c73;
   --swh-red-light:     #3a1a20;
   --swh-orange-light:  #2d2420;
@@ -151,6 +153,7 @@
   --swh-bg-elevated:   #222222;
   --swh-code-bg:       #2a2a2a;
   --swh-shadow-red:    rgba(255, 45, 74, 0.15);
+  --swh-priority:      var(--swh-light-orange);
 
   --pico-background-color:    var(--swh-bg);
   --pico-color:               var(--swh-text);
@@ -169,7 +172,7 @@
   color-scheme: dark;
   --pico-accordion-open-summary-color: #c0c0c0;
 
-  --swh-gradient: linear-gradient(90deg, #ff2d4a 0%, #ff5c3d 33%, #ffa033 66%, #ffc82e 100%);
+  --swh-gradient: linear-gradient(90deg, #ff556c 0%, #ff5c3d 33%, #ffa033 66%, #ffc82e 100%);
 
   --status-positive:    #27a658;
   --status-positive-bg: color-mix(in srgb, #27a658 15%, transparent);
@@ -177,8 +180,8 @@
   --status-neutral-bg:  color-mix(in srgb, #518fff 15%, transparent);
   --status-caution:     #ff5c3d;
   --status-caution-bg:  color-mix(in srgb, #ff5c3d 15%, transparent);
-  --status-negative:    #ff2d4a;
-  --status-negative-bg: color-mix(in srgb, #ff2d4a 15%, transparent);
+  --status-negative:    #ff556c;
+  --status-negative-bg: color-mix(in srgb, #ff556c 15%, transparent);
 }
 
 /* ==========================================================================
@@ -522,7 +525,7 @@ header .document-title { border-color: var(--swh-red); }
 .subtitle { color: var(--swh-text-muted); }
 .todo { color: var(--swh-red); }
 .done { color: var(--status-positive); }
-.priority { color: var(--swh-light-orange); }
+.priority { color: var(--swh-priority); }
 .tags { color: var(--swh-text-muted); }
 .footnotes { border-top-color: var(--swh-border); }
 .planning { color: var(--swh-text-muted); }
@@ -568,6 +571,7 @@ figure.align-left > figcaption { text-align: left; }
     --swh-border: #e0e0e0;
     --swh-border-hover: #c0c0c0;
     --swh-shadow-red: rgba(226, 0, 38, 0.12);
+    --swh-priority: #9e6016;
     --pico-background-color: var(--swh-bg);
     --pico-color: var(--swh-text);
     --pico-primary: var(--swh-red);
