@@ -108,15 +108,15 @@ Pin to a specific commit for stability:
 
 ** Per project
 
-*topics* --- set =:theme-url= in config to the CDN URL.
+*topics* --- pass a theme name with =-C= / =--css-theme=, or set
+=:css-theme= in the config file.
 
-*BONE* --- add two =<link>= tags in =bone-html.clj='s =html-head= function,
-after the Pico CDN link:
+*BONE* --- set =:theme= in =config.edn= or pass =--html-theme=.  A bare
+theme name loads both files from the CDN, the base theme first:
 
-#+begin_src clojure
-(str "<link rel=\"stylesheet\" href=\"" pico-cdn "\">\n"
-     "<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/gh/bzg/pico-themes@main/swh.css\">\n"
-     "<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/gh/bzg/pico-themes@main/bone/swh.css\">\n")
+#+begin_src html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bzg/pico-themes@latest/swh.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bzg/pico-themes@latest/bone/swh.css">
 #+end_src
 
 *hop*, *trees*, *orgy*, *subscribe* --- pass a theme name to the tool's CSS
