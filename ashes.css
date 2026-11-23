@@ -700,7 +700,7 @@ figure.align-left > figcaption { text-align: left; }
   a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666666; }
   details { border: 1px solid #cccccc; }
   details[open] { box-shadow: none; }
-  .card:hover { transform: none; box-shadow: none; }
+  .card:hover { box-shadow: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -709,5 +709,4 @@ figure.align-left > figcaption { text-align: left; }
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  .card:hover { transform: none; }
 }
