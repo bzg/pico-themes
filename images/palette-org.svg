@@ -13,55 +13,55 @@
   <!-- Light swatches -->
   <rect x="16" y="42" width="30" height="30" rx="5" fill="#ffffff" stroke="#ccc" stroke-width="1"/>
   <text x="31" y="90" text-anchor="middle" font-size="9" fill="#555">bg</text>
-  <rect x="54" y="42" width="30" height="30" rx="5" fill="#2c2c2c"/>
+  <rect x="54" y="42" width="30" height="30" rx="5" fill="#444444"/>
   <text x="69" y="90" text-anchor="middle" font-size="9" fill="#555">text</text>
-  <rect x="92" y="42" width="30" height="30" rx="5" fill="#2aa198"/>
+  <rect x="92" y="42" width="30" height="30" rx="5" fill="#3d5a50"/>
   <text x="107" y="90" text-anchor="middle" font-size="9" fill="#555">primary</text>
-  <rect x="130" y="42" width="30" height="30" rx="5" fill="#2aa198"/>
+  <rect x="130" y="42" width="30" height="30" rx="5" fill="#8a6508"/>
   <text x="145" y="90" text-anchor="middle" font-size="9" fill="#555">accent</text>
-  <rect x="168" y="42" width="30" height="30" rx="5" fill="#d4d8dc"/>
+  <rect x="168" y="42" width="30" height="30" rx="5" fill="#dddddd"/>
   <text x="183" y="90" text-anchor="middle" font-size="9" fill="#555">border</text>
-  <rect x="206" y="42" width="30" height="30" rx="5" fill="#2aa198"/>
+  <rect x="206" y="42" width="30" height="30" rx="5" fill="#18753c"/>
   <text x="221" y="90" text-anchor="middle" font-size="9" fill="#555">success</text>
-  <rect x="244" y="42" width="30" height="30" rx="5" fill="#b58900"/>
+  <rect x="244" y="42" width="30" height="30" rx="5" fill="#8a6508"/>
   <text x="259" y="90" text-anchor="middle" font-size="9" fill="#555">warn</text>
-  <rect x="282" y="42" width="30" height="30" rx="5" fill="#dc322f"/>
+  <rect x="282" y="42" width="30" height="30" rx="5" fill="#a3425e"/>
   <text x="297" y="90" text-anchor="middle" font-size="9" fill="#555">error</text>
   <!-- Dark swatches -->
   <rect x="366" y="42" width="30" height="30" rx="5" fill="#1a1a2e" stroke="#555" stroke-width="1"/>
   <text x="381" y="90" text-anchor="middle" font-size="9" fill="#999">bg</text>
   <rect x="404" y="42" width="30" height="30" rx="5" fill="#c8c8c8"/>
   <text x="419" y="90" text-anchor="middle" font-size="9" fill="#999">text</text>
-  <rect x="442" y="42" width="30" height="30" rx="5" fill="#56c4b8"/>
+  <rect x="442" y="42" width="30" height="30" rx="5" fill="#8fbcaa"/>
   <text x="457" y="90" text-anchor="middle" font-size="9" fill="#999">primary</text>
-  <rect x="480" y="42" width="30" height="30" rx="5" fill="#56c4b8"/>
+  <rect x="480" y="42" width="30" height="30" rx="5" fill="#d4a76a"/>
   <text x="495" y="90" text-anchor="middle" font-size="9" fill="#999">accent</text>
-  <rect x="518" y="42" width="30" height="30" rx="5" fill="#343a50"/>
+  <rect x="518" y="42" width="30" height="30" rx="5" fill="#3a3a55"/>
   <text x="533" y="90" text-anchor="middle" font-size="9" fill="#999">border</text>
-  <rect x="556" y="42" width="30" height="30" rx="5" fill="#56c4b8"/>
+  <rect x="556" y="42" width="30" height="30" rx="5" fill="#27a658"/>
   <text x="571" y="90" text-anchor="middle" font-size="9" fill="#999">success</text>
-  <rect x="594" y="42" width="30" height="30" rx="5" fill="#daa520"/>
+  <rect x="594" y="42" width="30" height="30" rx="5" fill="#d4a76a"/>
   <text x="609" y="90" text-anchor="middle" font-size="9" fill="#999">warn</text>
-  <rect x="632" y="42" width="30" height="30" rx="5" fill="#ff6b6b"/>
+  <rect x="632" y="42" width="30" height="30" rx="5" fill="#d47272"/>
   <text x="647" y="90" text-anchor="middle" font-size="9" fill="#999">error</text>
   <!-- Hex labels - Light -->
   <text x="31" y="102" text-anchor="middle" font-size="7" fill="#777">#ffffff</text>
-  <text x="69" y="102" text-anchor="middle" font-size="7" fill="#777">#2c2c2c</text>
-  <text x="107" y="102" text-anchor="middle" font-size="7" fill="#777">#2aa198</text>
-  <text x="145" y="102" text-anchor="middle" font-size="7" fill="#777">#2aa198</text>
-  <text x="183" y="102" text-anchor="middle" font-size="7" fill="#777">#d4d8dc</text>
-  <text x="221" y="102" text-anchor="middle" font-size="7" fill="#777">#2aa198</text>
-  <text x="259" y="102" text-anchor="middle" font-size="7" fill="#777">#b58900</text>
-  <text x="297" y="102" text-anchor="middle" font-size="7" fill="#777">#dc322f</text>
+  <text x="69" y="102" text-anchor="middle" font-size="7" fill="#777">#444444</text>
+  <text x="107" y="102" text-anchor="middle" font-size="7" fill="#777">#3d5a50</text>
+  <text x="145" y="102" text-anchor="middle" font-size="7" fill="#777">#8a6508</text>
+  <text x="183" y="102" text-anchor="middle" font-size="7" fill="#777">#dddddd</text>
+  <text x="221" y="102" text-anchor="middle" font-size="7" fill="#777">#18753c</text>
+  <text x="259" y="102" text-anchor="middle" font-size="7" fill="#777">#8a6508</text>
+  <text x="297" y="102" text-anchor="middle" font-size="7" fill="#777">#a3425e</text>
   <!-- Hex labels - Dark -->
   <text x="381" y="102" text-anchor="middle" font-size="7" fill="#777">#1a1a2e</text>
   <text x="419" y="102" text-anchor="middle" font-size="7" fill="#777">#c8c8c8</text>
-  <text x="457" y="102" text-anchor="middle" font-size="7" fill="#777">#56c4b8</text>
-  <text x="495" y="102" text-anchor="middle" font-size="7" fill="#777">#56c4b8</text>
-  <text x="533" y="102" text-anchor="middle" font-size="7" fill="#777">#343a50</text>
-  <text x="571" y="102" text-anchor="middle" font-size="7" fill="#777">#56c4b8</text>
-  <text x="609" y="102" text-anchor="middle" font-size="7" fill="#777">#daa520</text>
-  <text x="647" y="102" text-anchor="middle" font-size="7" fill="#777">#ff6b6b</text>
+  <text x="457" y="102" text-anchor="middle" font-size="7" fill="#777">#8fbcaa</text>
+  <text x="495" y="102" text-anchor="middle" font-size="7" fill="#777">#d4a76a</text>
+  <text x="533" y="102" text-anchor="middle" font-size="7" fill="#777">#3a3a55</text>
+  <text x="571" y="102" text-anchor="middle" font-size="7" fill="#777">#27a658</text>
+  <text x="609" y="102" text-anchor="middle" font-size="7" fill="#777">#d4a76a</text>
+  <text x="647" y="102" text-anchor="middle" font-size="7" fill="#777">#d47272</text>
   <!-- Theme name -->
   <text x="350" y="170" text-anchor="middle" font-size="13" font-weight="bold" fill="#888">Org</text>
   <!-- Divider -->
