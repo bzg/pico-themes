@@ -1,5 +1,5 @@
 /* ==========================================================================
-   bone/org.css — BONE-specific overrides for the org theme
+   bone/org.css -- BONE-specific overrides for the org theme
    Load after org.css:  <link rel="stylesheet" href="bone/org.css">
    ========================================================================== */
 
@@ -38,7 +38,7 @@
    5. BONE-SPECIFIC COMPONENTS
    ========================================================================== */
 
-/* BONE type badges — worg font-lock derived
+/* BONE type badges -- worg font-lock derived
    bug:   org-level-4 firebrick   patch: function-name teal
    req:   org-level-2 dark gold   ann:   keyword steel blue
    rel:   org-level-3 purple      chg:   org-archived gray    */

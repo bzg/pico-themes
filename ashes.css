@@ -1,14 +1,14 @@
 /*
- * ashes.css — Ashes theme (light + dark)
+ * ashes.css -- Ashes theme (light + dark)
  * Works with: topics, trees, and hop
  *
- * Inspired by bzg.fr — monochrome embers, monospace type,
+ * Inspired by bzg.fr -- monochrome embers, monospace type,
  * quiet greys with a faint blue glow on links.
  *
  * Color scheme:
  *   Ash Grey:      #666666  (Primary -- buttons, muted text)
  *   Charcoal:      #333333  (Text)
- *   Ember Blue:    #004d99  (Accent — links only)
+ *   Ember Blue:    #004d99  (Accent -- links only)
  *   Smoke:         #f7f7f7  (Background)
  *   Soot:          #cecece  (Borders)
  *
@@ -18,7 +18,7 @@
  *   Ember hover:   #003366  (Ember Blue darkened)
  *   Ember light:   #e8f0fa  (Ember Blue @ 8% on white)
  *   Cinder:        #888888  (Scrollbar hover)
- *   Smoke Dark:    #0a0a17  (Dark bg — cool blue-black)
+ *   Smoke Dark:    #0a0a17  (Dark bg -- cool blue-black)
  *
  * Supports dark mode via:
  *   - prefers-color-scheme (topics, trees, hop)
@@ -26,7 +26,7 @@
  */
 
 /* ==========================================================================
-   1. CUSTOM PROPERTIES — Light Mode (default)
+   1. CUSTOM PROPERTIES -- Light Mode (default)
    ========================================================================== */
 
 :root {
@@ -45,7 +45,7 @@
   --ashes-grey-400:  #aaaaaa;
   --ashes-grey-200:  #cecece;
 
-  /* Functional colors — muted, ashen tones */
+  /* Functional colors -- muted, ashen tones */
   --ashes-success:    #4a7a5e;
   --ashes-info:       #4a6f8a;
   --ashes-info-bg:    #edf2f7;
@@ -76,7 +76,7 @@
   --status-negative:    var(--ashes-error);
   --status-negative-bg: color-mix(in srgb, #8a4a4a 10%, transparent);
 
-  /* Typography — system monospace */
+  /* Typography -- system monospace */
   --ashes-font-family: Consolas, "Monaco",
                         "Liberation Mono", Menlo, Courier, monospace;
   --ashes-font-mono:   Consolas, "Monaco",
@@ -102,7 +102,7 @@
 }
 
 /* ==========================================================================
-   2. DARK MODE — prefers-color-scheme
+   2. DARK MODE -- prefers-color-scheme
    ========================================================================== */
 
 @media (prefers-color-scheme: dark) {
@@ -161,7 +161,7 @@
 }
 
 /* ==========================================================================
-   2b. DARK MODE — [data-theme=dark]
+   2b. DARK MODE -- [data-theme=dark]
    ========================================================================== */
 
 [data-theme=dark] {
@@ -299,13 +299,13 @@ img {
   max-width: calc(100% - 2rem);
 }
 
-/* Time — subtle, no background */
+/* Time -- subtle, no background */
 time {
   color: var(--ashes-text-muted);
   background: transparent;
 }
 
-/* Blockquotes — thin grey rule, no colour accent */
+/* Blockquotes -- thin grey rule, no colour accent */
 blockquote {
   border-left: 3px solid var(--ashes-border);
   background-color: var(--ashes-bg-alt);
@@ -353,7 +353,7 @@ button.secondary:hover, button.outline:hover {
 :focus-visible { outline: 2px solid var(--ashes-accent); outline-offset: 2px; }
 ::selection { background-color: var(--ashes-primary); color: var(--pico-primary-inverse); }
 
-/* Syntax Highlighting — ashen tones with ember-blue keywords */
+/* Syntax Highlighting -- ashen tones with ember-blue keywords */
 .builtin        { color: #8a7040; }
 .comment, .comment-delimiter { color: #666666; font-style: italic; }
 .constant       { color: #8a4a4a; }
@@ -411,7 +411,7 @@ header h1 a {
 header h1 a:hover { color: var(--ashes-accent); text-decoration: none; }
 header p { color: var(--ashes-text-muted); font-size: 1rem; margin-bottom: 0; }
 
-/* Thin ash line — like bzg.fr's understated hr */
+/* Thin ash line -- like bzg.fr's understated hr */
 header.container::after {
   content: '';
   display: block;

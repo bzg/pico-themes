@@ -1,11 +1,11 @@
 /*
- * lincoln.css — Pico 2 theme: Lincoln Blue
+ * lincoln.css -- Pico 2 theme: Lincoln Blue
  * Works with: topics, trees, bone, and hop
  *
  * Color scheme:
- *   Lincoln Blue:   #191970  (Dominant — headings, thead, primary)
+ *   Lincoln Blue:   #191970  (Dominant -- headings, thead, primary)
  *   Cool Grey:      #8E9AAF  (Secondary -- dark-mode muted text, charts)
- *   Burned Orange:  #D66853  (Accent — blockquotes, warnings, highlights)
+ *   Burned Orange:  #D66853  (Accent -- blockquotes, warnings, highlights)
  *   Ghost White:    #F8F9FA  (Background)
  *   Charcoal:       #212529  (Text)
  *
@@ -15,8 +15,8 @@
  *   Orange light:   #fdf0ee  (Burned Orange @ 8% on white)
  *   Slate:          #6c757d  (Charcoal lightened)
  *   Muted:          #5f6b7e  (Cool Grey darkened for light-mode text)
- *   Lavender:       #7B68AE  (Complement — links, level-3)
- *   Steel:          #4A6FA5  (Mid-blue — keywords, status-neutral)
+ *   Lavender:       #7B68AE  (Complement -- links, level-3)
+ *   Steel:          #4A6FA5  (Mid-blue -- keywords, status-neutral)
  *   Forest:         #2D6A4F  (Status-positive)
  *   Gold:           #B8860B  (Status-caution)
  *
@@ -26,7 +26,7 @@
  */
 
 /* ==========================================================================
-   1. CUSTOM PROPERTIES — Light Mode (default)
+   1. CUSTOM PROPERTIES -- Light Mode (default)
    ========================================================================== */
 
 :root {
@@ -62,14 +62,14 @@
   --status-negative:    #D66853;
   --status-negative-bg: color-mix(in srgb, #D66853 10%, transparent);
 
-  /* Typography — system stack */
+  /* Typography -- system stack */
   --lincoln-font-sans:   -apple-system, BlinkMacSystemFont, "Segoe UI",
                      Roboto, "Helvetica Neue", Arial, sans-serif;
   --lincoln-font-mono:   "SFMono-Regular", Consolas,
                      "Liberation Mono", Menlo, Courier, monospace;
 }
 
-/* Pico CSS overrides — must match Pico 2's selector specificity */
+/* Pico CSS overrides -- must match Pico 2's selector specificity */
 [data-theme=light],
 :root:not([data-theme=dark]) {
   --pico-primary:             var(--lincoln-blue);
@@ -88,7 +88,7 @@
 }
 
 /* ==========================================================================
-   2. DARK MODE — prefers-color-scheme
+   2. DARK MODE -- prefers-color-scheme
    ========================================================================== */
 
 @media (prefers-color-scheme: dark) {
@@ -137,7 +137,7 @@
 }
 
 /* ==========================================================================
-   2b. DARK MODE — [data-theme=dark]
+   2b. DARK MODE -- [data-theme=dark]
    ========================================================================== */
 
 [data-theme=dark] {
@@ -256,7 +256,7 @@ pre code {
   color: var(--lincoln-grey-dark);
 }
 
-/* Images — subtle rounding and shadow */
+/* Images -- subtle rounding and shadow */
 img {
   border-radius: 3px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
@@ -264,13 +264,13 @@ img {
   max-width: calc(100% - 2rem);
 }
 
-/* Time — subtle, no background */
+/* Time -- subtle, no background */
 time {
   color: var(--lincoln-text-muted);
   background: transparent;
 }
 
-/* Blockquotes — Burned Orange accent */
+/* Blockquotes -- Burned Orange accent */
 blockquote {
   border-left: 4px solid var(--lincoln-orange);
   background-color: var(--lincoln-orange-light);
@@ -318,7 +318,7 @@ button.secondary:hover, button.outline:hover {
 :focus-visible { outline: 2px solid var(--lincoln-blue); outline-offset: 2px; }
 ::selection { background-color: var(--lincoln-blue); color: var(--pico-primary-inverse); }
 
-/* Syntax Highlighting — Lincoln palette mapped */
+/* Syntax Highlighting -- Lincoln palette mapped */
 .builtin        { color: #B8860B; }  /* gold */
 .comment, .comment-delimiter { color: #5f6b7e; }  /* muted */
 .constant       { color: #D66853; }  /* burned orange */

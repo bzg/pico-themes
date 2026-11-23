@@ -1,12 +1,12 @@
 /*
- * org.css — Unified Org-mode / Worg theme
+ * org.css -- Unified Org-mode / Worg theme
  * Works with: topics, trees, and hop
  *
  * Based on Worg's visual identity and color palette
- * https://orgmode.org  —  https://git.sr.ht/~bzg/worg
+ * https://orgmode.org  --  https://git.sr.ht/~bzg/worg
  *
  * Official color scheme (derived from worg.css font-lock faces):
- *   Teal:         #3d5a50  (h2/h3/h4 headings — primary accent)
+ *   Teal:         #3d5a50  (h2/h3/h4 headings -- primary accent)
  *   Dark teal:    #3a7678  (function-name / org-level-6)
  *   Light teal:   #8fbcaa  (dark-mode headings)
  *   Warm brown:   #8a6508  (org-ellipsis / org-level-2)
@@ -24,11 +24,11 @@
  */
 
 /* ==========================================================================
-   1. CUSTOM PROPERTIES — Light Mode (default)
+   1. CUSTOM PROPERTIES -- Light Mode (default)
    ========================================================================== */
 
 :root {
-  /* Brand colors — worg font-lock derived
+  /* Brand colors -- worg font-lock derived
      See worg.css heading/face origins in comments */
   --org-teal:         #3d5a50;  /* h2/h3/h4 headings */
   --org-warm-brown:   #8a6508;  /* .org-ellipsis / org-level-2 */
@@ -62,14 +62,14 @@
   --status-negative:    var(--org-soft-red);
   --status-negative-bg: color-mix(in srgb, #a3425e 10%, transparent);
 
-  /* Typography — system font stacks */
+  /* Typography -- system font stacks */
   --org-font-sans:   -apple-system, BlinkMacSystemFont, "Segoe UI",
                      Roboto, "Helvetica Neue", Arial, sans-serif;
   --org-font-mono:   "SFMono-Regular", Consolas,
                      "Liberation Mono", Menlo, Courier, monospace;
 }
 
-/* Pico CSS overrides — must match Pico 2's selector specificity */
+/* Pico CSS overrides -- must match Pico 2's selector specificity */
 [data-theme=light],
 :root:not([data-theme=dark]) {
   --pico-primary:             var(--org-teal);
@@ -88,7 +88,7 @@
 }
 
 /* ==========================================================================
-   2. DARK MODE — prefers-color-scheme (indigo-tinted from worg)
+   2. DARK MODE -- prefers-color-scheme (indigo-tinted from worg)
    ========================================================================== */
 
 @media (prefers-color-scheme: dark) {
@@ -138,7 +138,7 @@
 }
 
 /* ==========================================================================
-   2b. DARK MODE — [data-theme=dark]
+   2b. DARK MODE -- [data-theme=dark]
    ========================================================================== */
 
 [data-theme=dark] {
@@ -232,7 +232,7 @@ td {
 tr:nth-child(even) td { background-color: var(--org-grey-light); }
 tr:hover td { background-color: var(--org-teal-light); }
 
-/* Code — matching worg */
+/* Code -- matching worg */
 code {
   font-family: var(--org-font-mono);
   font-size: 0.875em;
@@ -258,7 +258,7 @@ pre code {
   color: var(--org-grey-dark);
 }
 
-/* Images — subtle rounding and shadow */
+/* Images -- subtle rounding and shadow */
 img {
   border-radius: 3px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
@@ -266,13 +266,13 @@ img {
   max-width: calc(100% - 2rem);
 }
 
-/* Time — subtle, no background */
+/* Time -- subtle, no background */
 time {
   color: var(--org-text-muted);
   background: transparent;
 }
 
-/* Blockquotes — warm-brown accent */
+/* Blockquotes -- warm-brown accent */
 blockquote {
   border-left: 4px solid var(--org-warm-brown);
   background-color: var(--org-brown-light);

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   bone/doric.css — BONE-specific overrides for the doric theme
+   bone/doric.css -- BONE-specific overrides for the doric theme
    Load after doric.css:  <link rel="stylesheet" href="bone/doric.css">
    ========================================================================== */
 
@@ -34,7 +34,7 @@
    5. BONE-SPECIFIC COMPONENTS
    ========================================================================== */
 
-/* BONE type badges — via --bone-* variables */
+/* BONE type badges -- via --bone-* variables */
 :root {
   --bone-mark-bug-bg: #a010101a; --bone-mark-bug: #a01010;
   --bone-mark-ann-bg: #1030771a; --bone-mark-ann: #103077;

@@ -1,5 +1,5 @@
 /*
- * swh.css — Unified Software Heritage theme
+ * swh.css -- Unified Software Heritage theme
  * Works with: topics, trees, and hop
  *
  * Based on Software Heritage official brand guidelines
@@ -17,7 +17,7 @@
  */
 
 /* ==========================================================================
-   1. CUSTOM PROPERTIES — Light Mode (default)
+   1. CUSTOM PROPERTIES -- Light Mode (default)
    ========================================================================== */
 
 :root {
@@ -61,7 +61,7 @@
                      Courier, monospace;
 }
 
-/* Pico CSS overrides — must match Pico 2's selector specificity */
+/* Pico CSS overrides -- must match Pico 2's selector specificity */
 [data-theme=light],
 :root:not([data-theme=dark]) {
   --pico-primary:             var(--swh-red);
@@ -80,7 +80,7 @@
 }
 
 /* ==========================================================================
-   2. DARK MODE — prefers-color-scheme
+   2. DARK MODE -- prefers-color-scheme
    ========================================================================== */
 
 @media (prefers-color-scheme: dark) {
@@ -129,7 +129,7 @@
 }
 
 /* ==========================================================================
-   2b. DARK MODE — [data-theme=dark]
+   2b. DARK MODE -- [data-theme=dark]
    ========================================================================== */
 
 [data-theme=dark] {
@@ -246,7 +246,7 @@ pre code {
   color: var(--swh-grey-dark);
 }
 
-/* Images — subtle rounding and shadow */
+/* Images -- subtle rounding and shadow */
 img {
   border-radius: 3px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
@@ -254,13 +254,13 @@ img {
   max-width: calc(100% - 2rem);
 }
 
-/* Time — subtle, no background */
+/* Time -- subtle, no background */
 time {
   color: var(--swh-text-muted);
   background: transparent;
 }
 
-/* Blockquotes — orange accent (secondary brand color) */
+/* Blockquotes -- orange accent (secondary brand color) */
 blockquote {
   border-left: 4px solid var(--swh-orange);
   background-color: var(--swh-orange-light);

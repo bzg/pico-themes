@@ -1,12 +1,12 @@
 /*
- * teletype.css — Teletype theme (light + dark)
+ * teletype.css -- Teletype theme (light + dark)
  * Works with: topics, trees, and hop
  *
  * A black & white, monospace variation of the doric theme.
  * Jazz-club smooth: low contrast, generous letter-spacing,
  * ruled-paper lines, soft grey ramps.
  *
- * "Click click click — ding!"
+ * "Click click click -- ding!"
  *
  * No colour. Greys do all the work.
  * Monospace type and typographic rhythm carry the composition.
@@ -17,7 +17,7 @@
  */
 
 /* ==========================================================================
-   1. CUSTOM PROPERTIES — teletype-light (default)
+   1. CUSTOM PROPERTIES -- teletype-light (default)
    ========================================================================== */
 
 :root {
@@ -25,7 +25,7 @@
   --teletype-accent:     #505050;
   --teletype-accent-bg:  #f0f0f0;
 
-  /* Surfaces & text — low contrast: not pure black on white */
+  /* Surfaces & text -- low contrast: not pure black on white */
   --teletype-bg:           #fafafa;
   --teletype-bg-elevated:  #fafafa;
   --teletype-bg-alt:       #f2f2f2;
@@ -37,7 +37,7 @@
   --teletype-border-hover: #a0a0a0;
   --teletype-shadow-accent: rgba(0, 0, 0, 0.06);
 
-  /* Trees status — grey variants */
+  /* Trees status -- grey variants */
   --status-positive:    #505050;
   --status-positive-bg: color-mix(in srgb, #505050 8%, transparent);
   --status-neutral:     #606060;
@@ -47,7 +47,7 @@
   --status-negative:    #484848;
   --status-negative-bg: color-mix(in srgb, #484848 8%, transparent);
 
-  /* Typography — system monospace */
+  /* Typography -- system monospace */
   --teletype-font-family: "SF Mono", "Cascadia Mono", Consolas,
                         "Liberation Mono", Menlo, Courier, monospace;
   --teletype-font-mono:   "SF Mono", "Cascadia Mono", Consolas,
@@ -73,7 +73,7 @@
 }
 
 /* ==========================================================================
-   2. DARK MODE — prefers-color-scheme
+   2. DARK MODE -- prefers-color-scheme
    ========================================================================== */
 
 @media (prefers-color-scheme: dark) {
@@ -119,7 +119,7 @@
 }
 
 /* ==========================================================================
-   2b. DARK MODE — [data-theme=dark]
+   2b. DARK MODE -- [data-theme=dark]
    ========================================================================== */
 
 [data-theme=dark] {
@@ -221,7 +221,7 @@ td {
 tr:nth-child(even) td { background-color: var(--teletype-bg-alt); }
 tr:hover td { background-color: var(--teletype-accent-bg); }
 
-/* Code — nearly invisible distinction, since everything is mono */
+/* Code -- nearly invisible distinction, since everything is mono */
 code {
   font-family: var(--teletype-font-mono);
   font-size: 0.875em;
@@ -246,7 +246,7 @@ pre code {
   color: var(--teletype-heading);
 }
 
-/* Images — subtle rounding and shadow */
+/* Images -- subtle rounding and shadow */
 img {
   border-radius: 2px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
@@ -254,13 +254,13 @@ img {
   max-width: calc(100% - 2rem);
 }
 
-/* Time — subtle, no background */
+/* Time -- subtle, no background */
 time {
   color: var(--teletype-text-muted);
   background: transparent;
 }
 
-/* Blockquotes — thin rule, no colour accent */
+/* Blockquotes -- thin rule, no colour accent */
 blockquote {
   border-left: 2px solid var(--teletype-border);
   background-color: transparent;
@@ -331,7 +331,7 @@ header h1 a {
 header h1 a:hover { color: var(--teletype-accent); text-decoration: none; }
 header p { color: var(--teletype-text-muted); font-size: 0.95rem; margin-bottom: 0; }
 
-/* Accent line — thin ruled-paper feel */
+/* Accent line -- thin ruled-paper feel */
 header.container::after {
   content: '';
   display: block;

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   bone/swh.css — BONE-specific overrides for the swh theme
+   bone/swh.css -- BONE-specific overrides for the swh theme
    Load after swh.css:  <link rel="stylesheet" href="bone/swh.css">
    ========================================================================== */
 
@@ -35,7 +35,7 @@
    5. BONE-SPECIFIC COMPONENTS
    ========================================================================== */
 
-/* BONE type badges — override via --bone-* variables */
+/* BONE type badges -- override via --bone-* variables */
 :root {
   --bone-mark-bug-bg: #e200261a; --bone-mark-bug: #c90022;
   --bone-mark-ann-bg: #0063cb1a; --bone-mark-ann: #0063cb;

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   bone/lincoln.css — BONE-specific overrides for the Lincoln Blue theme
+   bone/lincoln.css -- BONE-specific overrides for the Lincoln Blue theme
    Load after lincoln.css:  <link rel="stylesheet" href="bone/lincoln.css">
    ========================================================================== */
 
@@ -37,7 +37,7 @@
    5. BONE-SPECIFIC COMPONENTS
    ========================================================================== */
 
-/* BONE type badges — Lincoln palette derived
+/* BONE type badges -- Lincoln palette derived
    bug:   burned orange         patch: steel blue
    req:   gold                  ann:   lincoln blue
    rel:   lavender              chg:   cool grey           */

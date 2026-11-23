@@ -1,9 +1,9 @@
 /* ==========================================================================
-   bone/teletype.css — BONE-specific overrides for the teletype theme
+   bone/teletype.css -- BONE-specific overrides for the teletype theme
    Load after teletype.css:  <link rel="stylesheet" href="bone/teletype.css">
    ========================================================================== */
 
-/* Chart palette — five grey steps (read by bone-stats.js for Vega) */
+/* Chart palette -- five grey steps (read by bone-stats.js for Vega) */
 :root {
   --bone-chart-1: #2a2a2a;
   --bone-chart-2: #484848;
@@ -34,7 +34,7 @@
    5. BONE-SPECIFIC COMPONENTS
    ========================================================================== */
 
-/* BONE type badges — grey-only via --bone-* variables */
+/* BONE type badges -- grey-only via --bone-* variables */
 :root {
   --bone-mark-bug-bg: #4848481a; --bone-mark-bug: #484848;
   --bone-mark-ann-bg: #6060601a; --bone-mark-ann: #606060;

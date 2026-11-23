@@ -1,11 +1,11 @@
 /*
- * doric.css — Unified Doric theme (light + dark)
+ * doric.css -- Unified Doric theme (light + dark)
  * Works with: topics, trees, and hop
  *
  * Adapted from Protesilaos Stavrou's doric-themes for GNU Emacs
  * https://github.com/protesilaos/doric-themes
- * Light mode: doric-light — cool, monochromatic, white background
- * Dark mode:  doric-dark  — cool purple-tinted black background
+ * Light mode: doric-light -- cool, monochromatic, white background
+ * Dark mode:  doric-dark  -- cool purple-tinted black background
  *
  * "Doric Only Really Intensifies Conservatively"
  *
@@ -18,7 +18,7 @@
  */
 
 /* ==========================================================================
-   1. CUSTOM PROPERTIES — doric-light (default)
+   1. CUSTOM PROPERTIES -- doric-light (default)
    ========================================================================== */
 
 :root {
@@ -26,7 +26,7 @@
   --doric-accent:     #084092;
   --doric-accent-bg:  #d8f1f3;
 
-  /* Six restrained hues — used sparingly */
+  /* Six restrained hues -- used sparingly */
   --doric-red:        #a01010;
   --doric-green:      #106710;
   --doric-yellow:     #60400f;
@@ -58,13 +58,13 @@
   --status-negative:    var(--doric-red);
   --status-negative-bg: color-mix(in srgb, #a01010 10%, transparent);
 
-  /* Typography — system serif, monochromatic spirit */
+  /* Typography -- system serif, monochromatic spirit */
   --doric-font-family: Georgia, "Times New Roman", serif;
   --doric-font-mono:   "SFMono-Regular", Consolas, "Liberation Mono", Menlo,
                         Courier, monospace;
 }
 
-/* Pico CSS overrides — must match Pico 2's selector specificity */
+/* Pico CSS overrides -- must match Pico 2's selector specificity */
 [data-theme=light],
 :root:not([data-theme=dark]) {
   --pico-primary:             var(--doric-accent);
@@ -83,7 +83,7 @@
 }
 
 /* ==========================================================================
-   2. DARK MODE — doric-dark via prefers-color-scheme
+   2. DARK MODE -- doric-dark via prefers-color-scheme
    ========================================================================== */
 
 @media (prefers-color-scheme: dark) {
@@ -137,7 +137,7 @@
 }
 
 /* ==========================================================================
-   2b. DARK MODE — [data-theme=dark]
+   2b. DARK MODE -- [data-theme=dark]
    ========================================================================== */
 
 [data-theme=dark] {
@@ -261,7 +261,7 @@ pre code {
   color: var(--doric-heading);
 }
 
-/* Images — subtle rounding and shadow */
+/* Images -- subtle rounding and shadow */
 img {
   border-radius: 2px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
@@ -269,13 +269,13 @@ img {
   max-width: calc(100% - 2rem);
 }
 
-/* Time — subtle, no background */
+/* Time -- subtle, no background */
 time {
   color: var(--doric-text-muted);
   background: transparent;
 }
 
-/* Blockquotes — accent bar, subtle background */
+/* Blockquotes -- accent bar, subtle background */
 blockquote {
   border-left: 3px solid var(--doric-accent);
   background-color: var(--doric-accent-bg);
@@ -342,7 +342,7 @@ header h1 a {
 header h1 a:hover { color: var(--doric-accent); text-decoration: none; }
 header p { color: var(--doric-text-muted); font-size: 1.1rem; margin-bottom: 0; }
 
-/* Subtle accent line — Doric restraint */
+/* Subtle accent line -- Doric restraint */
 header.container::after {
   content: '';
   display: block;

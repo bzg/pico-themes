@@ -1,5 +1,5 @@
 /* ==========================================================================
-   bone/ashes.css — BONE-specific overrides for the ashes theme
+   bone/ashes.css -- BONE-specific overrides for the ashes theme
    Load after ashes.css:  <link rel="stylesheet" href="bone/ashes.css">
    ========================================================================== */
 
@@ -34,7 +34,7 @@
    BONE-SPECIFIC COMPONENTS
    ========================================================================== */
 
-/* BONE type badges — ashen greys with muted functional tones */
+/* BONE type badges -- ashen greys with muted functional tones */
 :root {
   --bone-mark-bug-bg: #8a4a4a1a; --bone-mark-bug: #8a4a4a;
   --bone-mark-ann-bg: #4a6f8a1a; --bone-mark-ann: #4a6f8a;
