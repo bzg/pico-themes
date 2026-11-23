@@ -90,9 +90,8 @@
   background: none;
   border: 1px solid var(--lincoln-border);
   color: var(--lincoln-text-muted);
-  opacity: 0.7;
 }
-.filters button.outline:hover { border-color: var(--lincoln-blue); color: var(--lincoln-blue); opacity: 1; }
+.filters button.outline:hover { border-color: var(--lincoln-blue); color: var(--lincoln-blue); }
 
 .theme-toggle {
   cursor: pointer;

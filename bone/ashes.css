@@ -84,9 +84,8 @@
   background: none;
   border: 1px solid var(--ashes-border);
   color: var(--ashes-text-muted);
-  opacity: 0.6;
 }
-.filters button.outline:hover { border-color: var(--ashes-accent); color: var(--ashes-accent); opacity: 1; }
+.filters button.outline:hover { border-color: var(--ashes-accent); color: var(--ashes-accent); }
 
 .theme-toggle {
   cursor: pointer;

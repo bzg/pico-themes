@@ -86,9 +86,8 @@
   background: none;
   border: 1px solid var(--teletype-border);
   color: var(--teletype-text-muted);
-  opacity: 0.6;
 }
-.filters button.outline:hover { border-color: var(--teletype-accent); color: var(--teletype-accent); opacity: 1; }
+.filters button.outline:hover { border-color: var(--teletype-accent); color: var(--teletype-accent); }
 
 .theme-toggle {
   cursor: pointer;

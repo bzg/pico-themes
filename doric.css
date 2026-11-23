@@ -359,7 +359,7 @@ header.container::after {
 
 /* Search */
 .search-row input[type="search"] {
-  border: 1px solid var(--doric-border);
+  border: 1px solid var(--doric-text-muted);
   border-radius: 3px;
   background-color: var(--doric-bg-elevated);
   color: var(--doric-text);
@@ -373,7 +373,7 @@ header.container::after {
 }
 #clear-search {
   color: var(--doric-text-muted);
-  border-color: var(--doric-border);
+  border-color: var(--doric-text-muted);
   background-color: var(--doric-bg-elevated);
   transition: all 0.15s ease;
 }
@@ -420,8 +420,8 @@ details summary {
 }
 details summary:hover { color: var(--doric-accent); }
 details[open] summary { color: var(--doric-accent); border-bottom: 1px solid var(--doric-border); }
-.permalink { color: var(--doric-text-muted); opacity: 0.5; transition: opacity 0.15s ease, color 0.15s ease; }
-.permalink:hover { color: var(--doric-accent) !important; opacity: 1; }
+.permalink { color: var(--doric-text-muted); transition: color 0.15s ease; }
+.permalink:hover { color: var(--doric-accent) !important; }
 details > div, details > p, details > ul, details > ol { padding: 0.625rem 0.75rem; }
 details p, details ul, details ol { color: var(--doric-text); }
 details a { color: var(--doric-accent); }

@@ -85,9 +85,8 @@
   background: none;
   border: 1px solid var(--swh-border);
   color: var(--swh-text-muted);
-  opacity: 0.7;
 }
-.filters button.outline:hover { border-color: var(--swh-red); color: var(--swh-red); opacity: 1; }
+.filters button.outline:hover { border-color: var(--swh-red); color: var(--swh-red); }
 
 .theme-toggle {
   cursor: pointer;

@@ -415,7 +415,7 @@ header.container::after {
 
 /* Search */
 .search-row input[type="search"] {
-  border: 1px solid var(--lotus-border);
+  border: 1px solid var(--lotus-taupe);
   border-radius: 3px;
   background-color: var(--lotus-bg-elevated);
   color: var(--lotus-text);
@@ -429,7 +429,7 @@ header.container::after {
 }
 #clear-search {
   color: var(--lotus-text-muted);
-  border-color: var(--lotus-border);
+  border-color: var(--lotus-taupe);
   background-color: var(--lotus-bg-elevated);
   transition: all 0.15s ease;
 }
@@ -476,8 +476,8 @@ details summary {
 }
 details summary:hover { color: var(--lotus-accent); }
 details[open] summary { color: var(--lotus-accent); border-bottom: 1px solid var(--lotus-border); }
-.permalink { color: var(--lotus-text-muted); opacity: 0.6; transition: opacity 0.15s ease, color 0.15s ease; }
-.permalink:hover { color: var(--lotus-accent) !important; opacity: 1; }
+.permalink { color: var(--lotus-text-muted); transition: color 0.15s ease; }
+.permalink:hover { color: var(--lotus-accent) !important; }
 details > div, details > p, details > ul, details > ol { padding: 0.625rem 0.75rem; }
 details p, details ul, details ol { color: var(--lotus-text); }
 details a { color: var(--lotus-accent); }

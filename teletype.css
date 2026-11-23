@@ -348,7 +348,7 @@ header.container::after {
 
 /* Search */
 .search-row input[type="search"] {
-  border: 1px solid var(--teletype-border);
+  border: 1px solid var(--teletype-text-muted);
   border-radius: 2px;
   background-color: var(--teletype-bg-elevated);
   color: var(--teletype-text);
@@ -364,7 +364,7 @@ header.container::after {
 }
 #clear-search {
   color: var(--teletype-text-muted);
-  border-color: var(--teletype-border);
+  border-color: var(--teletype-text-muted);
   background-color: var(--teletype-bg-elevated);
   transition: all 0.25s ease;
 }
@@ -412,8 +412,8 @@ details summary {
 }
 details summary:hover { color: var(--teletype-accent); }
 details[open] summary { color: var(--teletype-accent); border-bottom: 1px solid var(--teletype-border); }
-.permalink { color: var(--teletype-text-muted); opacity: 0.4; transition: opacity 0.25s ease, color 0.25s ease; }
-.permalink:hover { color: var(--teletype-accent) !important; opacity: 1; }
+.permalink { color: var(--teletype-text-muted); transition: color 0.25s ease; }
+.permalink:hover { color: var(--teletype-accent) !important; }
 details > div, details > p, details > ul, details > ol { padding: 0.625rem 0.75rem; }
 details p, details ul, details ol { color: var(--teletype-text); }
 details a { color: var(--teletype-accent); }

@@ -84,9 +84,8 @@
   background: none;
   border: 1px solid var(--doric-border);
   color: var(--doric-text-muted);
-  opacity: 0.7;
 }
-.filters button.outline:hover { border-color: var(--doric-accent); color: var(--doric-accent); opacity: 1; }
+.filters button.outline:hover { border-color: var(--doric-accent); color: var(--doric-accent); }
 
 .theme-toggle {
   cursor: pointer;
