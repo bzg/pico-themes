@@ -57,6 +57,8 @@
 /* Pico CSS overrides */
 [data-theme=light],
 :root:not([data-theme=dark]) {
+  --pico-background-color:    var(--teletype-bg);
+  --pico-color:               var(--teletype-text);
   --pico-primary:             var(--teletype-accent);
   --pico-primary-hover:       #333333;
   --pico-primary-background: var(--teletype-accent);
@@ -92,6 +94,8 @@
     --teletype-border-hover: #585858;
     --teletype-shadow-accent: rgba(255, 255, 255, 0.04);
 
+    --pico-background-color:    var(--teletype-bg);
+    --pico-color:               var(--teletype-text);
     --pico-primary:             var(--teletype-accent);
     --pico-primary-hover:       #d0d0d0;
     --pico-primary-background: var(--teletype-accent);
@@ -137,6 +141,8 @@
   --teletype-border-hover: #585858;
   --teletype-shadow-accent: rgba(255, 255, 255, 0.04);
 
+  --pico-background-color:    var(--teletype-bg);
+  --pico-color:               var(--teletype-text);
   --pico-primary:             var(--teletype-accent);
   --pico-primary-hover:       #d0d0d0;
   --pico-primary-background: var(--teletype-accent);

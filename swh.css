@@ -64,6 +64,8 @@
 /* Pico CSS overrides -- must match Pico 2's selector specificity */
 [data-theme=light],
 :root:not([data-theme=dark]) {
+  --pico-background-color:    var(--swh-bg);
+  --pico-color:               var(--swh-text);
   --pico-primary:             var(--swh-red);
   --pico-primary-hover:       var(--swh-red-hover);
   --pico-primary-background: var(--swh-red);
@@ -100,6 +102,8 @@
     --swh-code-bg:       #2a2a2a;
     --swh-shadow-red:    rgba(255, 45, 74, 0.15);
 
+    --pico-background-color:    var(--swh-bg);
+    --pico-color:               var(--swh-text);
     --pico-primary:             var(--swh-red);
     --pico-primary-hover:       var(--swh-red-hover);
     --pico-primary-background: var(--swh-red);
@@ -148,6 +152,8 @@
   --swh-code-bg:       #2a2a2a;
   --swh-shadow-red:    rgba(255, 45, 74, 0.15);
 
+  --pico-background-color:    var(--swh-bg);
+  --pico-color:               var(--swh-text);
   --pico-primary:             var(--swh-red);
   --pico-primary-hover:       var(--swh-red-hover);
   --pico-primary-background: var(--swh-red);

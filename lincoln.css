@@ -72,6 +72,8 @@
 /* Pico CSS overrides -- must match Pico 2's selector specificity */
 [data-theme=light],
 :root:not([data-theme=dark]) {
+  --pico-background-color:    var(--lincoln-bg);
+  --pico-color:               var(--lincoln-text);
   --pico-primary:             var(--lincoln-blue);
   --pico-primary-hover:       var(--lincoln-blue-hover);
   --pico-primary-background: var(--lincoln-blue);
@@ -108,6 +110,8 @@
     --lincoln-code-bg:      #1e2028;
     --lincoln-shadow-blue:  rgba(123, 143, 191, 0.12);
 
+    --pico-background-color:    var(--lincoln-bg);
+    --pico-color:               var(--lincoln-text);
     --pico-primary:             var(--lincoln-blue);
     --pico-primary-hover:       var(--lincoln-blue-hover);
     --pico-primary-background: var(--lincoln-blue);
@@ -156,6 +160,8 @@
   --lincoln-code-bg:      #1e2028;
   --lincoln-shadow-blue:  rgba(123, 143, 191, 0.12);
 
+  --pico-background-color:    var(--lincoln-bg);
+  --pico-color:               var(--lincoln-text);
   --pico-primary:             var(--lincoln-blue);
   --pico-primary-hover:       var(--lincoln-blue-hover);
   --pico-primary-background: var(--lincoln-blue);

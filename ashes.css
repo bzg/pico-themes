@@ -86,6 +86,8 @@
 /* Pico CSS overrides */
 [data-theme=light],
 :root:not([data-theme=dark]) {
+  --pico-background-color:    var(--ashes-bg);
+  --pico-color:               var(--ashes-text);
   --pico-primary:             var(--ashes-primary);
   --pico-primary-hover:       var(--ashes-primary-dark);
   --pico-primary-background: var(--ashes-primary);
@@ -134,6 +136,8 @@
     --ashes-shadow-raw:   rgba(0, 0, 0, 0.4);
     --ashes-shadow-accent: rgba(100, 181, 246, 0.10);
 
+    --pico-background-color:    var(--ashes-bg);
+    --pico-color:               var(--ashes-text);
     --pico-primary:             var(--ashes-primary);
     --pico-primary-hover:       var(--ashes-primary-dark);
     --pico-primary-background: var(--ashes-primary);
@@ -192,6 +196,8 @@
   --ashes-shadow-raw:   rgba(0, 0, 0, 0.4);
   --ashes-shadow-accent: rgba(100, 181, 246, 0.10);
 
+  --pico-background-color:    var(--ashes-bg);
+  --pico-color:               var(--ashes-text);
   --pico-primary:             var(--ashes-primary);
   --pico-primary-hover:       var(--ashes-primary-dark);
   --pico-primary-background: var(--ashes-primary);

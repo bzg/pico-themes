@@ -72,6 +72,8 @@
 /* Pico CSS overrides -- must match Pico 2's selector specificity */
 [data-theme=light],
 :root:not([data-theme=dark]) {
+  --pico-background-color:    var(--org-bg);
+  --pico-color:               var(--org-text);
   --pico-primary:             var(--org-teal);
   --pico-primary-hover:       var(--org-teal-hover);
   --pico-primary-background: var(--org-teal);
@@ -109,6 +111,8 @@
     --org-code-bg:      #252540;
     --org-shadow-teal:  rgba(143, 188, 170, 0.15);
 
+    --pico-background-color:    var(--org-bg);
+    --pico-color:               var(--org-text);
     --pico-primary:             var(--org-teal);
     --pico-primary-hover:       var(--org-teal-hover);
     --pico-primary-background: var(--org-teal);
@@ -158,6 +162,8 @@
   --org-code-bg:      #252540;
   --org-shadow-teal:  rgba(143, 188, 170, 0.15);
 
+  --pico-background-color:    var(--org-bg);
+  --pico-color:               var(--org-text);
   --pico-primary:             var(--org-teal);
   --pico-primary-hover:       var(--org-teal-hover);
   --pico-primary-background: var(--org-teal);

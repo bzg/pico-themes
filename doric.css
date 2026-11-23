@@ -67,6 +67,8 @@
 /* Pico CSS overrides -- must match Pico 2's selector specificity */
 [data-theme=light],
 :root:not([data-theme=dark]) {
+  --pico-background-color:    var(--doric-bg);
+  --pico-color:               var(--doric-text);
   --pico-primary:             var(--doric-accent);
   --pico-primary-hover:       #062e6a;
   --pico-primary-background: var(--doric-accent);
@@ -110,6 +112,8 @@
     --doric-border-hover: #8a8a8a;
     --doric-shadow-accent: rgba(205, 164, 223, 0.12);
 
+    --pico-background-color:    var(--doric-bg);
+    --pico-color:               var(--doric-text);
     --pico-primary:             var(--doric-accent);
     --pico-primary-hover:       #dfc0ee;
     --pico-primary-background: var(--doric-accent);
@@ -163,6 +167,8 @@
   --doric-border-hover: #8a8a8a;
   --doric-shadow-accent: rgba(205, 164, 223, 0.12);
 
+  --pico-background-color:    var(--doric-bg);
+  --pico-color:               var(--doric-text);
   --pico-primary:             var(--doric-accent);
   --pico-primary-hover:       #dfc0ee;
   --pico-primary-background: var(--doric-accent);
