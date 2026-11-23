@@ -107,3 +107,25 @@ footer.bone-footer a:hover { color: var(--ashes-accent-hover); }
 
 nav ul li a { color: var(--ashes-accent); }
 nav ul li a:hover { color: var(--ashes-accent-hover); }
+
+/* Print: light values even when [data-theme=dark] is set.
+   Keep in sync with the light blocks above. */
+@media print {
+  :root:not([data-theme]), [data-theme] {
+    --bone-chart-1: #1f1f1f;
+    --bone-chart-2: #444444;
+    --bone-chart-3: #666666;
+    --bone-chart-4: #7a7a7a;
+    --bone-chart-5: #8f8f8f;
+    --bone-mark-bug-bg: #8a4a4a1a; --bone-mark-bug: #8a4a4a;
+    --bone-mark-ann-bg: #4a6f8a1a; --bone-mark-ann: #4a6f8a;
+    --bone-mark-req-bg: #8a70401a; --bone-mark-req: #8a7040;
+    --bone-mark-patch-bg: #4a7a5e1a; --bone-mark-patch: #4a7a5e;
+    --bone-mark-rel-bg: #6666661a; --bone-mark-rel: #666666;
+    --bone-mark-chg-bg: #8888881a; --bone-mark-chg: #888888;
+    --bone-vote-pos-bg: #4a7a5e22; --bone-vote-pos: #4a7a5e;
+    --bone-vote-neg-bg: #8a4a4a22; --bone-vote-neg: #8a4a4a;
+    --bone-vote-zero-bg: #88888818; --bone-vote-zero: #888888;
+    --bone-stripe-bg: var(--ashes-bg-alt); --bone-row-bg: var(--ashes-bg);
+  }
+}

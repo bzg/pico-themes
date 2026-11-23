@@ -551,10 +551,50 @@ figure.align-left > figcaption { text-align: left; }
 * { scrollbar-width: thin; scrollbar-color: var(--teletype-border) var(--teletype-bg-alt); }
 
 @media print {
-  /* Same selectors as section 2, so that dark mode cannot win on paper */
-  :root:not([data-theme]), [data-theme] { --teletype-text: #222; --teletype-heading: #111; --teletype-bg: #fff; --teletype-bg-elevated: #fff; --teletype-bg-alt: #f2f2f2; --teletype-code-bg: #f2f2f2; --teletype-text-muted: #555555; color-scheme: light; }
+  /* Same selectors as section 2, so that dark mode cannot win on paper.
+     Light values of every variable that dark mode changes, then the
+     print overrides. Keep in sync with section 1. */
+  :root:not([data-theme]), [data-theme] {
+    --teletype-accent: #505050;
+    --teletype-accent-bg: #f0f0f0;
+    --teletype-border: #d0d0d0;
+    --teletype-border-hover: #a0a0a0;
+    --teletype-shadow-accent: rgba(0, 0, 0, 0.06);
+    --pico-background-color: var(--teletype-bg);
+    --pico-color: var(--teletype-text);
+    --pico-primary: var(--teletype-accent);
+    --pico-primary-hover: #333333;
+    --pico-primary-background: var(--teletype-accent);
+    --pico-primary-border: var(--teletype-accent);
+    --pico-primary-underline: color-mix(in srgb, var(--pico-primary) 50%, transparent);
+    --pico-primary-hover-background: var(--pico-primary-hover);
+    --pico-primary-hover-border: var(--pico-primary-hover);
+    --pico-primary-hover-underline: var(--pico-primary-hover);
+    --pico-primary-focus: rgba(80, 80, 80, 0.15);
+    --pico-primary-inverse: #fafafa;
+    --pico-muted-color: var(--teletype-text-muted);
+    --pico-muted-border-color: var(--teletype-border);
+    --pico-accordion-open-summary-color: var(--teletype-text);
+    --status-positive: #505050;
+    --status-positive-bg: color-mix(in srgb, #505050 8%, transparent);
+    --status-neutral: #606060;
+    --status-neutral-bg: color-mix(in srgb, #606060 8%, transparent);
+    --status-caution: #707070;
+    --status-caution-bg: color-mix(in srgb, #707070 8%, transparent);
+    --status-negative: #484848;
+    --status-negative-bg: color-mix(in srgb, #484848 8%, transparent);
+
+    --teletype-text: #222;
+    --teletype-heading: #111;
+    --teletype-bg: #fff;
+    --teletype-bg-elevated: #fff;
+    --teletype-bg-alt: #f2f2f2;
+    --teletype-code-bg: #f2f2f2;
+    --teletype-text-muted: #555555;
+    color-scheme: light;
+  }
   a { color: #222; text-decoration: underline; }
-  a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #888; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #888; }
   details { border: 1px solid #ccc; }
   details[open] { box-shadow: none; }
   .card:hover { transform: none; box-shadow: none; }

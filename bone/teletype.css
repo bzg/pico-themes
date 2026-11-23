@@ -109,3 +109,25 @@ footer.bone-footer a:hover { color: var(--pico-primary-hover); }
 
 nav ul li a { color: var(--teletype-accent); }
 nav ul li a:hover { color: var(--pico-primary-hover); }
+
+/* Print: light values even when [data-theme=dark] is set.
+   Keep in sync with the light blocks above. */
+@media print {
+  :root:not([data-theme]), [data-theme] {
+    --bone-chart-1: #2a2a2a;
+    --bone-chart-2: #484848;
+    --bone-chart-3: #666666;
+    --bone-chart-4: #7a7a7a;
+    --bone-chart-5: #8c8c8c;
+    --bone-mark-bug-bg: #4848481a; --bone-mark-bug: #484848;
+    --bone-mark-ann-bg: #6060601a; --bone-mark-ann: #606060;
+    --bone-mark-req-bg: #7070701a; --bone-mark-req: #707070;
+    --bone-mark-patch-bg: #5050501a; --bone-mark-patch: #505050;
+    --bone-mark-rel-bg: #5858581a; --bone-mark-rel: #585858;
+    --bone-mark-chg-bg: #8080801a; --bone-mark-chg: #808080;
+    --bone-vote-pos-bg: #50505022; --bone-vote-pos: #505050;
+    --bone-vote-neg-bg: #48484822; --bone-vote-neg: #484848;
+    --bone-vote-zero-bg: #80808018; --bone-vote-zero: #808080;
+    --bone-stripe-bg: var(--teletype-bg-alt); --bone-row-bg: var(--teletype-bg);
+  }
+}

@@ -621,12 +621,57 @@ figure.align-left > figcaption { text-align: left; }
 * { scrollbar-width: thin; scrollbar-color: var(--lotus-border-hover) var(--lotus-bg-alt); }
 
 @media print {
-  /* Selectors match section 2 so that dark mode cannot win on paper */
+  /* Same selectors as section 2, so that dark mode cannot win on paper.
+     Light values of every variable that dark mode changes, then the
+     print overrides. Keep in sync with section 1. */
   :root:not([data-theme]), [data-theme] {
-    --lotus-text: #000000; --lotus-heading: #000000; --lotus-text-muted: #555555;
-    --lotus-bg: #ffffff; --lotus-bg-elevated: #ffffff;
-    --lotus-bg-alt: #f2f2f2; --lotus-code-bg: #f2f2f2;
-    --lotus-border: #cccccc; --lotus-primary: #373829;
+    --lotus-primary-hover: var(--lotus-ink);
+    --lotus-accent: var(--lotus-oxblood);
+    --lotus-accent-hover: #7d3a38;
+    --lotus-accent-light: #f1e4df;
+    --lotus-warm-light: #f4efe4;
+    --lotus-border-hover: var(--lotus-stone);
+    --lotus-shadow: rgba(27, 31, 33, 0.08);
+    --lotus-shadow-accent: rgba(94, 42, 41, 0.10);
+    --lotus-gradient: linear-gradient(90deg, var(--lotus-moss) 0%, var(--lotus-olive) 40%, var(--lotus-umber) 70%, var(--lotus-oxblood) 100%);
+    --lotus-success: #4f5a35;
+    --lotus-info: var(--lotus-slate);
+    --lotus-warning: #675b39;
+    --lotus-error: var(--lotus-oxblood);
+    --lotus-info-bg: #e9ebec;
+    --lotus-warning-bg: #f1ead6;
+    --pico-background-color: var(--lotus-bg);
+    --pico-color: var(--lotus-text);
+    --pico-primary: var(--lotus-accent);
+    --pico-primary-background: var(--lotus-primary);
+    --pico-primary-border: var(--lotus-primary);
+    --pico-primary-underline: rgba(94, 42, 41, 0.5);
+    --pico-primary-hover: var(--lotus-accent-hover);
+    --pico-primary-hover-background: var(--lotus-primary-hover);
+    --pico-primary-hover-border: var(--lotus-primary-hover);
+    --pico-primary-hover-underline: var(--lotus-accent-hover);
+    --pico-primary-focus: rgba(55, 56, 41, 0.2);
+    --pico-muted-color: var(--lotus-text-muted);
+    --pico-muted-border-color: var(--lotus-border);
+    --pico-accordion-open-summary-color: var(--lotus-text);
+    --status-positive: #4f5a35;
+    --status-positive-bg: color-mix(in srgb, #4f5a35 10%, transparent);
+    --status-neutral: #33373c;
+    --status-neutral-bg: color-mix(in srgb, #33373c 10%, transparent);
+    --status-caution: #675b39;
+    --status-caution-bg: color-mix(in srgb, #675b39 10%, transparent);
+    --status-negative: #5e2a29;
+    --status-negative-bg: color-mix(in srgb, #5e2a29 10%, transparent);
+
+    --lotus-text: #000000;
+    --lotus-heading: #000000;
+    --lotus-text-muted: #555555;
+    --lotus-bg: #ffffff;
+    --lotus-bg-elevated: #ffffff;
+    --lotus-bg-alt: #f2f2f2;
+    --lotus-code-bg: #f2f2f2;
+    --lotus-border: #cccccc;
+    --lotus-primary: #373829;
     --pico-primary-inverse: #ffffff;
     color-scheme: light;
   }

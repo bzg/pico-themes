@@ -109,3 +109,24 @@ footer.bone-footer a:hover { color: var(--swh-red-hover); }
 nav ul li a { color: var(--swh-red); }
 nav ul li a:hover { color: var(--swh-red-hover); }
 
+/* Print: light values even when [data-theme=dark] is set.
+   Keep in sync with the light blocks above. */
+@media print {
+  :root:not([data-theme]), [data-theme] {
+    --bone-chart-1: #e20026;
+    --bone-chart-2: #ef4426;
+    --bone-chart-3: #d97a00;
+    --bone-chart-4: #a87c00;
+    --bone-chart-5: #737373;
+    --bone-mark-bug-bg: #e200261a; --bone-mark-bug: #c90022;
+    --bone-mark-ann-bg: #0063cb1a; --bone-mark-ann: #0063cb;
+    --bone-mark-req-bg: #b8860b1a; --bone-mark-req: #9a7209;
+    --bone-mark-patch-bg: #18753c1a; --bone-mark-patch: #18753c;
+    --bone-mark-rel-bg: #7b2d8e1a; --bone-mark-rel: #7b2d8e;
+    --bone-mark-chg-bg: #5566771a; --bone-mark-chg: #556677;
+    --bone-vote-pos-bg: #18753c33; --bone-vote-pos: #18753c;
+    --bone-vote-neg-bg: #c9002233; --bone-vote-neg: #c90022;
+    --bone-vote-zero-bg: #55667722; --bone-vote-zero: #556677;
+    --bone-stripe-bg: var(--swh-grey-light); --bone-row-bg: var(--swh-bg);
+  }
+}

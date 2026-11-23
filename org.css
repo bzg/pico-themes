@@ -612,11 +612,67 @@ figure.align-left > figcaption { text-align: left; }
 .org-gradient-border > * { background: var(--org-bg-elevated); border-radius: 4px; }
 
 @media print {
-  /* Same selectors as section 2, so that dark mode cannot win on paper */
-  :root:not([data-theme]), [data-theme] { --org-text: #000000; --org-grey-dark: #000000; --org-bg: #ffffff; --org-bg-elevated: #ffffff; --org-grey-light: #f2f2f2; --org-code-bg: #f2f2f2; --org-text-muted: #555555; color-scheme: light; }
+  /* Same selectors as section 2, so that dark mode cannot win on paper.
+     Light values of every variable that dark mode changes, then the
+     print overrides. Keep in sync with section 1. */
+  :root:not([data-theme]), [data-theme] {
+    --org-teal: #3d5a50;
+    --org-teal-hover: #2a3f38;
+    --org-warm-brown: #8a6508;
+    --org-teal-light: #eaf3ef;
+    --org-brown-light: #faf6ee;
+    --org-border: #dddddd;
+    --org-border-hover: #bbbbbb;
+    --org-shadow-teal: rgba(61, 90, 80, 0.12);
+    --pico-background-color: var(--org-bg);
+    --pico-color: var(--org-text);
+    --pico-primary: var(--org-teal);
+    --pico-primary-hover: var(--org-teal-hover);
+    --pico-primary-background: var(--org-teal);
+    --pico-primary-border: var(--org-teal);
+    --pico-primary-underline: color-mix(in srgb, var(--pico-primary) 50%, transparent);
+    --pico-primary-hover-background: var(--org-teal-hover);
+    --pico-primary-hover-border: var(--org-teal-hover);
+    --pico-primary-hover-underline: var(--pico-primary-hover);
+    --pico-primary-focus: rgba(61, 90, 80, 0.2);
+    --pico-primary-inverse: #ffffff;
+    --pico-muted-color: var(--org-text-muted);
+    --pico-muted-border-color: var(--org-border);
+    --pico-accordion-open-summary-color: var(--org-text);
+    --org-gradient: linear-gradient(90deg, #3d5a50 0%, #3a7678 25%, #8a6508 50%, #4682b4 75%, #a020f0 100%);
+    --status-positive: #18753c;
+    --status-positive-bg: color-mix(in srgb, #18753c 10%, transparent);
+    --status-neutral: #0063cb;
+    --status-neutral-bg: color-mix(in srgb, #0063cb 10%, transparent);
+    --status-caution: var(--org-warm-brown);
+    --status-caution-bg: color-mix(in srgb, #8a6508 10%, transparent);
+    --status-negative: var(--org-soft-red);
+    --status-negative-bg: color-mix(in srgb, #a3425e 10%, transparent);
+
+    --org-text: #000000;
+    --org-grey-dark: #000000;
+    --org-bg: #ffffff;
+    --org-bg-elevated: #ffffff;
+    --org-grey-light: #f2f2f2;
+    --org-code-bg: #f2f2f2;
+    --org-text-muted: #555555;
+    color-scheme: light;
+  }
+  :root:not([data-theme]), [data-theme] {
+    .builtin        { color: #8a5d2e; }
+    .comment, .comment-delimiter { color: #636363; }
+    .constant       { color: #a3425e; }
+    .doc            { color: #636363; }
+    .function-name  { color: #3a7678; }
+    .keyword        { color: #4682b4; }
+    .string         { color: #6e6a3a; }
+    .variable-name  { color: #c0392b; }
+    .todo           { color: #CA0000; }
+    .done           { color: #006666; }
+  }
   header.container::after { background: #3d5a50; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   a { color: #000000; text-decoration: underline; }
-  a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666666; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666666; }
   details { border: 1px solid #cccccc; }
   details[open] { box-shadow: none; }
   .card:hover { transform: none; box-shadow: none; }

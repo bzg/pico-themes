@@ -610,11 +610,66 @@ figure.align-left > figcaption { text-align: left; }
 .org-gradient-border > * { background: var(--lincoln-bg-elevated); border-radius: 4px; }
 
 @media print {
-  /* Same selectors as section 2, so that dark mode cannot win on paper */
-  :root:not([data-theme]), [data-theme] { --lincoln-text: #000000; --lincoln-grey-dark: #000000; --lincoln-bg: #ffffff; --lincoln-bg-elevated: #ffffff; --lincoln-grey-light: #f2f2f2; --lincoln-code-bg: #f2f2f2; --lincoln-text-muted: #555555; color-scheme: light; }
+  /* Same selectors as section 2, so that dark mode cannot win on paper.
+     Light values of every variable that dark mode changes, then the
+     print overrides. Keep in sync with section 1. */
+  :root:not([data-theme]), [data-theme] {
+    --lincoln-blue: #191970;
+    --lincoln-blue-hover: #0f0f4d;
+    --lincoln-blue-light: #e8e8f4;
+    --lincoln-orange-light: #fdf0ee;
+    --lincoln-border: #dee2e6;
+    --lincoln-border-hover: #adb5bd;
+    --lincoln-shadow-blue: rgba(25, 25, 112, 0.10);
+    --pico-background-color: var(--lincoln-bg);
+    --pico-color: var(--lincoln-text);
+    --pico-primary: var(--lincoln-blue);
+    --pico-primary-hover: var(--lincoln-blue-hover);
+    --pico-primary-background: var(--lincoln-blue);
+    --pico-primary-border: var(--lincoln-blue);
+    --pico-primary-underline: color-mix(in srgb, var(--pico-primary) 50%, transparent);
+    --pico-primary-hover-background: var(--lincoln-blue-hover);
+    --pico-primary-hover-border: var(--lincoln-blue-hover);
+    --pico-primary-hover-underline: var(--pico-primary-hover);
+    --pico-primary-focus: rgba(25, 25, 112, 0.2);
+    --pico-primary-inverse: #ffffff;
+    --pico-muted-color: var(--lincoln-text-muted);
+    --pico-muted-border-color: var(--lincoln-border);
+    --pico-accordion-open-summary-color: var(--lincoln-text);
+    --lincoln-gradient: linear-gradient(90deg, #191970 0%, #4A6FA5 30%, #8E9AAF 55%, #D66853 80%, #7B68AE 100%);
+    --status-positive: #2D6A4F;
+    --status-positive-bg: color-mix(in srgb, #2D6A4F 10%, transparent);
+    --status-neutral: #4A6FA5;
+    --status-neutral-bg: color-mix(in srgb, #4A6FA5 10%, transparent);
+    --status-caution: #B8860B;
+    --status-caution-bg: color-mix(in srgb, #B8860B 10%, transparent);
+    --status-negative: #D66853;
+    --status-negative-bg: color-mix(in srgb, #D66853 10%, transparent);
+
+    --lincoln-text: #000000;
+    --lincoln-grey-dark: #000000;
+    --lincoln-bg: #ffffff;
+    --lincoln-bg-elevated: #ffffff;
+    --lincoln-grey-light: #f2f2f2;
+    --lincoln-code-bg: #f2f2f2;
+    --lincoln-text-muted: #555555;
+    color-scheme: light;
+  }
+  :root:not([data-theme]), [data-theme] {
+    .builtin        { color: #B8860B; }
+    .comment, .comment-delimiter { color: #5f6b7e; }
+    .constant       { color: #D66853; }
+    .doc            { color: #5f6b7e; }
+    .function-name  { color: #4A6FA5; }
+    .keyword        { color: #191970; }
+    .string         { color: #2D6A4F; }
+    .variable-name  { color: #7B68AE; }
+    .todo           { color: #C1513E; }
+    .done           { color: #2D6A4F; }
+  }
   header.container::after { background: #191970; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   a { color: #000000; text-decoration: underline; }
-  a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666666; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666666; }
   details { border: 1px solid #cccccc; }
   details[open] { box-shadow: none; }
   .card:hover { transform: none; box-shadow: none; }

@@ -628,10 +628,76 @@ figure.align-left > figcaption { text-align: left; }
 * { scrollbar-width: thin; scrollbar-color: var(--ashes-grey-400) var(--ashes-bg-alt); }
 
 @media print {
-  /* Same selectors as section 2, so that dark mode cannot win on paper */
-  :root:not([data-theme]), [data-theme] { --ashes-text: #000000; --ashes-heading: #000000; --ashes-bg: #ffffff; --ashes-bg-elevated: #ffffff; --ashes-bg-alt: #f2f2f2; --ashes-code-bg: #f2f2f2; --ashes-text-muted: #555555; color-scheme: light; }
+  /* Same selectors as section 2, so that dark mode cannot win on paper.
+     Light values of every variable that dark mode changes, then the
+     print overrides. Keep in sync with section 1. */
+  :root:not([data-theme]), [data-theme] {
+    --ashes-primary: #666666;
+    --ashes-primary-dark: #444444;
+    --ashes-accent: #004d99;
+    --ashes-accent-hover: #003366;
+    --ashes-accent-light: #e8f0fa;
+    --ashes-grey-900: #1a1a1a;
+    --ashes-grey-800: #333333;
+    --ashes-grey-600: #666666;
+    --ashes-grey-500: #888888;
+    --ashes-grey-400: #aaaaaa;
+    --ashes-grey-200: #cecece;
+    --ashes-success: #4a7a5e;
+    --ashes-info: #4a6f8a;
+    --ashes-info-bg: #edf2f7;
+    --ashes-warning: #8a7040;
+    --ashes-warning-bg: #f7f2e8;
+    --ashes-error: #8a4a4a;
+    --ashes-shadow-raw: rgba(0, 0, 0, 0.06);
+    --ashes-shadow-accent: rgba(0, 77, 153, 0.08);
+    --pico-background-color: var(--ashes-bg);
+    --pico-color: var(--ashes-text);
+    --pico-primary: var(--ashes-primary);
+    --pico-primary-hover: var(--ashes-primary-dark);
+    --pico-primary-background: var(--ashes-primary);
+    --pico-primary-border: var(--ashes-primary);
+    --pico-primary-underline: color-mix(in srgb, var(--pico-primary) 50%, transparent);
+    --pico-primary-hover-background: var(--ashes-primary-dark);
+    --pico-primary-hover-border: var(--ashes-primary-dark);
+    --pico-primary-hover-underline: var(--pico-primary-hover);
+    --pico-primary-focus: rgba(102, 102, 102, 0.15);
+    --pico-primary-inverse: #ffffff;
+    --pico-muted-color: var(--ashes-text-muted);
+    --pico-muted-border-color: var(--ashes-border);
+    --pico-accordion-open-summary-color: var(--ashes-text);
+    --status-positive: var(--ashes-success);
+    --status-positive-bg: color-mix(in srgb, #4a7a5e 10%, transparent);
+    --status-neutral: var(--ashes-info);
+    --status-neutral-bg: color-mix(in srgb, #4a6f8a 10%, transparent);
+    --status-caution: var(--ashes-warning);
+    --status-caution-bg: color-mix(in srgb, #8a7040 10%, transparent);
+    --status-negative: var(--ashes-error);
+    --status-negative-bg: color-mix(in srgb, #8a4a4a 10%, transparent);
+
+    --ashes-text: #000000;
+    --ashes-heading: #000000;
+    --ashes-bg: #ffffff;
+    --ashes-bg-elevated: #ffffff;
+    --ashes-bg-alt: #f2f2f2;
+    --ashes-code-bg: #f2f2f2;
+    --ashes-text-muted: #555555;
+    color-scheme: light;
+  }
+  :root:not([data-theme]), [data-theme] {
+    .builtin        { color: #8a7040; }
+    .comment, .comment-delimiter { color: #666666; font-style: italic; }
+    .constant       { color: #8a4a4a; }
+    .doc            { color: #666666; }
+    .function-name  { color: #4a6f8a; }
+    .keyword        { color: #004d99; }
+    .string         { color: #4a7a5e; }
+    .variable-name  { color: #666666; }
+    .todo           { color: #8a4a4a; }
+    .done           { color: #4a7a5e; }
+  }
   a { color: #000000; text-decoration: underline; }
-  a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666666; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666666; }
   details { border: 1px solid #cccccc; }
   details[open] { box-shadow: none; }
   .card:hover { transform: none; box-shadow: none; }

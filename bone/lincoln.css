@@ -113,3 +113,25 @@ footer.bone-footer a:hover { color: var(--lincoln-blue-hover); }
 
 nav ul li a { color: var(--lincoln-blue); }
 nav ul li a:hover { color: var(--lincoln-blue-hover); }
+
+/* Print: light values even when [data-theme=dark] is set.
+   Keep in sync with the light blocks above. */
+@media print {
+  :root:not([data-theme]), [data-theme] {
+    --bone-chart-1: #191970;
+    --bone-chart-2: #4A6FA5;
+    --bone-chart-3: #D66853;
+    --bone-chart-4: #7B68AE;
+    --bone-chart-5: #8E9AAF;
+    --bone-mark-bug-bg: #D668531a; --bone-mark-bug: #D66853;
+    --bone-mark-ann-bg: #1919701a; --bone-mark-ann: #191970;
+    --bone-mark-req-bg: #B8860B1a; --bone-mark-req: #B8860B;
+    --bone-mark-patch-bg: #4A6FA51a; --bone-mark-patch: #4A6FA5;
+    --bone-mark-rel-bg: #7B68AE1a; --bone-mark-rel: #7B68AE;
+    --bone-mark-chg-bg: #8E9AAF1a; --bone-mark-chg: #8E9AAF;
+    --bone-vote-pos-bg: #2D6A4F33; --bone-vote-pos: #2D6A4F;
+    --bone-vote-neg-bg: #D6685333; --bone-vote-neg: #D66853;
+    --bone-vote-zero-bg: #8E9AAF22; --bone-vote-zero: #8E9AAF;
+    --bone-stripe-bg: var(--lincoln-grey-light); --bone-row-bg: var(--lincoln-bg);
+  }
+}
